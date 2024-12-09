@@ -1,16 +1,18 @@
 import { tv, VariantProps } from "tailwind-variants";
 
 export const rootVariation = tv({
-  base: "fixed left-0 top-0 flex max-h-20 w-full items-center justify-between bg-zinc-950 p-4",
+  base: "fixed left-0 top-0 w-full bg-zinc-950",
 });
 
-export type RootProps = {} & React.HTMLAttributes<HTMLElement> &
+export type HeaderRootProps = {} & React.HTMLAttributes<HTMLElement> &
   VariantProps<typeof rootVariation>;
 
-export function Root({ children, className, ...rest }: RootProps) {
+export function Root({ children, className, ...rest }: HeaderRootProps) {
   return (
     <header className={rootVariation({ className })} {...rest}>
-      {children}
+      <div className="m-auto flex w-full max-w-4xl items-center justify-between p-4">
+        {children}
+      </div>
     </header>
   );
 }

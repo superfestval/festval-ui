@@ -19,8 +19,8 @@ const buttonVariant = tv({
   },
 });
 
-export type ButtonProps<T extends ElementType = "button"> = {
-  as?: T;
+export type ButtonProps = {
+  as?: ElementType;
 } & ButtonHTMLAttributes<HTMLButtonElement> &
   VariantProps<typeof buttonVariant>;
 
