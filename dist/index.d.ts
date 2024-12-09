@@ -408,4 +408,10 @@ declare const Select: {
     Option: ({ children, ...rest }: SelectItemProps) => react_jsx_runtime.JSX.Element;
 };
 
-export { Button, type ButtonProps, Checkbox, type CheckboxProps, Footer, type FooterProps, Header, Heading, type HeadingProps, Input, InputFile, type InputFileProps, type InputProps, Label, type LabelProps, Menu, type MenuProps, Select, type SelectItemProps, type SelectRootProps, Text, type TextProps, headingVariant, textVariant };
+type AvatarProps = {
+    image: string;
+    username: string;
+};
+declare function Avatar({ image, username }: AvatarProps): react_jsx_runtime.JSX.Element;
+
+export { Avatar, type AvatarProps, Button, type ButtonProps, Checkbox, type CheckboxProps, Footer, type FooterProps, Header, Heading, type HeadingProps, Input, InputFile, type InputFileProps, type InputProps, Label, type LabelProps, Menu, type MenuProps, Select, type SelectItemProps, type SelectRootProps, Text, type TextProps, headingVariant, textVariant };

@@ -354,6 +354,7 @@ var TextArea = forwardRef3(
 );
 TextArea.displayName = "TextArea";
 export {
+  Avatar,
   Button,
   Checkbox,
   Footer,

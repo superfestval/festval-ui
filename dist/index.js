@@ -59,6 +59,7 @@ var __toCommonJS = (mod) => __copyProps(__defProp({}, "__esModule", { value: tru
 // src/index.tsx
 var src_exports = {};
 __export(src_exports, {
+  Avatar: () => Avatar,
   Button: () => Button,
   Checkbox: () => Checkbox,
   Footer: () => Footer,
@@ -400,6 +401,7 @@ var TextArea = (0, import_react4.forwardRef)(
 TextArea.displayName = "TextArea";
 // Annotate the CommonJS export names for ESM import in node:
 0 && (module.exports = {
+  Avatar,
   Button,
   Checkbox,
   Footer,
