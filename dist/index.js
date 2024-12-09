@@ -101,11 +101,11 @@ function Image(_a) {
 var import_tailwind_variants2 = require("tailwind-variants");
 var import_jsx_runtime3 = require("react/jsx-runtime");
 var rootVariation = (0, import_tailwind_variants2.tv)({
-  base: "fixed left-0 top-0 flex max-h-20 w-full items-center justify-between bg-zinc-950 p-4"
+  base: "fixed left-0 top-0 w-full bg-zinc-950"
 });
 function Root(_a) {
   var _b = _a, { children, className } = _b, rest = __objRest(_b, ["children", "className"]);
-  return /* @__PURE__ */ (0, import_jsx_runtime3.jsx)("header", __spreadProps(__spreadValues({ className: rootVariation({ className }) }, rest), { children }));
+  return /* @__PURE__ */ (0, import_jsx_runtime3.jsx)("header", __spreadProps(__spreadValues({ className: rootVariation({ className }) }, rest), { children: /* @__PURE__ */ (0, import_jsx_runtime3.jsx)("div", { className: "m-auto flex w-full max-w-4xl items-center justify-between p-4", children }) }));
 }
 
 // src/components/surfaces/header/index.tsx

@@ -55,11 +55,11 @@ function Image(_a) {
 import { tv as tv2 } from "tailwind-variants";
 import { jsx as jsx2 } from "react/jsx-runtime";
 var rootVariation = tv2({
-  base: "fixed left-0 top-0 flex max-h-20 w-full items-center justify-between bg-zinc-950 p-4"
+  base: "fixed left-0 top-0 w-full bg-zinc-950"
 });
 function Root(_a) {
   var _b = _a, { children, className } = _b, rest = __objRest(_b, ["children", "className"]);
-  return /* @__PURE__ */ jsx2("header", __spreadProps(__spreadValues({ className: rootVariation({ className }) }, rest), { children }));
+  return /* @__PURE__ */ jsx2("header", __spreadProps(__spreadValues({ className: rootVariation({ className }) }, rest), { children: /* @__PURE__ */ jsx2("div", { className: "m-auto flex w-full max-w-4xl items-center justify-between p-4", children }) }));
 }
 
 // src/components/surfaces/header/index.tsx

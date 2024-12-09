@@ -15,9 +15,9 @@ declare const imageVariation: tailwind_variants.TVReturnType<{} | {} | {}, undef
 type ImageProps = {} & React.ImgHTMLAttributes<HTMLImageElement> & VariantProps<typeof imageVariation>;
 declare function Image({ className, ...rest }: ImageProps): react_jsx_runtime.JSX.Element;
 
-declare const rootVariation: tailwind_variants.TVReturnType<{} | {} | {}, undefined, "fixed left-0 top-0 flex max-h-20 w-full items-center justify-between bg-zinc-950 p-4", tailwind_variants_dist_config.TVConfig<unknown, {} | {}>, {} | {}, undefined, tailwind_variants.TVReturnType<unknown, undefined, "fixed left-0 top-0 flex max-h-20 w-full items-center justify-between bg-zinc-950 p-4", tailwind_variants_dist_config.TVConfig<unknown, {} | {}>, unknown, unknown, undefined>>;
-type RootProps = {} & React.HTMLAttributes<HTMLElement> & VariantProps<typeof rootVariation>;
-declare function Root({ children, className, ...rest }: RootProps): react_jsx_runtime.JSX.Element;
+declare const rootVariation: tailwind_variants.TVReturnType<{} | {} | {}, undefined, "fixed left-0 top-0 w-full bg-zinc-950", tailwind_variants_dist_config.TVConfig<unknown, {} | {}>, {} | {}, undefined, tailwind_variants.TVReturnType<unknown, undefined, "fixed left-0 top-0 w-full bg-zinc-950", tailwind_variants_dist_config.TVConfig<unknown, {} | {}>, unknown, unknown, undefined>>;
+type HeaderRootProps = {} & React.HTMLAttributes<HTMLElement> & VariantProps<typeof rootVariation>;
+declare function Root({ children, className, ...rest }: HeaderRootProps): react_jsx_runtime.JSX.Element;
 
 declare const Header: {
     Root: typeof Root;
@@ -248,8 +248,8 @@ declare const buttonVariant: tailwind_variants.TVReturnType<{
         true: string;
     };
 }>, unknown, unknown, undefined>>;
-type ButtonProps<T extends ElementType = "button"> = {
-    as?: T;
+type ButtonProps = {
+    as?: ElementType;
 } & ButtonHTMLAttributes<HTMLButtonElement> & VariantProps<typeof buttonVariant>;
 declare function Button({ as, variant, children, disabled, className, ...rest }: ButtonProps): react_jsx_runtime.JSX.Element;
 
