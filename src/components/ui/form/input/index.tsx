@@ -31,6 +31,9 @@ export const Input = forwardRef<HTMLInputElement, InputProps>(
           <InputMask
             {...rest}
             mask={mask}
+            replacement={{
+              _: /\d/,
+            }}
             className="w-full bg-transparent outline-none"
           />
         ) : (

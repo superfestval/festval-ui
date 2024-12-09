@@ -30,6 +30,7 @@ export default {
       options: ["p", "strong", "span"],
     },
   },
+  tags: ["autodocs"],
 } as Meta<TextProps>;
 
 export const Default: StoryObj<TextProps> = {

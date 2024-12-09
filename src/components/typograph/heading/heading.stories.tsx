@@ -27,6 +27,7 @@ export default {
       options: ["h1", "h2", "h3", "h4"],
     },
   },
+  tags: ["autodocs"],
 } as Meta<HeadingProps>;
 
 export const Default: StoryObj<HeadingProps> = {

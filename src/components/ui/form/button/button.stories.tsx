@@ -1,31 +1,34 @@
 import React from "react";
-import { Meta } from "@storybook/react";
+import { Meta, StoryObj } from "@storybook/react";
 
 import { Button, ButtonProps } from ".";
 
 export default {
+  render: ({ children, ...rest }) => <Button {...rest}>{children}</Button>,
   component: Button,
   title: "Forms/Button",
-  argTypes: {
-    variant: {},
-  },
+  tags: ["autodocs"],
 } as Meta<ButtonProps>;
 
-const Template = ({ ...props }) => <Button {...props}>Button</Button>;
-
-export const Default = Template.bind({});
-Default.args = {
-  variant: "default",
+export const Default: StoryObj<ButtonProps> = {
+  args: {
+    variant: "default",
+    children: "Button",
+  },
 };
 
-export const Secondary = Template.bind({});
-Secondary.args = {
-  variant: "secondary",
+export const Secondary: StoryObj<ButtonProps> = {
+  args: {
+    variant: "secondary",
+    children: "Button",
+  },
 };
 
-export const Link = Template.bind({});
-Link.args = {
-  variant: "link",
-  as: "a",
-  href: "#",
+export const Link: StoryObj<ButtonProps> = {
+  args: {
+    variant: "link",
+    children: "Button",
+    as: "a",
+    href: "#",
+  },
 };

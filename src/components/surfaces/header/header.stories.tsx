@@ -9,8 +9,14 @@ import { Menu } from "@components/surfaces/menu";
 import Logo from "@/assets/logo-white.svg";
 
 export default {
-  component: () => (
-    <Header.Root>
+  component: Header.Root,
+  title: "Surfaces/Header",
+  tags: ["autodocs"],
+} as Meta<typeof Header>;
+
+export const Default: StoryObj<typeof Header> = {
+  render: ({ ...rest }) => (
+    <Header.Root {...rest}>
       <Header.Image src={Logo} alt="Super Festval" />
       <Menu
         signOut={() => {}}
@@ -21,7 +27,4 @@ export default {
       </Menu>
     </Header.Root>
   ),
-  title: "Surfaces/Header",
-} as Meta<typeof Header>;
-
-export const Default: StoryObj<typeof Header> = {};
+};

@@ -1,6 +1,6 @@
 import { tv } from "tailwind-variants";
 import { VariantProps } from "tailwind-variants";
-import { ButtonHTMLAttributes, ElementType } from "react";
+import React, { ButtonHTMLAttributes, ElementType } from "react";
 
 const buttonVariant = tv({
   base: "px-4 py-2 rounded text-zinc-50 transition-colors",
@@ -22,7 +22,8 @@ const buttonVariant = tv({
 export type ButtonProps = {
   as?: ElementType;
 } & ButtonHTMLAttributes<HTMLButtonElement> &
-  VariantProps<typeof buttonVariant>;
+  VariantProps<typeof buttonVariant> &
+  React.ComponentPropsWithoutRef<ElementType>;
 
 export function Button({
   as,
@@ -40,3 +41,5 @@ export function Button({
     </As>
   );
 }
+
+Button.displayName = "Button";

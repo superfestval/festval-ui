@@ -3,9 +3,13 @@ import { Meta, StoryObj } from "@storybook/react";
 import { Label, LabelProps } from "./index";
 
 export default {
-  component: () => <Label>Label</Label>,
+  component: Label,
   title: "Forms/Label",
-  argTypes: {},
+  tags: ["autodocs"],
 } as Meta<LabelProps>;
 
-export const Default: StoryObj = {};
+export const Default: StoryObj = {
+  args: {
+    children: "Label",
+  },
+};

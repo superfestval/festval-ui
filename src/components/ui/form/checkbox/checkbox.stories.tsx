@@ -18,11 +18,25 @@ export default {
       },
     },
   },
+  tags: ["autodocs"],
 } as Meta<CheckboxProps>;
 
-const Template = ({ ...props }) => <Checkbox {...props} />;
+export const Checked: StoryObj<CheckboxProps> = {
+  args: {
+    checked: true,
+    disabled: false,
+  },
+};
 
-export const Default: StoryObj<CheckboxProps> = Template.bind({});
-Default.args = {
-  checked: true,
+export const Unchecked: StoryObj<CheckboxProps> = {
+  args: {
+    checked: false,
+  },
+};
+
+export const Disabled: StoryObj<CheckboxProps> = {
+  args: {
+    checked: false,
+    disabled: true,
+  },
 };

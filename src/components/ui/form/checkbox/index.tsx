@@ -8,6 +8,9 @@ const variants = tv({
     checked: {
       true: "border border-yellow-700 bg-yellow-700 text-zinc-50",
     },
+    disabled: {
+      true: "bg-zinc-200 border-zinc-300 cursor-not-allowed",
+    },
   },
   defaultVariants: {
     checked: false,
@@ -16,7 +19,7 @@ const variants = tv({
 
 export type CheckboxProps = VariantProps<typeof variants> & {};
 
-export function Checkbox({ checked = false }: CheckboxProps) {
+export function Checkbox({ checked = false, disabled = false }: CheckboxProps) {
   const [isChecked, setIsChecked] = useState<boolean>(checked);
 
   const toggleCheck = () => {
@@ -26,8 +29,9 @@ export function Checkbox({ checked = false }: CheckboxProps) {
   return (
     <button
       type="button"
+      disabled={disabled}
       onClick={toggleCheck}
-      className={variants({ checked: isChecked })}
+      className={variants({ checked: isChecked, disabled })}
     >
       {isChecked && <Check size={18} />}
     </button>
