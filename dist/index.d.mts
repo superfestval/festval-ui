@@ -3,10 +3,9 @@ import * as tailwind_variants from 'tailwind-variants';
 import { VariantProps } from 'tailwind-variants';
 import * as tailwind_variants_dist_config from 'tailwind-variants/dist/config';
 import * as react from 'react';
-import { ElementType, ButtonHTMLAttributes, InputHTMLAttributes, LabelHTMLAttributes } from 'react';
+import react__default, { ElementType, ButtonHTMLAttributes, InputHTMLAttributes, LabelHTMLAttributes, HTMLAttributes } from 'react';
 import * as _react_input_mask from '@react-input/mask';
 import { InputMaskProps } from '@react-input/mask';
-import * as SelectElement from '@radix-ui/react-select';
 
 type FooterProps = {};
 declare function Footer(): react_jsx_runtime.JSX.Element;
@@ -106,7 +105,7 @@ declare const headingVariant: tailwind_variants.TVReturnType<{
 type HeadingProps = {
     as?: React.ElementType;
 } & React.HTMLAttributes<HTMLHeadingElement> & VariantProps<typeof headingVariant>;
-declare function Heading({ as, children, size, ...rest }: HeadingProps): react_jsx_runtime.JSX.Element;
+declare function Heading({ as, children, size, className, ...rest }: HeadingProps): react_jsx_runtime.JSX.Element;
 
 declare const textVariant: tailwind_variants.TVReturnType<{
     size: {
@@ -250,40 +249,73 @@ declare const buttonVariant: tailwind_variants.TVReturnType<{
 }>, unknown, unknown, undefined>>;
 type ButtonProps = {
     as?: ElementType;
-} & ButtonHTMLAttributes<HTMLButtonElement> & VariantProps<typeof buttonVariant>;
+} & ButtonHTMLAttributes<HTMLButtonElement> & VariantProps<typeof buttonVariant> & react__default.ComponentPropsWithoutRef<ElementType>;
 declare function Button({ as, variant, children, disabled, className, ...rest }: ButtonProps): react_jsx_runtime.JSX.Element;
+declare namespace Button {
+    var displayName: string;
+}
 
 declare const variants$1: tailwind_variants.TVReturnType<{
     checked: {
+        true: string;
+        indeterminated: string;
+    };
+    disabled: {
         true: string;
     };
 }, undefined, "w-5 h-5 rounded border border-zinc-200 bg-zinc-100", tailwind_variants_dist_config.TVConfig<{
     checked: {
         true: string;
+        indeterminated: string;
+    };
+    disabled: {
+        true: string;
     };
 }, {
     checked: {
+        true: string;
+        indeterminated: string;
+    };
+    disabled: {
         true: string;
     };
 }>, {
     checked: {
         true: string;
+        indeterminated: string;
+    };
+    disabled: {
+        true: string;
     };
 }, undefined, tailwind_variants.TVReturnType<{
     checked: {
+        true: string;
+        indeterminated: string;
+    };
+    disabled: {
         true: string;
     };
 }, undefined, "w-5 h-5 rounded border border-zinc-200 bg-zinc-100", tailwind_variants_dist_config.TVConfig<{
     checked: {
         true: string;
+        indeterminated: string;
+    };
+    disabled: {
+        true: string;
     };
 }, {
     checked: {
         true: string;
+        indeterminated: string;
+    };
+    disabled: {
+        true: string;
     };
 }>, unknown, unknown, undefined>>;
-type CheckboxProps = VariantProps<typeof variants$1> & {};
-declare function Checkbox({ checked }: CheckboxProps): react_jsx_runtime.JSX.Element;
+type CheckboxProps = VariantProps<typeof variants$1> & {
+    onValueChange?: (value: boolean) => void;
+};
+declare function Checkbox({ checked, disabled, onValueChange, }: CheckboxProps): react_jsx_runtime.JSX.Element;
 
 declare const variants: tailwind_variants.TVReturnType<{
     variant: {
@@ -396,16 +428,32 @@ declare const Input: react.ForwardRefExoticComponent<InputHTMLAttributes<HTMLInp
 type InputFileProps = {} & InputHTMLAttributes<HTMLInputElement>;
 declare const InputFile: react.ForwardRefExoticComponent<InputHTMLAttributes<HTMLInputElement> & react.RefAttributes<HTMLInputElement>>;
 
-type LabelProps = LabelHTMLAttributes<HTMLLabelElement> & {};
-declare function Label({ children, ...rest }: LabelProps): react_jsx_runtime.JSX.Element;
+declare const labelVariant: tailwind_variants.TVReturnType<{} | {} | {}, undefined, "font-bold", tailwind_variants_dist_config.TVConfig<unknown, {} | {}>, {} | {}, undefined, tailwind_variants.TVReturnType<unknown, undefined, "font-bold", tailwind_variants_dist_config.TVConfig<unknown, {} | {}>, unknown, unknown, undefined>>;
+type LabelProps = LabelHTMLAttributes<HTMLLabelElement> & {} & VariantProps<typeof labelVariant>;
+declare function Label({ children, className, ...rest }: LabelProps): react_jsx_runtime.JSX.Element;
 
-type SelectRootProps = {
-    placeholder?: string;
-} & SelectElement.SelectContentProps & React.RefAttributes<HTMLDivElement>;
-type SelectItemProps = {} & SelectElement.SelectItemProps & React.RefAttributes<HTMLDivElement>;
+interface SelectItemProps {
+    value: string;
+    children: React.ReactNode;
+}
+
+interface SelectContentProps {
+    children: React.ReactNode;
+}
+
+interface SelectTriggerProps {
+    placeholder: string;
+}
+
+interface SelectRootProps extends HTMLAttributes<ElementType> {
+    onValeuChange?: (value: string) => void;
+}
+
 declare const Select: {
-    Root: ({ placeholder, children, ...rest }: SelectRootProps) => react_jsx_runtime.JSX.Element;
-    Option: ({ children, ...rest }: SelectItemProps) => react_jsx_runtime.JSX.Element;
+    Root: ({ children, onValeuChange }: SelectRootProps) => react_jsx_runtime.JSX.Element;
+    Trigger: ({ placeholder }: SelectTriggerProps) => react_jsx_runtime.JSX.Element;
+    Content: ({ children }: SelectContentProps) => react_jsx_runtime.JSX.Element;
+    Item: ({ value, children }: SelectItemProps) => react_jsx_runtime.JSX.Element;
 };
 
 type AvatarProps = {
@@ -414,4 +462,4 @@ type AvatarProps = {
 };
 declare function Avatar({ image, username }: AvatarProps): react_jsx_runtime.JSX.Element;
 
-export { Avatar, type AvatarProps, Button, type ButtonProps, Checkbox, type CheckboxProps, Footer, type FooterProps, Header, Heading, type HeadingProps, Input, InputFile, type InputFileProps, type InputProps, Label, type LabelProps, Menu, type MenuProps, Select, type SelectItemProps, type SelectRootProps, Text, type TextProps, headingVariant, textVariant };
+export { Avatar, type AvatarProps, Button, type ButtonProps, Checkbox, type CheckboxProps, Footer, type FooterProps, Header, Heading, type HeadingProps, Input, InputFile, type InputFileProps, type InputProps, Label, type LabelProps, Menu, type MenuProps, Select, type SelectRootProps, Text, type TextProps, headingVariant, textVariant };

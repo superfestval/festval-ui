@@ -166,6 +166,7 @@ function Button(_a) {
   const As = as || "button";
   return /* @__PURE__ */ (0, import_jsx_runtime5.jsx)(As, __spreadProps(__spreadValues({}, rest), { className: buttonVariant({ className, variant, disabled }), children }));
 }
+Button.displayName = "Button";
 
 // src/components/surfaces/menu/index.tsx
 var import_jsx_runtime6 = require("react/jsx-runtime");
@@ -202,9 +203,19 @@ var headingVariant = (0, import_tailwind_variants4.tv)({
   }
 });
 function Heading(_a) {
-  var _b = _a, { as = "h2", children, size } = _b, rest = __objRest(_b, ["as", "children", "size"]);
+  var _b = _a, {
+    as = "h2",
+    children,
+    size,
+    className
+  } = _b, rest = __objRest(_b, [
+    "as",
+    "children",
+    "size",
+    "className"
+  ]);
   const As = as;
-  return /* @__PURE__ */ (0, import_jsx_runtime7.jsx)(As, __spreadProps(__spreadValues({ className: headingVariant({ size }) }, rest), { children }));
+  return /* @__PURE__ */ (0, import_jsx_runtime7.jsx)(As, __spreadProps(__spreadValues({ className: headingVariant({ size, className }) }, rest), { children }));
 }
 
 // src/components/typograph/text/index.tsx
@@ -233,32 +244,46 @@ function Text(_a) {
 }
 
 // src/components/ui/form/checkbox/index.tsx
-var import_lucide_react = require("lucide-react");
 var import_react = require("react");
+var import_lucide_react = require("lucide-react");
 var import_tailwind_variants6 = require("tailwind-variants");
 var import_jsx_runtime9 = require("react/jsx-runtime");
 var variants = (0, import_tailwind_variants6.tv)({
   base: "w-5 h-5 rounded border border-zinc-200 bg-zinc-100",
   variants: {
     checked: {
-      true: "border border-yellow-700 bg-yellow-700 text-zinc-50"
+      true: "border border-yellow-700 bg-yellow-700 text-zinc-50",
+      indeterminated: ""
+    },
+    disabled: {
+      true: "bg-zinc-200 border-zinc-300 cursor-not-allowed"
     }
   },
   defaultVariants: {
     checked: false
   }
 });
-function Checkbox({ checked = false }) {
-  const [isChecked, setIsChecked] = (0, import_react.useState)(checked);
+function Checkbox({
+  checked = false,
+  disabled = false,
+  onValueChange
+}) {
+  const [isChecked, setIsChecked] = (0, import_react.useState)(
+    checked
+  );
   const toggleCheck = () => {
     setIsChecked(!isChecked);
+    if (onValueChange) {
+      onValueChange(!isChecked);
+    }
   };
   return /* @__PURE__ */ (0, import_jsx_runtime9.jsx)(
     "button",
     {
       type: "button",
+      disabled,
       onClick: toggleCheck,
-      className: variants({ checked: isChecked }),
+      className: variants({ checked: isChecked, disabled }),
       children: isChecked && /* @__PURE__ */ (0, import_jsx_runtime9.jsx)(import_lucide_react.Check, { size: 18 })
     }
   );
@@ -291,6 +316,9 @@ var Input = (0, import_react2.forwardRef)(
         import_mask.InputMask,
         __spreadProps(__spreadValues({}, rest), {
           mask,
+          replacement: {
+            _: /\d/
+          },
           className: "w-full bg-transparent outline-none"
         })
       ) : /* @__PURE__ */ (0, import_jsx_runtime10.jsx)(
@@ -312,65 +340,167 @@ var import_react3 = require("react");
 var import_jsx_runtime11 = require("react/jsx-runtime");
 var InputFile = (0, import_react3.forwardRef)(
   (_a, ref) => {
-    var rest = __objRest(_a, []);
+    var _b = _a, { accept = ".pdf" } = _b, rest = __objRest(_b, ["accept"]);
+    const [files, setFiles] = (0, import_react3.useState)(null);
+    const onInputChange = (e) => setFiles(e.currentTarget.files);
     return /* @__PURE__ */ (0, import_jsx_runtime11.jsxs)("div", { className: "flex h-full min-h-[80px] w-full items-center justify-center rounded border border-dashed border-zinc-200 bg-zinc-100 text-zinc-950", children: [
       /* @__PURE__ */ (0, import_jsx_runtime11.jsx)(
         "label",
         {
           htmlFor: "file",
           className: "flex h-full w-full items-center justify-center text-center",
-          children: /* @__PURE__ */ (0, import_jsx_runtime11.jsx)("div", { className: "flex w-full items-center justify-center", children: /* @__PURE__ */ (0, import_jsx_runtime11.jsx)("small", { children: /* @__PURE__ */ (0, import_jsx_runtime11.jsxs)("div", { children: [
+          children: /* @__PURE__ */ (0, import_jsx_runtime11.jsx)("div", { className: "flex w-full items-center justify-center", children: /* @__PURE__ */ (0, import_jsx_runtime11.jsx)("small", { children: !files ? /* @__PURE__ */ (0, import_jsx_runtime11.jsxs)("div", { children: [
             /* @__PURE__ */ (0, import_jsx_runtime11.jsx)("p", { children: "Clique aqui para inserir um documento" }),
-            /* @__PURE__ */ (0, import_jsx_runtime11.jsx)("small", { className: "text-zinc-500", children: "(Somente arquivos em .doc, .docx e .pdf)" })
+            /* @__PURE__ */ (0, import_jsx_runtime11.jsxs)("small", { className: "text-zinc-500", children: [
+              "(Somente arquivos ",
+              accept,
+              ")"
+            ] })
+          ] }) : /* @__PURE__ */ (0, import_jsx_runtime11.jsxs)("div", { className: "p-4", children: [
+            /* @__PURE__ */ (0, import_jsx_runtime11.jsx)("p", { children: "Arquivos selecionados:" }),
+            /* @__PURE__ */ (0, import_jsx_runtime11.jsx)("div", { children: Array.from(files).map((item, index) => /* @__PURE__ */ (0, import_jsx_runtime11.jsxs)("small", { children: [
+              item.name,
+              " ",
+              index > 0 && ", "
+            ] }, item.name)) }),
+            /* @__PURE__ */ (0, import_jsx_runtime11.jsx)("small", { className: "text-zinc-500" })
           ] }) }) })
         }
       ),
-      /* @__PURE__ */ (0, import_jsx_runtime11.jsx)("input", __spreadValues({ id: "file", ref, type: "file", className: "hidden" }, rest))
+      /* @__PURE__ */ (0, import_jsx_runtime11.jsx)(
+        "input",
+        __spreadProps(__spreadValues({
+          id: "file",
+          ref
+        }, rest), {
+          type: "file",
+          className: "hidden",
+          accept,
+          onChange: onInputChange
+        })
+      )
     ] });
   }
 );
 
 // src/components/ui/form/label/index.tsx
+var import_tailwind_variants8 = require("tailwind-variants");
 var import_jsx_runtime12 = require("react/jsx-runtime");
+var labelVariant = (0, import_tailwind_variants8.tv)({
+  base: "font-bold"
+});
 function Label(_a) {
-  var _b = _a, { children } = _b, rest = __objRest(_b, ["children"]);
-  return /* @__PURE__ */ (0, import_jsx_runtime12.jsx)("label", __spreadProps(__spreadValues({}, rest), { className: "font-bold", children }));
+  var _b = _a, { children, className } = _b, rest = __objRest(_b, ["children", "className"]);
+  return /* @__PURE__ */ (0, import_jsx_runtime12.jsx)("label", __spreadProps(__spreadValues({}, rest), { className: labelVariant({ className }), children }));
 }
 
-// src/components/ui/form/select/index.tsx
-var import_lucide_react2 = require("lucide-react");
-var SelectElement = __toESM(require("@radix-ui/react-select"));
+// src/components/ui/form/select/components/content.tsx
+var import_tailwind_variants9 = require("tailwind-variants");
+
+// src/components/ui/form/select/context/index.tsx
+var import_react5 = require("react");
+
+// src/components/ui/form/select/context/hooks/useSelectContext.tsx
+var import_react4 = require("react");
+function useSelectContext(onChange) {
+  const [isOpen, setIsOpen] = (0, import_react4.useState)(false);
+  const [value, setValue] = (0, import_react4.useState)(null);
+  const onValueChange = (value2) => {
+    setValue(value2);
+    setIsOpen(false);
+    if (onChange) {
+      onChange(value2);
+    }
+  };
+  const onTriggerClick = () => setIsOpen(!isOpen);
+  return {
+    value,
+    isOpen,
+    onValueChange,
+    onTriggerClick
+  };
+}
+
+// src/components/ui/form/select/context/index.tsx
 var import_jsx_runtime13 = require("react/jsx-runtime");
-var Root4 = (_a) => {
-  var _b = _a, { placeholder, children } = _b, rest = __objRest(_b, ["placeholder", "children"]);
-  return /* @__PURE__ */ (0, import_jsx_runtime13.jsxs)(SelectElement.Root, { children: [
-    /* @__PURE__ */ (0, import_jsx_runtime13.jsxs)(SelectElement.Trigger, { className: "flex w-full items-center justify-between rounded border border-zinc-200 bg-zinc-100 p-4", children: [
-      /* @__PURE__ */ (0, import_jsx_runtime13.jsx)(SelectElement.Value, { placeholder }),
-      /* @__PURE__ */ (0, import_jsx_runtime13.jsx)(SelectElement.Icon, { children: /* @__PURE__ */ (0, import_jsx_runtime13.jsx)(import_lucide_react2.ChevronDown, {}) })
-    ] }),
-    /* @__PURE__ */ (0, import_jsx_runtime13.jsx)(SelectElement.Portal, { children: /* @__PURE__ */ (0, import_jsx_runtime13.jsx)(
-      SelectElement.Content,
-      __spreadProps(__spreadValues({}, rest), {
-        className: "mt-2 w-full rounded bg-zinc-100",
-        children: /* @__PURE__ */ (0, import_jsx_runtime13.jsx)(SelectElement.Viewport, { className: "w-full", children: /* @__PURE__ */ (0, import_jsx_runtime13.jsx)(SelectElement.Group, { children }) })
-      })
-    ) })
+var SelectContext = (0, import_react5.createContext)({});
+var SelectProvider = ({ children, onChange }) => {
+  const value = useSelectContext(onChange);
+  return /* @__PURE__ */ (0, import_jsx_runtime13.jsx)(SelectContext.Provider, { value, children });
+};
+var useSelect = () => (0, import_react5.useContext)(SelectContext);
+
+// src/components/ui/form/select/components/content.tsx
+var import_jsx_runtime14 = require("react/jsx-runtime");
+var contentVariable = (0, import_tailwind_variants9.tv)({
+  base: "top-12 flex max-h-24 flex-col overflow-y-auto rounded absolute w-full",
+  variants: {
+    isOpen: {
+      true: "flex",
+      false: "hidden"
+    }
+  }
+});
+var Content2 = ({ children }) => {
+  const { isOpen } = useSelect();
+  return /* @__PURE__ */ (0, import_jsx_runtime14.jsx)("div", { className: contentVariable({ isOpen }), children });
+};
+
+// src/components/ui/form/select/components/item.tsx
+var import_jsx_runtime15 = require("react/jsx-runtime");
+var Item2 = ({ value, children }) => {
+  const { onValueChange } = useSelect();
+  const onClick = () => onValueChange(value);
+  return /* @__PURE__ */ (0, import_jsx_runtime15.jsx)(
+    "button",
+    {
+      onClick,
+      className: "w-full border-b border-b-zinc-200 bg-zinc-100 px-4 py-2 text-left",
+      children
+    }
+  );
+};
+
+// src/components/ui/form/select/components/root.tsx
+var import_jsx_runtime16 = require("react/jsx-runtime");
+var Root3 = ({ children, onValeuChange }) => {
+  return /* @__PURE__ */ (0, import_jsx_runtime16.jsx)(SelectProvider, { onChange: onValeuChange, children: /* @__PURE__ */ (0, import_jsx_runtime16.jsx)("div", { className: "relative", children }) });
+};
+
+// src/components/ui/form/select/components/trigger.tsx
+var import_tailwind_variants10 = require("tailwind-variants");
+var import_react_icons = require("@radix-ui/react-icons");
+var import_jsx_runtime17 = require("react/jsx-runtime");
+var triggerVariable = (0, import_tailwind_variants10.tv)({
+  base: "flex w-full items-center justify-between rounded border  bg-zinc-100 px-4 py-2 text-left",
+  variants: {
+    isOpen: {
+      true: "border-yellow-600",
+      false: "border-zinc-200"
+    }
+  }
+});
+var Trigger2 = ({ placeholder }) => {
+  const { value, isOpen, onTriggerClick } = useSelect();
+  return /* @__PURE__ */ (0, import_jsx_runtime17.jsxs)("button", { onClick: onTriggerClick, className: triggerVariable({ isOpen }), children: [
+    value ? value : placeholder,
+    isOpen ? /* @__PURE__ */ (0, import_jsx_runtime17.jsx)(import_react_icons.ChevronUpIcon, {}) : /* @__PURE__ */ (0, import_jsx_runtime17.jsx)(import_react_icons.ChevronDownIcon, {})
   ] });
 };
-var Option = (_a) => {
-  var _b = _a, { children } = _b, rest = __objRest(_b, ["children"]);
-  return /* @__PURE__ */ (0, import_jsx_runtime13.jsx)(SelectElement.Item, __spreadProps(__spreadValues({}, rest), { className: "w-full p-4", children }));
-};
+
+// src/components/ui/form/select/index.tsx
 var Select = {
-  Root: Root4,
-  Option
+  Root: Root3,
+  Trigger: Trigger2,
+  Content: Content2,
+  Item: Item2
 };
 
 // src/components/ui/form/textarea/index.tsx
-var import_tailwind_variants8 = require("tailwind-variants");
-var import_react4 = require("react");
-var import_jsx_runtime14 = require("react/jsx-runtime");
-var variants3 = (0, import_tailwind_variants8.tv)({
+var import_tailwind_variants11 = require("tailwind-variants");
+var import_react6 = require("react");
+var import_jsx_runtime18 = require("react/jsx-runtime");
+var variants3 = (0, import_tailwind_variants11.tv)({
   base: "w-full p-2 bg-transparent border border-zinc-200 rounded outline-yellow-700",
   variants: {
     variant: {
@@ -381,11 +511,11 @@ var variants3 = (0, import_tailwind_variants8.tv)({
     variant: "default"
   }
 });
-var TextArea = (0, import_react4.forwardRef)(
+var TextArea = (0, import_react6.forwardRef)(
   (_a, ref) => {
     var _b = _a, { error, name, className } = _b, rest = __objRest(_b, ["error", "name", "className"]);
-    return /* @__PURE__ */ (0, import_jsx_runtime14.jsxs)(import_jsx_runtime14.Fragment, { children: [
-      /* @__PURE__ */ (0, import_jsx_runtime14.jsx)("div", { className: variants3({ className }), children: /* @__PURE__ */ (0, import_jsx_runtime14.jsx)(
+    return /* @__PURE__ */ (0, import_jsx_runtime18.jsxs)(import_jsx_runtime18.Fragment, { children: [
+      /* @__PURE__ */ (0, import_jsx_runtime18.jsx)("div", { className: variants3({ className }), children: /* @__PURE__ */ (0, import_jsx_runtime18.jsx)(
         "textarea",
         __spreadProps(__spreadValues({
           ref
@@ -394,7 +524,7 @@ var TextArea = (0, import_react4.forwardRef)(
           className: "w-full bg-transparent outline-none"
         })
       ) }),
-      error && /* @__PURE__ */ (0, import_jsx_runtime14.jsx)("p", { className: "mt-1 text-xs text-red-600", children: error })
+      error && /* @__PURE__ */ (0, import_jsx_runtime18.jsx)("p", { className: "mt-1 text-xs text-red-600", children: error })
     ] });
   }
 );

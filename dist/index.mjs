@@ -120,6 +120,7 @@ function Button(_a) {
   const As = as || "button";
   return /* @__PURE__ */ jsx4(As, __spreadProps(__spreadValues({}, rest), { className: buttonVariant({ className, variant, disabled }), children }));
 }
+Button.displayName = "Button";
 
 // src/components/surfaces/menu/index.tsx
 import { jsx as jsx5, jsxs as jsxs2 } from "react/jsx-runtime";
@@ -156,9 +157,19 @@ var headingVariant = tv4({
   }
 });
 function Heading(_a) {
-  var _b = _a, { as = "h2", children, size } = _b, rest = __objRest(_b, ["as", "children", "size"]);
+  var _b = _a, {
+    as = "h2",
+    children,
+    size,
+    className
+  } = _b, rest = __objRest(_b, [
+    "as",
+    "children",
+    "size",
+    "className"
+  ]);
   const As = as;
-  return /* @__PURE__ */ jsx6(As, __spreadProps(__spreadValues({ className: headingVariant({ size }) }, rest), { children }));
+  return /* @__PURE__ */ jsx6(As, __spreadProps(__spreadValues({ className: headingVariant({ size, className }) }, rest), { children }));
 }
 
 // src/components/typograph/text/index.tsx
@@ -187,32 +198,46 @@ function Text(_a) {
 }
 
 // src/components/ui/form/checkbox/index.tsx
-import { Check } from "lucide-react";
 import { useState } from "react";
+import { Check } from "lucide-react";
 import { tv as tv6 } from "tailwind-variants";
 import { jsx as jsx8 } from "react/jsx-runtime";
 var variants = tv6({
   base: "w-5 h-5 rounded border border-zinc-200 bg-zinc-100",
   variants: {
     checked: {
-      true: "border border-yellow-700 bg-yellow-700 text-zinc-50"
+      true: "border border-yellow-700 bg-yellow-700 text-zinc-50",
+      indeterminated: ""
+    },
+    disabled: {
+      true: "bg-zinc-200 border-zinc-300 cursor-not-allowed"
     }
   },
   defaultVariants: {
     checked: false
   }
 });
-function Checkbox({ checked = false }) {
-  const [isChecked, setIsChecked] = useState(checked);
+function Checkbox({
+  checked = false,
+  disabled = false,
+  onValueChange
+}) {
+  const [isChecked, setIsChecked] = useState(
+    checked
+  );
   const toggleCheck = () => {
     setIsChecked(!isChecked);
+    if (onValueChange) {
+      onValueChange(!isChecked);
+    }
   };
   return /* @__PURE__ */ jsx8(
     "button",
     {
       type: "button",
+      disabled,
       onClick: toggleCheck,
-      className: variants({ checked: isChecked }),
+      className: variants({ checked: isChecked, disabled }),
       children: isChecked && /* @__PURE__ */ jsx8(Check, { size: 18 })
     }
   );
@@ -245,6 +270,9 @@ var Input = forwardRef(
         InputMask,
         __spreadProps(__spreadValues({}, rest), {
           mask,
+          replacement: {
+            _: /\d/
+          },
           className: "w-full bg-transparent outline-none"
         })
       ) : /* @__PURE__ */ jsx9(
@@ -262,69 +290,171 @@ var Input = forwardRef(
 Input.displayName = "Input";
 
 // src/components/ui/form/input-file/index.tsx
-import { forwardRef as forwardRef2 } from "react";
+import { forwardRef as forwardRef2, useState as useState2 } from "react";
 import { jsx as jsx10, jsxs as jsxs4 } from "react/jsx-runtime";
 var InputFile = forwardRef2(
   (_a, ref) => {
-    var rest = __objRest(_a, []);
+    var _b = _a, { accept = ".pdf" } = _b, rest = __objRest(_b, ["accept"]);
+    const [files, setFiles] = useState2(null);
+    const onInputChange = (e) => setFiles(e.currentTarget.files);
     return /* @__PURE__ */ jsxs4("div", { className: "flex h-full min-h-[80px] w-full items-center justify-center rounded border border-dashed border-zinc-200 bg-zinc-100 text-zinc-950", children: [
       /* @__PURE__ */ jsx10(
         "label",
         {
           htmlFor: "file",
           className: "flex h-full w-full items-center justify-center text-center",
-          children: /* @__PURE__ */ jsx10("div", { className: "flex w-full items-center justify-center", children: /* @__PURE__ */ jsx10("small", { children: /* @__PURE__ */ jsxs4("div", { children: [
+          children: /* @__PURE__ */ jsx10("div", { className: "flex w-full items-center justify-center", children: /* @__PURE__ */ jsx10("small", { children: !files ? /* @__PURE__ */ jsxs4("div", { children: [
             /* @__PURE__ */ jsx10("p", { children: "Clique aqui para inserir um documento" }),
-            /* @__PURE__ */ jsx10("small", { className: "text-zinc-500", children: "(Somente arquivos em .doc, .docx e .pdf)" })
+            /* @__PURE__ */ jsxs4("small", { className: "text-zinc-500", children: [
+              "(Somente arquivos ",
+              accept,
+              ")"
+            ] })
+          ] }) : /* @__PURE__ */ jsxs4("div", { className: "p-4", children: [
+            /* @__PURE__ */ jsx10("p", { children: "Arquivos selecionados:" }),
+            /* @__PURE__ */ jsx10("div", { children: Array.from(files).map((item, index) => /* @__PURE__ */ jsxs4("small", { children: [
+              item.name,
+              " ",
+              index > 0 && ", "
+            ] }, item.name)) }),
+            /* @__PURE__ */ jsx10("small", { className: "text-zinc-500" })
           ] }) }) })
         }
       ),
-      /* @__PURE__ */ jsx10("input", __spreadValues({ id: "file", ref, type: "file", className: "hidden" }, rest))
+      /* @__PURE__ */ jsx10(
+        "input",
+        __spreadProps(__spreadValues({
+          id: "file",
+          ref
+        }, rest), {
+          type: "file",
+          className: "hidden",
+          accept,
+          onChange: onInputChange
+        })
+      )
     ] });
   }
 );
 
 // src/components/ui/form/label/index.tsx
+import { tv as tv8 } from "tailwind-variants";
 import { jsx as jsx11 } from "react/jsx-runtime";
+var labelVariant = tv8({
+  base: "font-bold"
+});
 function Label(_a) {
-  var _b = _a, { children } = _b, rest = __objRest(_b, ["children"]);
-  return /* @__PURE__ */ jsx11("label", __spreadProps(__spreadValues({}, rest), { className: "font-bold", children }));
+  var _b = _a, { children, className } = _b, rest = __objRest(_b, ["children", "className"]);
+  return /* @__PURE__ */ jsx11("label", __spreadProps(__spreadValues({}, rest), { className: labelVariant({ className }), children }));
 }
 
-// src/components/ui/form/select/index.tsx
-import { ChevronDown } from "lucide-react";
-import * as SelectElement from "@radix-ui/react-select";
-import { jsx as jsx12, jsxs as jsxs5 } from "react/jsx-runtime";
-var Root4 = (_a) => {
-  var _b = _a, { placeholder, children } = _b, rest = __objRest(_b, ["placeholder", "children"]);
-  return /* @__PURE__ */ jsxs5(SelectElement.Root, { children: [
-    /* @__PURE__ */ jsxs5(SelectElement.Trigger, { className: "flex w-full items-center justify-between rounded border border-zinc-200 bg-zinc-100 p-4", children: [
-      /* @__PURE__ */ jsx12(SelectElement.Value, { placeholder }),
-      /* @__PURE__ */ jsx12(SelectElement.Icon, { children: /* @__PURE__ */ jsx12(ChevronDown, {}) })
-    ] }),
-    /* @__PURE__ */ jsx12(SelectElement.Portal, { children: /* @__PURE__ */ jsx12(
-      SelectElement.Content,
-      __spreadProps(__spreadValues({}, rest), {
-        className: "mt-2 w-full rounded bg-zinc-100",
-        children: /* @__PURE__ */ jsx12(SelectElement.Viewport, { className: "w-full", children: /* @__PURE__ */ jsx12(SelectElement.Group, { children }) })
-      })
-    ) })
+// src/components/ui/form/select/components/content.tsx
+import { tv as tv9 } from "tailwind-variants";
+
+// src/components/ui/form/select/context/index.tsx
+import { createContext, useContext } from "react";
+
+// src/components/ui/form/select/context/hooks/useSelectContext.tsx
+import { useState as useState3 } from "react";
+function useSelectContext(onChange) {
+  const [isOpen, setIsOpen] = useState3(false);
+  const [value, setValue] = useState3(null);
+  const onValueChange = (value2) => {
+    setValue(value2);
+    setIsOpen(false);
+    if (onChange) {
+      onChange(value2);
+    }
+  };
+  const onTriggerClick = () => setIsOpen(!isOpen);
+  return {
+    value,
+    isOpen,
+    onValueChange,
+    onTriggerClick
+  };
+}
+
+// src/components/ui/form/select/context/index.tsx
+import { jsx as jsx12 } from "react/jsx-runtime";
+var SelectContext = createContext({});
+var SelectProvider = ({ children, onChange }) => {
+  const value = useSelectContext(onChange);
+  return /* @__PURE__ */ jsx12(SelectContext.Provider, { value, children });
+};
+var useSelect = () => useContext(SelectContext);
+
+// src/components/ui/form/select/components/content.tsx
+import { jsx as jsx13 } from "react/jsx-runtime";
+var contentVariable = tv9({
+  base: "top-12 flex max-h-24 flex-col overflow-y-auto rounded absolute w-full",
+  variants: {
+    isOpen: {
+      true: "flex",
+      false: "hidden"
+    }
+  }
+});
+var Content2 = ({ children }) => {
+  const { isOpen } = useSelect();
+  return /* @__PURE__ */ jsx13("div", { className: contentVariable({ isOpen }), children });
+};
+
+// src/components/ui/form/select/components/item.tsx
+import { jsx as jsx14 } from "react/jsx-runtime";
+var Item2 = ({ value, children }) => {
+  const { onValueChange } = useSelect();
+  const onClick = () => onValueChange(value);
+  return /* @__PURE__ */ jsx14(
+    "button",
+    {
+      onClick,
+      className: "w-full border-b border-b-zinc-200 bg-zinc-100 px-4 py-2 text-left",
+      children
+    }
+  );
+};
+
+// src/components/ui/form/select/components/root.tsx
+import { jsx as jsx15 } from "react/jsx-runtime";
+var Root3 = ({ children, onValeuChange }) => {
+  return /* @__PURE__ */ jsx15(SelectProvider, { onChange: onValeuChange, children: /* @__PURE__ */ jsx15("div", { className: "relative", children }) });
+};
+
+// src/components/ui/form/select/components/trigger.tsx
+import { tv as tv10 } from "tailwind-variants";
+import { ChevronDownIcon, ChevronUpIcon } from "@radix-ui/react-icons";
+import { jsx as jsx16, jsxs as jsxs5 } from "react/jsx-runtime";
+var triggerVariable = tv10({
+  base: "flex w-full items-center justify-between rounded border  bg-zinc-100 px-4 py-2 text-left",
+  variants: {
+    isOpen: {
+      true: "border-yellow-600",
+      false: "border-zinc-200"
+    }
+  }
+});
+var Trigger2 = ({ placeholder }) => {
+  const { value, isOpen, onTriggerClick } = useSelect();
+  return /* @__PURE__ */ jsxs5("button", { onClick: onTriggerClick, className: triggerVariable({ isOpen }), children: [
+    value ? value : placeholder,
+    isOpen ? /* @__PURE__ */ jsx16(ChevronUpIcon, {}) : /* @__PURE__ */ jsx16(ChevronDownIcon, {})
   ] });
 };
-var Option = (_a) => {
-  var _b = _a, { children } = _b, rest = __objRest(_b, ["children"]);
-  return /* @__PURE__ */ jsx12(SelectElement.Item, __spreadProps(__spreadValues({}, rest), { className: "w-full p-4", children }));
-};
+
+// src/components/ui/form/select/index.tsx
 var Select = {
-  Root: Root4,
-  Option
+  Root: Root3,
+  Trigger: Trigger2,
+  Content: Content2,
+  Item: Item2
 };
 
 // src/components/ui/form/textarea/index.tsx
-import { tv as tv8 } from "tailwind-variants";
+import { tv as tv11 } from "tailwind-variants";
 import { forwardRef as forwardRef3 } from "react";
-import { Fragment as Fragment2, jsx as jsx13, jsxs as jsxs6 } from "react/jsx-runtime";
-var variants3 = tv8({
+import { Fragment as Fragment2, jsx as jsx17, jsxs as jsxs6 } from "react/jsx-runtime";
+var variants3 = tv11({
   base: "w-full p-2 bg-transparent border border-zinc-200 rounded outline-yellow-700",
   variants: {
     variant: {
@@ -339,7 +469,7 @@ var TextArea = forwardRef3(
   (_a, ref) => {
     var _b = _a, { error, name, className } = _b, rest = __objRest(_b, ["error", "name", "className"]);
     return /* @__PURE__ */ jsxs6(Fragment2, { children: [
-      /* @__PURE__ */ jsx13("div", { className: variants3({ className }), children: /* @__PURE__ */ jsx13(
+      /* @__PURE__ */ jsx17("div", { className: variants3({ className }), children: /* @__PURE__ */ jsx17(
         "textarea",
         __spreadProps(__spreadValues({
           ref
@@ -348,7 +478,7 @@ var TextArea = forwardRef3(
           className: "w-full bg-transparent outline-none"
         })
       ) }),
-      error && /* @__PURE__ */ jsx13("p", { className: "mt-1 text-xs text-red-600", children: error })
+      error && /* @__PURE__ */ jsx17("p", { className: "mt-1 text-xs text-red-600", children: error })
     ] });
   }
 );
