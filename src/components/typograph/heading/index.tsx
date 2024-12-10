@@ -22,11 +22,17 @@ export type HeadingProps = {
 } & React.HTMLAttributes<HTMLHeadingElement> &
   VariantProps<typeof headingVariant>;
 
-export function Heading({ as = "h2", children, size, ...rest }: HeadingProps) {
+export function Heading({
+  as = "h2",
+  children,
+  size,
+  className,
+  ...rest
+}: HeadingProps) {
   const As = as;
 
   return (
-    <As className={headingVariant({ size })} {...rest}>
+    <As className={headingVariant({ size, className })} {...rest}>
       {children}
     </As>
   );

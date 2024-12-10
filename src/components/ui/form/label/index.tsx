@@ -1,10 +1,18 @@
 import { LabelHTMLAttributes } from "react";
+import { tv, VariantProps } from "tailwind-variants";
 
-export type LabelProps = LabelHTMLAttributes<HTMLLabelElement> & {};
+const labelVariant = tv({
+  base: "font-bold",
+});
 
-export function Label({ children, ...rest }: LabelProps) {
+export type LabelProps =
+  LabelHTMLAttributes<HTMLLabelElement> & {} & VariantProps<
+      typeof labelVariant
+    >;
+
+export function Label({ children, className, ...rest }: LabelProps) {
   return (
-    <label {...rest} className="font-bold">
+    <label {...rest} className={labelVariant({ className })}>
       {children}
     </label>
   );

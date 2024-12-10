@@ -1,5 +1,5 @@
+import { useState } from "react";
 import { Check } from "lucide-react";
-import React, { useState } from "react";
 import { tv, VariantProps } from "tailwind-variants";
 
 const variants = tv({
@@ -7,6 +7,7 @@ const variants = tv({
   variants: {
     checked: {
       true: "border border-yellow-700 bg-yellow-700 text-zinc-50",
+      indeterminated: "",
     },
     disabled: {
       true: "bg-zinc-200 border-zinc-300 cursor-not-allowed",
@@ -17,13 +18,24 @@ const variants = tv({
   },
 });
 
-export type CheckboxProps = VariantProps<typeof variants> & {};
+export type CheckboxProps = VariantProps<typeof variants> & {
+  onValueChange?: (value: boolean) => void;
+};
 
-export function Checkbox({ checked = false, disabled = false }: CheckboxProps) {
-  const [isChecked, setIsChecked] = useState<boolean>(checked);
+export function Checkbox({
+  checked = false,
+  disabled = false,
+  onValueChange,
+}: CheckboxProps) {
+  const [isChecked, setIsChecked] = useState<boolean | "indeterminated">(
+    checked
+  );
 
   const toggleCheck = () => {
     setIsChecked(!isChecked);
+    if (onValueChange) {
+      onValueChange(!isChecked);
+    }
   };
 
   return (
