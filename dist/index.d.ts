@@ -462,4 +462,56 @@ type AvatarProps = {
 };
 declare function Avatar({ image, username }: AvatarProps): react_jsx_runtime.JSX.Element;
 
-export { Avatar, type AvatarProps, Button, type ButtonProps, Checkbox, type CheckboxProps, Footer, type FooterProps, Header, Heading, type HeadingProps, Input, InputFile, type InputFileProps, type InputProps, Label, type LabelProps, Menu, type MenuProps, Select, type SelectRootProps, Text, type TextProps, headingVariant, textVariant };
+type TableRootProps = {} & React.TableHTMLAttributes<HTMLTableElement>;
+type THeadProps = {} & React.TableHTMLAttributes<HTMLTableSectionElement>;
+type TBodyProps = {} & React.TableHTMLAttributes<HTMLTableSectionElement>;
+type RowProps = {} & React.TableHTMLAttributes<HTMLTableRowElement>;
+declare const cellHeadVariant: tailwind_variants.TVReturnType<{
+    position: {
+        first: string;
+        last: string;
+    };
+}, undefined, "bg-zinc-200 p-4 text-left text-zinc-600", tailwind_variants_dist_config.TVConfig<{
+    position: {
+        first: string;
+        last: string;
+    };
+}, {
+    position: {
+        first: string;
+        last: string;
+    };
+}>, {
+    position: {
+        first: string;
+        last: string;
+    };
+}, undefined, tailwind_variants.TVReturnType<{
+    position: {
+        first: string;
+        last: string;
+    };
+}, undefined, "bg-zinc-200 p-4 text-left text-zinc-600", tailwind_variants_dist_config.TVConfig<{
+    position: {
+        first: string;
+        last: string;
+    };
+}, {
+    position: {
+        first: string;
+        last: string;
+    };
+}>, unknown, unknown, undefined>>;
+type CellHeadProps = {} & React.TableHTMLAttributes<HTMLTableCellElement> & VariantProps<typeof cellHeadVariant>;
+type CellBodyProps = {} & React.TableHTMLAttributes<HTMLTableCellElement>;
+declare const Table: {
+    Root: ({ children, ...rest }: TableRootProps) => react_jsx_runtime.JSX.Element;
+    Caption: ({ children, ...rest }: TableRootProps) => react_jsx_runtime.JSX.Element;
+    THead: ({ children, ...rest }: THeadProps) => react_jsx_runtime.JSX.Element;
+    TBody: ({ children, ...rest }: TBodyProps) => react_jsx_runtime.JSX.Element;
+    Tr: ({ children, ...rest }: RowProps) => react_jsx_runtime.JSX.Element;
+    Th: ({ children, position, ...rest }: CellHeadProps) => react_jsx_runtime.JSX.Element;
+    Td: ({ children, ...rest }: CellBodyProps) => react_jsx_runtime.JSX.Element;
+};
+
+export { Avatar, type AvatarProps, Button, type ButtonProps, type CellBodyProps, type CellHeadProps, Checkbox, type CheckboxProps, Footer, type FooterProps, Header, Heading, type HeadingProps, Input, InputFile, type InputFileProps, type InputProps, Label, type LabelProps, Menu, type MenuProps, type RowProps, Select, type SelectRootProps, type TBodyProps, type THeadProps, Table, type TableRootProps, Text, type TextProps, headingVariant, textVariant };

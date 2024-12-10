@@ -70,6 +70,7 @@ __export(src_exports, {
   Label: () => Label,
   Menu: () => Menu,
   Select: () => Select,
+  Table: () => Table,
   Text: () => Text,
   headingVariant: () => headingVariant,
   textVariant: () => textVariant
@@ -529,6 +530,56 @@ var TextArea = (0, import_react6.forwardRef)(
   }
 );
 TextArea.displayName = "TextArea";
+
+// src/components/ui/table/index.tsx
+var import_tailwind_variants12 = require("tailwind-variants");
+var import_jsx_runtime19 = require("react/jsx-runtime");
+var cellHeadVariant = (0, import_tailwind_variants12.tv)({
+  base: "bg-zinc-200 p-4 text-left text-zinc-600",
+  variants: {
+    position: {
+      first: "rounded-tl-lg",
+      last: "rounded-tr-lg"
+    }
+  }
+});
+var Table = {
+  Root: (_a) => {
+    var _b = _a, { children } = _b, rest = __objRest(_b, ["children"]);
+    return /* @__PURE__ */ (0, import_jsx_runtime19.jsx)("table", __spreadProps(__spreadValues({ className: "m-auto mt-6 w-full max-w-[1120px]" }, rest), { children }));
+  },
+  Caption: (_c) => {
+    var _d = _c, { children } = _d, rest = __objRest(_d, ["children"]);
+    return /* @__PURE__ */ (0, import_jsx_runtime19.jsx)(
+      "caption",
+      __spreadProps(__spreadValues({
+        className: "rounded-t-lg border-b border-b-zinc-300 bg-zinc-950 p-4"
+      }, rest), {
+        children
+      })
+    );
+  },
+  THead: (_e) => {
+    var _f = _e, { children } = _f, rest = __objRest(_f, ["children"]);
+    return /* @__PURE__ */ (0, import_jsx_runtime19.jsx)("thead", __spreadProps(__spreadValues({ className: "rounded-t" }, rest), { children }));
+  },
+  TBody: (_g) => {
+    var _h = _g, { children } = _h, rest = __objRest(_h, ["children"]);
+    return /* @__PURE__ */ (0, import_jsx_runtime19.jsx)("tbody", __spreadProps(__spreadValues({}, rest), { children }));
+  },
+  Tr: (_i) => {
+    var _j = _i, { children } = _j, rest = __objRest(_j, ["children"]);
+    return /* @__PURE__ */ (0, import_jsx_runtime19.jsx)("tr", __spreadProps(__spreadValues({ className: "rounded-t bg-zinc-50" }, rest), { children }));
+  },
+  Th: (_k) => {
+    var _l = _k, { children, position } = _l, rest = __objRest(_l, ["children", "position"]);
+    return /* @__PURE__ */ (0, import_jsx_runtime19.jsx)("th", __spreadProps(__spreadValues({}, rest), { className: cellHeadVariant({ position }), children }));
+  },
+  Td: (_m) => {
+    var _n = _m, { children } = _n, rest = __objRest(_n, ["children"]);
+    return /* @__PURE__ */ (0, import_jsx_runtime19.jsx)("td", __spreadProps(__spreadValues({ className: "border-b border-b-zinc-200 px-4 py-2" }, rest), { children }));
+  }
+};
 // Annotate the CommonJS export names for ESM import in node:
 0 && (module.exports = {
   Avatar,
@@ -542,6 +593,7 @@ TextArea.displayName = "TextArea";
   Label,
   Menu,
   Select,
+  Table,
   Text,
   headingVariant,
   textVariant
