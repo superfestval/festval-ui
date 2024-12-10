@@ -11,3 +11,4 @@ export * from "@/components/ui/form/label";
 export * from "@/components/ui/form/select";
 export * from "@/components/ui/form/textarea";
 export * from "@/components/ui/avatar";
+export * from "@/components/ui/table";
