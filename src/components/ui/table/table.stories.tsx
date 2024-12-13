@@ -1,10 +1,13 @@
 import { useState } from "react";
 import { Meta, StoryObj } from "@storybook/react";
 import {
+  ColumnSort,
   createColumnHelper,
   flexRender,
   getCoreRowModel,
   getFilteredRowModel,
+  getSortedRowModel,
+  SortingState,
   useReactTable,
 } from "@tanstack/react-table";
 
@@ -36,7 +39,7 @@ const defaultData: User[] = [
     status: "Married",
   },
   {
-    id: 1,
+    id: 2,
     firstName: "Kevin",
     lastName: "Vandy",
     email: "kevin@gmail.com",
@@ -66,7 +69,7 @@ const columns = [
         onValueChange={(value) => row.toggleSelected(value)}
       />
     ),
-    enableSorting: false,
+    enableSorting: true,
     enableHiding: false,
   }),
   columnHelper.accessor("id", {
@@ -77,6 +80,7 @@ const columns = [
   columnHelper.accessor("firstName", {
     header: () => "First name",
     cell: (info) => info.getValue(),
+    enableSorting: true,
   }),
   columnHelper.accessor("email", {
     header: () => "E-mail",
@@ -140,6 +144,71 @@ export default {
 } as Meta<TableRootProps>;
 
 export const Default: StoryObj<TableRootProps> = {};
+
+export const Ordenable: StoryObj<TableRootProps> = {
+  render: ({ children, ...rest }) => {
+    const [sorting, setSorting] = useState<SortingState>([]);
+    const [data, _setData] = useState<User[]>(() => [...defaultData]);
+
+    const table = useReactTable({
+      data,
+      columns,
+      onSortingChange: setSorting,
+      getCoreRowModel: getCoreRowModel(),
+      getSortedRowModel: getSortedRowModel(),
+      getFilteredRowModel: getFilteredRowModel(),
+      state: {
+        sorting,
+      },
+    });
+
+    return (
+      <Table.Root>
+        <Table.THead>
+          {table.getHeaderGroups().map((item) => (
+            <Table.Tr key={item.id}>
+              {item.headers.map((header, index) =>
+                index > 0 ? (
+                  <Table.Th
+                    key={header.id}
+                    onClick={header.column.getToggleSortingHandler}
+                  >
+                    {header.isPlaceholder
+                      ? null
+                      : flexRender(
+                          header.column.columnDef.header,
+                          header.getContext()
+                        )}
+                  </Table.Th>
+                ) : (
+                  <Table.Th key={header.id}>
+                    {header.isPlaceholder
+                      ? null
+                      : flexRender(
+                          header.column.columnDef.header,
+                          header.getContext()
+                        )}
+                  </Table.Th>
+                )
+              )}
+            </Table.Tr>
+          ))}
+        </Table.THead>
+        <Table.TBody>
+          {table.getRowModel().rows.map((row) => (
+            <Table.Tr key={row.id}>
+              {row.getVisibleCells().map((cell) => (
+                <Table.Td key={cell.id}>
+                  {flexRender(cell.column.columnDef.cell, cell.getContext())}
+                </Table.Td>
+              ))}
+            </Table.Tr>
+          ))}
+        </Table.TBody>
+      </Table.Root>
+    );
+  },
+};
 
 export const WithCaption: StoryObj<TableRootProps> = {
   render: ({ children, ...rest }) => {

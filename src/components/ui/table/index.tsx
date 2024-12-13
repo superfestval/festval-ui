@@ -1,3 +1,4 @@
+import { ArrowDownUp } from "lucide-react";
 import { tv, VariantProps } from "tailwind-variants";
 
 export type TableRootProps = {} & React.TableHTMLAttributes<HTMLTableElement>;
@@ -20,9 +21,10 @@ const cellHeadVariant = tv({
   },
 });
 
-export type CellHeadProps =
-  {} & React.TableHTMLAttributes<HTMLTableCellElement> &
-    VariantProps<typeof cellHeadVariant>;
+export type CellHeadProps = {
+  onClick?: () => void;
+} & React.TableHTMLAttributes<HTMLTableCellElement> &
+  VariantProps<typeof cellHeadVariant>;
 
 export type CellBodyProps =
   {} & React.TableHTMLAttributes<HTMLTableCellElement>;
@@ -54,9 +56,15 @@ export const Table = {
       {children}
     </tr>
   ),
-  Th: ({ children, position, ...rest }: CellHeadProps) => (
+  Th: ({ children, position, onClick, ...rest }: CellHeadProps) => (
     <th {...rest} className={cellHeadVariant({ position })}>
       {children}
+
+      {onClick && (
+        <button onClick={onClick} className="ml-4">
+          <ArrowDownUp size={12} />
+        </button>
+      )}
     </th>
   ),
   Td: ({ children, ...rest }: CellBodyProps) => (
