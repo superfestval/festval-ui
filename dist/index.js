@@ -568,10 +568,18 @@ var triggerVariable = (0, import_tailwind_variants10.tv)({
 });
 var Trigger4 = ({ placeholder }) => {
   const { value, isOpen, onTriggerClick } = useSelect();
-  return /* @__PURE__ */ (0, import_jsx_runtime23.jsxs)("button", { onClick: onTriggerClick, className: triggerVariable({ isOpen }), children: [
-    value ? value : placeholder,
-    isOpen ? /* @__PURE__ */ (0, import_jsx_runtime23.jsx)(import_react_icons.ChevronUpIcon, {}) : /* @__PURE__ */ (0, import_jsx_runtime23.jsx)(import_react_icons.ChevronDownIcon, {})
-  ] });
+  return /* @__PURE__ */ (0, import_jsx_runtime23.jsxs)(
+    "button",
+    {
+      type: "button",
+      onClick: onTriggerClick,
+      className: triggerVariable({ isOpen }),
+      children: [
+        value ? value : placeholder,
+        isOpen ? /* @__PURE__ */ (0, import_jsx_runtime23.jsx)(import_react_icons.ChevronUpIcon, {}) : /* @__PURE__ */ (0, import_jsx_runtime23.jsx)(import_react_icons.ChevronDownIcon, {})
+      ]
+    }
+  );
 };
 
 // src/components/ui/form/select/index.tsx

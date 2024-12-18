@@ -519,10 +519,18 @@ var triggerVariable = tv10({
 });
 var Trigger4 = ({ placeholder }) => {
   const { value, isOpen, onTriggerClick } = useSelect();
-  return /* @__PURE__ */ jsxs5("button", { onClick: onTriggerClick, className: triggerVariable({ isOpen }), children: [
-    value ? value : placeholder,
-    isOpen ? /* @__PURE__ */ jsx23(ChevronUpIcon, {}) : /* @__PURE__ */ jsx23(ChevronDownIcon, {})
-  ] });
+  return /* @__PURE__ */ jsxs5(
+    "button",
+    {
+      type: "button",
+      onClick: onTriggerClick,
+      className: triggerVariable({ isOpen }),
+      children: [
+        value ? value : placeholder,
+        isOpen ? /* @__PURE__ */ jsx23(ChevronUpIcon, {}) : /* @__PURE__ */ jsx23(ChevronDownIcon, {})
+      ]
+    }
+  );
 };
 
 // src/components/ui/form/select/index.tsx
