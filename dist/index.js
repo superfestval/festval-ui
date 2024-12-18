@@ -74,7 +74,8 @@ __export(src_exports, {
   Menu: () => Menu,
   Select: () => Select,
   Table: () => Table,
-  Text: () => Text
+  Text: () => Text,
+  TextArea: () => TextArea
 });
 module.exports = __toCommonJS(src_exports);
 
@@ -891,5 +892,6 @@ function Heading(_a) {
   Menu,
   Select,
   Table,
-  Text
+  Text,
+  TextArea
 });

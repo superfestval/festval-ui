@@ -842,5 +842,6 @@ export {
   Menu,
   Select,
   Table,
-  Text
+  Text,
+  TextArea
 };
