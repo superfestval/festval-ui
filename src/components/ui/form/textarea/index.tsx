@@ -17,7 +17,7 @@ type TextAreaProps = TextareaHTMLAttributes<HTMLTextAreaElement> & {
   error?: string;
 };
 
-const TextArea = forwardRef<HTMLTextAreaElement, TextAreaProps>(
+export const TextArea = forwardRef<HTMLTextAreaElement, TextAreaProps>(
   ({ error, name, className, ...rest }, ref) => (
     <>
       <div className={variants({ className })}>
@@ -35,5 +35,3 @@ const TextArea = forwardRef<HTMLTextAreaElement, TextAreaProps>(
 );
 
 TextArea.displayName = "TextArea";
-
-export default TextArea;
