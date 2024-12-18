@@ -21,7 +21,11 @@ export const Trigger = ({ placeholder }: SelectTriggerProps) => {
   const { value, isOpen, onTriggerClick } = useSelect();
 
   return (
-    <button onClick={onTriggerClick} className={triggerVariable({ isOpen })}>
+    <button
+      type="button"
+      onClick={onTriggerClick}
+      className={triggerVariable({ isOpen })}
+    >
       {value ? value : placeholder}
       {isOpen ? <ChevronUpIcon /> : <ChevronDownIcon />}
     </button>
