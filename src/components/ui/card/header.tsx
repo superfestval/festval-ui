@@ -22,12 +22,17 @@ export type HeaderProps = {
 } & HTMLAttributes<HTMLDivElement> &
   VariantProps<typeof headerVariant>;
 
-export const Header = ({ children, iconColor, icon: Icon }: HeaderProps) => {
+export const Header = ({
+  children,
+  iconColor,
+  icon: Icon,
+  className,
+}: HeaderProps) => {
   return (
     <div className="flex items-start justify-between rounded-t bg-zinc-200 p-4">
       {children}
       {Icon && (
-        <div className={iconVariant({ variant: iconColor })}>
+        <div className={iconVariant({ variant: iconColor, className })}>
           <Icon size={16} />
         </div>
       )}
