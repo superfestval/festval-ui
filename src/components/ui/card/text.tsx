@@ -1,9 +1,13 @@
 import { ReactNode } from "react";
 
-export type TextProps = {
+export type CardTextProps = {
   children: ReactNode;
 };
 
-export const Text = ({ children }: TextProps) => {
-  return <p className="text-md text-zinc-400">{children}</p>;
+export const CardText = ({ children, ...rest }: CardTextProps) => {
+  return (
+    <p className="text-md text-zinc-400" {...rest}>
+      {children}
+    </p>
+  );
 };

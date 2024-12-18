@@ -1,24 +1,24 @@
 import { Body, BodyProps } from "./body";
-import { Footer, FooterProps } from "./footer";
-import { Header, HeaderProps } from "./header";
-import { Heading, HeadingProps } from "./heading";
 import { Root, RootProps } from "./root";
-import { Text, TextProps } from "./text";
+import { Header, HeaderProps } from "./header";
+import { CardText, CardTextProps } from "./text";
+import { CardFooter, CardFooterProps } from "./footer";
+import { CardHeading, CardHeadingProps } from "./heading";
 
 export const Card = {
   Root,
   Header,
   Body,
-  Heading,
-  Text,
-  Footer,
+  CardHeading,
+  CardText,
+  CardFooter,
 };
 
 export type {
   RootProps,
-  HeadingProps,
+  CardHeadingProps,
   HeaderProps,
   BodyProps,
-  TextProps,
-  FooterProps,
+  CardTextProps,
+  CardFooterProps,
 };

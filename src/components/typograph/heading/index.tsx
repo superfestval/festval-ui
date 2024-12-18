@@ -1,6 +1,6 @@
 import { tv, VariantProps } from "tailwind-variants";
 
-export const headingVariant = tv({
+const headingVariant = tv({
   variants: {
     size: {
       xs: "text-base font-bold",

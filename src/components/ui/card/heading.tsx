@@ -1,9 +1,9 @@
 import { ReactNode } from 'react';
 
-export type HeadingProps = {
+export type CardHeadingProps = {
   children: ReactNode;
 };
 
-export const Heading = ({ children }: HeadingProps) => {
+export const CardHeading = ({ children }: CardHeadingProps) => {
   return <h3 className="text-xl font-bold text-zinc-500">{children}</h3>;
 };

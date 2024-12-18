@@ -1,13 +1,21 @@
 import { HTMLAttributes } from "react";
 import { tv, VariantProps } from "tailwind-variants";
 
-export const footerVariant = tv({
+const cardfooterVariant = tv({
   base: "flex items-start justify-between rounded-t bg-zinc-100 p-4 rounded-b border-t border-t-zinc-200",
 });
 
-export type FooterProps = {} & HTMLAttributes<HTMLDivElement> &
-  VariantProps<typeof footerVariant>;
+export type CardFooterProps = {} & HTMLAttributes<HTMLDivElement> &
+  VariantProps<typeof cardfooterVariant>;
 
-export const Footer = ({ children }: FooterProps) => {
-  return <div className={footerVariant()}>{children}</div>;
+export const CardFooter = ({
+  children,
+  className,
+  ...rest
+}: CardFooterProps) => {
+  return (
+    <div className={cardfooterVariant({ className })} {...rest}>
+      {children}
+    </div>
+  );
 };

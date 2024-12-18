@@ -1,7 +1,7 @@
 import { ElementType } from "react";
 import { tv, VariantProps } from "tailwind-variants";
 
-export const textVariant = tv({
+const textVariant = tv({
   variants: {
     size: {
       xs: "text-xs",
