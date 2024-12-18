@@ -13,7 +13,7 @@ const variants = tv({
   },
 });
 
-type TextAreaProps = TextareaHTMLAttributes<HTMLTextAreaElement> & {
+export type TextAreaProps = TextareaHTMLAttributes<HTMLTextAreaElement> & {
   error?: string;
 };
 

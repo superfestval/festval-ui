@@ -453,6 +453,9 @@ type CheckboxProps = VariantProps<typeof variants> & {
 };
 declare function Checkbox({ checked, disabled, onValueChange, }: CheckboxProps): react_jsx_runtime.JSX.Element;
 
+type TextAreaProps = TextareaHTMLAttributes<HTMLTextAreaElement> & {
+    error?: string;
+};
 declare const TextArea: react.ForwardRefExoticComponent<TextareaHTMLAttributes<HTMLTextAreaElement> & {
     error?: string;
 } & react.RefAttributes<HTMLTextAreaElement>>;
@@ -636,4 +639,4 @@ type HeadingProps = {
 } & React.HTMLAttributes<HTMLHeadingElement> & VariantProps<typeof headingVariant>;
 declare function Heading({ as, children, size, className, ...rest }: HeadingProps): react_jsx_runtime.JSX.Element;
 
-export { AlertDialog, type AlertDialogActionProps, type AlertDialogCancelProps, type AlertDialogContentProps, type AlertDialogDescriptionProps, type AlertDialogOverlayProps, type AlertDialogPortalProps, type AlertDialogRootProps, type AlertDialogTitleProps, type AlertDialogTriggerProps, Avatar, type AvatarProps, type BodyProps, Button, type ButtonProps, Card, type CardFooterProps, type CellBodyProps, type CellHeadProps, Checkbox, type CheckboxProps, Dialog, type DialogCloseProps, type DialogContainerProps, type DialogContentProps, type DialogDescriptionProps, type DialogFooterProps, type DialogHeaderProps, type DialogOverlayProps, type DialogPortalProps, type DialogRootProps, type DialogTitleProps, type DialogTriggerProps, Footer, type FooterProps, Header, type HeaderProps, Heading, type HeadingProps, Input, InputFile, type InputFileProps, type InputProps, Label, type LabelProps, Menu, type MenuProps, type RootProps, type RowProps, Select, type SelectRootProps, type TBodyProps, type THeadProps, Table, type TableRootProps, Text, TextArea, type TextProps };
+export { AlertDialog, type AlertDialogActionProps, type AlertDialogCancelProps, type AlertDialogContentProps, type AlertDialogDescriptionProps, type AlertDialogOverlayProps, type AlertDialogPortalProps, type AlertDialogRootProps, type AlertDialogTitleProps, type AlertDialogTriggerProps, Avatar, type AvatarProps, type BodyProps, Button, type ButtonProps, Card, type CardFooterProps, type CellBodyProps, type CellHeadProps, Checkbox, type CheckboxProps, Dialog, type DialogCloseProps, type DialogContainerProps, type DialogContentProps, type DialogDescriptionProps, type DialogFooterProps, type DialogHeaderProps, type DialogOverlayProps, type DialogPortalProps, type DialogRootProps, type DialogTitleProps, type DialogTriggerProps, Footer, type FooterProps, Header, type HeaderProps, Heading, type HeadingProps, Input, InputFile, type InputFileProps, type InputProps, Label, type LabelProps, Menu, type MenuProps, type RootProps, type RowProps, Select, type SelectRootProps, type TBodyProps, type THeadProps, Table, type TableRootProps, Text, TextArea, type TextAreaProps, type TextProps };
