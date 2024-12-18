@@ -188,15 +188,19 @@ declare const buttonVariant: tailwind_variants.TVReturnType<{
         default: string;
         secondary: string;
         link: string;
+        destructive: string;
+        ghost: string;
     };
     disabled: {
         true: string;
     };
-}, undefined, "px-4 py-2 rounded text-zinc-50 transition-colors", tailwind_variants_dist_config.TVConfig<{
+}, undefined, "px-4 py-2 rounded text-zinc-50 transition-colors flex gap-2", tailwind_variants_dist_config.TVConfig<{
     variant: {
         default: string;
         secondary: string;
         link: string;
+        destructive: string;
+        ghost: string;
     };
     disabled: {
         true: string;
@@ -206,6 +210,8 @@ declare const buttonVariant: tailwind_variants.TVReturnType<{
         default: string;
         secondary: string;
         link: string;
+        destructive: string;
+        ghost: string;
     };
     disabled: {
         true: string;
@@ -215,6 +221,8 @@ declare const buttonVariant: tailwind_variants.TVReturnType<{
         default: string;
         secondary: string;
         link: string;
+        destructive: string;
+        ghost: string;
     };
     disabled: {
         true: string;
@@ -224,15 +232,19 @@ declare const buttonVariant: tailwind_variants.TVReturnType<{
         default: string;
         secondary: string;
         link: string;
+        destructive: string;
+        ghost: string;
     };
     disabled: {
         true: string;
     };
-}, undefined, "px-4 py-2 rounded text-zinc-50 transition-colors", tailwind_variants_dist_config.TVConfig<{
+}, undefined, "px-4 py-2 rounded text-zinc-50 transition-colors flex gap-2", tailwind_variants_dist_config.TVConfig<{
     variant: {
         default: string;
         secondary: string;
         link: string;
+        destructive: string;
+        ghost: string;
     };
     disabled: {
         true: string;
@@ -242,6 +254,8 @@ declare const buttonVariant: tailwind_variants.TVReturnType<{
         default: string;
         secondary: string;
         link: string;
+        destructive: string;
+        ghost: string;
     };
     disabled: {
         true: string;
@@ -249,8 +263,10 @@ declare const buttonVariant: tailwind_variants.TVReturnType<{
 }>, unknown, unknown, undefined>>;
 type ButtonProps = {
     as?: ElementType;
+    iconLeft?: react__default.ElementType;
+    iconRight?: react__default.ElementType;
 } & ButtonHTMLAttributes<HTMLButtonElement> & VariantProps<typeof buttonVariant> & react__default.ComponentPropsWithoutRef<ElementType>;
-declare function Button({ as, variant, children, disabled, className, ...rest }: ButtonProps): react_jsx_runtime.JSX.Element;
+declare function Button({ as, variant, children, disabled, className, iconLeft, iconRight, ...rest }: ButtonProps): react_jsx_runtime.JSX.Element;
 declare namespace Button {
     var displayName: string;
 }
@@ -428,7 +444,7 @@ declare const Input: react.ForwardRefExoticComponent<InputHTMLAttributes<HTMLInp
 type InputFileProps = {} & InputHTMLAttributes<HTMLInputElement>;
 declare const InputFile: react.ForwardRefExoticComponent<InputHTMLAttributes<HTMLInputElement> & react.RefAttributes<HTMLInputElement>>;
 
-declare const labelVariant: tailwind_variants.TVReturnType<{} | {} | {}, undefined, "font-bold", tailwind_variants_dist_config.TVConfig<unknown, {} | {}>, {} | {}, undefined, tailwind_variants.TVReturnType<unknown, undefined, "font-bold", tailwind_variants_dist_config.TVConfig<unknown, {} | {}>, unknown, unknown, undefined>>;
+declare const labelVariant: tailwind_variants.TVReturnType<{} | {} | {}, undefined, "font-bold text-zinc-600", tailwind_variants_dist_config.TVConfig<unknown, {} | {}>, {} | {}, undefined, tailwind_variants.TVReturnType<unknown, undefined, "font-bold text-zinc-600", tailwind_variants_dist_config.TVConfig<unknown, {} | {}>, unknown, unknown, undefined>>;
 type LabelProps = LabelHTMLAttributes<HTMLLabelElement> & {} & VariantProps<typeof labelVariant>;
 declare function Label({ children, className, ...rest }: LabelProps): react_jsx_runtime.JSX.Element;
 
@@ -502,7 +518,9 @@ declare const cellHeadVariant: tailwind_variants.TVReturnType<{
         last: string;
     };
 }>, unknown, unknown, undefined>>;
-type CellHeadProps = {} & React.TableHTMLAttributes<HTMLTableCellElement> & VariantProps<typeof cellHeadVariant>;
+type CellHeadProps = {
+    onClick?: () => void;
+} & React.TableHTMLAttributes<HTMLTableCellElement> & VariantProps<typeof cellHeadVariant>;
 type CellBodyProps = {} & React.TableHTMLAttributes<HTMLTableCellElement>;
 declare const Table: {
     Root: ({ children, ...rest }: TableRootProps) => react_jsx_runtime.JSX.Element;
@@ -510,7 +528,7 @@ declare const Table: {
     THead: ({ children, ...rest }: THeadProps) => react_jsx_runtime.JSX.Element;
     TBody: ({ children, ...rest }: TBodyProps) => react_jsx_runtime.JSX.Element;
     Tr: ({ children, ...rest }: RowProps) => react_jsx_runtime.JSX.Element;
-    Th: ({ children, position, ...rest }: CellHeadProps) => react_jsx_runtime.JSX.Element;
+    Th: ({ children, position, onClick, ...rest }: CellHeadProps) => react_jsx_runtime.JSX.Element;
     Td: ({ children, ...rest }: CellBodyProps) => react_jsx_runtime.JSX.Element;
 };
 

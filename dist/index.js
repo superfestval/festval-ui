@@ -135,12 +135,14 @@ function Avatar({ image, username }) {
 var import_tailwind_variants3 = require("tailwind-variants");
 var import_jsx_runtime5 = require("react/jsx-runtime");
 var buttonVariant = (0, import_tailwind_variants3.tv)({
-  base: "px-4 py-2 rounded text-zinc-50 transition-colors",
+  base: "px-4 py-2 rounded text-zinc-50 transition-colors flex gap-2",
   variants: {
     variant: {
       default: "bg-yellow-600 hover:bg-yellow-600/75",
-      secondary: "bg-zinc-800 hover:bg-zinc-800/75",
-      link: "bg-zin-100 text-yellow-600 underline"
+      secondary: "bg-zinc-800 text-zinc-400 hover:bg-zinc-800/75",
+      link: "bg-zin-100 text-yellow-600 underline",
+      destructive: "bg-rose-600 text-rose-200 hover:bg-rose-600/75",
+      ghost: "bg-zinc-200 text-zinc-500 hover:bg-zinc-200/75"
     },
     disabled: {
       true: "bg-zinc-600 hover:bg-zinc-600/75 cursor-not-allowed"
@@ -156,16 +158,26 @@ function Button(_a) {
     variant,
     children,
     disabled,
-    className
+    className,
+    iconLeft,
+    iconRight
   } = _b, rest = __objRest(_b, [
     "as",
     "variant",
     "children",
     "disabled",
-    "className"
+    "className",
+    "iconLeft",
+    "iconRight"
   ]);
   const As = as || "button";
-  return /* @__PURE__ */ (0, import_jsx_runtime5.jsx)(As, __spreadProps(__spreadValues({}, rest), { className: buttonVariant({ className, variant, disabled }), children }));
+  const IconLeft = iconLeft;
+  const IconRight = iconRight;
+  return /* @__PURE__ */ (0, import_jsx_runtime5.jsxs)(As, __spreadProps(__spreadValues({}, rest), { className: buttonVariant({ className, variant, disabled }), children: [
+    IconLeft && /* @__PURE__ */ (0, import_jsx_runtime5.jsx)(IconLeft, {}),
+    children,
+    IconRight && /* @__PURE__ */ (0, import_jsx_runtime5.jsx)(IconRight, {})
+  ] }));
 }
 Button.displayName = "Button";
 
@@ -337,6 +349,7 @@ var Input = (0, import_react2.forwardRef)(
 Input.displayName = "Input";
 
 // src/components/ui/form/input-file/index.tsx
+var import_lucide_react2 = require("lucide-react");
 var import_react3 = require("react");
 var import_jsx_runtime11 = require("react/jsx-runtime");
 var InputFile = (0, import_react3.forwardRef)(
@@ -344,14 +357,15 @@ var InputFile = (0, import_react3.forwardRef)(
     var _b = _a, { accept = ".pdf" } = _b, rest = __objRest(_b, ["accept"]);
     const [files, setFiles] = (0, import_react3.useState)(null);
     const onInputChange = (e) => setFiles(e.currentTarget.files);
-    return /* @__PURE__ */ (0, import_jsx_runtime11.jsxs)("div", { className: "flex h-full min-h-[80px] w-full items-center justify-center rounded border border-dashed border-zinc-200 bg-zinc-100 text-zinc-950", children: [
+    return /* @__PURE__ */ (0, import_jsx_runtime11.jsxs)("div", { className: "flex w-full items-center justify-center rounded border border-dashed border-zinc-200 bg-zinc-100 text-zinc-950", children: [
       /* @__PURE__ */ (0, import_jsx_runtime11.jsx)(
         "label",
         {
           htmlFor: "file",
-          className: "flex h-full w-full items-center justify-center text-center",
-          children: /* @__PURE__ */ (0, import_jsx_runtime11.jsx)("div", { className: "flex w-full items-center justify-center", children: /* @__PURE__ */ (0, import_jsx_runtime11.jsx)("small", { children: !files ? /* @__PURE__ */ (0, import_jsx_runtime11.jsxs)("div", { children: [
+          className: "flex h-full w-full cursor-pointer items-center justify-center text-center",
+          children: /* @__PURE__ */ (0, import_jsx_runtime11.jsx)("div", { className: "flex w-full items-center justify-center", children: /* @__PURE__ */ (0, import_jsx_runtime11.jsx)("small", { children: !files ? /* @__PURE__ */ (0, import_jsx_runtime11.jsxs)("div", { className: "p-4", children: [
             /* @__PURE__ */ (0, import_jsx_runtime11.jsx)("p", { children: "Clique aqui para inserir um documento" }),
+            /* @__PURE__ */ (0, import_jsx_runtime11.jsx)("div", { className: "flex items-center justify-center p-4", children: /* @__PURE__ */ (0, import_jsx_runtime11.jsx)(import_lucide_react2.UploadIcon, { className: "text-zinc-400" }) }),
             /* @__PURE__ */ (0, import_jsx_runtime11.jsxs)("small", { className: "text-zinc-500", children: [
               "(Somente arquivos ",
               accept,
@@ -359,7 +373,7 @@ var InputFile = (0, import_react3.forwardRef)(
             ] })
           ] }) : /* @__PURE__ */ (0, import_jsx_runtime11.jsxs)("div", { className: "p-4", children: [
             /* @__PURE__ */ (0, import_jsx_runtime11.jsx)("p", { children: "Arquivos selecionados:" }),
-            /* @__PURE__ */ (0, import_jsx_runtime11.jsx)("div", { children: Array.from(files).map((item, index) => /* @__PURE__ */ (0, import_jsx_runtime11.jsxs)("small", { children: [
+            /* @__PURE__ */ (0, import_jsx_runtime11.jsx)("div", { className: "mt-4", children: Array.from(files).map((item, index) => /* @__PURE__ */ (0, import_jsx_runtime11.jsxs)("small", { children: [
               item.name,
               " ",
               index > 0 && ", "
@@ -388,7 +402,7 @@ var InputFile = (0, import_react3.forwardRef)(
 var import_tailwind_variants8 = require("tailwind-variants");
 var import_jsx_runtime12 = require("react/jsx-runtime");
 var labelVariant = (0, import_tailwind_variants8.tv)({
-  base: "font-bold"
+  base: "font-bold text-zinc-600"
 });
 function Label(_a) {
   var _b = _a, { children, className } = _b, rest = __objRest(_b, ["children", "className"]);
@@ -455,6 +469,7 @@ var Item2 = ({ value, children }) => {
   return /* @__PURE__ */ (0, import_jsx_runtime15.jsx)(
     "button",
     {
+      type: "button",
       onClick,
       className: "w-full border-b border-b-zinc-200 bg-zinc-100 px-4 py-2 text-left",
       children
@@ -532,6 +547,7 @@ var TextArea = (0, import_react6.forwardRef)(
 TextArea.displayName = "TextArea";
 
 // src/components/ui/table/index.tsx
+var import_lucide_react3 = require("lucide-react");
 var import_tailwind_variants12 = require("tailwind-variants");
 var import_jsx_runtime19 = require("react/jsx-runtime");
 var cellHeadVariant = (0, import_tailwind_variants12.tv)({
@@ -572,8 +588,11 @@ var Table = {
     return /* @__PURE__ */ (0, import_jsx_runtime19.jsx)("tr", __spreadProps(__spreadValues({ className: "rounded-t bg-zinc-50" }, rest), { children }));
   },
   Th: (_k) => {
-    var _l = _k, { children, position } = _l, rest = __objRest(_l, ["children", "position"]);
-    return /* @__PURE__ */ (0, import_jsx_runtime19.jsx)("th", __spreadProps(__spreadValues({}, rest), { className: cellHeadVariant({ position }), children }));
+    var _l = _k, { children, position, onClick } = _l, rest = __objRest(_l, ["children", "position", "onClick"]);
+    return /* @__PURE__ */ (0, import_jsx_runtime19.jsxs)("th", __spreadProps(__spreadValues({}, rest), { className: cellHeadVariant({ position }), children: [
+      children,
+      onClick && /* @__PURE__ */ (0, import_jsx_runtime19.jsx)("button", { onClick, className: "ml-4", children: /* @__PURE__ */ (0, import_jsx_runtime19.jsx)(import_lucide_react3.ArrowDownUp, { size: 12 }) })
+    ] }));
   },
   Td: (_m) => {
     var _n = _m, { children } = _n, rest = __objRest(_n, ["children"]);

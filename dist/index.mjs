@@ -86,14 +86,16 @@ function Avatar({ image, username }) {
 
 // src/components/ui/form/button/index.tsx
 import { tv as tv3 } from "tailwind-variants";
-import { jsx as jsx4 } from "react/jsx-runtime";
+import { jsx as jsx4, jsxs as jsxs2 } from "react/jsx-runtime";
 var buttonVariant = tv3({
-  base: "px-4 py-2 rounded text-zinc-50 transition-colors",
+  base: "px-4 py-2 rounded text-zinc-50 transition-colors flex gap-2",
   variants: {
     variant: {
       default: "bg-yellow-600 hover:bg-yellow-600/75",
-      secondary: "bg-zinc-800 hover:bg-zinc-800/75",
-      link: "bg-zin-100 text-yellow-600 underline"
+      secondary: "bg-zinc-800 text-zinc-400 hover:bg-zinc-800/75",
+      link: "bg-zin-100 text-yellow-600 underline",
+      destructive: "bg-rose-600 text-rose-200 hover:bg-rose-600/75",
+      ghost: "bg-zinc-200 text-zinc-500 hover:bg-zinc-200/75"
     },
     disabled: {
       true: "bg-zinc-600 hover:bg-zinc-600/75 cursor-not-allowed"
@@ -109,26 +111,36 @@ function Button(_a) {
     variant,
     children,
     disabled,
-    className
+    className,
+    iconLeft,
+    iconRight
   } = _b, rest = __objRest(_b, [
     "as",
     "variant",
     "children",
     "disabled",
-    "className"
+    "className",
+    "iconLeft",
+    "iconRight"
   ]);
   const As = as || "button";
-  return /* @__PURE__ */ jsx4(As, __spreadProps(__spreadValues({}, rest), { className: buttonVariant({ className, variant, disabled }), children }));
+  const IconLeft = iconLeft;
+  const IconRight = iconRight;
+  return /* @__PURE__ */ jsxs2(As, __spreadProps(__spreadValues({}, rest), { className: buttonVariant({ className, variant, disabled }), children: [
+    IconLeft && /* @__PURE__ */ jsx4(IconLeft, {}),
+    children,
+    IconRight && /* @__PURE__ */ jsx4(IconRight, {})
+  ] }));
 }
 Button.displayName = "Button";
 
 // src/components/surfaces/menu/index.tsx
-import { jsx as jsx5, jsxs as jsxs2 } from "react/jsx-runtime";
+import { jsx as jsx5, jsxs as jsxs3 } from "react/jsx-runtime";
 function Menu({ signOut, children, username, avatarImage }) {
-  return /* @__PURE__ */ jsx5(Navigation.Root, { id: "navigation", children: /* @__PURE__ */ jsx5(Navigation.List, { children: /* @__PURE__ */ jsxs2(Navigation.Item, { children: [
+  return /* @__PURE__ */ jsx5(Navigation.Root, { id: "navigation", children: /* @__PURE__ */ jsx5(Navigation.List, { children: /* @__PURE__ */ jsxs3(Navigation.Item, { children: [
     /* @__PURE__ */ jsx5(Navigation.Trigger, { children }),
-    /* @__PURE__ */ jsxs2(Navigation.Content, { className: "absolute right-2 w-[300px] rounded bg-zinc-50 shadow", children: [
-      /* @__PURE__ */ jsxs2("div", { className: "flex w-full items-center gap-4 border-b border-b-zinc-200 p-2", children: [
+    /* @__PURE__ */ jsxs3(Navigation.Content, { className: "absolute right-2 w-[300px] rounded bg-zinc-50 shadow", children: [
+      /* @__PURE__ */ jsxs3("div", { className: "flex w-full items-center gap-4 border-b border-b-zinc-200 p-2", children: [
         /* @__PURE__ */ jsx5(Avatar, { image: avatarImage, username }),
         /* @__PURE__ */ jsx5("p", { className: "inline-block", children: username })
       ] }),
@@ -247,7 +259,7 @@ function Checkbox({
 import { tv as tv7 } from "tailwind-variants";
 import { forwardRef } from "react";
 import { InputMask } from "@react-input/mask";
-import { Fragment, jsx as jsx9, jsxs as jsxs3 } from "react/jsx-runtime";
+import { Fragment, jsx as jsx9, jsxs as jsxs4 } from "react/jsx-runtime";
 var variants2 = tv7({
   base: "w-full bg-zinc-50 p-2 rounded",
   variants: {
@@ -265,7 +277,7 @@ var variants2 = tv7({
 var Input = forwardRef(
   (_a, ref) => {
     var _b = _a, { mask, error, name, className } = _b, rest = __objRest(_b, ["mask", "error", "name", "className"]);
-    return /* @__PURE__ */ jsxs3(Fragment, { children: [
+    return /* @__PURE__ */ jsxs4(Fragment, { children: [
       /* @__PURE__ */ jsx9("div", { className: variants2({ className, hasError: !!error }), children: mask ? /* @__PURE__ */ jsx9(
         InputMask,
         __spreadProps(__spreadValues({}, rest), {
@@ -290,29 +302,31 @@ var Input = forwardRef(
 Input.displayName = "Input";
 
 // src/components/ui/form/input-file/index.tsx
+import { UploadIcon } from "lucide-react";
 import { forwardRef as forwardRef2, useState as useState2 } from "react";
-import { jsx as jsx10, jsxs as jsxs4 } from "react/jsx-runtime";
+import { jsx as jsx10, jsxs as jsxs5 } from "react/jsx-runtime";
 var InputFile = forwardRef2(
   (_a, ref) => {
     var _b = _a, { accept = ".pdf" } = _b, rest = __objRest(_b, ["accept"]);
     const [files, setFiles] = useState2(null);
     const onInputChange = (e) => setFiles(e.currentTarget.files);
-    return /* @__PURE__ */ jsxs4("div", { className: "flex h-full min-h-[80px] w-full items-center justify-center rounded border border-dashed border-zinc-200 bg-zinc-100 text-zinc-950", children: [
+    return /* @__PURE__ */ jsxs5("div", { className: "flex w-full items-center justify-center rounded border border-dashed border-zinc-200 bg-zinc-100 text-zinc-950", children: [
       /* @__PURE__ */ jsx10(
         "label",
         {
           htmlFor: "file",
-          className: "flex h-full w-full items-center justify-center text-center",
-          children: /* @__PURE__ */ jsx10("div", { className: "flex w-full items-center justify-center", children: /* @__PURE__ */ jsx10("small", { children: !files ? /* @__PURE__ */ jsxs4("div", { children: [
+          className: "flex h-full w-full cursor-pointer items-center justify-center text-center",
+          children: /* @__PURE__ */ jsx10("div", { className: "flex w-full items-center justify-center", children: /* @__PURE__ */ jsx10("small", { children: !files ? /* @__PURE__ */ jsxs5("div", { className: "p-4", children: [
             /* @__PURE__ */ jsx10("p", { children: "Clique aqui para inserir um documento" }),
-            /* @__PURE__ */ jsxs4("small", { className: "text-zinc-500", children: [
+            /* @__PURE__ */ jsx10("div", { className: "flex items-center justify-center p-4", children: /* @__PURE__ */ jsx10(UploadIcon, { className: "text-zinc-400" }) }),
+            /* @__PURE__ */ jsxs5("small", { className: "text-zinc-500", children: [
               "(Somente arquivos ",
               accept,
               ")"
             ] })
-          ] }) : /* @__PURE__ */ jsxs4("div", { className: "p-4", children: [
+          ] }) : /* @__PURE__ */ jsxs5("div", { className: "p-4", children: [
             /* @__PURE__ */ jsx10("p", { children: "Arquivos selecionados:" }),
-            /* @__PURE__ */ jsx10("div", { children: Array.from(files).map((item, index) => /* @__PURE__ */ jsxs4("small", { children: [
+            /* @__PURE__ */ jsx10("div", { className: "mt-4", children: Array.from(files).map((item, index) => /* @__PURE__ */ jsxs5("small", { children: [
               item.name,
               " ",
               index > 0 && ", "
@@ -341,7 +355,7 @@ var InputFile = forwardRef2(
 import { tv as tv8 } from "tailwind-variants";
 import { jsx as jsx11 } from "react/jsx-runtime";
 var labelVariant = tv8({
-  base: "font-bold"
+  base: "font-bold text-zinc-600"
 });
 function Label(_a) {
   var _b = _a, { children, className } = _b, rest = __objRest(_b, ["children", "className"]);
@@ -408,6 +422,7 @@ var Item2 = ({ value, children }) => {
   return /* @__PURE__ */ jsx14(
     "button",
     {
+      type: "button",
       onClick,
       className: "w-full border-b border-b-zinc-200 bg-zinc-100 px-4 py-2 text-left",
       children
@@ -424,7 +439,7 @@ var Root3 = ({ children, onValeuChange }) => {
 // src/components/ui/form/select/components/trigger.tsx
 import { tv as tv10 } from "tailwind-variants";
 import { ChevronDownIcon, ChevronUpIcon } from "@radix-ui/react-icons";
-import { jsx as jsx16, jsxs as jsxs5 } from "react/jsx-runtime";
+import { jsx as jsx16, jsxs as jsxs6 } from "react/jsx-runtime";
 var triggerVariable = tv10({
   base: "flex w-full items-center justify-between rounded border  bg-zinc-100 px-4 py-2 text-left",
   variants: {
@@ -436,7 +451,7 @@ var triggerVariable = tv10({
 });
 var Trigger2 = ({ placeholder }) => {
   const { value, isOpen, onTriggerClick } = useSelect();
-  return /* @__PURE__ */ jsxs5("button", { onClick: onTriggerClick, className: triggerVariable({ isOpen }), children: [
+  return /* @__PURE__ */ jsxs6("button", { onClick: onTriggerClick, className: triggerVariable({ isOpen }), children: [
     value ? value : placeholder,
     isOpen ? /* @__PURE__ */ jsx16(ChevronUpIcon, {}) : /* @__PURE__ */ jsx16(ChevronDownIcon, {})
   ] });
@@ -453,7 +468,7 @@ var Select = {
 // src/components/ui/form/textarea/index.tsx
 import { tv as tv11 } from "tailwind-variants";
 import { forwardRef as forwardRef3 } from "react";
-import { Fragment as Fragment2, jsx as jsx17, jsxs as jsxs6 } from "react/jsx-runtime";
+import { Fragment as Fragment2, jsx as jsx17, jsxs as jsxs7 } from "react/jsx-runtime";
 var variants3 = tv11({
   base: "w-full p-2 bg-transparent border border-zinc-200 rounded outline-yellow-700",
   variants: {
@@ -468,7 +483,7 @@ var variants3 = tv11({
 var TextArea = forwardRef3(
   (_a, ref) => {
     var _b = _a, { error, name, className } = _b, rest = __objRest(_b, ["error", "name", "className"]);
-    return /* @__PURE__ */ jsxs6(Fragment2, { children: [
+    return /* @__PURE__ */ jsxs7(Fragment2, { children: [
       /* @__PURE__ */ jsx17("div", { className: variants3({ className }), children: /* @__PURE__ */ jsx17(
         "textarea",
         __spreadProps(__spreadValues({
@@ -485,8 +500,9 @@ var TextArea = forwardRef3(
 TextArea.displayName = "TextArea";
 
 // src/components/ui/table/index.tsx
+import { ArrowDownUp } from "lucide-react";
 import { tv as tv12 } from "tailwind-variants";
-import { jsx as jsx18 } from "react/jsx-runtime";
+import { jsx as jsx18, jsxs as jsxs8 } from "react/jsx-runtime";
 var cellHeadVariant = tv12({
   base: "bg-zinc-200 p-4 text-left text-zinc-600",
   variants: {
@@ -525,8 +541,11 @@ var Table = {
     return /* @__PURE__ */ jsx18("tr", __spreadProps(__spreadValues({ className: "rounded-t bg-zinc-50" }, rest), { children }));
   },
   Th: (_k) => {
-    var _l = _k, { children, position } = _l, rest = __objRest(_l, ["children", "position"]);
-    return /* @__PURE__ */ jsx18("th", __spreadProps(__spreadValues({}, rest), { className: cellHeadVariant({ position }), children }));
+    var _l = _k, { children, position, onClick } = _l, rest = __objRest(_l, ["children", "position", "onClick"]);
+    return /* @__PURE__ */ jsxs8("th", __spreadProps(__spreadValues({}, rest), { className: cellHeadVariant({ position }), children: [
+      children,
+      onClick && /* @__PURE__ */ jsx18("button", { onClick, className: "ml-4", children: /* @__PURE__ */ jsx18(ArrowDownUp, { size: 12 }) })
+    ] }));
   },
   Td: (_m) => {
     var _n = _m, { children } = _n, rest = __objRest(_n, ["children"]);
