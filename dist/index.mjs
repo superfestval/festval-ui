@@ -382,10 +382,10 @@ var variants = tv7({
   base: "w-full bg-zinc-50 p-2 rounded",
   variants: {
     variant: {
-      default: "border-2 border-zinc-100 focus-within:border-yellow-700"
+      default: "border border-zinc-200 focus-within:border-yellow-700"
     },
     hasError: {
-      true: "border-2 border-rose-500 focus-within:border-rose-500"
+      true: "border border-rose-500 focus-within:border-rose-500"
     }
   },
   defaultVariants: {
