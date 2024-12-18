@@ -634,7 +634,7 @@ import { tv as tv13 } from "tailwind-variants";
 import { forwardRef as forwardRef2 } from "react";
 import { Fragment as Fragment2, jsx as jsx26, jsxs as jsxs7 } from "react/jsx-runtime";
 var variants3 = tv13({
-  base: "w-full p-2 bg-transparent border border-zinc-200 rounded outline-yellow-700",
+  base: "w-full p-2 bg-zinc-50 border border-zinc-100 rounded outline-yellow-700",
   variants: {
     variant: {
       default: "border-2 border-zinc-200 focus-within:border-yellow-700"
