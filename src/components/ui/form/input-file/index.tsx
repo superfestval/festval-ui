@@ -1,3 +1,4 @@
+import { File, UploadCloud, UploadIcon } from "lucide-react";
 import { forwardRef, InputHTMLAttributes, useState } from "react";
 
 export type InputFileProps = {} & InputHTMLAttributes<HTMLInputElement>;
@@ -10,16 +11,19 @@ export const InputFile = forwardRef<HTMLInputElement, InputFileProps>(
       setFiles(e.currentTarget.files);
 
     return (
-      <div className="flex h-full min-h-[80px] w-full items-center justify-center rounded border border-dashed border-zinc-200 bg-zinc-100 text-zinc-950">
+      <div className="flex w-full items-center justify-center rounded border border-dashed border-zinc-200 bg-zinc-100 text-zinc-950">
         <label
           htmlFor="file"
-          className="flex h-full w-full items-center justify-center text-center"
+          className="flex h-full w-full cursor-pointer items-center justify-center text-center"
         >
           <div className="flex w-full items-center justify-center">
             <small>
               {!files ? (
-                <div>
+                <div className="p-4">
                   <p>Clique aqui para inserir um documento</p>
+                  <div className="flex items-center justify-center p-4">
+                    <UploadIcon className="text-zinc-400" />
+                  </div>
                   <small className="text-zinc-500">
                     (Somente arquivos {accept})
                   </small>
@@ -27,7 +31,7 @@ export const InputFile = forwardRef<HTMLInputElement, InputFileProps>(
               ) : (
                 <div className="p-4">
                   <p>Arquivos selecionados:</p>
-                  <div>
+                  <div className="mt-4">
                     {Array.from(files).map((item, index) => (
                       <small key={item.name}>
                         {item.name} {index > 0 && ", "}

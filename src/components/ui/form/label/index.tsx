@@ -2,7 +2,7 @@ import { LabelHTMLAttributes } from "react";
 import { tv, VariantProps } from "tailwind-variants";
 
 const labelVariant = tv({
-  base: "font-bold",
+  base: "font-bold text-zinc-600",
 });
 
 export type LabelProps =
