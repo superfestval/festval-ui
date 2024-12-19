@@ -9,6 +9,7 @@ import * as AlertDialogPrimitive from '@radix-ui/react-alert-dialog';
 import * as _react_input_mask from '@react-input/mask';
 import { InputMaskProps } from '@react-input/mask';
 import * as SelectPrimitive from '@radix-ui/react-select';
+import * as Navigation from '@radix-ui/react-navigation-menu';
 
 declare const variant: tailwind_variants.TVReturnType<{} | {} | {}, undefined, "flex-1 rounded-b bg-zinc-50 p-4", tailwind_variants_dist_config.TVConfig<unknown, {} | {}>, {} | {}, undefined, tailwind_variants.TVReturnType<unknown, undefined, "flex-1 rounded-b bg-zinc-50 p-4", tailwind_variants_dist_config.TVConfig<unknown, {} | {}>, unknown, unknown, undefined>>;
 type BodyProps = {
@@ -136,7 +137,7 @@ type AlertDialogCancelProps = {} & AlertDialogPrimitive.AlertDialogCancelProps;
 declare function Cancel({ children, ...rest }: AlertDialogCancelProps): react_jsx_runtime.JSX.Element;
 
 type AlertDialogContentProps = {} & AlertDialogPrimitive.AlertDialogContentProps;
-declare function Content$1({ children, ...rest }: AlertDialogContentProps): react_jsx_runtime.JSX.Element;
+declare function Content$2({ children, ...rest }: AlertDialogContentProps): react_jsx_runtime.JSX.Element;
 
 type AlertDialogDescriptionProps = {} & AlertDialogPrimitive.AlertDialogDescriptionProps;
 declare function Description({ children, ...rest }: AlertDialogDescriptionProps): react_jsx_runtime.JSX.Element;
@@ -148,24 +149,24 @@ type AlertDialogPortalProps = {} & AlertDialogPrimitive.AlertDialogPortalProps;
 declare function Portal$1({ children, ...rest }: AlertDialogPortalProps): react_jsx_runtime.JSX.Element;
 
 type AlertDialogRootProps = {} & AlertDialogPrimitive.AlertDialogProps;
-declare function Root$2({ children, ...rest }: AlertDialogRootProps): react_jsx_runtime.JSX.Element;
+declare function Root$3({ children, ...rest }: AlertDialogRootProps): react_jsx_runtime.JSX.Element;
 
 type AlertDialogTitleProps = {} & AlertDialogPrimitive.AlertDialogTitleProps;
 declare function Title({ children, ...rest }: AlertDialogTitleProps): react_jsx_runtime.JSX.Element;
 
 type AlertDialogTriggerProps = {} & AlertDialogPrimitive.AlertDialogTriggerProps;
-declare function Trigger$1({ children, ...rest }: AlertDialogTriggerProps): react_jsx_runtime.JSX.Element;
+declare function Trigger$2({ children, ...rest }: AlertDialogTriggerProps): react_jsx_runtime.JSX.Element;
 
 declare const AlertDialog: {
-    Root: typeof Root$2;
-    Trigger: typeof Trigger$1;
+    Root: typeof Root$3;
+    Trigger: typeof Trigger$2;
     Portal: typeof Portal$1;
     Overlay: typeof Overlay;
     Title: typeof Title;
     Description: typeof Description;
     Action: typeof Action;
     Cancel: typeof Cancel;
-    Content: typeof Content$1;
+    Content: typeof Content$2;
 };
 
 declare const variants$1: tailwind_variants.TVReturnType<{
@@ -288,7 +289,7 @@ declare function Icon({ ...rest }: SelectIconProps): react_jsx_runtime.JSX.Eleme
 type SelectItemProps = {} & SelectPrimitive.SelectItemProps;
 
 type SelectRootProps = {} & SelectPrimitive.SelectProps;
-declare function Root$1({ children, ...rest }: SelectRootProps): react_jsx_runtime.JSX.Element;
+declare function Root$2({ children, ...rest }: SelectRootProps): react_jsx_runtime.JSX.Element;
 
 type SelectValueProps = {} & SelectPrimitive.SelectValueProps;
 declare function Value({ ...rest }: SelectValueProps): react_jsx_runtime.JSX.Element;
@@ -303,10 +304,10 @@ type SelectPortalProps = {} & SelectPrimitive.SelectPortalProps;
 declare function Portal({ children, ...rest }: SelectPortalProps): react_jsx_runtime.JSX.Element;
 
 type SelectContentProps = {} & SelectPrimitive.SelectContentProps;
-declare function Content({ children, ...rest }: SelectContentProps): react_jsx_runtime.JSX.Element;
+declare function Content$1({ children, ...rest }: SelectContentProps): react_jsx_runtime.JSX.Element;
 
 type SelectTriggerProps = {} & SelectPrimitive.SelectTriggerProps;
-declare function Trigger({ children, ...rest }: SelectTriggerProps): react_jsx_runtime.JSX.Element;
+declare function Trigger$1({ children, ...rest }: SelectTriggerProps): react_jsx_runtime.JSX.Element;
 
 type SelectViewportProps = {} & SelectPrimitive.SelectViewportProps;
 declare function Viewport({ children, ...rest }: SelectViewportProps): react_jsx_runtime.JSX.Element;
@@ -318,10 +319,10 @@ type SelectItemIndicatorProps = {} & SelectPrimitive.SelectItemProps;
 declare function ItemIndicator({ children, ...rest }: SelectItemIndicatorProps): react_jsx_runtime.JSX.Element;
 
 declare const Select: {
-    Root: typeof Root$1;
+    Root: typeof Root$2;
     Portal: typeof Portal;
-    Trigger: typeof Trigger;
-    Content: typeof Content;
+    Trigger: typeof Trigger$1;
+    Content: typeof Content$1;
     Viewport: typeof Viewport;
     Group: typeof Group;
     ItemIndicator: typeof ItemIndicator;
@@ -343,7 +344,7 @@ declare const buttonVariant: tailwind_variants.TVReturnType<{
     disabled: {
         true: string;
     };
-}, undefined, "px-4 py-2 rounded text-zinc-50 transition-colors flex gap-2", tailwind_variants_dist_config.TVConfig<{
+}, undefined, "px-4 py-2 rounded text-zinc-50 transition-colors flex gap-2 items-center justify-center", tailwind_variants_dist_config.TVConfig<{
     variant: {
         default: string;
         secondary: string;
@@ -387,7 +388,7 @@ declare const buttonVariant: tailwind_variants.TVReturnType<{
     disabled: {
         true: string;
     };
-}, undefined, "px-4 py-2 rounded text-zinc-50 transition-colors flex gap-2", tailwind_variants_dist_config.TVConfig<{
+}, undefined, "px-4 py-2 rounded text-zinc-50 transition-colors flex gap-2 items-center justify-center", tailwind_variants_dist_config.TVConfig<{
     variant: {
         default: string;
         secondary: string;
@@ -492,14 +493,6 @@ declare const TextArea: react.ForwardRefExoticComponent<TextareaHTMLAttributes<H
 type InputFileProps = {} & InputHTMLAttributes<HTMLInputElement>;
 declare const InputFile: react.ForwardRefExoticComponent<InputHTMLAttributes<HTMLInputElement> & react.RefAttributes<HTMLInputElement>>;
 
-type MenuProps = {
-    username: string;
-    avatarImage: string;
-    signOut: () => void;
-    children: React.ReactNode;
-};
-declare function Menu({ signOut, children, username, avatarImage }: MenuProps): react_jsx_runtime.JSX.Element;
-
 type FooterProps = {};
 declare function Footer(): react_jsx_runtime.JSX.Element;
 
@@ -509,11 +502,39 @@ declare function Image({ className, ...rest }: ImageProps): react_jsx_runtime.JS
 
 declare const rootVariation: tailwind_variants.TVReturnType<{} | {} | {}, undefined, "fixed left-0 top-0 w-full bg-zinc-950", tailwind_variants_dist_config.TVConfig<unknown, {} | {}>, {} | {}, undefined, tailwind_variants.TVReturnType<unknown, undefined, "fixed left-0 top-0 w-full bg-zinc-950", tailwind_variants_dist_config.TVConfig<unknown, {} | {}>, unknown, unknown, undefined>>;
 type HeaderRootProps = {} & React.HTMLAttributes<HTMLElement> & VariantProps<typeof rootVariation>;
-declare function Root({ children, className, ...rest }: HeaderRootProps): react_jsx_runtime.JSX.Element;
+declare function Root$1({ children, className, ...rest }: HeaderRootProps): react_jsx_runtime.JSX.Element;
 
 declare const Header: {
-    Root: typeof Root;
+    Root: typeof Root$1;
     Image: typeof Image;
+};
+
+type NavigationMenuItemProps = {} & Navigation.NavigationMenuItemProps;
+
+type NavigationMenuListProps = {} & Navigation.NavigationMenuListProps;
+declare function List({ children, ...rest }: NavigationMenuListProps): react_jsx_runtime.JSX.Element;
+
+type NavigationMenuRootProps = {} & Navigation.NavigationMenuProps;
+declare function Root({ children, ...rest }: NavigationMenuRootProps): react_jsx_runtime.JSX.Element;
+
+type NavigationMenuLinkProps = {} & Navigation.NavigationMenuLinkProps;
+declare function Link({ children, ...rest }: NavigationMenuLinkProps): react_jsx_runtime.JSX.Element;
+
+declare const navigationMenuContentVariant$1: tailwind_variants.TVReturnType<{} | {} | {}, undefined, "bg-zinc-200 flex gap-4 items-center p-2 rounded", tailwind_variants_dist_config.TVConfig<unknown, {} | {}>, {} | {}, undefined, tailwind_variants.TVReturnType<unknown, undefined, "bg-zinc-200 flex gap-4 items-center p-2 rounded", tailwind_variants_dist_config.TVConfig<unknown, {} | {}>, unknown, unknown, undefined>>;
+type NavigationMenuTriggerProps = {} & Navigation.NavigationMenuTriggerProps & VariantProps<typeof navigationMenuContentVariant$1>;
+declare function Trigger({ children, className, ...rest }: NavigationMenuTriggerProps): react_jsx_runtime.JSX.Element;
+
+declare const navigationMenuContentVariant: tailwind_variants.TVReturnType<{} | {} | {}, undefined, "bg-zinc-50 mt-4 rounded h-fit", tailwind_variants_dist_config.TVConfig<unknown, {} | {}>, {} | {}, undefined, tailwind_variants.TVReturnType<unknown, undefined, "bg-zinc-50 mt-4 rounded h-fit", tailwind_variants_dist_config.TVConfig<unknown, {} | {}>, unknown, unknown, undefined>>;
+type NavigationMenuContentProps = {} & Navigation.NavigationMenuContentProps & VariantProps<typeof navigationMenuContentVariant>;
+declare function Content({ children, className, ...rest }: NavigationMenuContentProps): react_jsx_runtime.JSX.Element;
+
+declare const NavigationMenu: {
+    Root: typeof Root;
+    Item: react.ForwardRefExoticComponent<Navigation.NavigationMenuItemProps & react.RefAttributes<unknown>>;
+    List: typeof List;
+    Link: typeof Link;
+    Content: typeof Content;
+    Trigger: typeof Trigger;
 };
 
 declare const textVariant: tailwind_variants.TVReturnType<{
@@ -668,4 +689,4 @@ type HeadingProps = {
 } & React.HTMLAttributes<HTMLHeadingElement> & VariantProps<typeof headingVariant>;
 declare function Heading({ as, children, size, className, ...rest }: HeadingProps): react_jsx_runtime.JSX.Element;
 
-export { AlertDialog, type AlertDialogActionProps, type AlertDialogCancelProps, type AlertDialogContentProps, type AlertDialogDescriptionProps, type AlertDialogOverlayProps, type AlertDialogPortalProps, type AlertDialogRootProps, type AlertDialogTitleProps, type AlertDialogTriggerProps, Avatar, type AvatarProps, type BodyProps, Button, type ButtonProps, Card, type CardFooterProps, type CellBodyProps, type CellHeadProps, Checkbox, type CheckboxProps, Dialog, type DialogCloseProps, type DialogContainerProps, type DialogContentProps, type DialogDescriptionProps, type DialogFooterProps, type DialogHeaderProps, type DialogOverlayProps, type DialogPortalProps, type DialogRootProps, type DialogTitleProps, type DialogTriggerProps, Footer, type FooterProps, Header, type HeaderProps, Heading, type HeadingProps, Input, InputFile, type InputFileProps, type InputProps, Label$1 as Label, type LabelProps, Menu, type MenuProps, type RootProps, type RowProps, Select, type SelectContentProps, type SelectGroupProps, type SelectIconProps, type SelectItemIndicatorProps, type SelectItemProps, type SelectItemTextProps, type SelectLabelProps, type SelectPortalProps, type SelectRootProps, type SelectTriggerProps, type SelectValueProps, type SelectViewportProps, type TBodyProps, type THeadProps, Table, type TableRootProps, Text, TextArea, type TextAreaProps, type TextProps };
+export { AlertDialog, type AlertDialogActionProps, type AlertDialogCancelProps, type AlertDialogContentProps, type AlertDialogDescriptionProps, type AlertDialogOverlayProps, type AlertDialogPortalProps, type AlertDialogRootProps, type AlertDialogTitleProps, type AlertDialogTriggerProps, Avatar, type AvatarProps, type BodyProps, Button, type ButtonProps, Card, type CardFooterProps, type CellBodyProps, type CellHeadProps, Checkbox, type CheckboxProps, Dialog, type DialogCloseProps, type DialogContainerProps, type DialogContentProps, type DialogDescriptionProps, type DialogFooterProps, type DialogHeaderProps, type DialogOverlayProps, type DialogPortalProps, type DialogRootProps, type DialogTitleProps, type DialogTriggerProps, Footer, type FooterProps, Header, type HeaderProps, Heading, type HeadingProps, Input, InputFile, type InputFileProps, type InputProps, Label$1 as Label, type LabelProps, NavigationMenu, type NavigationMenuContentProps, type NavigationMenuItemProps, type NavigationMenuLinkProps, type NavigationMenuListProps, type NavigationMenuRootProps, type NavigationMenuTriggerProps, type RootProps, type RowProps, Select, type SelectContentProps, type SelectGroupProps, type SelectIconProps, type SelectItemIndicatorProps, type SelectItemProps, type SelectItemTextProps, type SelectLabelProps, type SelectPortalProps, type SelectRootProps, type SelectTriggerProps, type SelectValueProps, type SelectViewportProps, type TBodyProps, type THeadProps, Table, type TableRootProps, Text, TextArea, type TextAreaProps, type TextProps };

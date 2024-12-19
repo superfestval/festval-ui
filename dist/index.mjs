@@ -568,17 +568,17 @@ var Select = {
 import { tv as tv9 } from "tailwind-variants";
 import { jsx as jsx31, jsxs as jsxs6 } from "react/jsx-runtime";
 var buttonVariant = tv9({
-  base: "px-4 py-2 rounded text-zinc-50 transition-colors flex gap-2",
+  base: "px-4 py-2 rounded text-zinc-50 transition-colors flex gap-2 items-center justify-center",
   variants: {
     variant: {
-      default: "bg-yellow-600 hover:bg-yellow-600/75",
+      default: "bg-yellow-600 hover:bg-yellow-700",
       secondary: "bg-zinc-800 text-zinc-400 hover:bg-zinc-800/75",
       link: "bg-zin-100 text-yellow-600 underline",
-      destructive: "bg-rose-600 text-rose-200 hover:bg-rose-600/75",
+      destructive: "bg-rose-600 text-rose-200 hover:bg-rose-700",
       ghost: "bg-zinc-200 text-zinc-500 hover:bg-zinc-200/75"
     },
     disabled: {
-      true: "bg-zinc-600 hover:bg-zinc-600/75 cursor-not-allowed"
+      true: "bg-zinc-600 hover:bg-zinc-700 cursor-not-allowed"
     }
   },
   defaultVariants: {
@@ -744,26 +744,10 @@ var InputFile = forwardRef4(
   }
 );
 
-// src/components/surfaces/menu/index.tsx
-import * as Navigation from "@radix-ui/react-navigation-menu";
-import { jsx as jsx35, jsxs as jsxs9 } from "react/jsx-runtime";
-function Menu({ signOut, children, username, avatarImage }) {
-  return /* @__PURE__ */ jsx35(Navigation.Root, { id: "navigation", children: /* @__PURE__ */ jsx35(Navigation.List, { children: /* @__PURE__ */ jsxs9(Navigation.Item, { children: [
-    /* @__PURE__ */ jsx35(Navigation.Trigger, { children }),
-    /* @__PURE__ */ jsxs9(Navigation.Content, { className: "absolute right-2 w-[300px] rounded bg-zinc-50 shadow", children: [
-      /* @__PURE__ */ jsxs9("div", { className: "flex w-full items-center gap-4 border-b border-b-zinc-200 p-2", children: [
-        /* @__PURE__ */ jsx35(Avatar, { image: avatarImage, username }),
-        /* @__PURE__ */ jsx35("p", { className: "inline-block", children: username })
-      ] }),
-      /* @__PURE__ */ jsx35("div", { className: "w-full p-4", children: /* @__PURE__ */ jsx35(Button, { onClick: signOut, className: "w-full", children: "Sair" }) })
-    ] })
-  ] }) }) });
-}
-
 // src/components/surfaces/footer/index.tsx
-import { jsxs as jsxs10 } from "react/jsx-runtime";
+import { jsxs as jsxs9 } from "react/jsx-runtime";
 function Footer() {
-  return /* @__PURE__ */ jsxs10("footer", { className: "item-center flex w-full justify-center bg-zinc-100 p-4 text-xs text-zinc-700", children: [
+  return /* @__PURE__ */ jsxs9("footer", { className: "item-center flex w-full justify-center bg-zinc-100 p-4 text-xs text-zinc-700", children: [
     "Super Festval \xA9 | ",
     (/* @__PURE__ */ new Date()).getFullYear(),
     " | Todos os direitos reservados"
@@ -772,36 +756,129 @@ function Footer() {
 
 // src/components/surfaces/header/image.tsx
 import { tv as tv12 } from "tailwind-variants";
-import { jsx as jsx36 } from "react/jsx-runtime";
+import { jsx as jsx35 } from "react/jsx-runtime";
 var imageVariation = tv12({
   base: "w-24"
 });
 function Image(_a) {
   var _b = _a, { className } = _b, rest = __objRest(_b, ["className"]);
-  return /* @__PURE__ */ jsx36("img", __spreadValues({ className: imageVariation({ className }) }, rest));
+  return /* @__PURE__ */ jsx35("img", __spreadValues({ className: imageVariation({ className }) }, rest));
 }
 
 // src/components/surfaces/header/root.tsx
 import { tv as tv13 } from "tailwind-variants";
-import { jsx as jsx37 } from "react/jsx-runtime";
+import { jsx as jsx36 } from "react/jsx-runtime";
 var rootVariation = tv13({
   base: "fixed left-0 top-0 w-full bg-zinc-950"
 });
-function Root8(_a) {
+function Root7(_a) {
   var _b = _a, { children, className } = _b, rest = __objRest(_b, ["children", "className"]);
-  return /* @__PURE__ */ jsx37("header", __spreadProps(__spreadValues({ className: rootVariation({ className }) }, rest), { children: /* @__PURE__ */ jsx37("div", { className: "m-auto flex w-full max-w-4xl items-center justify-between p-4", children }) }));
+  return /* @__PURE__ */ jsx36("header", __spreadProps(__spreadValues({ className: rootVariation({ className }) }, rest), { children: /* @__PURE__ */ jsx36("div", { className: "m-auto flex w-full max-w-6xl items-center justify-between p-4", children }) }));
 }
 
 // src/components/surfaces/header/index.tsx
 var Header2 = {
-  Root: Root8,
+  Root: Root7,
   Image
 };
 
-// src/components/typograph/text/index.tsx
-import { tv as tv14 } from "tailwind-variants";
+// src/components/ui/navigation-menu/item.tsx
+import * as Navigation from "@radix-ui/react-navigation-menu";
+import { forwardRef as forwardRef5 } from "react";
+import { jsx as jsx37 } from "react/jsx-runtime";
+var Item4 = forwardRef5(
+  (_a) => {
+    var _b = _a, { children } = _b, rest = __objRest(_b, ["children"]);
+    return /* @__PURE__ */ jsx37(Navigation.Item, __spreadProps(__spreadValues({}, rest), { children }));
+  }
+);
+
+// src/components/ui/navigation-menu/list.tsx
+import * as Navigation2 from "@radix-ui/react-navigation-menu";
 import { jsx as jsx38 } from "react/jsx-runtime";
-var textVariant = tv14({
+function List2(_a) {
+  var _b = _a, { children } = _b, rest = __objRest(_b, ["children"]);
+  return /* @__PURE__ */ jsx38(Navigation2.List, { id: "navigation", children });
+}
+
+// src/components/ui/navigation-menu/root.tsx
+import * as Navigation3 from "@radix-ui/react-navigation-menu";
+import { jsx as jsx39 } from "react/jsx-runtime";
+function Root9(_a) {
+  var _b = _a, { children } = _b, rest = __objRest(_b, ["children"]);
+  return /* @__PURE__ */ jsx39(Navigation3.Root, { id: "navigation", children });
+}
+
+// src/components/ui/navigation-menu/link.tsx
+import * as Navigation4 from "@radix-ui/react-navigation-menu";
+import { jsx as jsx40 } from "react/jsx-runtime";
+function Link2(_a) {
+  var _b = _a, { children } = _b, rest = __objRest(_b, ["children"]);
+  return /* @__PURE__ */ jsx40(Navigation4.Link, __spreadProps(__spreadValues({}, rest), { children }));
+}
+
+// src/components/ui/navigation-menu/trigger.tsx
+import * as Navigation5 from "@radix-ui/react-navigation-menu";
+import { tv as tv14 } from "tailwind-variants";
+import { jsx as jsx41 } from "react/jsx-runtime";
+var navigationMenuContentVariant = tv14({
+  base: "bg-zinc-200 flex gap-4 items-center p-2 rounded"
+});
+function Trigger7(_a) {
+  var _b = _a, {
+    children,
+    className
+  } = _b, rest = __objRest(_b, [
+    "children",
+    "className"
+  ]);
+  return /* @__PURE__ */ jsx41(
+    Navigation5.Trigger,
+    __spreadProps(__spreadValues({}, rest), {
+      className: navigationMenuContentVariant({ className }),
+      children
+    })
+  );
+}
+
+// src/components/ui/navigation-menu/content.tsx
+import * as Navigation6 from "@radix-ui/react-navigation-menu";
+import { tv as tv15 } from "tailwind-variants";
+import { jsx as jsx42 } from "react/jsx-runtime";
+var navigationMenuContentVariant2 = tv15({
+  base: "bg-zinc-50 mt-4 rounded h-fit"
+});
+function Content7(_a) {
+  var _b = _a, {
+    children,
+    className
+  } = _b, rest = __objRest(_b, [
+    "children",
+    "className"
+  ]);
+  return /* @__PURE__ */ jsx42(
+    Navigation6.Content,
+    __spreadProps(__spreadValues({}, rest), {
+      className: navigationMenuContentVariant2({ className }),
+      children
+    })
+  );
+}
+
+// src/components/ui/navigation-menu/index.tsx
+var NavigationMenu = {
+  Root: Root9,
+  Item: Item4,
+  List: List2,
+  Link: Link2,
+  Content: Content7,
+  Trigger: Trigger7
+};
+
+// src/components/typograph/text/index.tsx
+import { tv as tv16 } from "tailwind-variants";
+import { jsx as jsx43 } from "react/jsx-runtime";
+var textVariant = tv16({
   variants: {
     size: {
       xs: "text-xs",
@@ -820,13 +897,13 @@ var textVariant = tv14({
 function Text(_a) {
   var _b = _a, { as = "p", children, size } = _b, rest = __objRest(_b, ["as", "children", "size"]);
   const As = as;
-  return /* @__PURE__ */ jsx38(As, __spreadProps(__spreadValues({ className: textVariant({ size }) }, rest), { children }));
+  return /* @__PURE__ */ jsx43(As, __spreadProps(__spreadValues({ className: textVariant({ size }) }, rest), { children }));
 }
 
 // src/components/typograph/heading/index.tsx
-import { tv as tv15 } from "tailwind-variants";
-import { jsx as jsx39 } from "react/jsx-runtime";
-var headingVariant = tv15({
+import { tv as tv17 } from "tailwind-variants";
+import { jsx as jsx44 } from "react/jsx-runtime";
+var headingVariant = tv17({
   variants: {
     size: {
       xs: "text-base font-bold",
@@ -855,7 +932,7 @@ function Heading(_a) {
     "className"
   ]);
   const As = as;
-  return /* @__PURE__ */ jsx39(As, __spreadProps(__spreadValues({ className: headingVariant({ size, className }) }, rest), { children }));
+  return /* @__PURE__ */ jsx44(As, __spreadProps(__spreadValues({ className: headingVariant({ size, className }) }, rest), { children }));
 }
 export {
   AlertDialog,
@@ -870,7 +947,7 @@ export {
   Input,
   InputFile,
   Label,
-  Menu,
+  NavigationMenu,
   Select,
   Table,
   Text,

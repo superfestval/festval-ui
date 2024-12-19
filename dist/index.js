@@ -71,7 +71,7 @@ __export(src_exports, {
   Input: () => Input,
   InputFile: () => InputFile,
   Label: () => Label,
-  Menu: () => Menu,
+  NavigationMenu: () => NavigationMenu,
   Select: () => Select,
   Table: () => Table,
   Text: () => Text,
@@ -617,17 +617,17 @@ var Select = {
 var import_tailwind_variants9 = require("tailwind-variants");
 var import_jsx_runtime31 = require("react/jsx-runtime");
 var buttonVariant = (0, import_tailwind_variants9.tv)({
-  base: "px-4 py-2 rounded text-zinc-50 transition-colors flex gap-2",
+  base: "px-4 py-2 rounded text-zinc-50 transition-colors flex gap-2 items-center justify-center",
   variants: {
     variant: {
-      default: "bg-yellow-600 hover:bg-yellow-600/75",
+      default: "bg-yellow-600 hover:bg-yellow-700",
       secondary: "bg-zinc-800 text-zinc-400 hover:bg-zinc-800/75",
       link: "bg-zin-100 text-yellow-600 underline",
-      destructive: "bg-rose-600 text-rose-200 hover:bg-rose-600/75",
+      destructive: "bg-rose-600 text-rose-200 hover:bg-rose-700",
       ghost: "bg-zinc-200 text-zinc-500 hover:bg-zinc-200/75"
     },
     disabled: {
-      true: "bg-zinc-600 hover:bg-zinc-600/75 cursor-not-allowed"
+      true: "bg-zinc-600 hover:bg-zinc-700 cursor-not-allowed"
     }
   },
   defaultVariants: {
@@ -793,26 +793,10 @@ var InputFile = (0, import_react5.forwardRef)(
   }
 );
 
-// src/components/surfaces/menu/index.tsx
-var Navigation = __toESM(require("@radix-ui/react-navigation-menu"));
-var import_jsx_runtime35 = require("react/jsx-runtime");
-function Menu({ signOut, children, username, avatarImage }) {
-  return /* @__PURE__ */ (0, import_jsx_runtime35.jsx)(Navigation.Root, { id: "navigation", children: /* @__PURE__ */ (0, import_jsx_runtime35.jsx)(Navigation.List, { children: /* @__PURE__ */ (0, import_jsx_runtime35.jsxs)(Navigation.Item, { children: [
-    /* @__PURE__ */ (0, import_jsx_runtime35.jsx)(Navigation.Trigger, { children }),
-    /* @__PURE__ */ (0, import_jsx_runtime35.jsxs)(Navigation.Content, { className: "absolute right-2 w-[300px] rounded bg-zinc-50 shadow", children: [
-      /* @__PURE__ */ (0, import_jsx_runtime35.jsxs)("div", { className: "flex w-full items-center gap-4 border-b border-b-zinc-200 p-2", children: [
-        /* @__PURE__ */ (0, import_jsx_runtime35.jsx)(Avatar, { image: avatarImage, username }),
-        /* @__PURE__ */ (0, import_jsx_runtime35.jsx)("p", { className: "inline-block", children: username })
-      ] }),
-      /* @__PURE__ */ (0, import_jsx_runtime35.jsx)("div", { className: "w-full p-4", children: /* @__PURE__ */ (0, import_jsx_runtime35.jsx)(Button, { onClick: signOut, className: "w-full", children: "Sair" }) })
-    ] })
-  ] }) }) });
-}
-
 // src/components/surfaces/footer/index.tsx
-var import_jsx_runtime36 = require("react/jsx-runtime");
+var import_jsx_runtime35 = require("react/jsx-runtime");
 function Footer() {
-  return /* @__PURE__ */ (0, import_jsx_runtime36.jsxs)("footer", { className: "item-center flex w-full justify-center bg-zinc-100 p-4 text-xs text-zinc-700", children: [
+  return /* @__PURE__ */ (0, import_jsx_runtime35.jsxs)("footer", { className: "item-center flex w-full justify-center bg-zinc-100 p-4 text-xs text-zinc-700", children: [
     "Super Festval \xA9 | ",
     (/* @__PURE__ */ new Date()).getFullYear(),
     " | Todos os direitos reservados"
@@ -821,36 +805,129 @@ function Footer() {
 
 // src/components/surfaces/header/image.tsx
 var import_tailwind_variants12 = require("tailwind-variants");
-var import_jsx_runtime37 = require("react/jsx-runtime");
+var import_jsx_runtime36 = require("react/jsx-runtime");
 var imageVariation = (0, import_tailwind_variants12.tv)({
   base: "w-24"
 });
 function Image(_a) {
   var _b = _a, { className } = _b, rest = __objRest(_b, ["className"]);
-  return /* @__PURE__ */ (0, import_jsx_runtime37.jsx)("img", __spreadValues({ className: imageVariation({ className }) }, rest));
+  return /* @__PURE__ */ (0, import_jsx_runtime36.jsx)("img", __spreadValues({ className: imageVariation({ className }) }, rest));
 }
 
 // src/components/surfaces/header/root.tsx
 var import_tailwind_variants13 = require("tailwind-variants");
-var import_jsx_runtime38 = require("react/jsx-runtime");
+var import_jsx_runtime37 = require("react/jsx-runtime");
 var rootVariation = (0, import_tailwind_variants13.tv)({
   base: "fixed left-0 top-0 w-full bg-zinc-950"
 });
-function Root8(_a) {
+function Root7(_a) {
   var _b = _a, { children, className } = _b, rest = __objRest(_b, ["children", "className"]);
-  return /* @__PURE__ */ (0, import_jsx_runtime38.jsx)("header", __spreadProps(__spreadValues({ className: rootVariation({ className }) }, rest), { children: /* @__PURE__ */ (0, import_jsx_runtime38.jsx)("div", { className: "m-auto flex w-full max-w-4xl items-center justify-between p-4", children }) }));
+  return /* @__PURE__ */ (0, import_jsx_runtime37.jsx)("header", __spreadProps(__spreadValues({ className: rootVariation({ className }) }, rest), { children: /* @__PURE__ */ (0, import_jsx_runtime37.jsx)("div", { className: "m-auto flex w-full max-w-6xl items-center justify-between p-4", children }) }));
 }
 
 // src/components/surfaces/header/index.tsx
 var Header2 = {
-  Root: Root8,
+  Root: Root7,
   Image
 };
 
-// src/components/typograph/text/index.tsx
-var import_tailwind_variants14 = require("tailwind-variants");
+// src/components/ui/navigation-menu/item.tsx
+var Navigation = __toESM(require("@radix-ui/react-navigation-menu"));
+var import_react6 = require("react");
+var import_jsx_runtime38 = require("react/jsx-runtime");
+var Item4 = (0, import_react6.forwardRef)(
+  (_a) => {
+    var _b = _a, { children } = _b, rest = __objRest(_b, ["children"]);
+    return /* @__PURE__ */ (0, import_jsx_runtime38.jsx)(Navigation.Item, __spreadProps(__spreadValues({}, rest), { children }));
+  }
+);
+
+// src/components/ui/navigation-menu/list.tsx
+var Navigation2 = __toESM(require("@radix-ui/react-navigation-menu"));
 var import_jsx_runtime39 = require("react/jsx-runtime");
-var textVariant = (0, import_tailwind_variants14.tv)({
+function List2(_a) {
+  var _b = _a, { children } = _b, rest = __objRest(_b, ["children"]);
+  return /* @__PURE__ */ (0, import_jsx_runtime39.jsx)(Navigation2.List, { id: "navigation", children });
+}
+
+// src/components/ui/navigation-menu/root.tsx
+var Navigation3 = __toESM(require("@radix-ui/react-navigation-menu"));
+var import_jsx_runtime40 = require("react/jsx-runtime");
+function Root9(_a) {
+  var _b = _a, { children } = _b, rest = __objRest(_b, ["children"]);
+  return /* @__PURE__ */ (0, import_jsx_runtime40.jsx)(Navigation3.Root, { id: "navigation", children });
+}
+
+// src/components/ui/navigation-menu/link.tsx
+var Navigation4 = __toESM(require("@radix-ui/react-navigation-menu"));
+var import_jsx_runtime41 = require("react/jsx-runtime");
+function Link2(_a) {
+  var _b = _a, { children } = _b, rest = __objRest(_b, ["children"]);
+  return /* @__PURE__ */ (0, import_jsx_runtime41.jsx)(Navigation4.Link, __spreadProps(__spreadValues({}, rest), { children }));
+}
+
+// src/components/ui/navigation-menu/trigger.tsx
+var Navigation5 = __toESM(require("@radix-ui/react-navigation-menu"));
+var import_tailwind_variants14 = require("tailwind-variants");
+var import_jsx_runtime42 = require("react/jsx-runtime");
+var navigationMenuContentVariant = (0, import_tailwind_variants14.tv)({
+  base: "bg-zinc-200 flex gap-4 items-center p-2 rounded"
+});
+function Trigger7(_a) {
+  var _b = _a, {
+    children,
+    className
+  } = _b, rest = __objRest(_b, [
+    "children",
+    "className"
+  ]);
+  return /* @__PURE__ */ (0, import_jsx_runtime42.jsx)(
+    Navigation5.Trigger,
+    __spreadProps(__spreadValues({}, rest), {
+      className: navigationMenuContentVariant({ className }),
+      children
+    })
+  );
+}
+
+// src/components/ui/navigation-menu/content.tsx
+var Navigation6 = __toESM(require("@radix-ui/react-navigation-menu"));
+var import_tailwind_variants15 = require("tailwind-variants");
+var import_jsx_runtime43 = require("react/jsx-runtime");
+var navigationMenuContentVariant2 = (0, import_tailwind_variants15.tv)({
+  base: "bg-zinc-50 mt-4 rounded h-fit"
+});
+function Content7(_a) {
+  var _b = _a, {
+    children,
+    className
+  } = _b, rest = __objRest(_b, [
+    "children",
+    "className"
+  ]);
+  return /* @__PURE__ */ (0, import_jsx_runtime43.jsx)(
+    Navigation6.Content,
+    __spreadProps(__spreadValues({}, rest), {
+      className: navigationMenuContentVariant2({ className }),
+      children
+    })
+  );
+}
+
+// src/components/ui/navigation-menu/index.tsx
+var NavigationMenu = {
+  Root: Root9,
+  Item: Item4,
+  List: List2,
+  Link: Link2,
+  Content: Content7,
+  Trigger: Trigger7
+};
+
+// src/components/typograph/text/index.tsx
+var import_tailwind_variants16 = require("tailwind-variants");
+var import_jsx_runtime44 = require("react/jsx-runtime");
+var textVariant = (0, import_tailwind_variants16.tv)({
   variants: {
     size: {
       xs: "text-xs",
@@ -869,13 +946,13 @@ var textVariant = (0, import_tailwind_variants14.tv)({
 function Text(_a) {
   var _b = _a, { as = "p", children, size } = _b, rest = __objRest(_b, ["as", "children", "size"]);
   const As = as;
-  return /* @__PURE__ */ (0, import_jsx_runtime39.jsx)(As, __spreadProps(__spreadValues({ className: textVariant({ size }) }, rest), { children }));
+  return /* @__PURE__ */ (0, import_jsx_runtime44.jsx)(As, __spreadProps(__spreadValues({ className: textVariant({ size }) }, rest), { children }));
 }
 
 // src/components/typograph/heading/index.tsx
-var import_tailwind_variants15 = require("tailwind-variants");
-var import_jsx_runtime40 = require("react/jsx-runtime");
-var headingVariant = (0, import_tailwind_variants15.tv)({
+var import_tailwind_variants17 = require("tailwind-variants");
+var import_jsx_runtime45 = require("react/jsx-runtime");
+var headingVariant = (0, import_tailwind_variants17.tv)({
   variants: {
     size: {
       xs: "text-base font-bold",
@@ -904,7 +981,7 @@ function Heading(_a) {
     "className"
   ]);
   const As = as;
-  return /* @__PURE__ */ (0, import_jsx_runtime40.jsx)(As, __spreadProps(__spreadValues({ className: headingVariant({ size, className }) }, rest), { children }));
+  return /* @__PURE__ */ (0, import_jsx_runtime45.jsx)(As, __spreadProps(__spreadValues({ className: headingVariant({ size, className }) }, rest), { children }));
 }
 // Annotate the CommonJS export names for ESM import in node:
 0 && (module.exports = {
@@ -920,7 +997,7 @@ function Heading(_a) {
   Input,
   InputFile,
   Label,
-  Menu,
+  NavigationMenu,
   Select,
   Table,
   Text,

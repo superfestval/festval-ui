@@ -10,7 +10,7 @@ export type HeaderRootProps = {} & React.HTMLAttributes<HTMLElement> &
 export function Root({ children, className, ...rest }: HeaderRootProps) {
   return (
     <header className={rootVariation({ className })} {...rest}>
-      <div className="m-auto flex w-full max-w-4xl items-center justify-between p-4">
+      <div className="m-auto flex w-full max-w-6xl items-center justify-between p-4">
         {children}
       </div>
     </header>
