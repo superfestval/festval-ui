@@ -8,6 +8,7 @@ import * as DialogPrimitive from '@radix-ui/react-dialog';
 import * as AlertDialogPrimitive from '@radix-ui/react-alert-dialog';
 import * as _react_input_mask from '@react-input/mask';
 import { InputMaskProps } from '@react-input/mask';
+import * as SelectPrimitive from '@radix-ui/react-select';
 
 declare const variant: tailwind_variants.TVReturnType<{} | {} | {}, undefined, "flex-1 rounded-b bg-zinc-50 p-4", tailwind_variants_dist_config.TVConfig<unknown, {} | {}>, {} | {}, undefined, tailwind_variants.TVReturnType<unknown, undefined, "flex-1 rounded-b bg-zinc-50 p-4", tailwind_variants_dist_config.TVConfig<unknown, {} | {}>, unknown, unknown, undefined>>;
 type BodyProps = {
@@ -135,7 +136,7 @@ type AlertDialogCancelProps = {} & AlertDialogPrimitive.AlertDialogCancelProps;
 declare function Cancel({ children, ...rest }: AlertDialogCancelProps): react_jsx_runtime.JSX.Element;
 
 type AlertDialogContentProps = {} & AlertDialogPrimitive.AlertDialogContentProps;
-declare function Content({ children, ...rest }: AlertDialogContentProps): react_jsx_runtime.JSX.Element;
+declare function Content$1({ children, ...rest }: AlertDialogContentProps): react_jsx_runtime.JSX.Element;
 
 type AlertDialogDescriptionProps = {} & AlertDialogPrimitive.AlertDialogDescriptionProps;
 declare function Description({ children, ...rest }: AlertDialogDescriptionProps): react_jsx_runtime.JSX.Element;
@@ -144,27 +145,27 @@ type AlertDialogOverlayProps = {} & AlertDialogPrimitive.AlertDialogOverlayProps
 declare function Overlay({ children, ...rest }: AlertDialogOverlayProps): react_jsx_runtime.JSX.Element;
 
 type AlertDialogPortalProps = {} & AlertDialogPrimitive.AlertDialogPortalProps;
-declare function Portal({ children, ...rest }: AlertDialogPortalProps): react_jsx_runtime.JSX.Element;
+declare function Portal$1({ children, ...rest }: AlertDialogPortalProps): react_jsx_runtime.JSX.Element;
 
 type AlertDialogRootProps = {} & AlertDialogPrimitive.AlertDialogProps;
-declare function Root$1({ children, ...rest }: AlertDialogRootProps): react_jsx_runtime.JSX.Element;
+declare function Root$2({ children, ...rest }: AlertDialogRootProps): react_jsx_runtime.JSX.Element;
 
 type AlertDialogTitleProps = {} & AlertDialogPrimitive.AlertDialogTitleProps;
 declare function Title({ children, ...rest }: AlertDialogTitleProps): react_jsx_runtime.JSX.Element;
 
 type AlertDialogTriggerProps = {} & AlertDialogPrimitive.AlertDialogTriggerProps;
-declare function Trigger({ children, ...rest }: AlertDialogTriggerProps): react_jsx_runtime.JSX.Element;
+declare function Trigger$1({ children, ...rest }: AlertDialogTriggerProps): react_jsx_runtime.JSX.Element;
 
 declare const AlertDialog: {
-    Root: typeof Root$1;
-    Trigger: typeof Trigger;
-    Portal: typeof Portal;
+    Root: typeof Root$2;
+    Trigger: typeof Trigger$1;
+    Portal: typeof Portal$1;
     Overlay: typeof Overlay;
     Title: typeof Title;
     Description: typeof Description;
     Action: typeof Action;
     Cancel: typeof Cancel;
-    Content: typeof Content;
+    Content: typeof Content$1;
 };
 
 declare const variants$1: tailwind_variants.TVReturnType<{
@@ -277,30 +278,58 @@ declare const Input: react.ForwardRefExoticComponent<InputHTMLAttributes<HTMLInp
 
 declare const labelVariant: tailwind_variants.TVReturnType<{} | {} | {}, undefined, "font-bold text-zinc-600", tailwind_variants_dist_config.TVConfig<unknown, {} | {}>, {} | {}, undefined, tailwind_variants.TVReturnType<unknown, undefined, "font-bold text-zinc-600", tailwind_variants_dist_config.TVConfig<unknown, {} | {}>, unknown, unknown, undefined>>;
 type LabelProps = LabelHTMLAttributes<HTMLLabelElement> & {} & VariantProps<typeof labelVariant>;
-declare function Label({ children, className, ...rest }: LabelProps): react_jsx_runtime.JSX.Element;
+declare function Label$1({ children, className, ...rest }: LabelProps): react_jsx_runtime.JSX.Element;
 
-interface SelectItemProps {
-    value: string;
-    children: React.ReactNode;
-}
+type SelectIconProps = {
+    placeholder?: string;
+} & SelectPrimitive.SelectIconProps;
+declare function Icon({ ...rest }: SelectIconProps): react_jsx_runtime.JSX.Element;
 
-interface SelectContentProps {
-    children: React.ReactNode;
-}
+type SelectItemProps = {} & SelectPrimitive.SelectItemProps;
 
-interface SelectTriggerProps {
-    placeholder: string;
-}
+type SelectRootProps = {} & SelectPrimitive.SelectProps;
+declare function Root$1({ children, ...rest }: SelectRootProps): react_jsx_runtime.JSX.Element;
 
-interface SelectRootProps extends HTMLAttributes<ElementType> {
-    onValeuChange?: (value: string) => void;
-}
+type SelectValueProps = {} & SelectPrimitive.SelectValueProps;
+declare function Value({ ...rest }: SelectValueProps): react_jsx_runtime.JSX.Element;
+
+type SelectGroupProps = {} & SelectPrimitive.SelectGroupProps;
+declare function Group({ children, ...rest }: SelectGroupProps): react_jsx_runtime.JSX.Element;
+
+type SelectLabelProps = {} & SelectPrimitive.SelectLabelProps;
+declare function Label({ children, ...rest }: SelectLabelProps): react_jsx_runtime.JSX.Element;
+
+type SelectPortalProps = {} & SelectPrimitive.SelectPortalProps;
+declare function Portal({ children, ...rest }: SelectPortalProps): react_jsx_runtime.JSX.Element;
+
+type SelectContentProps = {} & SelectPrimitive.SelectContentProps;
+declare function Content({ children, ...rest }: SelectContentProps): react_jsx_runtime.JSX.Element;
+
+type SelectTriggerProps = {} & SelectPrimitive.SelectTriggerProps;
+declare function Trigger({ children, ...rest }: SelectTriggerProps): react_jsx_runtime.JSX.Element;
+
+type SelectViewportProps = {} & SelectPrimitive.SelectViewportProps;
+declare function Viewport({ children, ...rest }: SelectViewportProps): react_jsx_runtime.JSX.Element;
+
+type SelectItemTextProps = {} & SelectPrimitive.SelectItemTextProps;
+declare function ItemText({ children, ...rest }: SelectItemTextProps): react_jsx_runtime.JSX.Element;
+
+type SelectItemIndicatorProps = {} & SelectPrimitive.SelectItemProps;
+declare function ItemIndicator({ children, ...rest }: SelectItemIndicatorProps): react_jsx_runtime.JSX.Element;
 
 declare const Select: {
-    Root: ({ children, onValeuChange }: SelectRootProps) => react_jsx_runtime.JSX.Element;
-    Trigger: ({ placeholder }: SelectTriggerProps) => react_jsx_runtime.JSX.Element;
-    Content: ({ children }: SelectContentProps) => react_jsx_runtime.JSX.Element;
-    Item: ({ value, children }: SelectItemProps) => react_jsx_runtime.JSX.Element;
+    Root: typeof Root$1;
+    Portal: typeof Portal;
+    Trigger: typeof Trigger;
+    Content: typeof Content;
+    Viewport: typeof Viewport;
+    Group: typeof Group;
+    ItemIndicator: typeof ItemIndicator;
+    ItemText: typeof ItemText;
+    Item: react.ForwardRefExoticComponent<SelectPrimitive.SelectItemProps & react.RefAttributes<HTMLDivElement>>;
+    Label: typeof Label;
+    Value: typeof Value;
+    Icon: typeof Icon;
 };
 
 declare const buttonVariant: tailwind_variants.TVReturnType<{
@@ -639,4 +668,4 @@ type HeadingProps = {
 } & React.HTMLAttributes<HTMLHeadingElement> & VariantProps<typeof headingVariant>;
 declare function Heading({ as, children, size, className, ...rest }: HeadingProps): react_jsx_runtime.JSX.Element;
 
-export { AlertDialog, type AlertDialogActionProps, type AlertDialogCancelProps, type AlertDialogContentProps, type AlertDialogDescriptionProps, type AlertDialogOverlayProps, type AlertDialogPortalProps, type AlertDialogRootProps, type AlertDialogTitleProps, type AlertDialogTriggerProps, Avatar, type AvatarProps, type BodyProps, Button, type ButtonProps, Card, type CardFooterProps, type CellBodyProps, type CellHeadProps, Checkbox, type CheckboxProps, Dialog, type DialogCloseProps, type DialogContainerProps, type DialogContentProps, type DialogDescriptionProps, type DialogFooterProps, type DialogHeaderProps, type DialogOverlayProps, type DialogPortalProps, type DialogRootProps, type DialogTitleProps, type DialogTriggerProps, Footer, type FooterProps, Header, type HeaderProps, Heading, type HeadingProps, Input, InputFile, type InputFileProps, type InputProps, Label, type LabelProps, Menu, type MenuProps, type RootProps, type RowProps, Select, type SelectRootProps, type TBodyProps, type THeadProps, Table, type TableRootProps, Text, TextArea, type TextAreaProps, type TextProps };
+export { AlertDialog, type AlertDialogActionProps, type AlertDialogCancelProps, type AlertDialogContentProps, type AlertDialogDescriptionProps, type AlertDialogOverlayProps, type AlertDialogPortalProps, type AlertDialogRootProps, type AlertDialogTitleProps, type AlertDialogTriggerProps, Avatar, type AvatarProps, type BodyProps, Button, type ButtonProps, Card, type CardFooterProps, type CellBodyProps, type CellHeadProps, Checkbox, type CheckboxProps, Dialog, type DialogCloseProps, type DialogContainerProps, type DialogContentProps, type DialogDescriptionProps, type DialogFooterProps, type DialogHeaderProps, type DialogOverlayProps, type DialogPortalProps, type DialogRootProps, type DialogTitleProps, type DialogTriggerProps, Footer, type FooterProps, Header, type HeaderProps, Heading, type HeadingProps, Input, InputFile, type InputFileProps, type InputProps, Label$1 as Label, type LabelProps, Menu, type MenuProps, type RootProps, type RowProps, Select, type SelectContentProps, type SelectGroupProps, type SelectIconProps, type SelectItemIndicatorProps, type SelectItemProps, type SelectItemTextProps, type SelectLabelProps, type SelectPortalProps, type SelectRootProps, type SelectTriggerProps, type SelectValueProps, type SelectViewportProps, type TBodyProps, type THeadProps, Table, type TableRootProps, Text, TextArea, type TextAreaProps, type TextProps };

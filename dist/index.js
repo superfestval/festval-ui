@@ -119,12 +119,12 @@ var iconVariant = (0, import_tailwind_variants3.tv)({
 var Header = ({
   children,
   iconColor,
-  icon: Icon,
+  icon: Icon3,
   className
 }) => {
   return /* @__PURE__ */ (0, import_jsx_runtime3.jsxs)("div", { className: "flex items-start justify-between rounded-t bg-zinc-200 p-4", children: [
     children,
-    Icon && /* @__PURE__ */ (0, import_jsx_runtime3.jsx)("div", { className: iconVariant({ variant: iconColor, className }), children: /* @__PURE__ */ (0, import_jsx_runtime3.jsx)(Icon, { size: 16 }) })
+    Icon3 && /* @__PURE__ */ (0, import_jsx_runtime3.jsx)("div", { className: iconVariant({ variant: iconColor, className }), children: /* @__PURE__ */ (0, import_jsx_runtime3.jsx)(Icon3, { size: 16 }) })
   ] });
 };
 
@@ -479,121 +479,144 @@ function Label(_a) {
   return /* @__PURE__ */ (0, import_jsx_runtime18.jsx)("label", __spreadProps(__spreadValues({}, rest), { className: labelVariant({ className }), children }));
 }
 
-// src/components/ui/form/select/components/content.tsx
-var import_tailwind_variants9 = require("tailwind-variants");
-
-// src/components/ui/form/select/context/index.tsx
-var import_react3 = require("react");
-
-// src/components/ui/form/select/context/hooks/useSelectContext.tsx
-var import_react2 = require("react");
-function useSelectContext(onChange) {
-  const [isOpen, setIsOpen] = (0, import_react2.useState)(false);
-  const [value, setValue] = (0, import_react2.useState)(null);
-  const onValueChange = (value2) => {
-    setValue(value2);
-    setIsOpen(false);
-    if (onChange) {
-      onChange(value2);
-    }
-  };
-  const onTriggerClick = () => setIsOpen(!isOpen);
-  return {
-    value,
-    isOpen,
-    onValueChange,
-    onTriggerClick
-  };
+// src/components/ui/form/select/icon.tsx
+var SelectPrimitive = __toESM(require("@radix-ui/react-select"));
+var import_lucide_react3 = require("lucide-react");
+var import_jsx_runtime19 = require("react/jsx-runtime");
+function Icon2(_a) {
+  var rest = __objRest(_a, []);
+  return /* @__PURE__ */ (0, import_jsx_runtime19.jsx)(SelectPrimitive.Icon, __spreadProps(__spreadValues({}, rest), { children: /* @__PURE__ */ (0, import_jsx_runtime19.jsx)(import_lucide_react3.ChevronDown, {}) }));
 }
 
-// src/components/ui/form/select/context/index.tsx
-var import_jsx_runtime19 = require("react/jsx-runtime");
-var SelectContext = (0, import_react3.createContext)({});
-var SelectProvider = ({ children, onChange }) => {
-  const value = useSelectContext(onChange);
-  return /* @__PURE__ */ (0, import_jsx_runtime19.jsx)(SelectContext.Provider, { value, children });
-};
-var useSelect = () => (0, import_react3.useContext)(SelectContext);
-
-// src/components/ui/form/select/components/content.tsx
+// src/components/ui/form/select/item.tsx
+var SelectPrimitive2 = __toESM(require("@radix-ui/react-select"));
+var import_lucide_react4 = require("lucide-react");
+var import_react2 = require("react");
 var import_jsx_runtime20 = require("react/jsx-runtime");
-var contentVariable = (0, import_tailwind_variants9.tv)({
-  base: "top-12 flex max-h-24 flex-col overflow-y-auto rounded absolute w-full",
-  variants: {
-    isOpen: {
-      true: "flex",
-      false: "hidden"
-    }
+var Item2 = (0, import_react2.forwardRef)(
+  (_a, ref) => {
+    var _b = _a, { children } = _b, rest = __objRest(_b, ["children"]);
+    return /* @__PURE__ */ (0, import_jsx_runtime20.jsxs)(
+      SelectPrimitive2.Item,
+      __spreadProps(__spreadValues({
+        ref
+      }, rest), {
+        className: "flex cursor-pointer items-center justify-between border-b border-b-zinc-100 px-4 py-2 outline-none hover:bg-zinc-100",
+        children: [
+          /* @__PURE__ */ (0, import_jsx_runtime20.jsx)(SelectPrimitive2.ItemText, { children }),
+          /* @__PURE__ */ (0, import_jsx_runtime20.jsx)(SelectPrimitive2.ItemIndicator, { children: /* @__PURE__ */ (0, import_jsx_runtime20.jsx)(import_lucide_react4.CheckIcon, { size: 14, className: "text-yellow-600" }) })
+        ]
+      })
+    );
   }
-});
-var Content4 = ({ children }) => {
-  const { isOpen } = useSelect();
-  return /* @__PURE__ */ (0, import_jsx_runtime20.jsx)("div", { className: contentVariable({ isOpen }), children });
-};
+);
 
-// src/components/ui/form/select/components/item.tsx
+// src/components/ui/form/select/root.tsx
+var SelectPrimitive3 = __toESM(require("@radix-ui/react-select"));
 var import_jsx_runtime21 = require("react/jsx-runtime");
-var Item = ({ value, children }) => {
-  const { onValueChange } = useSelect();
-  const onClick = () => onValueChange(value);
-  return /* @__PURE__ */ (0, import_jsx_runtime21.jsx)(
-    "button",
-    {
-      type: "button",
-      onClick,
-      className: "w-full border-b border-b-zinc-200 bg-zinc-100 px-4 py-2 text-left",
-      children
-    }
-  );
-};
+function Root6(_a) {
+  var _b = _a, { children } = _b, rest = __objRest(_b, ["children"]);
+  return /* @__PURE__ */ (0, import_jsx_runtime21.jsx)(SelectPrimitive3.Root, __spreadProps(__spreadValues({}, rest), { children }));
+}
 
-// src/components/ui/form/select/components/root.tsx
+// src/components/ui/form/select/value.tsx
+var SelectPrimitive4 = __toESM(require("@radix-ui/react-select"));
 var import_jsx_runtime22 = require("react/jsx-runtime");
-var Root5 = ({ children, onValeuChange }) => {
-  return /* @__PURE__ */ (0, import_jsx_runtime22.jsx)(SelectProvider, { onChange: onValeuChange, children: /* @__PURE__ */ (0, import_jsx_runtime22.jsx)("div", { className: "relative", children }) });
-};
+function Value2(_a) {
+  var rest = __objRest(_a, []);
+  return /* @__PURE__ */ (0, import_jsx_runtime22.jsx)(SelectPrimitive4.Value, __spreadValues({}, rest));
+}
 
-// src/components/ui/form/select/components/trigger.tsx
-var import_tailwind_variants10 = require("tailwind-variants");
-var import_react_icons = require("@radix-ui/react-icons");
+// src/components/ui/form/select/group.tsx
+var SelectPrimitive5 = __toESM(require("@radix-ui/react-select"));
 var import_jsx_runtime23 = require("react/jsx-runtime");
-var triggerVariable = (0, import_tailwind_variants10.tv)({
-  base: "flex w-full items-center justify-between rounded border  bg-zinc-100 px-4 py-2 text-left",
-  variants: {
-    isOpen: {
-      true: "border-yellow-600",
-      false: "border-zinc-200"
-    }
-  }
-});
-var Trigger4 = ({ placeholder }) => {
-  const { value, isOpen, onTriggerClick } = useSelect();
-  return /* @__PURE__ */ (0, import_jsx_runtime23.jsxs)(
-    "button",
-    {
-      type: "button",
-      onClick: onTriggerClick,
-      className: triggerVariable({ isOpen }),
-      children: [
-        value ? value : placeholder,
-        isOpen ? /* @__PURE__ */ (0, import_jsx_runtime23.jsx)(import_react_icons.ChevronUpIcon, {}) : /* @__PURE__ */ (0, import_jsx_runtime23.jsx)(import_react_icons.ChevronDownIcon, {})
-      ]
-    }
+function Group2(_a) {
+  var _b = _a, { children } = _b, rest = __objRest(_b, ["children"]);
+  return /* @__PURE__ */ (0, import_jsx_runtime23.jsx)(SelectPrimitive5.Group, __spreadProps(__spreadValues({}, rest), { children }));
+}
+
+// src/components/ui/form/select/label.tsx
+var SelectPrimitive6 = __toESM(require("@radix-ui/react-select"));
+var import_jsx_runtime24 = require("react/jsx-runtime");
+function Label3(_a) {
+  var _b = _a, { children } = _b, rest = __objRest(_b, ["children"]);
+  return /* @__PURE__ */ (0, import_jsx_runtime24.jsx)(SelectPrimitive6.Label, __spreadProps(__spreadValues({}, rest), { className: "mt-4 text-center text-zinc-500", children }));
+}
+
+// src/components/ui/form/select/portal.tsx
+var SelectPrimitive7 = __toESM(require("@radix-ui/react-select"));
+var import_jsx_runtime25 = require("react/jsx-runtime");
+function Portal5(_a) {
+  var _b = _a, { children } = _b, rest = __objRest(_b, ["children"]);
+  return /* @__PURE__ */ (0, import_jsx_runtime25.jsx)(SelectPrimitive7.Portal, __spreadProps(__spreadValues({}, rest), { children }));
+}
+
+// src/components/ui/form/select/content.tsx
+var SelectPrimitive8 = __toESM(require("@radix-ui/react-select"));
+var import_jsx_runtime26 = require("react/jsx-runtime");
+function Content5(_a) {
+  var _b = _a, { children } = _b, rest = __objRest(_b, ["children"]);
+  return /* @__PURE__ */ (0, import_jsx_runtime26.jsx)(SelectPrimitive8.Content, __spreadProps(__spreadValues({}, rest), { className: "rounded bg-zinc-50", children }));
+}
+
+// src/components/ui/form/select/trigger.tsx
+var SelectPrimitive9 = __toESM(require("@radix-ui/react-select"));
+var import_jsx_runtime27 = require("react/jsx-runtime");
+function Trigger5(_a) {
+  var _b = _a, { children } = _b, rest = __objRest(_b, ["children"]);
+  return /* @__PURE__ */ (0, import_jsx_runtime27.jsx)(
+    SelectPrimitive9.Trigger,
+    __spreadProps(__spreadValues({}, rest), {
+      className: "mb-4 flex w-full items-start justify-between rounded border-2 border-zinc-200 bg-zinc-50 p-2 outline-yellow-700",
+      children
+    })
   );
-};
+}
+
+// src/components/ui/form/select/viewport.tsx
+var SelectPrimitive10 = __toESM(require("@radix-ui/react-select"));
+var import_jsx_runtime28 = require("react/jsx-runtime");
+function Viewport2(_a) {
+  var _b = _a, { children } = _b, rest = __objRest(_b, ["children"]);
+  return /* @__PURE__ */ (0, import_jsx_runtime28.jsx)(SelectPrimitive10.Viewport, __spreadProps(__spreadValues({}, rest), { children }));
+}
+
+// src/components/ui/form/select/item-text.tsx
+var SelectPrimitive11 = __toESM(require("@radix-ui/react-select"));
+var import_jsx_runtime29 = require("react/jsx-runtime");
+function ItemText3(_a) {
+  var _b = _a, { children } = _b, rest = __objRest(_b, ["children"]);
+  return /* @__PURE__ */ (0, import_jsx_runtime29.jsx)(SelectPrimitive11.ItemText, __spreadProps(__spreadValues({}, rest), { children }));
+}
+
+// src/components/ui/form/select/item-indicator.tsx
+var SelectPrimitive12 = __toESM(require("@radix-ui/react-select"));
+var import_jsx_runtime30 = require("react/jsx-runtime");
+function ItemIndicator3(_a) {
+  var _b = _a, { children } = _b, rest = __objRest(_b, ["children"]);
+  return /* @__PURE__ */ (0, import_jsx_runtime30.jsx)(SelectPrimitive12.ItemIndicator, __spreadProps(__spreadValues({}, rest), { children }));
+}
 
 // src/components/ui/form/select/index.tsx
 var Select = {
-  Root: Root5,
-  Trigger: Trigger4,
-  Content: Content4,
-  Item
+  Root: Root6,
+  Portal: Portal5,
+  Trigger: Trigger5,
+  Content: Content5,
+  Viewport: Viewport2,
+  Group: Group2,
+  ItemIndicator: ItemIndicator3,
+  ItemText: ItemText3,
+  Item: Item2,
+  Label: Label3,
+  Value: Value2,
+  Icon: Icon2
 };
 
 // src/components/ui/form/button/index.tsx
-var import_tailwind_variants11 = require("tailwind-variants");
-var import_jsx_runtime24 = require("react/jsx-runtime");
-var buttonVariant = (0, import_tailwind_variants11.tv)({
+var import_tailwind_variants9 = require("tailwind-variants");
+var import_jsx_runtime31 = require("react/jsx-runtime");
+var buttonVariant = (0, import_tailwind_variants9.tv)({
   base: "px-4 py-2 rounded text-zinc-50 transition-colors flex gap-2",
   variants: {
     variant: {
@@ -632,20 +655,20 @@ function Button(_a) {
   const As = as || "button";
   const IconLeft = iconLeft;
   const IconRight = iconRight;
-  return /* @__PURE__ */ (0, import_jsx_runtime24.jsxs)(As, __spreadProps(__spreadValues({}, rest), { className: buttonVariant({ className, variant: variant2, disabled }), children: [
-    IconLeft && /* @__PURE__ */ (0, import_jsx_runtime24.jsx)(IconLeft, {}),
+  return /* @__PURE__ */ (0, import_jsx_runtime31.jsxs)(As, __spreadProps(__spreadValues({}, rest), { className: buttonVariant({ className, variant: variant2, disabled }), children: [
+    IconLeft && /* @__PURE__ */ (0, import_jsx_runtime31.jsx)(IconLeft, {}),
     children,
-    IconRight && /* @__PURE__ */ (0, import_jsx_runtime24.jsx)(IconRight, {})
+    IconRight && /* @__PURE__ */ (0, import_jsx_runtime31.jsx)(IconRight, {})
   ] }));
 }
 Button.displayName = "Button";
 
 // src/components/ui/form/checkbox/index.tsx
-var import_react4 = require("react");
-var import_lucide_react3 = require("lucide-react");
-var import_tailwind_variants12 = require("tailwind-variants");
-var import_jsx_runtime25 = require("react/jsx-runtime");
-var variants2 = (0, import_tailwind_variants12.tv)({
+var import_react3 = require("react");
+var import_lucide_react5 = require("lucide-react");
+var import_tailwind_variants10 = require("tailwind-variants");
+var import_jsx_runtime32 = require("react/jsx-runtime");
+var variants2 = (0, import_tailwind_variants10.tv)({
   base: "w-5 h-5 rounded border border-zinc-200 bg-zinc-100",
   variants: {
     checked: {
@@ -665,7 +688,7 @@ function Checkbox({
   disabled = false,
   onValueChange
 }) {
-  const [isChecked, setIsChecked] = (0, import_react4.useState)(
+  const [isChecked, setIsChecked] = (0, import_react3.useState)(
     checked
   );
   const toggleCheck = () => {
@@ -674,23 +697,23 @@ function Checkbox({
       onValueChange(!isChecked);
     }
   };
-  return /* @__PURE__ */ (0, import_jsx_runtime25.jsx)(
+  return /* @__PURE__ */ (0, import_jsx_runtime32.jsx)(
     "button",
     {
       type: "button",
       disabled,
       onClick: toggleCheck,
       className: variants2({ checked: isChecked, disabled }),
-      children: isChecked && /* @__PURE__ */ (0, import_jsx_runtime25.jsx)(import_lucide_react3.Check, { size: 18 })
+      children: isChecked && /* @__PURE__ */ (0, import_jsx_runtime32.jsx)(import_lucide_react5.Check, { size: 18 })
     }
   );
 }
 
 // src/components/ui/form/textarea/index.tsx
-var import_tailwind_variants13 = require("tailwind-variants");
-var import_react5 = require("react");
-var import_jsx_runtime26 = require("react/jsx-runtime");
-var variants3 = (0, import_tailwind_variants13.tv)({
+var import_tailwind_variants11 = require("tailwind-variants");
+var import_react4 = require("react");
+var import_jsx_runtime33 = require("react/jsx-runtime");
+var variants3 = (0, import_tailwind_variants11.tv)({
   base: "w-full p-2 bg-zinc-50 border border-zinc-100 rounded outline-yellow-700",
   variants: {
     variant: {
@@ -701,11 +724,11 @@ var variants3 = (0, import_tailwind_variants13.tv)({
     variant: "default"
   }
 });
-var TextArea = (0, import_react5.forwardRef)(
+var TextArea = (0, import_react4.forwardRef)(
   (_a, ref) => {
     var _b = _a, { error, name, className } = _b, rest = __objRest(_b, ["error", "name", "className"]);
-    return /* @__PURE__ */ (0, import_jsx_runtime26.jsxs)(import_jsx_runtime26.Fragment, { children: [
-      /* @__PURE__ */ (0, import_jsx_runtime26.jsx)("div", { className: variants3({ className }), children: /* @__PURE__ */ (0, import_jsx_runtime26.jsx)(
+    return /* @__PURE__ */ (0, import_jsx_runtime33.jsxs)(import_jsx_runtime33.Fragment, { children: [
+      /* @__PURE__ */ (0, import_jsx_runtime33.jsx)("div", { className: variants3({ className }), children: /* @__PURE__ */ (0, import_jsx_runtime33.jsx)(
         "textarea",
         __spreadProps(__spreadValues({
           ref
@@ -714,47 +737,47 @@ var TextArea = (0, import_react5.forwardRef)(
           className: "w-full bg-transparent outline-none"
         })
       ) }),
-      error && /* @__PURE__ */ (0, import_jsx_runtime26.jsx)("p", { className: "mt-1 text-xs text-red-600", children: error })
+      error && /* @__PURE__ */ (0, import_jsx_runtime33.jsx)("p", { className: "mt-1 text-xs text-red-600", children: error })
     ] });
   }
 );
 TextArea.displayName = "TextArea";
 
 // src/components/ui/form/input-file/index.tsx
-var import_lucide_react4 = require("lucide-react");
-var import_react6 = require("react");
-var import_jsx_runtime27 = require("react/jsx-runtime");
-var InputFile = (0, import_react6.forwardRef)(
+var import_lucide_react6 = require("lucide-react");
+var import_react5 = require("react");
+var import_jsx_runtime34 = require("react/jsx-runtime");
+var InputFile = (0, import_react5.forwardRef)(
   (_a, ref) => {
     var _b = _a, { accept = ".pdf" } = _b, rest = __objRest(_b, ["accept"]);
-    const [files, setFiles] = (0, import_react6.useState)(null);
+    const [files, setFiles] = (0, import_react5.useState)(null);
     const onInputChange = (e) => setFiles(e.currentTarget.files);
-    return /* @__PURE__ */ (0, import_jsx_runtime27.jsxs)("div", { className: "flex w-full items-center justify-center rounded border border-dashed border-zinc-200 bg-zinc-100 text-zinc-950", children: [
-      /* @__PURE__ */ (0, import_jsx_runtime27.jsx)(
+    return /* @__PURE__ */ (0, import_jsx_runtime34.jsxs)("div", { className: "flex w-full items-center justify-center rounded border border-dashed border-zinc-200 bg-zinc-100 text-zinc-950", children: [
+      /* @__PURE__ */ (0, import_jsx_runtime34.jsx)(
         "label",
         {
           htmlFor: "file",
           className: "flex h-full w-full cursor-pointer items-center justify-center text-center",
-          children: /* @__PURE__ */ (0, import_jsx_runtime27.jsx)("div", { className: "flex w-full items-center justify-center", children: /* @__PURE__ */ (0, import_jsx_runtime27.jsx)("small", { children: !files ? /* @__PURE__ */ (0, import_jsx_runtime27.jsxs)("div", { className: "p-4", children: [
-            /* @__PURE__ */ (0, import_jsx_runtime27.jsx)("p", { children: "Clique aqui para inserir um documento" }),
-            /* @__PURE__ */ (0, import_jsx_runtime27.jsx)("div", { className: "flex items-center justify-center p-4", children: /* @__PURE__ */ (0, import_jsx_runtime27.jsx)(import_lucide_react4.UploadIcon, { className: "text-zinc-400" }) }),
-            /* @__PURE__ */ (0, import_jsx_runtime27.jsxs)("small", { className: "text-zinc-500", children: [
+          children: /* @__PURE__ */ (0, import_jsx_runtime34.jsx)("div", { className: "flex w-full items-center justify-center", children: /* @__PURE__ */ (0, import_jsx_runtime34.jsx)("small", { children: !files ? /* @__PURE__ */ (0, import_jsx_runtime34.jsxs)("div", { className: "p-4", children: [
+            /* @__PURE__ */ (0, import_jsx_runtime34.jsx)("p", { children: "Clique aqui para inserir um documento" }),
+            /* @__PURE__ */ (0, import_jsx_runtime34.jsx)("div", { className: "flex items-center justify-center p-4", children: /* @__PURE__ */ (0, import_jsx_runtime34.jsx)(import_lucide_react6.UploadIcon, { className: "text-zinc-400" }) }),
+            /* @__PURE__ */ (0, import_jsx_runtime34.jsxs)("small", { className: "text-zinc-500", children: [
               "(Somente arquivos ",
               accept,
               ")"
             ] })
-          ] }) : /* @__PURE__ */ (0, import_jsx_runtime27.jsxs)("div", { className: "p-4", children: [
-            /* @__PURE__ */ (0, import_jsx_runtime27.jsx)("p", { children: "Arquivos selecionados:" }),
-            /* @__PURE__ */ (0, import_jsx_runtime27.jsx)("div", { className: "mt-4", children: Array.from(files).map((item, index) => /* @__PURE__ */ (0, import_jsx_runtime27.jsxs)("small", { children: [
+          ] }) : /* @__PURE__ */ (0, import_jsx_runtime34.jsxs)("div", { className: "p-4", children: [
+            /* @__PURE__ */ (0, import_jsx_runtime34.jsx)("p", { children: "Arquivos selecionados:" }),
+            /* @__PURE__ */ (0, import_jsx_runtime34.jsx)("div", { className: "mt-4", children: Array.from(files).map((item, index) => /* @__PURE__ */ (0, import_jsx_runtime34.jsxs)("small", { children: [
               item.name,
               " ",
               index > 0 && ", "
             ] }, item.name)) }),
-            /* @__PURE__ */ (0, import_jsx_runtime27.jsx)("small", { className: "text-zinc-500" })
+            /* @__PURE__ */ (0, import_jsx_runtime34.jsx)("small", { className: "text-zinc-500" })
           ] }) }) })
         }
       ),
-      /* @__PURE__ */ (0, import_jsx_runtime27.jsx)(
+      /* @__PURE__ */ (0, import_jsx_runtime34.jsx)(
         "input",
         __spreadProps(__spreadValues({
           id: "file",
@@ -772,24 +795,24 @@ var InputFile = (0, import_react6.forwardRef)(
 
 // src/components/surfaces/menu/index.tsx
 var Navigation = __toESM(require("@radix-ui/react-navigation-menu"));
-var import_jsx_runtime28 = require("react/jsx-runtime");
+var import_jsx_runtime35 = require("react/jsx-runtime");
 function Menu({ signOut, children, username, avatarImage }) {
-  return /* @__PURE__ */ (0, import_jsx_runtime28.jsx)(Navigation.Root, { id: "navigation", children: /* @__PURE__ */ (0, import_jsx_runtime28.jsx)(Navigation.List, { children: /* @__PURE__ */ (0, import_jsx_runtime28.jsxs)(Navigation.Item, { children: [
-    /* @__PURE__ */ (0, import_jsx_runtime28.jsx)(Navigation.Trigger, { children }),
-    /* @__PURE__ */ (0, import_jsx_runtime28.jsxs)(Navigation.Content, { className: "absolute right-2 w-[300px] rounded bg-zinc-50 shadow", children: [
-      /* @__PURE__ */ (0, import_jsx_runtime28.jsxs)("div", { className: "flex w-full items-center gap-4 border-b border-b-zinc-200 p-2", children: [
-        /* @__PURE__ */ (0, import_jsx_runtime28.jsx)(Avatar, { image: avatarImage, username }),
-        /* @__PURE__ */ (0, import_jsx_runtime28.jsx)("p", { className: "inline-block", children: username })
+  return /* @__PURE__ */ (0, import_jsx_runtime35.jsx)(Navigation.Root, { id: "navigation", children: /* @__PURE__ */ (0, import_jsx_runtime35.jsx)(Navigation.List, { children: /* @__PURE__ */ (0, import_jsx_runtime35.jsxs)(Navigation.Item, { children: [
+    /* @__PURE__ */ (0, import_jsx_runtime35.jsx)(Navigation.Trigger, { children }),
+    /* @__PURE__ */ (0, import_jsx_runtime35.jsxs)(Navigation.Content, { className: "absolute right-2 w-[300px] rounded bg-zinc-50 shadow", children: [
+      /* @__PURE__ */ (0, import_jsx_runtime35.jsxs)("div", { className: "flex w-full items-center gap-4 border-b border-b-zinc-200 p-2", children: [
+        /* @__PURE__ */ (0, import_jsx_runtime35.jsx)(Avatar, { image: avatarImage, username }),
+        /* @__PURE__ */ (0, import_jsx_runtime35.jsx)("p", { className: "inline-block", children: username })
       ] }),
-      /* @__PURE__ */ (0, import_jsx_runtime28.jsx)("div", { className: "w-full p-4", children: /* @__PURE__ */ (0, import_jsx_runtime28.jsx)(Button, { onClick: signOut, className: "w-full", children: "Sair" }) })
+      /* @__PURE__ */ (0, import_jsx_runtime35.jsx)("div", { className: "w-full p-4", children: /* @__PURE__ */ (0, import_jsx_runtime35.jsx)(Button, { onClick: signOut, className: "w-full", children: "Sair" }) })
     ] })
   ] }) }) });
 }
 
 // src/components/surfaces/footer/index.tsx
-var import_jsx_runtime29 = require("react/jsx-runtime");
+var import_jsx_runtime36 = require("react/jsx-runtime");
 function Footer() {
-  return /* @__PURE__ */ (0, import_jsx_runtime29.jsxs)("footer", { className: "item-center flex w-full justify-center bg-zinc-100 p-4 text-xs text-zinc-700", children: [
+  return /* @__PURE__ */ (0, import_jsx_runtime36.jsxs)("footer", { className: "item-center flex w-full justify-center bg-zinc-100 p-4 text-xs text-zinc-700", children: [
     "Super Festval \xA9 | ",
     (/* @__PURE__ */ new Date()).getFullYear(),
     " | Todos os direitos reservados"
@@ -797,37 +820,37 @@ function Footer() {
 }
 
 // src/components/surfaces/header/image.tsx
-var import_tailwind_variants14 = require("tailwind-variants");
-var import_jsx_runtime30 = require("react/jsx-runtime");
-var imageVariation = (0, import_tailwind_variants14.tv)({
+var import_tailwind_variants12 = require("tailwind-variants");
+var import_jsx_runtime37 = require("react/jsx-runtime");
+var imageVariation = (0, import_tailwind_variants12.tv)({
   base: "w-24"
 });
 function Image(_a) {
   var _b = _a, { className } = _b, rest = __objRest(_b, ["className"]);
-  return /* @__PURE__ */ (0, import_jsx_runtime30.jsx)("img", __spreadValues({ className: imageVariation({ className }) }, rest));
+  return /* @__PURE__ */ (0, import_jsx_runtime37.jsx)("img", __spreadValues({ className: imageVariation({ className }) }, rest));
 }
 
 // src/components/surfaces/header/root.tsx
-var import_tailwind_variants15 = require("tailwind-variants");
-var import_jsx_runtime31 = require("react/jsx-runtime");
-var rootVariation = (0, import_tailwind_variants15.tv)({
+var import_tailwind_variants13 = require("tailwind-variants");
+var import_jsx_runtime38 = require("react/jsx-runtime");
+var rootVariation = (0, import_tailwind_variants13.tv)({
   base: "fixed left-0 top-0 w-full bg-zinc-950"
 });
-function Root7(_a) {
+function Root8(_a) {
   var _b = _a, { children, className } = _b, rest = __objRest(_b, ["children", "className"]);
-  return /* @__PURE__ */ (0, import_jsx_runtime31.jsx)("header", __spreadProps(__spreadValues({ className: rootVariation({ className }) }, rest), { children: /* @__PURE__ */ (0, import_jsx_runtime31.jsx)("div", { className: "m-auto flex w-full max-w-4xl items-center justify-between p-4", children }) }));
+  return /* @__PURE__ */ (0, import_jsx_runtime38.jsx)("header", __spreadProps(__spreadValues({ className: rootVariation({ className }) }, rest), { children: /* @__PURE__ */ (0, import_jsx_runtime38.jsx)("div", { className: "m-auto flex w-full max-w-4xl items-center justify-between p-4", children }) }));
 }
 
 // src/components/surfaces/header/index.tsx
 var Header2 = {
-  Root: Root7,
+  Root: Root8,
   Image
 };
 
 // src/components/typograph/text/index.tsx
-var import_tailwind_variants16 = require("tailwind-variants");
-var import_jsx_runtime32 = require("react/jsx-runtime");
-var textVariant = (0, import_tailwind_variants16.tv)({
+var import_tailwind_variants14 = require("tailwind-variants");
+var import_jsx_runtime39 = require("react/jsx-runtime");
+var textVariant = (0, import_tailwind_variants14.tv)({
   variants: {
     size: {
       xs: "text-xs",
@@ -846,13 +869,13 @@ var textVariant = (0, import_tailwind_variants16.tv)({
 function Text(_a) {
   var _b = _a, { as = "p", children, size } = _b, rest = __objRest(_b, ["as", "children", "size"]);
   const As = as;
-  return /* @__PURE__ */ (0, import_jsx_runtime32.jsx)(As, __spreadProps(__spreadValues({ className: textVariant({ size }) }, rest), { children }));
+  return /* @__PURE__ */ (0, import_jsx_runtime39.jsx)(As, __spreadProps(__spreadValues({ className: textVariant({ size }) }, rest), { children }));
 }
 
 // src/components/typograph/heading/index.tsx
-var import_tailwind_variants17 = require("tailwind-variants");
-var import_jsx_runtime33 = require("react/jsx-runtime");
-var headingVariant = (0, import_tailwind_variants17.tv)({
+var import_tailwind_variants15 = require("tailwind-variants");
+var import_jsx_runtime40 = require("react/jsx-runtime");
+var headingVariant = (0, import_tailwind_variants15.tv)({
   variants: {
     size: {
       xs: "text-base font-bold",
@@ -881,7 +904,7 @@ function Heading(_a) {
     "className"
   ]);
   const As = as;
-  return /* @__PURE__ */ (0, import_jsx_runtime33.jsx)(As, __spreadProps(__spreadValues({ className: headingVariant({ size, className }) }, rest), { children }));
+  return /* @__PURE__ */ (0, import_jsx_runtime40.jsx)(As, __spreadProps(__spreadValues({ className: headingVariant({ size, className }) }, rest), { children }));
 }
 // Annotate the CommonJS export names for ESM import in node:
 0 && (module.exports = {
