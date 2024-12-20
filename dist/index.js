@@ -62,18 +62,20 @@ __export(src_exports, {
   AlertDialog: () => AlertDialog,
   Avatar: () => Avatar,
   Button: () => Button,
+  Calendar: () => Calendar,
   Card: () => Card,
   Checkbox: () => Checkbox,
+  DatePicker: () => DatePicker,
   Dialog: () => Dialog,
-  Footer: () => Footer,
-  Header: () => Header2,
+  Footer: () => Footer2,
+  Header: () => Header3,
   Heading: () => Heading,
   Input: () => Input,
   InputFile: () => InputFile,
   Label: () => Label,
   Menu: () => Menu,
   NavigationMenu: () => NavigationMenu,
-  Popover: () => Popover8,
+  Popover: () => Popover9,
   Select: () => Select,
   Table: () => Table,
   Text: () => Text,
@@ -795,33 +797,102 @@ var InputFile = (0, import_react5.forwardRef)(
   }
 );
 
-// src/components/ui/popover/root.tsx
-var Popover = __toESM(require("@radix-ui/react-popover"));
+// src/components/surfaces/calendar/index.tsx
+var import_locale = require("react-day-picker/locale");
+var import_react_day_picker = require("react-day-picker");
 var import_jsx_runtime35 = require("react/jsx-runtime");
-function Root8(_a) {
+function Calendar(_a) {
+  var rest = __objRest(_a, []);
+  return /* @__PURE__ */ (0, import_jsx_runtime35.jsx)(
+    import_react_day_picker.DayPicker,
+    __spreadProps(__spreadValues({}, rest), {
+      locale: import_locale.ptBR,
+      classNames: {
+        today: "text-red-500",
+        range_end: "rounded-r",
+        range_start: "rounded-l",
+        chevron: "fill-zinc-500",
+        month_caption: "py-4 px-12",
+        day: "px-4 py-3 text-center",
+        nav: "absolute right-4 top-8",
+        month_grid: "w-full bg-zinc-10",
+        range_middle: "bg-amber-500/25",
+        selected: "bg-amber-500 text-white",
+        root: "bg-zinc-50 p-4 rounded relative border border-zinc-200 shadow-lg"
+      }
+    })
+  );
+}
+
+// src/components/ui/form/date-picker/index.tsx
+var Popover = __toESM(require("@radix-ui/react-popover"));
+var import_lucide_react7 = require("lucide-react");
+var import_react6 = require("react");
+var import_date_fns = require("date-fns");
+var import_jsx_runtime36 = require("react/jsx-runtime");
+function DatePicker({ defaultValue, onRangeChange }) {
+  const [selected, setSelected] = (0, import_react6.useState)(() => {
+    return {
+      from: defaultValue ? defaultValue.from : /* @__PURE__ */ new Date(),
+      to: defaultValue && defaultValue.to ? defaultValue.to : (0, import_date_fns.add)(/* @__PURE__ */ new Date(), {
+        days: 15
+      })
+    };
+  });
+  const onRangeSelected = (range) => {
+    setSelected(range);
+    if (onRangeChange) {
+      onRangeChange(range);
+    }
+  };
+  return /* @__PURE__ */ (0, import_jsx_runtime36.jsxs)(Popover.Root, { children: [
+    /* @__PURE__ */ (0, import_jsx_runtime36.jsx)(Popover.Trigger, { children: /* @__PURE__ */ (0, import_jsx_runtime36.jsxs)(Button, { variant: "ghost", className: "mb-1 border border-zinc-300", children: [
+      /* @__PURE__ */ (0, import_jsx_runtime36.jsx)(import_lucide_react7.Calendar1, { size: 14 }),
+      (0, import_date_fns.format)(selected.from || /* @__PURE__ */ new Date(), "dd/LL/yyyy"),
+      " ",
+      " - ",
+      " ",
+      (0, import_date_fns.format)(selected.to || /* @__PURE__ */ new Date(), "dd/LL/yyyy")
+    ] }) }),
+    /* @__PURE__ */ (0, import_jsx_runtime36.jsx)(Popover.Portal, { children: /* @__PURE__ */ (0, import_jsx_runtime36.jsx)(Popover.Content, { children: /* @__PURE__ */ (0, import_jsx_runtime36.jsx)(
+      Calendar,
+      {
+        mode: "range",
+        required: true,
+        selected,
+        onSelect: onRangeSelected
+      }
+    ) }) })
+  ] });
+}
+
+// src/components/ui/popover/root.tsx
+var Popover2 = __toESM(require("@radix-ui/react-popover"));
+var import_jsx_runtime37 = require("react/jsx-runtime");
+function Root9(_a) {
   var _b = _a, { children } = _b, rest = __objRest(_b, ["children"]);
-  return /* @__PURE__ */ (0, import_jsx_runtime35.jsx)(Popover.Root, __spreadProps(__spreadValues({}, rest), { children }));
+  return /* @__PURE__ */ (0, import_jsx_runtime37.jsx)(Popover2.Root, __spreadProps(__spreadValues({}, rest), { children }));
 }
 
 // src/components/ui/popover/arrow.tsx
-var Popover2 = __toESM(require("@radix-ui/react-popover"));
-var import_jsx_runtime36 = require("react/jsx-runtime");
+var Popover3 = __toESM(require("@radix-ui/react-popover"));
+var import_jsx_runtime38 = require("react/jsx-runtime");
 function Arrow2(_a) {
   var _b = _a, { children } = _b, rest = __objRest(_b, ["children"]);
-  return /* @__PURE__ */ (0, import_jsx_runtime36.jsx)(Popover2.Arrow, __spreadProps(__spreadValues({}, rest), { className: "fill-zinc-50", children }));
+  return /* @__PURE__ */ (0, import_jsx_runtime38.jsx)(Popover3.Arrow, __spreadProps(__spreadValues({}, rest), { className: "fill-zinc-50", children }));
 }
 
 // src/components/ui/popover/close.tsx
-var Popover3 = __toESM(require("@radix-ui/react-popover"));
+var Popover4 = __toESM(require("@radix-ui/react-popover"));
 var import_tailwind_variants12 = require("tailwind-variants");
-var import_jsx_runtime37 = require("react/jsx-runtime");
+var import_jsx_runtime39 = require("react/jsx-runtime");
 var popoverCloseVariant = (0, import_tailwind_variants12.tv)({
   base: "absolute right-2 top-2 inline-flex cursor-pointer items-center justify-center text-zinc-400 outline-none border border-zinc-400 rounded hover:bg-zinc-100 transition-colors"
 });
 function Close3(_a) {
   var _b = _a, { children, className } = _b, rest = __objRest(_b, ["children", "className"]);
-  return /* @__PURE__ */ (0, import_jsx_runtime37.jsx)(
-    Popover3.Close,
+  return /* @__PURE__ */ (0, import_jsx_runtime39.jsx)(
+    Popover4.Close,
     __spreadProps(__spreadValues({}, rest), {
       className: popoverCloseVariant({ className }),
       "aria-label": "Close",
@@ -831,32 +902,32 @@ function Close3(_a) {
 }
 
 // src/components/ui/popover/anchor.tsx
-var Popover4 = __toESM(require("@radix-ui/react-popover"));
-var import_jsx_runtime38 = require("react/jsx-runtime");
+var Popover5 = __toESM(require("@radix-ui/react-popover"));
+var import_jsx_runtime40 = require("react/jsx-runtime");
 function Anchor2(_a) {
   var _b = _a, { children } = _b, rest = __objRest(_b, ["children"]);
-  return /* @__PURE__ */ (0, import_jsx_runtime38.jsx)(Popover4.Anchor, __spreadProps(__spreadValues({}, rest), { children }));
+  return /* @__PURE__ */ (0, import_jsx_runtime40.jsx)(Popover5.Anchor, __spreadProps(__spreadValues({}, rest), { children }));
 }
 
 // src/components/ui/popover/portal.tsx
-var Popover5 = __toESM(require("@radix-ui/react-popover"));
-var import_jsx_runtime39 = require("react/jsx-runtime");
-function Portal7(_a) {
+var Popover6 = __toESM(require("@radix-ui/react-popover"));
+var import_jsx_runtime41 = require("react/jsx-runtime");
+function Portal8(_a) {
   var _b = _a, { children } = _b, rest = __objRest(_b, ["children"]);
-  return /* @__PURE__ */ (0, import_jsx_runtime39.jsx)(Popover5.Portal, __spreadProps(__spreadValues({}, rest), { children }));
+  return /* @__PURE__ */ (0, import_jsx_runtime41.jsx)(Popover6.Portal, __spreadProps(__spreadValues({}, rest), { children }));
 }
 
 // src/components/ui/popover/content.tsx
-var Popover6 = __toESM(require("@radix-ui/react-popover"));
+var Popover7 = __toESM(require("@radix-ui/react-popover"));
 var import_tailwind_variants13 = require("tailwind-variants");
-var import_jsx_runtime40 = require("react/jsx-runtime");
+var import_jsx_runtime42 = require("react/jsx-runtime");
 var popoverContentVariation = (0, import_tailwind_variants13.tv)({
   base: "bg-zinc-100 rounded shadow-lg"
 });
-function Content7(_a) {
+function Content8(_a) {
   var _b = _a, { children, className } = _b, rest = __objRest(_b, ["children", "className"]);
-  return /* @__PURE__ */ (0, import_jsx_runtime40.jsx)(
-    Popover6.Content,
+  return /* @__PURE__ */ (0, import_jsx_runtime42.jsx)(
+    Popover7.Content,
     __spreadProps(__spreadValues({}, rest), {
       className: popoverContentVariation({ className }),
       sideOffset: 5,
@@ -866,28 +937,115 @@ function Content7(_a) {
 }
 
 // src/components/ui/popover/trigger.tsx
-var Popover7 = __toESM(require("@radix-ui/react-popover"));
-var import_jsx_runtime41 = require("react/jsx-runtime");
-function Trigger7(_a) {
+var Popover8 = __toESM(require("@radix-ui/react-popover"));
+var import_jsx_runtime43 = require("react/jsx-runtime");
+function Trigger8(_a) {
   var _b = _a, { children } = _b, rest = __objRest(_b, ["children"]);
-  return /* @__PURE__ */ (0, import_jsx_runtime41.jsx)(Popover7.Trigger, __spreadProps(__spreadValues({}, rest), { children }));
+  return /* @__PURE__ */ (0, import_jsx_runtime43.jsx)(Popover8.Trigger, __spreadProps(__spreadValues({}, rest), { children }));
 }
 
 // src/components/ui/popover/index.tsx
-var Popover8 = {
+var Popover9 = {
   Anchor: Anchor2,
   Arrow: Arrow2,
   Close: Close3,
-  Content: Content7,
-  Portal: Portal7,
-  Root: Root8,
-  Trigger: Trigger7
+  Content: Content8,
+  Portal: Portal8,
+  Root: Root9,
+  Trigger: Trigger8
+};
+
+// src/components/surfaces/menu/trigger.tsx
+var import_jsx_runtime44 = require("react/jsx-runtime");
+function Trigger9(_a) {
+  var _b = _a, { children } = _b, rest = __objRest(_b, ["children"]);
+  return /* @__PURE__ */ (0, import_jsx_runtime44.jsx)(Popover9.Trigger, __spreadProps(__spreadValues({}, rest), { children }));
+}
+
+// src/components/surfaces/menu/content.tsx
+var import_react7 = require("react");
+var import_jsx_runtime45 = require("react/jsx-runtime");
+var Content9 = (0, import_react7.forwardRef)(
+  (_a, ref) => {
+    var _b = _a, { children } = _b, rest = __objRest(_b, ["children"]);
+    return /* @__PURE__ */ (0, import_jsx_runtime45.jsx)("div", __spreadProps(__spreadValues({}, rest), { ref, className: "w-full bg-zinc-50", children }));
+  }
+);
+
+// src/components/surfaces/menu/header.tsx
+var import_tailwind_variants14 = require("tailwind-variants");
+var import_jsx_runtime46 = require("react/jsx-runtime");
+var menuHeaderVariant = (0, import_tailwind_variants14.tv)({
+  base: "p-4 flex gap-4 items-center border-b border-b-zinc-200 rounded-t bg-zinc-50"
+});
+function Header2(_a) {
+  var _b = _a, { children, className } = _b, rest = __objRest(_b, ["children", "className"]);
+  return /* @__PURE__ */ (0, import_jsx_runtime46.jsx)("div", __spreadProps(__spreadValues({ className: menuHeaderVariant({ className }) }, rest), { children }));
+}
+
+// src/components/surfaces/menu/footer.tsx
+var import_tailwind_variants15 = require("tailwind-variants");
+var import_jsx_runtime47 = require("react/jsx-runtime");
+var menuFooterVariant = (0, import_tailwind_variants15.tv)({
+  base: "bg-zinc-50 border-t border-t-zinc-200 rounded-b"
+});
+function Footer(_a) {
+  var _b = _a, { children, className } = _b, rest = __objRest(_b, ["children", "className"]);
+  return /* @__PURE__ */ (0, import_jsx_runtime47.jsx)("div", __spreadProps(__spreadValues({ className: menuFooterVariant({ className }) }, rest), { children }));
+}
+
+// src/components/surfaces/menu/root.tsx
+var import_jsx_runtime48 = require("react/jsx-runtime");
+function Root10(_a) {
+  var _b = _a, { children } = _b, rest = __objRest(_b, ["children"]);
+  return /* @__PURE__ */ (0, import_jsx_runtime48.jsx)(Popover9.Root, __spreadProps(__spreadValues({}, rest), { children }));
+}
+
+// src/components/surfaces/menu/portal.tsx
+var import_jsx_runtime49 = require("react/jsx-runtime");
+function Portal9(_a) {
+  var _b = _a, { children } = _b, rest = __objRest(_b, ["children"]);
+  return /* @__PURE__ */ (0, import_jsx_runtime49.jsx)(Popover9.Portal, __spreadProps(__spreadValues({}, rest), { children: /* @__PURE__ */ (0, import_jsx_runtime49.jsxs)(Popover9.Content, __spreadProps(__spreadValues({}, rest), { className: "w-[276px]", children: [
+    children,
+    /* @__PURE__ */ (0, import_jsx_runtime49.jsx)(Popover9.Arrow, {})
+  ] })) }));
+}
+
+// src/components/surfaces/menu/item.tsx
+var import_react8 = require("react");
+var import_jsx_runtime50 = require("react/jsx-runtime");
+var Item3 = (0, import_react8.forwardRef)(
+  (_a, ref) => {
+    var _b = _a, { children, icon: Icon3 } = _b, rest = __objRest(_b, ["children", "icon"]);
+    return /* @__PURE__ */ (0, import_jsx_runtime50.jsxs)(
+      "a",
+      __spreadProps(__spreadValues({}, rest), {
+        ref,
+        className: "flex w-full items-center gap-2 p-4 transition-colors hover:bg-zinc-100/75 hover:text-yellow-700",
+        children: [
+          Icon3 && /* @__PURE__ */ (0, import_jsx_runtime50.jsx)(Icon3, { size: 14 }),
+          children
+        ]
+      })
+    );
+  }
+);
+
+// src/components/surfaces/menu/index.tsx
+var Menu = {
+  Root: Root10,
+  Trigger: Trigger9,
+  Portal: Portal9,
+  Header: Header2,
+  Content: Content9,
+  Item: Item3,
+  Footer
 };
 
 // src/components/surfaces/footer/index.tsx
-var import_jsx_runtime42 = require("react/jsx-runtime");
-function Footer() {
-  return /* @__PURE__ */ (0, import_jsx_runtime42.jsxs)("footer", { className: "item-center flex w-full justify-center bg-zinc-100 p-4 text-xs text-zinc-700", children: [
+var import_jsx_runtime51 = require("react/jsx-runtime");
+function Footer2() {
+  return /* @__PURE__ */ (0, import_jsx_runtime51.jsxs)("footer", { className: "item-center flex w-full justify-center bg-zinc-100 p-4 text-xs text-zinc-700", children: [
     "Super Festval \xA9 | ",
     (/* @__PURE__ */ new Date()).getFullYear(),
     " | Todos os direitos reservados"
@@ -895,76 +1053,76 @@ function Footer() {
 }
 
 // src/components/surfaces/header/image.tsx
-var import_tailwind_variants14 = require("tailwind-variants");
-var import_jsx_runtime43 = require("react/jsx-runtime");
-var imageVariation = (0, import_tailwind_variants14.tv)({
+var import_tailwind_variants16 = require("tailwind-variants");
+var import_jsx_runtime52 = require("react/jsx-runtime");
+var imageVariation = (0, import_tailwind_variants16.tv)({
   base: "w-24"
 });
 function Image(_a) {
   var _b = _a, { className } = _b, rest = __objRest(_b, ["className"]);
-  return /* @__PURE__ */ (0, import_jsx_runtime43.jsx)("img", __spreadValues({ className: imageVariation({ className }) }, rest));
+  return /* @__PURE__ */ (0, import_jsx_runtime52.jsx)("img", __spreadValues({ className: imageVariation({ className }) }, rest));
 }
 
 // src/components/surfaces/header/root.tsx
-var import_tailwind_variants15 = require("tailwind-variants");
-var import_jsx_runtime44 = require("react/jsx-runtime");
-var rootVariation = (0, import_tailwind_variants15.tv)({
+var import_tailwind_variants17 = require("tailwind-variants");
+var import_jsx_runtime53 = require("react/jsx-runtime");
+var rootVariation = (0, import_tailwind_variants17.tv)({
   base: "fixed left-0 top-0 w-full bg-zinc-950"
 });
-function Root9(_a) {
+function Root11(_a) {
   var _b = _a, { children, className } = _b, rest = __objRest(_b, ["children", "className"]);
-  return /* @__PURE__ */ (0, import_jsx_runtime44.jsx)("header", __spreadProps(__spreadValues({ className: rootVariation({ className }) }, rest), { children: /* @__PURE__ */ (0, import_jsx_runtime44.jsx)("div", { className: "m-auto flex w-full max-w-6xl items-center justify-between p-4", children }) }));
+  return /* @__PURE__ */ (0, import_jsx_runtime53.jsx)("header", __spreadProps(__spreadValues({ className: rootVariation({ className }) }, rest), { children: /* @__PURE__ */ (0, import_jsx_runtime53.jsx)("div", { className: "m-auto flex w-full max-w-6xl items-center justify-between p-4", children }) }));
 }
 
 // src/components/surfaces/header/index.tsx
-var Header2 = {
-  Root: Root9,
+var Header3 = {
+  Root: Root11,
   Image
 };
 
 // src/components/ui/navigation-menu/item.tsx
 var Navigation = __toESM(require("@radix-ui/react-navigation-menu"));
-var import_react6 = require("react");
-var import_jsx_runtime45 = require("react/jsx-runtime");
-var Item4 = (0, import_react6.forwardRef)(
+var import_react9 = require("react");
+var import_jsx_runtime54 = require("react/jsx-runtime");
+var Item5 = (0, import_react9.forwardRef)(
   (_a) => {
     var _b = _a, { children } = _b, rest = __objRest(_b, ["children"]);
-    return /* @__PURE__ */ (0, import_jsx_runtime45.jsx)(Navigation.Item, __spreadProps(__spreadValues({}, rest), { children }));
+    return /* @__PURE__ */ (0, import_jsx_runtime54.jsx)(Navigation.Item, __spreadProps(__spreadValues({}, rest), { children }));
   }
 );
 
 // src/components/ui/navigation-menu/list.tsx
 var Navigation2 = __toESM(require("@radix-ui/react-navigation-menu"));
-var import_jsx_runtime46 = require("react/jsx-runtime");
+var import_jsx_runtime55 = require("react/jsx-runtime");
 function List2(_a) {
   var _b = _a, { children } = _b, rest = __objRest(_b, ["children"]);
-  return /* @__PURE__ */ (0, import_jsx_runtime46.jsx)(Navigation2.List, { id: "navigation", children });
+  return /* @__PURE__ */ (0, import_jsx_runtime55.jsx)(Navigation2.List, { id: "navigation", children });
 }
 
 // src/components/ui/navigation-menu/root.tsx
 var Navigation3 = __toESM(require("@radix-ui/react-navigation-menu"));
-var import_jsx_runtime47 = require("react/jsx-runtime");
-function Root11(_a) {
+var import_jsx_runtime56 = require("react/jsx-runtime");
+function Root13(_a) {
   var _b = _a, { children } = _b, rest = __objRest(_b, ["children"]);
-  return /* @__PURE__ */ (0, import_jsx_runtime47.jsx)(Navigation3.Root, { id: "navigation", children });
+  return /* @__PURE__ */ (0, import_jsx_runtime56.jsx)(Navigation3.Root, { id: "navigation", children });
 }
 
 // src/components/ui/navigation-menu/link.tsx
 var Navigation4 = __toESM(require("@radix-ui/react-navigation-menu"));
-var import_jsx_runtime48 = require("react/jsx-runtime");
+var import_jsx_runtime57 = require("react/jsx-runtime");
 function Link2(_a) {
   var _b = _a, { children } = _b, rest = __objRest(_b, ["children"]);
-  return /* @__PURE__ */ (0, import_jsx_runtime48.jsx)(Navigation4.Link, __spreadProps(__spreadValues({}, rest), { children }));
+  return /* @__PURE__ */ (0, import_jsx_runtime57.jsx)(Navigation4.Link, __spreadProps(__spreadValues({}, rest), { children }));
 }
 
 // src/components/ui/navigation-menu/trigger.tsx
 var Navigation5 = __toESM(require("@radix-ui/react-navigation-menu"));
-var import_tailwind_variants16 = require("tailwind-variants");
-var import_jsx_runtime49 = require("react/jsx-runtime");
-var navigationMenuContentVariant = (0, import_tailwind_variants16.tv)({
+var import_tailwind_variants18 = require("tailwind-variants");
+var import_jsx_runtime58 = require("react/jsx-runtime");
+var navigationMenuContentVariant = (0, import_tailwind_variants18.tv)({
   base: "bg-zinc-200 flex gap-4 items-center p-2 rounded"
 });
-function Trigger9(_a) {
+function Trigger11(_a) {
   var _b = _a, {
     children,
     className
@@ -972,7 +1130,7 @@ function Trigger9(_a) {
     "children",
     "className"
   ]);
-  return /* @__PURE__ */ (0, import_jsx_runtime49.jsx)(
+  return /* @__PURE__ */ (0, import_jsx_runtime58.jsx)(
     Navigation5.Trigger,
     __spreadProps(__spreadValues({}, rest), {
       className: navigationMenuContentVariant({ className }),
@@ -983,12 +1141,12 @@ function Trigger9(_a) {
 
 // src/components/ui/navigation-menu/content.tsx
 var Navigation6 = __toESM(require("@radix-ui/react-navigation-menu"));
-var import_tailwind_variants17 = require("tailwind-variants");
-var import_jsx_runtime50 = require("react/jsx-runtime");
-var navigationMenuContentVariant2 = (0, import_tailwind_variants17.tv)({
+var import_tailwind_variants19 = require("tailwind-variants");
+var import_jsx_runtime59 = require("react/jsx-runtime");
+var navigationMenuContentVariant2 = (0, import_tailwind_variants19.tv)({
   base: "bg-zinc-50 mt-4 rounded h-fit"
 });
-function Content9(_a) {
+function Content11(_a) {
   var _b = _a, {
     children,
     className
@@ -996,7 +1154,7 @@ function Content9(_a) {
     "children",
     "className"
   ]);
-  return /* @__PURE__ */ (0, import_jsx_runtime50.jsx)(
+  return /* @__PURE__ */ (0, import_jsx_runtime59.jsx)(
     Navigation6.Content,
     __spreadProps(__spreadValues({}, rest), {
       className: navigationMenuContentVariant2({ className }),
@@ -1007,104 +1165,17 @@ function Content9(_a) {
 
 // src/components/ui/navigation-menu/index.tsx
 var NavigationMenu = {
-  Root: Root11,
-  Item: Item4,
+  Root: Root13,
+  Item: Item5,
   List: List2,
   Link: Link2,
-  Content: Content9,
-  Trigger: Trigger9
-};
-
-// src/components/surfaces/menu/trigger.tsx
-var import_jsx_runtime51 = require("react/jsx-runtime");
-function Trigger10(_a) {
-  var _b = _a, { children } = _b, rest = __objRest(_b, ["children"]);
-  return /* @__PURE__ */ (0, import_jsx_runtime51.jsx)(Popover8.Trigger, __spreadProps(__spreadValues({}, rest), { children }));
-}
-
-// src/components/surfaces/menu/content.tsx
-var import_react7 = require("react");
-var import_jsx_runtime52 = require("react/jsx-runtime");
-var Content10 = (0, import_react7.forwardRef)(
-  (_a, ref) => {
-    var _b = _a, { children } = _b, rest = __objRest(_b, ["children"]);
-    return /* @__PURE__ */ (0, import_jsx_runtime52.jsx)("div", __spreadProps(__spreadValues({}, rest), { ref, className: "w-full bg-zinc-50", children }));
-  }
-);
-
-// src/components/surfaces/menu/header.tsx
-var import_tailwind_variants18 = require("tailwind-variants");
-var import_jsx_runtime53 = require("react/jsx-runtime");
-var menuHeaderVariant = (0, import_tailwind_variants18.tv)({
-  base: "p-4 flex gap-4 items-center border-b border-b-zinc-200 rounded-t bg-zinc-50"
-});
-function Header3(_a) {
-  var _b = _a, { children, className } = _b, rest = __objRest(_b, ["children", "className"]);
-  return /* @__PURE__ */ (0, import_jsx_runtime53.jsx)("div", __spreadProps(__spreadValues({ className: menuHeaderVariant({ className }) }, rest), { children }));
-}
-
-// src/components/surfaces/menu/footer.tsx
-var import_tailwind_variants19 = require("tailwind-variants");
-var import_jsx_runtime54 = require("react/jsx-runtime");
-var menuFooterVariant = (0, import_tailwind_variants19.tv)({
-  base: "bg-zinc-50 border-t border-t-zinc-200 rounded-b"
-});
-function Footer2(_a) {
-  var _b = _a, { children, className } = _b, rest = __objRest(_b, ["children", "className"]);
-  return /* @__PURE__ */ (0, import_jsx_runtime54.jsx)("div", __spreadProps(__spreadValues({ className: menuFooterVariant({ className }) }, rest), { children }));
-}
-
-// src/components/surfaces/menu/root.tsx
-var import_jsx_runtime55 = require("react/jsx-runtime");
-function Root12(_a) {
-  var _b = _a, { children } = _b, rest = __objRest(_b, ["children"]);
-  return /* @__PURE__ */ (0, import_jsx_runtime55.jsx)(Popover8.Root, __spreadProps(__spreadValues({}, rest), { children }));
-}
-
-// src/components/surfaces/menu/portal.tsx
-var import_jsx_runtime56 = require("react/jsx-runtime");
-function Portal8(_a) {
-  var _b = _a, { children } = _b, rest = __objRest(_b, ["children"]);
-  return /* @__PURE__ */ (0, import_jsx_runtime56.jsx)(Popover8.Portal, __spreadProps(__spreadValues({}, rest), { children: /* @__PURE__ */ (0, import_jsx_runtime56.jsxs)(Popover8.Content, __spreadProps(__spreadValues({}, rest), { className: "w-[276px]", children: [
-    children,
-    /* @__PURE__ */ (0, import_jsx_runtime56.jsx)(Popover8.Arrow, {})
-  ] })) }));
-}
-
-// src/components/surfaces/menu/item.tsx
-var import_react8 = require("react");
-var import_jsx_runtime57 = require("react/jsx-runtime");
-var Item5 = (0, import_react8.forwardRef)(
-  (_a, ref) => {
-    var _b = _a, { children, icon: Icon3 } = _b, rest = __objRest(_b, ["children", "icon"]);
-    return /* @__PURE__ */ (0, import_jsx_runtime57.jsxs)(
-      "a",
-      __spreadProps(__spreadValues({}, rest), {
-        ref,
-        className: "flex w-full items-center gap-2 p-4 transition-colors hover:bg-zinc-100/75 hover:text-yellow-700",
-        children: [
-          Icon3 && /* @__PURE__ */ (0, import_jsx_runtime57.jsx)(Icon3, { size: 14 }),
-          children
-        ]
-      })
-    );
-  }
-);
-
-// src/components/surfaces/menu/index.tsx
-var Menu = {
-  Root: Root12,
-  Trigger: Trigger10,
-  Portal: Portal8,
-  Header: Header3,
-  Content: Content10,
-  Item: Item5,
-  Footer: Footer2
+  Content: Content11,
+  Trigger: Trigger11
 };
 
 // src/components/typograph/text/index.tsx
 var import_tailwind_variants20 = require("tailwind-variants");
-var import_jsx_runtime58 = require("react/jsx-runtime");
+var import_jsx_runtime60 = require("react/jsx-runtime");
 var textVariant = (0, import_tailwind_variants20.tv)({
   variants: {
     size: {
@@ -1124,12 +1195,12 @@ var textVariant = (0, import_tailwind_variants20.tv)({
 function Text(_a) {
   var _b = _a, { as = "p", children, size } = _b, rest = __objRest(_b, ["as", "children", "size"]);
   const As = as;
-  return /* @__PURE__ */ (0, import_jsx_runtime58.jsx)(As, __spreadProps(__spreadValues({ className: textVariant({ size }) }, rest), { children }));
+  return /* @__PURE__ */ (0, import_jsx_runtime60.jsx)(As, __spreadProps(__spreadValues({ className: textVariant({ size }) }, rest), { children }));
 }
 
 // src/components/typograph/heading/index.tsx
 var import_tailwind_variants21 = require("tailwind-variants");
-var import_jsx_runtime59 = require("react/jsx-runtime");
+var import_jsx_runtime61 = require("react/jsx-runtime");
 var headingVariant = (0, import_tailwind_variants21.tv)({
   variants: {
     size: {
@@ -1159,15 +1230,17 @@ function Heading(_a) {
     "className"
   ]);
   const As = as;
-  return /* @__PURE__ */ (0, import_jsx_runtime59.jsx)(As, __spreadProps(__spreadValues({ className: headingVariant({ size, className }) }, rest), { children }));
+  return /* @__PURE__ */ (0, import_jsx_runtime61.jsx)(As, __spreadProps(__spreadValues({ className: headingVariant({ size, className }) }, rest), { children }));
 }
 // Annotate the CommonJS export names for ESM import in node:
 0 && (module.exports = {
   AlertDialog,
   Avatar,
   Button,
+  Calendar,
   Card,
   Checkbox,
+  DatePicker,
   Dialog,
   Footer,
   Header,

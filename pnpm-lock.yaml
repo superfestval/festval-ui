@@ -29,9 +29,15 @@ dependencies:
   '@tanstack/react-table':
     specifier: ^8.20.5
     version: 8.20.5(react-dom@18.3.1)(react@18.3.1)
+  date-fns:
+    specifier: ^4.1.0
+    version: 4.1.0
   lucide-react:
     specifier: ^0.462.0
     version: 0.462.0(react@18.3.1)
+  react-day-picker:
+    specifier: ^9.4.4
+    version: 9.4.4(react@18.3.1)
   tailwind-variants:
     specifier: ^0.3.0
     version: 0.3.0(tailwindcss@3.4.15)
@@ -298,6 +304,10 @@ packages:
       - '@chromatic-com/playwright'
       - react
     dev: true
+
+  /@date-fns/tz@1.2.0:
+    resolution: {integrity: sha512-LBrd7MiJZ9McsOgxqWX7AaxrDjcFVjWH/tIKJd7pnR7McaslGYOP1QmmiBXdJH/H/yLCT+rcQ7FaPBUxRGUtrg==}
+    dev: false
 
   /@esbuild/aix-ppc64@0.24.0:
     resolution: {integrity: sha512-WtKdFM7ls47zkKHFVzMz8opM7LkcsIp9amDUBIAWirg70RM71WRSjdILPsY5Uv1D42ZpUfaPILDlfactHgsRkw==}
@@ -2286,6 +2296,10 @@ packages:
   /csstype@3.1.3:
     resolution: {integrity: sha512-M1uQkMl8rQK/szD0LNhtqxIPLpimGm8sOBwU7lLnCpSbTyY3yeU1Vc7l4KT5zT4s/yOxHH5O7tIuuLOCnLADRw==}
 
+  /date-fns@4.1.0:
+    resolution: {integrity: sha512-Ukq0owbQXxa/U3EGtsdVBkR1w7KOQ5gIBqdH2hkvknzZPYvBxb/aa6E8L7tmjFtkwZBu3UXBbjIgPo/Ez4xaNg==}
+    dev: false
+
   /debug@4.3.7:
     resolution: {integrity: sha512-Er2nc/H7RrMXZBFCEim6TCmMk02Z8vLC2Rbi1KEBggpo0fS6l0S1nnapwmIi3yW/+GOJap1Krg4w0Hg80oCqgQ==}
     engines: {node: '>=6.0'}
@@ -3084,6 +3098,17 @@ packages:
       react: 18.3.1
       tween-functions: 1.2.0
     dev: true
+
+  /react-day-picker@9.4.4(react@18.3.1):
+    resolution: {integrity: sha512-1s+jA/bFYtoxhhr8M0kkFHLiMTSII6qU8UfDFprRAUStTVHljLTjg4oarvAngPlQ1cQAC+LUb0k/qMc+jjhmxw==}
+    engines: {node: '>=18'}
+    peerDependencies:
+      react: '>=16.8.0'
+    dependencies:
+      '@date-fns/tz': 1.2.0
+      date-fns: 4.1.0
+      react: 18.3.1
+    dev: false
 
   /react-docgen-typescript@2.2.2(typescript@5.7.2):
     resolution: {integrity: sha512-tvg2ZtOpOi6QDwsb3GZhOjDkkX0h8Z2gipvTg6OVMUyoYoURhEiRNePT8NZItTVCDh39JJHnLdfCOkzoLbFnTg==}
