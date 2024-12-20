@@ -38,7 +38,7 @@ export function DatePicker({ defaultValue, onRangeChange }: DatePickerProps) {
   return (
     <Popover.Root>
       <Popover.Trigger>
-        <Button variant="ghost" className="mb-1 border border-zinc-300">
+        <Button variant="ghost" className="mb-1 border border-zinc-300" type="button">
           <Calendar1 size={14} />
           {format(selected.from || new Date(), "dd/LL/yyyy")} {" - "}{" "}
           {format(selected.to || new Date(), "dd/LL/yyyy")}
