@@ -793,7 +793,7 @@ function DatePicker({ defaultValue, onRangeChange }) {
     }
   };
   return /* @__PURE__ */ jsxs9(Popover.Root, { children: [
-    /* @__PURE__ */ jsx36(Popover.Trigger, { children: /* @__PURE__ */ jsxs9(Button, { variant: "ghost", className: "mb-1 border border-zinc-300", children: [
+    /* @__PURE__ */ jsx36(Popover.Trigger, { children: /* @__PURE__ */ jsxs9(Button, { variant: "ghost", className: "mb-1 border border-zinc-300", type: "button", children: [
       /* @__PURE__ */ jsx36(Calendar1, { size: 14 }),
       format(selected.from || /* @__PURE__ */ new Date(), "dd/LL/yyyy"),
       " ",

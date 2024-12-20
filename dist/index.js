@@ -846,7 +846,7 @@ function DatePicker({ defaultValue, onRangeChange }) {
     }
   };
   return /* @__PURE__ */ (0, import_jsx_runtime36.jsxs)(Popover.Root, { children: [
-    /* @__PURE__ */ (0, import_jsx_runtime36.jsx)(Popover.Trigger, { children: /* @__PURE__ */ (0, import_jsx_runtime36.jsxs)(Button, { variant: "ghost", className: "mb-1 border border-zinc-300", children: [
+    /* @__PURE__ */ (0, import_jsx_runtime36.jsx)(Popover.Trigger, { children: /* @__PURE__ */ (0, import_jsx_runtime36.jsxs)(Button, { variant: "ghost", className: "mb-1 border border-zinc-300", type: "button", children: [
       /* @__PURE__ */ (0, import_jsx_runtime36.jsx)(import_lucide_react7.Calendar1, { size: 14 }),
       (0, import_date_fns.format)(selected.from || /* @__PURE__ */ new Date(), "dd/LL/yyyy"),
       " ",
