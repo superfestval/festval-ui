@@ -8,4 +8,10 @@ export default {
   tags: ["autodocs"],
 } as Meta<typeof DatePicker>;
 
-export const Default: StoryObj<typeof DatePicker> = {};
+export const Single: StoryObj<typeof DatePicker> = {};
+
+export const Range: StoryObj<typeof DatePicker> = {
+  args: {
+    mode: "range",
+  },
+};
