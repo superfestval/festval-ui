@@ -571,7 +571,7 @@ function Trigger5(_a) {
   return /* @__PURE__ */ (0, import_jsx_runtime27.jsx)(
     SelectPrimitive9.Trigger,
     __spreadProps(__spreadValues({}, rest), {
-      className: "mb-4 flex w-full items-start justify-between rounded border-2 border-zinc-200 bg-zinc-50 p-2 outline-yellow-700",
+      className: "flex w-full items-start justify-between rounded border-2 border-zinc-200 bg-zinc-50 p-2 outline-yellow-700",
       children
     })
   );
