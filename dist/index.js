@@ -830,8 +830,15 @@ var import_lucide_react7 = require("lucide-react");
 var import_react6 = require("react");
 var import_date_fns = require("date-fns");
 var import_jsx_runtime36 = require("react/jsx-runtime");
-function DatePicker({ defaultValue, onRangeChange }) {
+function DatePicker({
+  defaultValue,
+  onRangeChange,
+  mode = "single"
+}) {
   const [selected, setSelected] = (0, import_react6.useState)(() => {
+    if (mode === "single") {
+      return /* @__PURE__ */ new Date();
+    }
     return {
       from: defaultValue ? defaultValue.from : /* @__PURE__ */ new Date(),
       to: defaultValue && defaultValue.to ? defaultValue.to : (0, import_date_fns.add)(/* @__PURE__ */ new Date(), {
@@ -839,26 +846,31 @@ function DatePicker({ defaultValue, onRangeChange }) {
       })
     };
   });
-  const onRangeSelected = (range) => {
-    setSelected(range);
-    if (onRangeChange) {
-      onRangeChange(range);
+  const onRangeSelected = (data) => {
+    setSelected(data);
+    if (onRangeChange && mode === "range") {
+      onRangeChange(data);
     }
   };
   return /* @__PURE__ */ (0, import_jsx_runtime36.jsxs)(Popover.Root, { children: [
-    /* @__PURE__ */ (0, import_jsx_runtime36.jsx)(Popover.Trigger, { children: /* @__PURE__ */ (0, import_jsx_runtime36.jsxs)(Button, { variant: "ghost", className: "mb-1 border border-zinc-300", type: "button", children: [
-      /* @__PURE__ */ (0, import_jsx_runtime36.jsx)(import_lucide_react7.Calendar1, { size: 14 }),
-      (0, import_date_fns.format)(selected.from || /* @__PURE__ */ new Date(), "dd/LL/yyyy"),
-      " ",
-      " - ",
-      " ",
-      (0, import_date_fns.format)(selected.to || /* @__PURE__ */ new Date(), "dd/LL/yyyy")
-    ] }) }),
+    /* @__PURE__ */ (0, import_jsx_runtime36.jsx)(Popover.Trigger, { children: /* @__PURE__ */ (0, import_jsx_runtime36.jsxs)(
+      Button,
+      {
+        variant: "ghost",
+        className: "w-full border border-zinc-300",
+        type: "button",
+        children: [
+          /* @__PURE__ */ (0, import_jsx_runtime36.jsx)(import_lucide_react7.Calendar1, { size: 14 }),
+          mode === "single" ? (0, import_date_fns.format)(selected, "dd/LL/yyyy") : (0, import_date_fns.format)(selected.from || /* @__PURE__ */ new Date(), "dd/LL/yyyy") + " - " + (0, import_date_fns.format)(selected.to || /* @__PURE__ */ new Date(), "dd/LL/yyyy")
+        ]
+      }
+    ) }),
     /* @__PURE__ */ (0, import_jsx_runtime36.jsx)(Popover.Portal, { children: /* @__PURE__ */ (0, import_jsx_runtime36.jsx)(Popover.Content, { children: /* @__PURE__ */ (0, import_jsx_runtime36.jsx)(
       Calendar,
       {
-        mode: "range",
         required: true,
+        className: "mt-4",
+        mode,
         selected,
         onSelect: onRangeSelected
       }

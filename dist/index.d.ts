@@ -9,7 +9,7 @@ import * as AlertDialogPrimitive from '@radix-ui/react-alert-dialog';
 import * as _react_input_mask from '@react-input/mask';
 import { InputMaskProps } from '@react-input/mask';
 import * as SelectPrimitive from '@radix-ui/react-select';
-import { DateRange, DayPickerProps } from 'react-day-picker';
+import { Mode, DateRange, DayPickerProps } from 'react-day-picker';
 import * as Popover$1 from '@radix-ui/react-popover';
 import { PopoverTriggerProps as PopoverTriggerProps$1 } from '@radix-ui/react-popover';
 import * as Navigation from '@radix-ui/react-navigation-menu';
@@ -497,13 +497,14 @@ type InputFileProps = {} & InputHTMLAttributes<HTMLInputElement>;
 declare const InputFile: react.ForwardRefExoticComponent<InputHTMLAttributes<HTMLInputElement> & react.RefAttributes<HTMLInputElement>>;
 
 type DatePickerProps = {
+    mode: Mode;
     defaultValue?: {
         from: Date;
         to?: Date;
     };
     onRangeChange?: (range: DateRange) => void;
 };
-declare function DatePicker({ defaultValue, onRangeChange }: DatePickerProps): react_jsx_runtime.JSX.Element;
+declare function DatePicker({ defaultValue, onRangeChange, mode, }: DatePickerProps): react_jsx_runtime.JSX.Element;
 
 type PopoverRootProps = {} & Popover$1.PopoverProps;
 declare function Root$3({ children, ...rest }: PopoverRootProps): react_jsx_runtime.JSX.Element;

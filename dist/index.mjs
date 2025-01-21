@@ -777,8 +777,15 @@ import { Calendar1 } from "lucide-react";
 import { useState as useState3 } from "react";
 import { add, format } from "date-fns";
 import { jsx as jsx36, jsxs as jsxs9 } from "react/jsx-runtime";
-function DatePicker({ defaultValue, onRangeChange }) {
+function DatePicker({
+  defaultValue,
+  onRangeChange,
+  mode = "single"
+}) {
   const [selected, setSelected] = useState3(() => {
+    if (mode === "single") {
+      return /* @__PURE__ */ new Date();
+    }
     return {
       from: defaultValue ? defaultValue.from : /* @__PURE__ */ new Date(),
       to: defaultValue && defaultValue.to ? defaultValue.to : add(/* @__PURE__ */ new Date(), {
@@ -786,26 +793,31 @@ function DatePicker({ defaultValue, onRangeChange }) {
       })
     };
   });
-  const onRangeSelected = (range) => {
-    setSelected(range);
-    if (onRangeChange) {
-      onRangeChange(range);
+  const onRangeSelected = (data) => {
+    setSelected(data);
+    if (onRangeChange && mode === "range") {
+      onRangeChange(data);
     }
   };
   return /* @__PURE__ */ jsxs9(Popover.Root, { children: [
-    /* @__PURE__ */ jsx36(Popover.Trigger, { children: /* @__PURE__ */ jsxs9(Button, { variant: "ghost", className: "mb-1 border border-zinc-300", type: "button", children: [
-      /* @__PURE__ */ jsx36(Calendar1, { size: 14 }),
-      format(selected.from || /* @__PURE__ */ new Date(), "dd/LL/yyyy"),
-      " ",
-      " - ",
-      " ",
-      format(selected.to || /* @__PURE__ */ new Date(), "dd/LL/yyyy")
-    ] }) }),
+    /* @__PURE__ */ jsx36(Popover.Trigger, { children: /* @__PURE__ */ jsxs9(
+      Button,
+      {
+        variant: "ghost",
+        className: "w-full border border-zinc-300",
+        type: "button",
+        children: [
+          /* @__PURE__ */ jsx36(Calendar1, { size: 14 }),
+          mode === "single" ? format(selected, "dd/LL/yyyy") : format(selected.from || /* @__PURE__ */ new Date(), "dd/LL/yyyy") + " - " + format(selected.to || /* @__PURE__ */ new Date(), "dd/LL/yyyy")
+        ]
+      }
+    ) }),
     /* @__PURE__ */ jsx36(Popover.Portal, { children: /* @__PURE__ */ jsx36(Popover.Content, { children: /* @__PURE__ */ jsx36(
       Calendar,
       {
-        mode: "range",
         required: true,
+        className: "mt-4",
+        mode,
         selected,
         onSelect: onRangeSelected
       }
