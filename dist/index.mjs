@@ -779,7 +779,7 @@ import { add, format } from "date-fns";
 import { jsx as jsx36, jsxs as jsxs9 } from "react/jsx-runtime";
 function DatePicker({
   defaultValue,
-  onRangeChange,
+  onValueChange,
   mode = "single"
 }) {
   const [selected, setSelected] = useState3(() => {
@@ -795,8 +795,11 @@ function DatePicker({
   });
   const onRangeSelected = (data) => {
     setSelected(data);
-    if (onRangeChange && mode === "range") {
-      onRangeChange(data);
+    if (onValueChange && mode === "range") {
+      onValueChange(data);
+    }
+    if (onValueChange && mode === "single") {
+      onValueChange(data);
     }
   };
   return /* @__PURE__ */ jsxs9(Popover.Root, { children: [

@@ -502,9 +502,9 @@ type DatePickerProps = {
         from: Date;
         to?: Date;
     };
-    onRangeChange?: (range: DateRange) => void;
+    onValueChange?: (range: DateRange | Date) => void;
 };
-declare function DatePicker({ defaultValue, onRangeChange, mode, }: DatePickerProps): react_jsx_runtime.JSX.Element;
+declare function DatePicker({ defaultValue, onValueChange, mode, }: DatePickerProps): react_jsx_runtime.JSX.Element;
 
 type PopoverRootProps = {} & Popover$1.PopoverProps;
 declare function Root$3({ children, ...rest }: PopoverRootProps): react_jsx_runtime.JSX.Element;

@@ -12,12 +12,12 @@ export type DatePickerProps = {
     from: Date;
     to?: Date;
   };
-  onRangeChange?: (range: DateRange) => void;
+  onValueChange?: (range: DateRange | Date) => void;
 };
 
 export function DatePicker({
   defaultValue,
-  onRangeChange,
+  onValueChange,
   mode = "single",
 }: DatePickerProps) {
   const [selected, setSelected] = useState<any>(() => {
@@ -39,8 +39,12 @@ export function DatePicker({
   const onRangeSelected = (data: DateRange | Date) => {
     setSelected(data);
 
-    if (onRangeChange && mode === "range") {
-      onRangeChange(data as DateRange);
+    if (onValueChange && mode === "range") {
+      onValueChange(data as DateRange);
+    }
+
+    if (onValueChange && mode === "single") {
+      onValueChange(data as Date);
     }
   };
 

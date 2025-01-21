@@ -832,7 +832,7 @@ var import_date_fns = require("date-fns");
 var import_jsx_runtime36 = require("react/jsx-runtime");
 function DatePicker({
   defaultValue,
-  onRangeChange,
+  onValueChange,
   mode = "single"
 }) {
   const [selected, setSelected] = (0, import_react6.useState)(() => {
@@ -848,8 +848,11 @@ function DatePicker({
   });
   const onRangeSelected = (data) => {
     setSelected(data);
-    if (onRangeChange && mode === "range") {
-      onRangeChange(data);
+    if (onValueChange && mode === "range") {
+      onValueChange(data);
+    }
+    if (onValueChange && mode === "single") {
+      onValueChange(data);
     }
   };
   return /* @__PURE__ */ (0, import_jsx_runtime36.jsxs)(Popover.Root, { children: [
