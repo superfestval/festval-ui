@@ -1,6 +1,10 @@
 import { tv } from "tailwind-variants";
 import { VariantProps } from "tailwind-variants";
-import React, { ButtonHTMLAttributes, ElementType } from "react";
+import React, {
+  ButtonHTMLAttributes,
+  ElementType,
+  isValidElement,
+} from "react";
 
 const buttonVariant = tv({
   base: "px-4 py-2 rounded text-zinc-50 transition-colors flex gap-2 items-center justify-center",
@@ -23,6 +27,7 @@ const buttonVariant = tv({
 
 export type ButtonProps = {
   as?: ElementType;
+  asChild?: boolean;
   iconLeft?: React.ElementType;
   iconRight?: React.ElementType;
 } & ButtonHTMLAttributes<HTMLButtonElement> &
@@ -31,6 +36,7 @@ export type ButtonProps = {
 
 export function Button({
   as,
+  asChild,
   variant,
   children,
   disabled,
@@ -43,6 +49,12 @@ export function Button({
 
   const IconLeft = iconLeft;
   const IconRight = iconRight;
+
+  if (asChild && React.isValidElement(children)) {
+    return React.cloneElement(children, {
+      className: children.props.className,
+    } as any);
+  }
 
   return (
     <As {...rest} className={buttonVariant({ className, variant, disabled })}>
