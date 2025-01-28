@@ -416,10 +416,11 @@ declare const buttonVariant: tailwind_variants.TVReturnType<{
 }>, unknown, unknown, undefined>>;
 type ButtonProps = {
     as?: ElementType;
+    asChild?: boolean;
     iconLeft?: react__default.ElementType;
     iconRight?: react__default.ElementType;
 } & ButtonHTMLAttributes<HTMLButtonElement> & VariantProps<typeof buttonVariant> & react__default.ComponentPropsWithoutRef<ElementType>;
-declare function Button({ as, variant, children, disabled, className, iconLeft, iconRight, ...rest }: ButtonProps): react_jsx_runtime.JSX.Element;
+declare function Button({ as, asChild, variant, children, disabled, className, iconLeft, iconRight, ...rest }: ButtonProps): react_jsx_runtime.JSX.Element;
 declare namespace Button {
     var displayName: string;
 }

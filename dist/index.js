@@ -619,6 +619,7 @@ var Select = {
 
 // src/components/ui/form/button/index.tsx
 var import_tailwind_variants9 = require("tailwind-variants");
+var import_react3 = __toESM(require("react"));
 var import_jsx_runtime31 = require("react/jsx-runtime");
 var buttonVariant = (0, import_tailwind_variants9.tv)({
   base: "px-4 py-2 rounded text-zinc-50 transition-colors flex gap-2 items-center justify-center",
@@ -641,6 +642,7 @@ var buttonVariant = (0, import_tailwind_variants9.tv)({
 function Button(_a) {
   var _b = _a, {
     as,
+    asChild,
     variant: variant2,
     children,
     disabled,
@@ -649,6 +651,7 @@ function Button(_a) {
     iconRight
   } = _b, rest = __objRest(_b, [
     "as",
+    "asChild",
     "variant",
     "children",
     "disabled",
@@ -659,6 +662,11 @@ function Button(_a) {
   const As = as || "button";
   const IconLeft = iconLeft;
   const IconRight = iconRight;
+  if (asChild && import_react3.default.isValidElement(children)) {
+    return import_react3.default.cloneElement(children, {
+      className: children.props.className
+    });
+  }
   return /* @__PURE__ */ (0, import_jsx_runtime31.jsxs)(As, __spreadProps(__spreadValues({}, rest), { className: buttonVariant({ className, variant: variant2, disabled }), children: [
     IconLeft && /* @__PURE__ */ (0, import_jsx_runtime31.jsx)(IconLeft, {}),
     children,
@@ -668,7 +676,7 @@ function Button(_a) {
 Button.displayName = "Button";
 
 // src/components/ui/form/checkbox/index.tsx
-var import_react3 = require("react");
+var import_react4 = require("react");
 var import_lucide_react5 = require("lucide-react");
 var import_tailwind_variants10 = require("tailwind-variants");
 var import_jsx_runtime32 = require("react/jsx-runtime");
@@ -692,7 +700,7 @@ function Checkbox({
   disabled = false,
   onValueChange
 }) {
-  const [isChecked, setIsChecked] = (0, import_react3.useState)(
+  const [isChecked, setIsChecked] = (0, import_react4.useState)(
     checked
   );
   const toggleCheck = () => {
@@ -715,7 +723,7 @@ function Checkbox({
 
 // src/components/ui/form/textarea/index.tsx
 var import_tailwind_variants11 = require("tailwind-variants");
-var import_react4 = require("react");
+var import_react5 = require("react");
 var import_jsx_runtime33 = require("react/jsx-runtime");
 var variants3 = (0, import_tailwind_variants11.tv)({
   base: "w-full p-2 bg-zinc-50 border border-zinc-100 rounded outline-yellow-700",
@@ -728,7 +736,7 @@ var variants3 = (0, import_tailwind_variants11.tv)({
     variant: "default"
   }
 });
-var TextArea = (0, import_react4.forwardRef)(
+var TextArea = (0, import_react5.forwardRef)(
   (_a, ref) => {
     var _b = _a, { error, name, className } = _b, rest = __objRest(_b, ["error", "name", "className"]);
     return /* @__PURE__ */ (0, import_jsx_runtime33.jsxs)(import_jsx_runtime33.Fragment, { children: [
@@ -749,12 +757,12 @@ TextArea.displayName = "TextArea";
 
 // src/components/ui/form/input-file/index.tsx
 var import_lucide_react6 = require("lucide-react");
-var import_react5 = require("react");
+var import_react6 = require("react");
 var import_jsx_runtime34 = require("react/jsx-runtime");
-var InputFile = (0, import_react5.forwardRef)(
+var InputFile = (0, import_react6.forwardRef)(
   (_a, ref) => {
     var _b = _a, { accept = ".pdf" } = _b, rest = __objRest(_b, ["accept"]);
-    const [files, setFiles] = (0, import_react5.useState)(null);
+    const [files, setFiles] = (0, import_react6.useState)(null);
     const onInputChange = (e) => setFiles(e.currentTarget.files);
     return /* @__PURE__ */ (0, import_jsx_runtime34.jsxs)("div", { className: "flex w-full items-center justify-center rounded border border-dashed border-zinc-200 bg-zinc-100 text-zinc-950", children: [
       /* @__PURE__ */ (0, import_jsx_runtime34.jsx)(
@@ -827,7 +835,7 @@ function Calendar(_a) {
 // src/components/ui/form/date-picker/index.tsx
 var Popover = __toESM(require("@radix-ui/react-popover"));
 var import_lucide_react7 = require("lucide-react");
-var import_react6 = require("react");
+var import_react7 = require("react");
 var import_date_fns = require("date-fns");
 var import_jsx_runtime36 = require("react/jsx-runtime");
 function DatePicker({
@@ -835,7 +843,7 @@ function DatePicker({
   onValueChange,
   mode = "single"
 }) {
-  const [selected, setSelected] = (0, import_react6.useState)(() => {
+  const [selected, setSelected] = (0, import_react7.useState)(() => {
     if (mode === "single") {
       return /* @__PURE__ */ new Date();
     }
@@ -978,9 +986,9 @@ function Trigger9(_a) {
 }
 
 // src/components/surfaces/menu/content.tsx
-var import_react7 = require("react");
+var import_react8 = require("react");
 var import_jsx_runtime45 = require("react/jsx-runtime");
-var Content9 = (0, import_react7.forwardRef)(
+var Content9 = (0, import_react8.forwardRef)(
   (_a, ref) => {
     var _b = _a, { children } = _b, rest = __objRest(_b, ["children"]);
     return /* @__PURE__ */ (0, import_jsx_runtime45.jsx)("div", __spreadProps(__spreadValues({}, rest), { ref, className: "w-full bg-zinc-50", children }));
@@ -1027,9 +1035,9 @@ function Portal9(_a) {
 }
 
 // src/components/surfaces/menu/item.tsx
-var import_react8 = require("react");
+var import_react9 = require("react");
 var import_jsx_runtime50 = require("react/jsx-runtime");
-var Item3 = (0, import_react8.forwardRef)(
+var Item3 = (0, import_react9.forwardRef)(
   (_a, ref) => {
     var _b = _a, { children, icon: Icon3 } = _b, rest = __objRest(_b, ["children", "icon"]);
     return /* @__PURE__ */ (0, import_jsx_runtime50.jsxs)(
@@ -1097,9 +1105,9 @@ var Header3 = {
 
 // src/components/ui/navigation-menu/item.tsx
 var Navigation = __toESM(require("@radix-ui/react-navigation-menu"));
-var import_react9 = require("react");
+var import_react10 = require("react");
 var import_jsx_runtime54 = require("react/jsx-runtime");
-var Item5 = (0, import_react9.forwardRef)(
+var Item5 = (0, import_react10.forwardRef)(
   (_a) => {
     var _b = _a, { children } = _b, rest = __objRest(_b, ["children"]);
     return /* @__PURE__ */ (0, import_jsx_runtime54.jsx)(Navigation.Item, __spreadProps(__spreadValues({}, rest), { children }));

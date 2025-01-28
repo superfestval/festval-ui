@@ -566,6 +566,7 @@ var Select = {
 
 // src/components/ui/form/button/index.tsx
 import { tv as tv9 } from "tailwind-variants";
+import React from "react";
 import { jsx as jsx31, jsxs as jsxs6 } from "react/jsx-runtime";
 var buttonVariant = tv9({
   base: "px-4 py-2 rounded text-zinc-50 transition-colors flex gap-2 items-center justify-center",
@@ -588,6 +589,7 @@ var buttonVariant = tv9({
 function Button(_a) {
   var _b = _a, {
     as,
+    asChild,
     variant: variant2,
     children,
     disabled,
@@ -596,6 +598,7 @@ function Button(_a) {
     iconRight
   } = _b, rest = __objRest(_b, [
     "as",
+    "asChild",
     "variant",
     "children",
     "disabled",
@@ -606,6 +609,11 @@ function Button(_a) {
   const As = as || "button";
   const IconLeft = iconLeft;
   const IconRight = iconRight;
+  if (asChild && React.isValidElement(children)) {
+    return React.cloneElement(children, {
+      className: children.props.className
+    });
+  }
   return /* @__PURE__ */ jsxs6(As, __spreadProps(__spreadValues({}, rest), { className: buttonVariant({ className, variant: variant2, disabled }), children: [
     IconLeft && /* @__PURE__ */ jsx31(IconLeft, {}),
     children,
