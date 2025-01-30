@@ -451,7 +451,9 @@ var Input = (0, import_react.forwardRef)(
     return /* @__PURE__ */ (0, import_jsx_runtime17.jsxs)(import_jsx_runtime17.Fragment, { children: [
       /* @__PURE__ */ (0, import_jsx_runtime17.jsx)("div", { className: variants({ className, hasError: !!error }), children: mask ? /* @__PURE__ */ (0, import_jsx_runtime17.jsx)(
         import_mask.InputMask,
-        __spreadProps(__spreadValues({}, rest), {
+        __spreadProps(__spreadValues({
+          ref
+        }, rest), {
           mask,
           replacement: {
             _: /\d/

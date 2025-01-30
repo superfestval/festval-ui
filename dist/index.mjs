@@ -398,7 +398,9 @@ var Input = forwardRef(
     return /* @__PURE__ */ jsxs4(Fragment, { children: [
       /* @__PURE__ */ jsx17("div", { className: variants({ className, hasError: !!error }), children: mask ? /* @__PURE__ */ jsx17(
         InputMask,
-        __spreadProps(__spreadValues({}, rest), {
+        __spreadProps(__spreadValues({
+          ref
+        }, rest), {
           mask,
           replacement: {
             _: /\d/
