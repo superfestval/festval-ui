@@ -52,6 +52,7 @@ export function Button({
 
   if (asChild && React.isValidElement(children)) {
     return React.cloneElement(children, {
+      ...rest,
       className: buttonVariant({ className, variant, disabled }),
     } as any);
   }

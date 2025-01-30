@@ -7,20 +7,23 @@ export default {
   render: ({ ...rest }) => (
     <Select.Root {...rest} defaultValue="item-1">
       <Select.Trigger>
-        <Select.Value placeholder="Selecione um item" />
+        <Select.Value placeholder="Selecione" />
         <Select.Icon />
       </Select.Trigger>
-      <Select.Content>
-        <Select.Viewport>
-          <Select.Group>
-            <Select.Label>Items</Select.Label>
-            <Select.Item value="item-1">Item 1</Select.Item>
-            <Select.Item value="item-2">Item 2</Select.Item>
-            <Select.Item value="item-3">Item 3</Select.Item>
-            <Select.Item value="item-4">Item 4</Select.Item>
-          </Select.Group>
-        </Select.Viewport>
-      </Select.Content>
+      <Select.Portal>
+        <Select.Content>
+          <Select.Viewport>
+            <Select.Group>
+              <Select.Label>Items</Select.Label>
+              {Array.from({ length: 5 }).map((item, index) => (
+                <Select.Item value={index.toString()}>
+                  Item - {index}
+                </Select.Item>
+              ))}
+            </Select.Group>
+          </Select.Viewport>
+        </Select.Content>
+      </Select.Portal>
     </Select.Root>
   ),
   title: "Forms/Select",

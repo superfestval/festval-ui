@@ -612,9 +612,9 @@ function Button(_a) {
   const IconLeft = iconLeft;
   const IconRight = iconRight;
   if (asChild && React.isValidElement(children)) {
-    return React.cloneElement(children, {
+    return React.cloneElement(children, __spreadProps(__spreadValues({}, rest), {
       className: buttonVariant({ className, variant: variant2, disabled })
-    });
+    }));
   }
   return /* @__PURE__ */ jsxs6(As, __spreadProps(__spreadValues({}, rest), { className: buttonVariant({ className, variant: variant2, disabled }), children: [
     IconLeft && /* @__PURE__ */ jsx31(IconLeft, {}),
