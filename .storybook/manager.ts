@@ -6,6 +6,6 @@ addons.setConfig({
     ...themes.dark,
     brandTitle: "Super Festval | UI Kit",
     brandImage: "/logo.svg",
-    brandUrl: "https://superfestval.github.io/festval-ui/public",
+    brandUrl: "https://superfestval.github.io/festval-ui",
   },
 });
