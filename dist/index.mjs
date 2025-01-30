@@ -226,12 +226,13 @@ var Dialog = {
     ) }),
     children
   ] }),
-  Content: ({ children, as = "form", className }) => {
+  Content: (_i) => {
+    var _j = _i, { children, as = "form", className } = _j, rest = __objRest(_j, ["children", "as", "className"]);
     const As = as;
-    return /* @__PURE__ */ jsx7(As, { className: contentVariant({ className }), children });
+    return /* @__PURE__ */ jsx7(As, __spreadProps(__spreadValues({}, rest), { className: contentVariant({ className }), children }));
   },
-  Container: (_i) => {
-    var _j = _i, { children, className } = _j, rest = __objRest(_j, ["children", "className"]);
+  Container: (_k) => {
+    var _l = _k, { children, className } = _l, rest = __objRest(_l, ["children", "className"]);
     return /* @__PURE__ */ jsx7(
       DialogPrimitive.Content,
       __spreadProps(__spreadValues({
@@ -241,8 +242,8 @@ var Dialog = {
       })
     );
   },
-  Title: (_k) => {
-    var _l = _k, { children } = _l, rest = __objRest(_l, ["children"]);
+  Title: (_m) => {
+    var _n = _m, { children } = _n, rest = __objRest(_n, ["children"]);
     return /* @__PURE__ */ jsx7(
       DialogPrimitive.Title,
       __spreadProps(__spreadValues({
@@ -252,16 +253,16 @@ var Dialog = {
       })
     );
   },
-  Description: (_m) => {
-    var _n = _m, { children } = _n, rest = __objRest(_n, ["children"]);
+  Description: (_o) => {
+    var _p = _o, { children } = _p, rest = __objRest(_p, ["children"]);
     return /* @__PURE__ */ jsx7(DialogPrimitive.Description, __spreadProps(__spreadValues({ className: "text-zinc-400" }, rest), { children }));
   },
-  Close: (_o) => {
-    var _p = _o, { children } = _p, rest = __objRest(_p, ["children"]);
+  Close: (_q) => {
+    var _r = _q, { children } = _r, rest = __objRest(_r, ["children"]);
     return /* @__PURE__ */ jsx7(DialogPrimitive.Close, __spreadProps(__spreadValues({}, rest), { children }));
   },
-  Footer: (_q) => {
-    var _r = _q, { children, className } = _r, rest = __objRest(_r, ["children", "className"]);
+  Footer: (_s) => {
+    var _t = _s, { children, className } = _t, rest = __objRest(_t, ["children", "className"]);
     return /* @__PURE__ */ jsx7("div", __spreadProps(__spreadValues({}, rest), { className: footerVariant({ className }), children }));
   }
 };

@@ -125,7 +125,7 @@ declare const Dialog: {
     Trigger: ({ children, ...rest }: DialogTriggerProps) => react_jsx_runtime.JSX.Element;
     Overlay: ({ children, className, ...rest }: DialogOverlayProps) => react_jsx_runtime.JSX.Element;
     Header: ({ children, className }: DialogHeaderProps) => react_jsx_runtime.JSX.Element;
-    Content: ({ children, as, className }: DialogContentProps) => react_jsx_runtime.JSX.Element;
+    Content: ({ children, as, className, ...rest }: DialogContentProps) => react_jsx_runtime.JSX.Element;
     Container: ({ children, className, ...rest }: DialogContainerProps) => react_jsx_runtime.JSX.Element;
     Title: ({ children, ...rest }: DialogTitleProps) => react_jsx_runtime.JSX.Element;
     Description: ({ children, ...rest }: DialogDescriptionProps) => react_jsx_runtime.JSX.Element;

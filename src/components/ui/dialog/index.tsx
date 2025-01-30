@@ -94,10 +94,10 @@ export const Dialog = {
     </div>
   ),
 
-  Content: ({ children, as = "form", className }: DialogContentProps) => {
+  Content: ({ children, as = "form", className, ...rest }: DialogContentProps) => {
     const As = as;
 
-    return <As className={contentVariant({ className })}>{children}</As>;
+    return <As {...rest} className={contentVariant({ className })}>{children}</As>;
   },
 
   Container: ({ children, className, ...rest }: DialogContainerProps) => {
