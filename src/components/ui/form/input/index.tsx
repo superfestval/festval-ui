@@ -29,6 +29,7 @@ export const Input = forwardRef<HTMLInputElement, InputProps>(
       <div className={variants({ className, hasError: !!error })}>
         {mask ? (
           <InputMask
+            ref={ref}
             {...rest}
             mask={mask}
             replacement={{
