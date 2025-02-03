@@ -24,7 +24,7 @@ export type InputProps = InputHTMLAttributes<HTMLInputElement> & {
   InputMaskProps;
 
 export const Input = forwardRef<HTMLInputElement, InputProps>(
-  ({ mask, error, name, className, ...rest }, ref) => (
+  ({ mask, error, className, ...rest }, ref) => (
     <>
       <div className={variants({ className, hasError: !!error })}>
         {mask ? (

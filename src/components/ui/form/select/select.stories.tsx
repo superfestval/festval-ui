@@ -37,3 +37,9 @@ export const Controlled: StoryObj<SelectRootProps> = {
     onValueChange: action("onValueChange"),
   },
 };
+
+export const HasError: StoryObj<SelectRootProps> = {
+  args: {
+    error: "Any error here",
+  },
+};

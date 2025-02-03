@@ -395,7 +395,7 @@ var variants = tv7({
 });
 var Input = forwardRef(
   (_a, ref) => {
-    var _b = _a, { mask, error, name, className } = _b, rest = __objRest(_b, ["mask", "error", "name", "className"]);
+    var _b = _a, { mask, error, className } = _b, rest = __objRest(_b, ["mask", "error", "className"]);
     return /* @__PURE__ */ jsxs4(Fragment, { children: [
       /* @__PURE__ */ jsx17("div", { className: variants({ className, hasError: !!error }), children: mask ? /* @__PURE__ */ jsx17(
         InputMask,
@@ -467,10 +467,13 @@ var Item2 = forwardRef2(
 
 // src/components/ui/form/select/root.tsx
 import * as SelectPrimitive3 from "@radix-ui/react-select";
-import { jsx as jsx21 } from "react/jsx-runtime";
+import { jsx as jsx21, jsxs as jsxs6 } from "react/jsx-runtime";
 function Root6(_a) {
-  var _b = _a, { children } = _b, rest = __objRest(_b, ["children"]);
-  return /* @__PURE__ */ jsx21(SelectPrimitive3.Root, __spreadProps(__spreadValues({}, rest), { children }));
+  var _b = _a, { children, error } = _b, rest = __objRest(_b, ["children", "error"]);
+  return /* @__PURE__ */ jsxs6(SelectPrimitive3.Root, __spreadProps(__spreadValues({}, rest), { children: [
+    children,
+    error && /* @__PURE__ */ jsx21("small", { className: "mt-1 text-xs text-rose-600", children: error })
+  ] }));
 }
 
 // src/components/ui/form/select/value.tsx
@@ -570,7 +573,7 @@ var Select = {
 // src/components/ui/form/button/index.tsx
 import { tv as tv9 } from "tailwind-variants";
 import React from "react";
-import { jsx as jsx31, jsxs as jsxs6 } from "react/jsx-runtime";
+import { jsx as jsx31, jsxs as jsxs7 } from "react/jsx-runtime";
 var buttonVariant = tv9({
   base: "px-4 py-2 rounded text-zinc-50 transition-colors flex gap-2 items-center justify-center",
   variants: {
@@ -617,7 +620,7 @@ function Button(_a) {
       className: buttonVariant({ className, variant: variant2, disabled })
     }));
   }
-  return /* @__PURE__ */ jsxs6(As, __spreadProps(__spreadValues({}, rest), { className: buttonVariant({ className, variant: variant2, disabled }), children: [
+  return /* @__PURE__ */ jsxs7(As, __spreadProps(__spreadValues({}, rest), { className: buttonVariant({ className, variant: variant2, disabled }), children: [
     IconLeft && /* @__PURE__ */ jsx31(IconLeft, {}),
     children,
     IconRight && /* @__PURE__ */ jsx31(IconRight, {})
@@ -674,7 +677,7 @@ function Checkbox({
 // src/components/ui/form/textarea/index.tsx
 import { tv as tv11 } from "tailwind-variants";
 import { forwardRef as forwardRef3 } from "react";
-import { Fragment as Fragment2, jsx as jsx33, jsxs as jsxs7 } from "react/jsx-runtime";
+import { Fragment as Fragment2, jsx as jsx33, jsxs as jsxs8 } from "react/jsx-runtime";
 var variants3 = tv11({
   base: "w-full p-2 bg-zinc-50 border border-zinc-100 rounded outline-yellow-700",
   variants: {
@@ -689,7 +692,7 @@ var variants3 = tv11({
 var TextArea = forwardRef3(
   (_a, ref) => {
     var _b = _a, { error, name, className } = _b, rest = __objRest(_b, ["error", "name", "className"]);
-    return /* @__PURE__ */ jsxs7(Fragment2, { children: [
+    return /* @__PURE__ */ jsxs8(Fragment2, { children: [
       /* @__PURE__ */ jsx33("div", { className: variants3({ className }), children: /* @__PURE__ */ jsx33(
         "textarea",
         __spreadProps(__spreadValues({
@@ -708,29 +711,29 @@ TextArea.displayName = "TextArea";
 // src/components/ui/form/input-file/index.tsx
 import { UploadIcon } from "lucide-react";
 import { forwardRef as forwardRef4, useState as useState2 } from "react";
-import { jsx as jsx34, jsxs as jsxs8 } from "react/jsx-runtime";
+import { jsx as jsx34, jsxs as jsxs9 } from "react/jsx-runtime";
 var InputFile = forwardRef4(
   (_a, ref) => {
     var _b = _a, { accept = ".pdf" } = _b, rest = __objRest(_b, ["accept"]);
     const [files, setFiles] = useState2(null);
     const onInputChange = (e) => setFiles(e.currentTarget.files);
-    return /* @__PURE__ */ jsxs8("div", { className: "flex w-full items-center justify-center rounded border border-dashed border-zinc-200 bg-zinc-100 text-zinc-950", children: [
+    return /* @__PURE__ */ jsxs9("div", { className: "flex w-full items-center justify-center rounded border border-dashed border-zinc-200 bg-zinc-100 text-zinc-950", children: [
       /* @__PURE__ */ jsx34(
         "label",
         {
           htmlFor: "file",
           className: "flex h-full w-full cursor-pointer items-center justify-center text-center",
-          children: /* @__PURE__ */ jsx34("div", { className: "flex w-full items-center justify-center", children: /* @__PURE__ */ jsx34("small", { children: !files ? /* @__PURE__ */ jsxs8("div", { className: "p-4", children: [
+          children: /* @__PURE__ */ jsx34("div", { className: "flex w-full items-center justify-center", children: /* @__PURE__ */ jsx34("small", { children: !files ? /* @__PURE__ */ jsxs9("div", { className: "p-4", children: [
             /* @__PURE__ */ jsx34("p", { children: "Clique aqui para inserir um documento" }),
             /* @__PURE__ */ jsx34("div", { className: "flex items-center justify-center p-4", children: /* @__PURE__ */ jsx34(UploadIcon, { className: "text-zinc-400" }) }),
-            /* @__PURE__ */ jsxs8("small", { className: "text-zinc-500", children: [
+            /* @__PURE__ */ jsxs9("small", { className: "text-zinc-500", children: [
               "(Somente arquivos ",
               accept,
               ")"
             ] })
-          ] }) : /* @__PURE__ */ jsxs8("div", { className: "p-4", children: [
+          ] }) : /* @__PURE__ */ jsxs9("div", { className: "p-4", children: [
             /* @__PURE__ */ jsx34("p", { children: "Arquivos selecionados:" }),
-            /* @__PURE__ */ jsx34("div", { className: "mt-4", children: Array.from(files).map((item, index) => /* @__PURE__ */ jsxs8("small", { children: [
+            /* @__PURE__ */ jsx34("div", { className: "mt-4", children: Array.from(files).map((item, index) => /* @__PURE__ */ jsxs9("small", { children: [
               item.name,
               " ",
               index > 0 && ", "
@@ -787,7 +790,7 @@ import * as Popover from "@radix-ui/react-popover";
 import { Calendar1 } from "lucide-react";
 import { useState as useState3 } from "react";
 import { add, format } from "date-fns";
-import { jsx as jsx36, jsxs as jsxs9 } from "react/jsx-runtime";
+import { jsx as jsx36, jsxs as jsxs10 } from "react/jsx-runtime";
 function DatePicker({
   defaultValue,
   onValueChange,
@@ -813,8 +816,8 @@ function DatePicker({
       onValueChange(data);
     }
   };
-  return /* @__PURE__ */ jsxs9(Popover.Root, { children: [
-    /* @__PURE__ */ jsx36(Popover.Trigger, { children: /* @__PURE__ */ jsxs9(
+  return /* @__PURE__ */ jsxs10(Popover.Root, { children: [
+    /* @__PURE__ */ jsx36(Popover.Trigger, { children: /* @__PURE__ */ jsxs10(
       Button,
       {
         variant: "ghost",
@@ -975,10 +978,10 @@ function Root10(_a) {
 }
 
 // src/components/surfaces/menu/portal.tsx
-import { jsx as jsx49, jsxs as jsxs10 } from "react/jsx-runtime";
+import { jsx as jsx49, jsxs as jsxs11 } from "react/jsx-runtime";
 function Portal9(_a) {
   var _b = _a, { children } = _b, rest = __objRest(_b, ["children"]);
-  return /* @__PURE__ */ jsx49(Popover9.Portal, __spreadProps(__spreadValues({}, rest), { children: /* @__PURE__ */ jsxs10(Popover9.Content, __spreadProps(__spreadValues({}, rest), { className: "w-[276px]", children: [
+  return /* @__PURE__ */ jsx49(Popover9.Portal, __spreadProps(__spreadValues({}, rest), { children: /* @__PURE__ */ jsxs11(Popover9.Content, __spreadProps(__spreadValues({}, rest), { className: "w-[276px]", children: [
     children,
     /* @__PURE__ */ jsx49(Popover9.Arrow, {})
   ] })) }));
@@ -986,11 +989,11 @@ function Portal9(_a) {
 
 // src/components/surfaces/menu/item.tsx
 import { forwardRef as forwardRef6 } from "react";
-import { jsx as jsx50, jsxs as jsxs11 } from "react/jsx-runtime";
+import { jsx as jsx50, jsxs as jsxs12 } from "react/jsx-runtime";
 var Item3 = forwardRef6(
   (_a, ref) => {
     var _b = _a, { children, icon: Icon3 } = _b, rest = __objRest(_b, ["children", "icon"]);
-    return /* @__PURE__ */ jsxs11(
+    return /* @__PURE__ */ jsxs12(
       "a",
       __spreadProps(__spreadValues({}, rest), {
         ref,
@@ -1016,9 +1019,9 @@ var Menu = {
 };
 
 // src/components/surfaces/footer/index.tsx
-import { jsxs as jsxs12 } from "react/jsx-runtime";
+import { jsxs as jsxs13 } from "react/jsx-runtime";
 function Footer2() {
-  return /* @__PURE__ */ jsxs12("footer", { className: "item-center flex w-full justify-center bg-zinc-100 p-4 text-xs text-zinc-700", children: [
+  return /* @__PURE__ */ jsxs13("footer", { className: "item-center flex w-full justify-center bg-zinc-100 p-4 text-xs text-zinc-700", children: [
     "Super Festval \xA9 | ",
     (/* @__PURE__ */ new Date()).getFullYear(),
     " | Todos os direitos reservados"

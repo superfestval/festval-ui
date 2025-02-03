@@ -448,7 +448,7 @@ var variants = (0, import_tailwind_variants7.tv)({
 });
 var Input = (0, import_react.forwardRef)(
   (_a, ref) => {
-    var _b = _a, { mask, error, name, className } = _b, rest = __objRest(_b, ["mask", "error", "name", "className"]);
+    var _b = _a, { mask, error, className } = _b, rest = __objRest(_b, ["mask", "error", "className"]);
     return /* @__PURE__ */ (0, import_jsx_runtime17.jsxs)(import_jsx_runtime17.Fragment, { children: [
       /* @__PURE__ */ (0, import_jsx_runtime17.jsx)("div", { className: variants({ className, hasError: !!error }), children: mask ? /* @__PURE__ */ (0, import_jsx_runtime17.jsx)(
         import_mask.InputMask,
@@ -522,8 +522,11 @@ var Item2 = (0, import_react2.forwardRef)(
 var SelectPrimitive3 = __toESM(require("@radix-ui/react-select"));
 var import_jsx_runtime21 = require("react/jsx-runtime");
 function Root6(_a) {
-  var _b = _a, { children } = _b, rest = __objRest(_b, ["children"]);
-  return /* @__PURE__ */ (0, import_jsx_runtime21.jsx)(SelectPrimitive3.Root, __spreadProps(__spreadValues({}, rest), { children }));
+  var _b = _a, { children, error } = _b, rest = __objRest(_b, ["children", "error"]);
+  return /* @__PURE__ */ (0, import_jsx_runtime21.jsxs)(SelectPrimitive3.Root, __spreadProps(__spreadValues({}, rest), { children: [
+    children,
+    error && /* @__PURE__ */ (0, import_jsx_runtime21.jsx)("small", { className: "mt-1 text-xs text-rose-600", children: error })
+  ] }));
 }
 
 // src/components/ui/form/select/value.tsx
