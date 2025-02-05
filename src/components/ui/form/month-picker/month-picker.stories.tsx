@@ -19,6 +19,6 @@ export const MonthYear: StoryObj<typeof MonthPicker> = {
   args: {
     mode: "month-year",
     onValueChange: fn(),
-    defaultValue: "Fevereiro",
+    defaultValue: "2025-02",
   },
 };

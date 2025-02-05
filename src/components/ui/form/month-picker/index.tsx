@@ -4,6 +4,7 @@ import { Calendar1, ChevronLeft, ChevronRight } from "lucide-react";
 
 import { Button } from "../button";
 import { Popover } from "../../popover";
+import { format } from "date-fns";
 
 export type MonthPickerProps = {
   mode?: "month" | "month-year";
@@ -38,10 +39,25 @@ const variant = tv({
 export const MonthPicker: React.FC<MonthPickerProps> = ({
   onValueChange,
   mode = "month",
-  defaultValue = "Janeiro",
+  defaultValue = format(new Date(), "yyyy-MM"),
 }: MonthPickerProps) => {
-  const [year, setYear] = useState<number>(new Date().getFullYear());
-  const [month, setMonth] = useState<string>(defaultValue);
+  const [year, setYear] = useState<number>(() => {
+    if (defaultValue && mode === "month-year") {
+      const [defaultYear] = defaultValue.split("-");
+      return Number(defaultYear);
+    }
+
+    return new Date().getFullYear();
+  });
+  const [month, setMonth] = useState<string>(() => {
+    if (defaultValue && mode === "month-year") {
+      const [_, defaultMonth] = defaultValue.split("-");
+
+      return months.find((item) => item.value === Number(defaultMonth))!.label;
+    }
+
+    return months.find((item) => item.value === new Date().getMonth())!.label;
+  });
 
   const handleMonthChange = (value: number) => {
     const month = months.find((item) => item.value === value);
@@ -70,7 +86,6 @@ export const MonthPicker: React.FC<MonthPickerProps> = ({
   };
 
   const handleNextYearChange = () => setYear(year + 1);
-
   const handlePreviousYearChange = () => setYear(year - 1);
 
   return (

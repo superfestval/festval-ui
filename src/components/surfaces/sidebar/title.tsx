@@ -4,5 +4,9 @@ import { Heading, HeadingProps } from "@/components/typograph/heading";
 export type SidebarTitle = {} & HeadingProps;
 
 export function Title({ children, ...rest }: SidebarTitle) {
-  return <Heading {...rest}>{children}</Heading>;
+  return (
+    <Heading size="sm" {...rest}>
+      {children}
+    </Heading>
+  );
 }

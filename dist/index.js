@@ -1064,6 +1064,7 @@ YearPicker.displayName = "YearPicker";
 var import_tailwind_variants15 = require("tailwind-variants");
 var import_react9 = require("react");
 var import_lucide_react9 = require("lucide-react");
+var import_date_fns2 = require("date-fns");
 var import_jsx_runtime45 = require("react/jsx-runtime");
 var months = [
   { label: "Janeiro", value: 1 },
@@ -1090,10 +1091,22 @@ var variant3 = (0, import_tailwind_variants15.tv)({
 var MonthPicker = ({
   onValueChange,
   mode = "month",
-  defaultValue = "Janeiro"
+  defaultValue = (0, import_date_fns2.format)(/* @__PURE__ */ new Date(), "yyyy-MM")
 }) => {
-  const [year, setYear] = (0, import_react9.useState)((/* @__PURE__ */ new Date()).getFullYear());
-  const [month, setMonth] = (0, import_react9.useState)(defaultValue);
+  const [year, setYear] = (0, import_react9.useState)(() => {
+    if (defaultValue && mode === "month-year") {
+      const [defaultYear] = defaultValue.split("-");
+      return Number(defaultYear);
+    }
+    return (/* @__PURE__ */ new Date()).getFullYear();
+  });
+  const [month, setMonth] = (0, import_react9.useState)(() => {
+    if (defaultValue && mode === "month-year") {
+      const [_, defaultMonth] = defaultValue.split("-");
+      return months.find((item) => item.value === Number(defaultMonth)).label;
+    }
+    return months.find((item) => item.value === (/* @__PURE__ */ new Date()).getMonth()).label;
+  });
   const handleMonthChange = (value) => {
     const month2 = months.find((item) => item.value === value);
     setMonth(month2.label);

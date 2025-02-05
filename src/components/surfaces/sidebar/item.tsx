@@ -1,7 +1,16 @@
-import { HTMLAttributes } from "react";
+import { ElementType, HTMLAttributes } from "react";
 
-export type SidebarItem = {} & HTMLAttributes<HTMLElement>;
+export type SidebarItem = {
+  icon?: ElementType;
+} & HTMLAttributes<HTMLElement>;
 
-export function Item({ children, ...rest }: SidebarItem) {
-  return <div {...rest}>{children}</div>;
+export function Item({ children, icon, ...rest }: SidebarItem) {
+  const Icon = icon;
+
+  return (
+    <button className="w-full" {...rest}>
+      {Icon && <Icon />}
+      {children}
+    </button>
+  );
 }

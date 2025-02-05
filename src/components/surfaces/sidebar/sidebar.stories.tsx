@@ -8,9 +8,14 @@ export default {
         <Sidebar.Title>Menu</Sidebar.Title>
       </Sidebar.Header>
       <Sidebar.Content>
-        <Sidebar.Item />
+        <Sidebar.Item>Teste</Sidebar.Item>
+        <Sidebar.Item>Teste</Sidebar.Item>
+        <Sidebar.Item>Teste</Sidebar.Item>
       </Sidebar.Content>
-      <Sidebar.Footer></Sidebar.Footer>
+      <Sidebar.Footer>
+        <Sidebar.Item>Teste</Sidebar.Item>
+        <Sidebar.Item>Teste</Sidebar.Item>
+      </Sidebar.Footer>
     </Sidebar.Root>
   ),
   title: "Surfaces/Sidebar",

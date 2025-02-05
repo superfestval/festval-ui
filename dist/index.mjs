@@ -1009,6 +1009,7 @@ YearPicker.displayName = "YearPicker";
 import { tv as tv15 } from "tailwind-variants";
 import { useState as useState5 } from "react";
 import { Calendar1 as Calendar13, ChevronLeft as ChevronLeft2, ChevronRight as ChevronRight2 } from "lucide-react";
+import { format as format2 } from "date-fns";
 import { jsx as jsx45, jsxs as jsxs12 } from "react/jsx-runtime";
 var months = [
   { label: "Janeiro", value: 1 },
@@ -1035,10 +1036,22 @@ var variant3 = tv15({
 var MonthPicker = ({
   onValueChange,
   mode = "month",
-  defaultValue = "Janeiro"
+  defaultValue = format2(/* @__PURE__ */ new Date(), "yyyy-MM")
 }) => {
-  const [year, setYear] = useState5((/* @__PURE__ */ new Date()).getFullYear());
-  const [month, setMonth] = useState5(defaultValue);
+  const [year, setYear] = useState5(() => {
+    if (defaultValue && mode === "month-year") {
+      const [defaultYear] = defaultValue.split("-");
+      return Number(defaultYear);
+    }
+    return (/* @__PURE__ */ new Date()).getFullYear();
+  });
+  const [month, setMonth] = useState5(() => {
+    if (defaultValue && mode === "month-year") {
+      const [_, defaultMonth] = defaultValue.split("-");
+      return months.find((item) => item.value === Number(defaultMonth)).label;
+    }
+    return months.find((item) => item.value === (/* @__PURE__ */ new Date()).getMonth()).label;
+  });
   const handleMonthChange = (value) => {
     const month2 = months.find((item) => item.value === value);
     setMonth(month2.label);
