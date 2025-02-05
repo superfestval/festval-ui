@@ -47,16 +47,10 @@ export const MonthPicker: React.FC<MonthPickerProps> = ({
     const month = months.find((item) => item.value === value);
 
     setMonth(month!.label);
-  };
 
-  const handleNextYearChange = () => setYear(year + 1);
-
-  const handlePreviousYearChange = () => setYear(year - 1);
-
-  useEffect(() => {
     if (onValueChange && mode === "month-year") {
       const selectedMonth: number = months.find(
-        (item) => item.label === month
+        (item) => item.value === value
       )!.value;
       const formatedMonth: string =
         selectedMonth < 10 ? `0${selectedMonth}` : selectedMonth.toString();
@@ -66,14 +60,18 @@ export const MonthPicker: React.FC<MonthPickerProps> = ({
 
     if (onValueChange && mode === "month") {
       const selectedMonth: number = months.find(
-        (item) => item.label === month
+        (item) => item.value === value
       )!.value;
       const formatedMonth: string =
         selectedMonth < 10 ? `0${selectedMonth}` : selectedMonth.toString();
 
       onValueChange(formatedMonth);
     }
-  }, [month]);
+  };
+
+  const handleNextYearChange = () => setYear(year + 1);
+
+  const handlePreviousYearChange = () => setYear(year - 1);
 
   return (
     <Popover.Root>

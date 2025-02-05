@@ -1,0 +1,8 @@
+import { HTMLAttributes } from "react";
+import { Heading, HeadingProps } from "@/components/typograph/heading";
+
+export type SidebarTitle = {} & HeadingProps;
+
+export function Title({ children, ...rest }: SidebarTitle) {
+  return <Heading {...rest}>{children}</Heading>;
+}

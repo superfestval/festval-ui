@@ -852,9 +852,9 @@ function DatePicker({
   ] });
 }
 
-// src/components/ui/form/month-picker/index.tsx
+// src/components/ui/form/year-picker/index.tsx
+import { useState as useState4 } from "react";
 import { tv as tv14 } from "tailwind-variants";
-import { useEffect, useState as useState4 } from "react";
 import { Calendar1 as Calendar12, ChevronLeft, ChevronRight } from "lucide-react";
 
 // src/components/ui/popover/root.tsx
@@ -946,8 +946,70 @@ var Popover9 = {
   Trigger: Trigger8
 };
 
-// src/components/ui/form/month-picker/index.tsx
+// src/components/ui/form/year-picker/index.tsx
 import { jsx as jsx44, jsxs as jsxs11 } from "react/jsx-runtime";
+var variant2 = tv14({
+  base: "rounded bg-zinc-100 p-2 transition-colors hover:bg-zinc-200",
+  variants: {
+    selected: {
+      true: "bg-yellow-600 hover:bg-yellow-700 text-zinc-50"
+    }
+  }
+});
+var YearPicker = ({
+  onValueChange,
+  defaultValue = (/* @__PURE__ */ new Date()).getFullYear()
+}) => {
+  const [year, setYear] = useState4(defaultValue);
+  const [years] = useState4(
+    () => Array.from({
+      length: 9
+    })
+  );
+  const handleYearChange = (value) => {
+    setYear(value);
+    if (onValueChange) {
+      onValueChange(value);
+    }
+  };
+  const handleNextYearChange = () => setYear(year + 1);
+  const handlePreviousYearChange = () => setYear(year - 1);
+  return /* @__PURE__ */ jsxs11(Popover9.Root, { children: [
+    /* @__PURE__ */ jsx44(Popover9.Trigger, { children: /* @__PURE__ */ jsxs11(
+      Button,
+      {
+        variant: "ghost",
+        className: "w-full border border-zinc-300",
+        type: "button",
+        children: [
+          /* @__PURE__ */ jsx44(Calendar12, { size: 14 }),
+          /* @__PURE__ */ jsx44("p", { children: year })
+        ]
+      }
+    ) }),
+    /* @__PURE__ */ jsx44(Popover9.Portal, { children: /* @__PURE__ */ jsx44(Popover9.Content, { align: "start", children: /* @__PURE__ */ jsxs11("div", { children: [
+      /* @__PURE__ */ jsxs11("div", { className: "flex items-center justify-between border-b border-b-zinc-200 p-2", children: [
+        /* @__PURE__ */ jsx44("button", { onClick: handlePreviousYearChange, children: /* @__PURE__ */ jsx44(ChevronLeft, {}) }),
+        /* @__PURE__ */ jsx44("button", { onClick: handleNextYearChange, children: /* @__PURE__ */ jsx44(ChevronRight, {}) })
+      ] }),
+      /* @__PURE__ */ jsx44("div", { className: "grid w-fit grid-cols-3 gap-2 rounded bg-zinc-50 p-2", children: years.map((_, index) => /* @__PURE__ */ jsx44(
+        "button",
+        {
+          onClick: () => handleYearChange(year + index),
+          className: variant2({ selected: year === year + index }),
+          children: year + index
+        }
+      )) })
+    ] }) }) })
+  ] });
+};
+YearPicker.displayName = "YearPicker";
+
+// src/components/ui/form/month-picker/index.tsx
+import { tv as tv15 } from "tailwind-variants";
+import { useState as useState5 } from "react";
+import { Calendar1 as Calendar13, ChevronLeft as ChevronLeft2, ChevronRight as ChevronRight2 } from "lucide-react";
+import { jsx as jsx45, jsxs as jsxs12 } from "react/jsx-runtime";
 var months = [
   { label: "Janeiro", value: 1 },
   { label: "Fevereiro", value: 2 },
@@ -962,7 +1024,7 @@ var months = [
   { label: "Novembro", value: 11 },
   { label: "Dezembro", value: 12 }
 ];
-var variant2 = tv14({
+var variant3 = tv15({
   base: "rounded bg-zinc-100 p-2 transition-colors hover:bg-zinc-200",
   variants: {
     selected: {
@@ -975,95 +1037,24 @@ var MonthPicker = ({
   mode = "month",
   defaultValue = "Janeiro"
 }) => {
-  const [year, setYear] = useState4((/* @__PURE__ */ new Date()).getFullYear());
-  const [month, setMonth] = useState4(defaultValue);
+  const [year, setYear] = useState5((/* @__PURE__ */ new Date()).getFullYear());
+  const [month, setMonth] = useState5(defaultValue);
   const handleMonthChange = (value) => {
     const month2 = months.find((item) => item.value === value);
     setMonth(month2.label);
-  };
-  const handleNextYearChange = () => setYear(year + 1);
-  const handlePreviousYearChange = () => setYear(year - 1);
-  useEffect(() => {
     if (onValueChange && mode === "month-year") {
       const selectedMonth = months.find(
-        (item) => item.label === month
+        (item) => item.value === value
       ).value;
       const formatedMonth = selectedMonth < 10 ? `0${selectedMonth}` : selectedMonth.toString();
       onValueChange(year + "-" + formatedMonth);
     }
     if (onValueChange && mode === "month") {
       const selectedMonth = months.find(
-        (item) => item.label === month
+        (item) => item.value === value
       ).value;
       const formatedMonth = selectedMonth < 10 ? `0${selectedMonth}` : selectedMonth.toString();
       onValueChange(formatedMonth);
-    }
-  }, [month]);
-  return /* @__PURE__ */ jsxs11(Popover9.Root, { children: [
-    /* @__PURE__ */ jsx44(Popover9.Trigger, { children: /* @__PURE__ */ jsxs11(
-      Button,
-      {
-        variant: "ghost",
-        className: "w-full border border-zinc-300",
-        type: "button",
-        children: [
-          /* @__PURE__ */ jsx44(Calendar12, { size: 14 }),
-          /* @__PURE__ */ jsxs11("p", { children: [
-            month,
-            " ",
-            mode === "month-year" && " - " + year
-          ] })
-        ]
-      }
-    ) }),
-    /* @__PURE__ */ jsx44(Popover9.Portal, { children: /* @__PURE__ */ jsx44(Popover9.Content, { align: "start", children: /* @__PURE__ */ jsxs11("div", { children: [
-      mode === "month-year" && /* @__PURE__ */ jsxs11("div", { className: "flex items-center justify-between border-b border-b-zinc-200 p-2", children: [
-        /* @__PURE__ */ jsx44("button", { onClick: handlePreviousYearChange, children: /* @__PURE__ */ jsx44(ChevronLeft, {}) }),
-        /* @__PURE__ */ jsx44("p", { children: year }),
-        /* @__PURE__ */ jsx44("button", { onClick: handleNextYearChange, children: /* @__PURE__ */ jsx44(ChevronRight, {}) })
-      ] }),
-      /* @__PURE__ */ jsx44("div", { className: "grid w-fit grid-cols-3 gap-2 rounded bg-zinc-50 p-2", children: months.map((item) => /* @__PURE__ */ jsx44(
-        "button",
-        {
-          onClick: () => handleMonthChange(item.value),
-          className: variant2({
-            selected: item.label === month
-          }),
-          children: item.label
-        }
-      )) })
-    ] }) }) })
-  ] });
-};
-MonthPicker.displayName = "MonthPicker";
-
-// src/components/ui/form/year-picker/index.tsx
-import { tv as tv15 } from "tailwind-variants";
-import { useState as useState5 } from "react";
-import { Calendar1 as Calendar13, ChevronLeft as ChevronLeft2, ChevronRight as ChevronRight2 } from "lucide-react";
-import { jsx as jsx45, jsxs as jsxs12 } from "react/jsx-runtime";
-var variant3 = tv15({
-  base: "rounded bg-zinc-100 p-2 transition-colors hover:bg-zinc-200",
-  variants: {
-    selected: {
-      true: "bg-yellow-600 hover:bg-yellow-700 text-zinc-50"
-    }
-  }
-});
-var YearPicker = ({
-  onValueChange,
-  defaultValue = (/* @__PURE__ */ new Date()).getFullYear()
-}) => {
-  const [year, setYear] = useState5(defaultValue);
-  const [years] = useState5(
-    () => Array.from({
-      length: 9
-    })
-  );
-  const handleYearChange = (value) => {
-    setYear(value);
-    if (onValueChange) {
-      onValueChange(value);
     }
   };
   const handleNextYearChange = () => setYear(year + 1);
@@ -1077,27 +1068,34 @@ var YearPicker = ({
         type: "button",
         children: [
           /* @__PURE__ */ jsx45(Calendar13, { size: 14 }),
-          /* @__PURE__ */ jsx45("p", { children: year })
+          /* @__PURE__ */ jsxs12("p", { children: [
+            month,
+            " ",
+            mode === "month-year" && " - " + year
+          ] })
         ]
       }
     ) }),
     /* @__PURE__ */ jsx45(Popover9.Portal, { children: /* @__PURE__ */ jsx45(Popover9.Content, { align: "start", children: /* @__PURE__ */ jsxs12("div", { children: [
-      /* @__PURE__ */ jsxs12("div", { className: "flex items-center justify-between border-b border-b-zinc-200 p-2", children: [
+      mode === "month-year" && /* @__PURE__ */ jsxs12("div", { className: "flex items-center justify-between border-b border-b-zinc-200 p-2", children: [
         /* @__PURE__ */ jsx45("button", { onClick: handlePreviousYearChange, children: /* @__PURE__ */ jsx45(ChevronLeft2, {}) }),
+        /* @__PURE__ */ jsx45("p", { children: year }),
         /* @__PURE__ */ jsx45("button", { onClick: handleNextYearChange, children: /* @__PURE__ */ jsx45(ChevronRight2, {}) })
       ] }),
-      /* @__PURE__ */ jsx45("div", { className: "grid w-fit grid-cols-3 gap-2 rounded bg-zinc-50 p-2", children: years.map((_, index) => /* @__PURE__ */ jsx45(
+      /* @__PURE__ */ jsx45("div", { className: "grid w-fit grid-cols-3 gap-2 rounded bg-zinc-50 p-2", children: months.map((item) => /* @__PURE__ */ jsx45(
         "button",
         {
-          onClick: () => handleYearChange(year + index),
-          className: variant3({ selected: year === year + index }),
-          children: year + index
+          onClick: () => handleMonthChange(item.value),
+          className: variant3({
+            selected: item.label === month
+          }),
+          children: item.label
         }
       )) })
     ] }) }) })
   ] });
 };
-YearPicker.displayName = "YearPicker";
+MonthPicker.displayName = "MonthPicker";
 
 // src/components/surfaces/menu/trigger.tsx
 import { jsx as jsx46 } from "react/jsx-runtime";
