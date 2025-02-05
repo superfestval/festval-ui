@@ -13,6 +13,7 @@ export * from "@/components/ui/form/textarea";
 export * from "@/components/ui/form/input-file";
 export * from "@/components/ui/form/date-picker";
 export * from "@/components/ui/form/month-picker";
+export * from "@/components/ui/form/year-picker";
 
 export * from "@/components/ui/popover";
 export * from "@/components/surfaces/menu";

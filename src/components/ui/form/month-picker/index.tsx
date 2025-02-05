@@ -1,8 +1,9 @@
-import { useEffect, useState } from "react";
-import { Popover } from "../../popover";
-import { Button } from "../button";
-import { Calendar1, ChevronLeft, ChevronRight } from "lucide-react";
 import { tv } from "tailwind-variants";
+import { useEffect, useState } from "react";
+import { Calendar1, ChevronLeft, ChevronRight } from "lucide-react";
+
+import { Button } from "../button";
+import { Popover } from "../../popover";
 
 export type MonthPickerProps = {
   mode?: "month" | "month-year";
@@ -73,8 +74,6 @@ export const MonthPicker: React.FC = ({
       onValueChange(formatedMonth);
     }
   }, [month]);
-
-  console.log(month);
 
   return (
     <Popover.Root>
