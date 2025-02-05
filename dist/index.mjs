@@ -469,8 +469,16 @@ var Item2 = forwardRef2(
 import * as SelectPrimitive3 from "@radix-ui/react-select";
 import { jsx as jsx21, jsxs as jsxs6 } from "react/jsx-runtime";
 function Root6(_a) {
-  var _b = _a, { children, error } = _b, rest = __objRest(_b, ["children", "error"]);
-  return /* @__PURE__ */ jsxs6(SelectPrimitive3.Root, __spreadProps(__spreadValues({}, rest), { children: [
+  var _b = _a, {
+    children,
+    error,
+    defaultValue
+  } = _b, rest = __objRest(_b, [
+    "children",
+    "error",
+    "defaultValue"
+  ]);
+  return /* @__PURE__ */ jsxs6(SelectPrimitive3.Root, __spreadProps(__spreadValues({}, rest), { defaultValue, children: [
     children,
     error && /* @__PURE__ */ jsx21("small", { className: "mt-1 text-xs text-rose-600", children: error })
   ] }));
@@ -758,6 +766,12 @@ var InputFile = forwardRef4(
   }
 );
 
+// src/components/ui/form/date-picker/index.tsx
+import { useState as useState3 } from "react";
+import { add, format } from "date-fns";
+import { Calendar1 } from "lucide-react";
+import * as Popover from "@radix-ui/react-popover";
+
 // src/components/surfaces/calendar/index.tsx
 import { ptBR } from "react-day-picker/locale";
 import { DayPicker } from "react-day-picker";
@@ -786,10 +800,6 @@ function Calendar(_a) {
 }
 
 // src/components/ui/form/date-picker/index.tsx
-import * as Popover from "@radix-ui/react-popover";
-import { Calendar1 } from "lucide-react";
-import { useState as useState3 } from "react";
-import { add, format } from "date-fns";
 import { jsx as jsx36, jsxs as jsxs10 } from "react/jsx-runtime";
 function DatePicker({
   defaultValue,
@@ -829,11 +839,11 @@ function DatePicker({
         ]
       }
     ) }),
-    /* @__PURE__ */ jsx36(Popover.Portal, { children: /* @__PURE__ */ jsx36(Popover.Content, { children: /* @__PURE__ */ jsx36(
+    /* @__PURE__ */ jsx36(Popover.Portal, { children: /* @__PURE__ */ jsx36(Popover.Content, { align: "start", children: /* @__PURE__ */ jsx36(
       Calendar,
       {
         required: true,
-        className: "mt-4",
+        className: "mt-2",
         mode,
         selected,
         onSelect: onRangeSelected

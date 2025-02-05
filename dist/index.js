@@ -522,8 +522,16 @@ var Item2 = (0, import_react2.forwardRef)(
 var SelectPrimitive3 = __toESM(require("@radix-ui/react-select"));
 var import_jsx_runtime21 = require("react/jsx-runtime");
 function Root6(_a) {
-  var _b = _a, { children, error } = _b, rest = __objRest(_b, ["children", "error"]);
-  return /* @__PURE__ */ (0, import_jsx_runtime21.jsxs)(SelectPrimitive3.Root, __spreadProps(__spreadValues({}, rest), { children: [
+  var _b = _a, {
+    children,
+    error,
+    defaultValue
+  } = _b, rest = __objRest(_b, [
+    "children",
+    "error",
+    "defaultValue"
+  ]);
+  return /* @__PURE__ */ (0, import_jsx_runtime21.jsxs)(SelectPrimitive3.Root, __spreadProps(__spreadValues({}, rest), { defaultValue, children: [
     children,
     error && /* @__PURE__ */ (0, import_jsx_runtime21.jsx)("small", { className: "mt-1 text-xs text-rose-600", children: error })
   ] }));
@@ -811,6 +819,12 @@ var InputFile = (0, import_react6.forwardRef)(
   }
 );
 
+// src/components/ui/form/date-picker/index.tsx
+var import_react7 = require("react");
+var import_date_fns = require("date-fns");
+var import_lucide_react7 = require("lucide-react");
+var Popover = __toESM(require("@radix-ui/react-popover"));
+
 // src/components/surfaces/calendar/index.tsx
 var import_locale = require("react-day-picker/locale");
 var import_react_day_picker = require("react-day-picker");
@@ -839,10 +853,6 @@ function Calendar(_a) {
 }
 
 // src/components/ui/form/date-picker/index.tsx
-var Popover = __toESM(require("@radix-ui/react-popover"));
-var import_lucide_react7 = require("lucide-react");
-var import_react7 = require("react");
-var import_date_fns = require("date-fns");
 var import_jsx_runtime36 = require("react/jsx-runtime");
 function DatePicker({
   defaultValue,
@@ -882,11 +892,11 @@ function DatePicker({
         ]
       }
     ) }),
-    /* @__PURE__ */ (0, import_jsx_runtime36.jsx)(Popover.Portal, { children: /* @__PURE__ */ (0, import_jsx_runtime36.jsx)(Popover.Content, { children: /* @__PURE__ */ (0, import_jsx_runtime36.jsx)(
+    /* @__PURE__ */ (0, import_jsx_runtime36.jsx)(Popover.Portal, { children: /* @__PURE__ */ (0, import_jsx_runtime36.jsx)(Popover.Content, { align: "start", children: /* @__PURE__ */ (0, import_jsx_runtime36.jsx)(
       Calendar,
       {
         required: true,
-        className: "mt-4",
+        className: "mt-2",
         mode,
         selected,
         onSelect: onRangeSelected

@@ -1,10 +1,12 @@
-import { Calendar } from "@/components/surfaces/calendar";
-import { Button } from "../button";
-import * as Popover from "@radix-ui/react-popover";
-import { Calendar1 } from "lucide-react";
 import { useState } from "react";
-import { DateRange, Mode } from "react-day-picker";
 import { add, format } from "date-fns";
+import { Calendar1 } from "lucide-react";
+import * as Popover from "@radix-ui/react-popover";
+import { DateRange, Mode } from "react-day-picker";
+
+import { Calendar } from "@/components/surfaces/calendar";
+
+import { Button } from "../button";
 
 export type DatePickerProps = {
   mode: Mode;
@@ -65,10 +67,10 @@ export function DatePicker({
         </Button>
       </Popover.Trigger>
       <Popover.Portal>
-        <Popover.Content>
+        <Popover.Content align="start">
           <Calendar
             required
-            className="mt-4"
+            className="mt-2"
             mode={mode as any}
             selected={selected}
             onSelect={onRangeSelected}

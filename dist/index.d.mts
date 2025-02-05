@@ -294,7 +294,7 @@ type SelectItemProps = {} & SelectPrimitive.SelectItemProps;
 type SelectRootProps = {
     error?: string;
 } & SelectPrimitive.SelectProps;
-declare function Root$4({ children, error, ...rest }: SelectRootProps): react_jsx_runtime.JSX.Element;
+declare function Root$4({ children, error, defaultValue, ...rest }: SelectRootProps): react_jsx_runtime.JSX.Element;
 
 type SelectValueProps = {} & SelectPrimitive.SelectValueProps;
 declare function Value({ ...rest }: SelectValueProps): react_jsx_runtime.JSX.Element;
