@@ -1,5 +1,5 @@
+import { useState } from "react";
 import { tv } from "tailwind-variants";
-import { useEffect, useState } from "react";
 import { Calendar1, ChevronLeft, ChevronRight } from "lucide-react";
 
 import { Button } from "../button";
