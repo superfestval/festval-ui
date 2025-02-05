@@ -35,7 +35,7 @@ const variant = tv({
   },
 });
 
-export const MonthPicker: React.FC = ({
+export const MonthPicker: React.FC<MonthPickerProps> = ({
   onValueChange,
   mode = "month",
   defaultValue = "Janeiro",

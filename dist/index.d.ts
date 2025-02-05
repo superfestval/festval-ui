@@ -514,13 +514,13 @@ type MonthPickerProps = {
     defaultValue?: string;
     onValueChange?: (value: string) => void;
 };
-declare const MonthPicker: React.FC;
+declare const MonthPicker: React.FC<MonthPickerProps>;
 
 type YearPickerProps = {
     defaultValue?: number;
     onValueChange?: (value: number) => void;
 };
-declare const YearPicker: React.FC;
+declare const YearPicker: React.FC<YearPickerProps>;
 
 type PopoverRootProps = {} & Popover$1.PopoverProps;
 declare function Root$3({ children, ...rest }: PopoverRootProps): react_jsx_runtime.JSX.Element;

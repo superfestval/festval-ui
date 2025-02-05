@@ -19,7 +19,7 @@ const variant = tv({
   },
 });
 
-export const YearPicker: React.FC = ({
+export const YearPicker: React.FC<YearPickerProps> = ({
   onValueChange,
   defaultValue = new Date().getFullYear(),
 }: YearPickerProps) => {
