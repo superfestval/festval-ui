@@ -8,7 +8,6 @@ import {
   Sticker,
   Ticket,
 } from "lucide-react";
-import { ChatBubbleIcon, DashboardIcon } from "@radix-ui/react-icons";
 
 export default {
   render: () => (
@@ -41,9 +40,7 @@ export default {
   ),
   title: "Surfaces/Sidebar",
   tags: ["autodocs"],
-} as Meta;
+} as Meta<typeof Sidebar>;
 
-export const SidebarDefault: StoryObj = {
-  args: {},
-};
+export const SidebarDefault: StoryObj = {};
 
