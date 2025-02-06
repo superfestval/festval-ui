@@ -86,9 +86,9 @@ jobs:
         run: npm install
       
       - name: Configure Git user
-      run: |
-        git config --global user.name "daniellvaz"
-        git config --global user.email "daniellmvaz@gmail.com"
+        run: |
+          git config --global user.name "daniellvaz"
+          git config --global user.email "daniellmvaz@gmail.com"
 
       - name: Bump version and push tag
         run: |
