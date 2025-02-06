@@ -78,6 +78,7 @@ __export(src_exports, {
   NavigationMenu: () => NavigationMenu,
   Popover: () => Popover9,
   Select: () => Select,
+  Sidebar: () => Sidebar,
   Table: () => Table,
   Text: () => Text,
   TextArea: () => TextArea,
@@ -125,12 +126,12 @@ var iconVariant = (0, import_tailwind_variants3.tv)({
 var Header = ({
   children,
   iconColor,
-  icon: Icon3,
+  icon: Icon4,
   className
 }) => {
   return /* @__PURE__ */ (0, import_jsx_runtime3.jsxs)("div", { className: "flex items-start justify-between rounded-t bg-zinc-200 p-4", children: [
     children,
-    Icon3 && /* @__PURE__ */ (0, import_jsx_runtime3.jsx)("div", { className: iconVariant({ variant: iconColor, className }), children: /* @__PURE__ */ (0, import_jsx_runtime3.jsx)(Icon3, { size: 16 }) })
+    Icon4 && /* @__PURE__ */ (0, import_jsx_runtime3.jsx)("div", { className: iconVariant({ variant: iconColor, className }), children: /* @__PURE__ */ (0, import_jsx_runtime3.jsx)(Icon4, { size: 16 }) })
   ] });
 };
 
@@ -1226,14 +1227,14 @@ var import_react11 = require("react");
 var import_jsx_runtime52 = require("react/jsx-runtime");
 var Item3 = (0, import_react11.forwardRef)(
   (_a, ref) => {
-    var _b = _a, { children, icon: Icon3 } = _b, rest = __objRest(_b, ["children", "icon"]);
+    var _b = _a, { children, icon: Icon4 } = _b, rest = __objRest(_b, ["children", "icon"]);
     return /* @__PURE__ */ (0, import_jsx_runtime52.jsxs)(
       "a",
       __spreadProps(__spreadValues({}, rest), {
         ref,
         className: "flex w-full items-center gap-2 p-4 transition-colors hover:bg-zinc-100/75 hover:text-yellow-700",
         children: [
-          Icon3 && /* @__PURE__ */ (0, import_jsx_runtime52.jsx)(Icon3, { size: 14 }),
+          Icon4 && /* @__PURE__ */ (0, import_jsx_runtime52.jsx)(Icon4, { size: 14 }),
           children
         ]
       })
@@ -1290,103 +1291,44 @@ var Header3 = {
   Image
 };
 
-// src/components/ui/navigation-menu/item.tsx
-var Navigation = __toESM(require("@radix-ui/react-navigation-menu"));
+// src/components/surfaces/sidebar/icon.tsx
+var import_lucide_react10 = require("lucide-react");
+
+// src/components/surfaces/sidebar/context/sidebar.tsx
+var import_react13 = require("react");
+
+// src/components/surfaces/sidebar/context/hooks/useSidebarContext.tsx
 var import_react12 = require("react");
+function useSidebarContext() {
+  const [state, setState] = (0, import_react12.useState)("open");
+  const toggle = () => setState(state === "open" ? "close" : "open");
+  return {
+    state,
+    toggle
+  };
+}
+
+// src/components/surfaces/sidebar/context/sidebar.tsx
 var import_jsx_runtime56 = require("react/jsx-runtime");
-var Item5 = (0, import_react12.forwardRef)(
-  (_a) => {
-    var _b = _a, { children } = _b, rest = __objRest(_b, ["children"]);
-    return /* @__PURE__ */ (0, import_jsx_runtime56.jsx)(Navigation.Item, __spreadProps(__spreadValues({}, rest), { children }));
-  }
-);
+var SidebarContext = (0, import_react13.createContext)({});
+function SidebarProvider({ children }) {
+  const value = useSidebarContext();
+  return /* @__PURE__ */ (0, import_jsx_runtime56.jsx)(SidebarContext.Provider, { value, children });
+}
+var useSidebar = () => (0, import_react13.useContext)(SidebarContext);
 
-// src/components/ui/navigation-menu/list.tsx
-var Navigation2 = __toESM(require("@radix-ui/react-navigation-menu"));
+// src/components/surfaces/sidebar/icon.tsx
 var import_jsx_runtime57 = require("react/jsx-runtime");
-function List2(_a) {
-  var _b = _a, { children } = _b, rest = __objRest(_b, ["children"]);
-  return /* @__PURE__ */ (0, import_jsx_runtime57.jsx)(Navigation2.List, { id: "navigation", children });
+function Icon3(_a) {
+  var rest = __objRest(_a, []);
+  const { toggle, state } = useSidebar();
+  return state === "open" ? /* @__PURE__ */ (0, import_jsx_runtime57.jsx)(import_lucide_react10.PanelLeftClose, __spreadProps(__spreadValues({}, rest), { onClick: toggle })) : /* @__PURE__ */ (0, import_jsx_runtime57.jsx)(import_lucide_react10.PanelLeftOpen, __spreadProps(__spreadValues({}, rest), { onClick: toggle }));
 }
-
-// src/components/ui/navigation-menu/root.tsx
-var Navigation3 = __toESM(require("@radix-ui/react-navigation-menu"));
-var import_jsx_runtime58 = require("react/jsx-runtime");
-function Root13(_a) {
-  var _b = _a, { children } = _b, rest = __objRest(_b, ["children"]);
-  return /* @__PURE__ */ (0, import_jsx_runtime58.jsx)(Navigation3.Root, { id: "navigation", children });
-}
-
-// src/components/ui/navigation-menu/link.tsx
-var Navigation4 = __toESM(require("@radix-ui/react-navigation-menu"));
-var import_jsx_runtime59 = require("react/jsx-runtime");
-function Link2(_a) {
-  var _b = _a, { children } = _b, rest = __objRest(_b, ["children"]);
-  return /* @__PURE__ */ (0, import_jsx_runtime59.jsx)(Navigation4.Link, __spreadProps(__spreadValues({}, rest), { children }));
-}
-
-// src/components/ui/navigation-menu/trigger.tsx
-var Navigation5 = __toESM(require("@radix-ui/react-navigation-menu"));
-var import_tailwind_variants20 = require("tailwind-variants");
-var import_jsx_runtime60 = require("react/jsx-runtime");
-var navigationMenuContentVariant = (0, import_tailwind_variants20.tv)({
-  base: "bg-zinc-200 flex gap-4 items-center p-2 rounded"
-});
-function Trigger11(_a) {
-  var _b = _a, {
-    children,
-    className
-  } = _b, rest = __objRest(_b, [
-    "children",
-    "className"
-  ]);
-  return /* @__PURE__ */ (0, import_jsx_runtime60.jsx)(
-    Navigation5.Trigger,
-    __spreadProps(__spreadValues({}, rest), {
-      className: navigationMenuContentVariant({ className }),
-      children
-    })
-  );
-}
-
-// src/components/ui/navigation-menu/content.tsx
-var Navigation6 = __toESM(require("@radix-ui/react-navigation-menu"));
-var import_tailwind_variants21 = require("tailwind-variants");
-var import_jsx_runtime61 = require("react/jsx-runtime");
-var navigationMenuContentVariant2 = (0, import_tailwind_variants21.tv)({
-  base: "bg-zinc-50 mt-4 rounded h-fit"
-});
-function Content11(_a) {
-  var _b = _a, {
-    children,
-    className
-  } = _b, rest = __objRest(_b, [
-    "children",
-    "className"
-  ]);
-  return /* @__PURE__ */ (0, import_jsx_runtime61.jsx)(
-    Navigation6.Content,
-    __spreadProps(__spreadValues({}, rest), {
-      className: navigationMenuContentVariant2({ className }),
-      children
-    })
-  );
-}
-
-// src/components/ui/navigation-menu/index.tsx
-var NavigationMenu = {
-  Root: Root13,
-  Item: Item5,
-  List: List2,
-  Link: Link2,
-  Content: Content11,
-  Trigger: Trigger11
-};
 
 // src/components/typograph/text/index.tsx
-var import_tailwind_variants22 = require("tailwind-variants");
-var import_jsx_runtime62 = require("react/jsx-runtime");
-var textVariant = (0, import_tailwind_variants22.tv)({
+var import_tailwind_variants20 = require("tailwind-variants");
+var import_jsx_runtime58 = require("react/jsx-runtime");
+var textVariant = (0, import_tailwind_variants20.tv)({
   variants: {
     size: {
       xs: "text-xs",
@@ -1405,13 +1347,47 @@ var textVariant = (0, import_tailwind_variants22.tv)({
 function Text(_a) {
   var _b = _a, { as = "p", children, size } = _b, rest = __objRest(_b, ["as", "children", "size"]);
   const As = as;
-  return /* @__PURE__ */ (0, import_jsx_runtime62.jsx)(As, __spreadProps(__spreadValues({ className: textVariant({ size }) }, rest), { children }));
+  return /* @__PURE__ */ (0, import_jsx_runtime58.jsx)(As, __spreadProps(__spreadValues({ className: textVariant({ size }) }, rest), { children }));
+}
+
+// src/components/surfaces/sidebar/item.tsx
+var import_jsx_runtime59 = require("react/jsx-runtime");
+function Item4(_a) {
+  var _b = _a, { children, icon } = _b, rest = __objRest(_b, ["children", "icon"]);
+  const Icon4 = icon;
+  const { state } = useSidebar();
+  return /* @__PURE__ */ (0, import_jsx_runtime59.jsxs)(
+    "button",
+    __spreadProps(__spreadValues({}, rest), {
+      "data-state": state,
+      className: "flex w-full gap-2 bg-zinc-50 p-4 text-left transition-colors hover:bg-zinc-100 data-[state=close]:max-w-24 data-[state=close]:justify-center",
+      children: [
+        Icon4 && /* @__PURE__ */ (0, import_jsx_runtime59.jsx)(Icon4, {}),
+        /* @__PURE__ */ (0, import_jsx_runtime59.jsx)(
+          Text,
+          {
+            as: "strong",
+            "data-state": state,
+            className: "data-[state=close]:hidden",
+            children
+          }
+        )
+      ]
+    })
+  );
+}
+
+// src/components/surfaces/sidebar/root.tsx
+var import_jsx_runtime60 = require("react/jsx-runtime");
+function Root12(_a) {
+  var _b = _a, { children } = _b, rest = __objRest(_b, ["children"]);
+  return /* @__PURE__ */ (0, import_jsx_runtime60.jsx)(SidebarProvider, __spreadProps(__spreadValues({}, rest), { children }));
 }
 
 // src/components/typograph/heading/index.tsx
-var import_tailwind_variants23 = require("tailwind-variants");
-var import_jsx_runtime63 = require("react/jsx-runtime");
-var headingVariant = (0, import_tailwind_variants23.tv)({
+var import_tailwind_variants21 = require("tailwind-variants");
+var import_jsx_runtime61 = require("react/jsx-runtime");
+var headingVariant = (0, import_tailwind_variants21.tv)({
   variants: {
     size: {
       xs: "text-base font-bold",
@@ -1440,8 +1416,198 @@ function Heading(_a) {
     "className"
   ]);
   const As = as;
-  return /* @__PURE__ */ (0, import_jsx_runtime63.jsx)(As, __spreadProps(__spreadValues({ className: headingVariant({ size, className }) }, rest), { children }));
+  return /* @__PURE__ */ (0, import_jsx_runtime61.jsx)(As, __spreadProps(__spreadValues({ className: headingVariant({ size, className }) }, rest), { children }));
 }
+
+// src/components/surfaces/sidebar/title.tsx
+var import_jsx_runtime62 = require("react/jsx-runtime");
+function Title4(_a) {
+  var _b = _a, { children } = _b, rest = __objRest(_b, ["children"]);
+  const { state } = useSidebar();
+  return /* @__PURE__ */ (0, import_jsx_runtime62.jsx)(
+    Heading,
+    __spreadProps(__spreadValues({
+      "data-state": state,
+      size: "sm",
+      className: "data-[state=close]:hidden"
+    }, rest), {
+      children
+    })
+  );
+}
+
+// src/components/surfaces/sidebar/footer.tsx
+var import_jsx_runtime63 = require("react/jsx-runtime");
+function Footer3(_a) {
+  var _b = _a, { user, children } = _b, rest = __objRest(_b, ["user", "children"]);
+  const { state } = useSidebar();
+  return /* @__PURE__ */ (0, import_jsx_runtime63.jsxs)(
+    "div",
+    __spreadProps(__spreadValues({}, rest), {
+      "data-state": state,
+      className: "w-full rounded-b data-[state=close]:max-w-24",
+      children: [
+        children,
+        /* @__PURE__ */ (0, import_jsx_runtime63.jsxs)("div", { className: "flex items-center gap-2 rounded-b border-t border-t-zinc-200 bg-zinc-50 p-4", children: [
+          /* @__PURE__ */ (0, import_jsx_runtime63.jsx)(Avatar, { image: user.image, username: user.name }),
+          /* @__PURE__ */ (0, import_jsx_runtime63.jsxs)(
+            "div",
+            {
+              "data-state": state,
+              className: "flex flex-col data-[state=close]:hidden",
+              children: [
+                /* @__PURE__ */ (0, import_jsx_runtime63.jsx)(Text, { size: "lg", as: "strong", children: user.name }),
+                /* @__PURE__ */ (0, import_jsx_runtime63.jsx)(Text, { size: "xs", as: "small", className: "-mt-1 text-zinc-400", children: user.role })
+              ]
+            }
+          )
+        ] })
+      ]
+    })
+  );
+}
+
+// src/components/surfaces/sidebar/header.tsx
+var import_jsx_runtime64 = require("react/jsx-runtime");
+function Header4(_a) {
+  var _b = _a, { children } = _b, rest = __objRest(_b, ["children"]);
+  const { state } = useSidebar();
+  return /* @__PURE__ */ (0, import_jsx_runtime64.jsx)(
+    "div",
+    __spreadProps(__spreadValues({}, rest), {
+      "data-state": state,
+      className: "flex h-16 w-full items-center justify-between rounded-t border-b border-b-zinc-200 p-4 data-[state=close]:max-w-24 data-[state=close]:justify-center",
+      children
+    })
+  );
+}
+
+// src/components/surfaces/sidebar/content.tsx
+var import_jsx_runtime65 = require("react/jsx-runtime");
+function Content10(_a) {
+  var _b = _a, { children } = _b, rest = __objRest(_b, ["children"]);
+  return /* @__PURE__ */ (0, import_jsx_runtime65.jsx)("div", __spreadProps(__spreadValues({}, rest), { className: "w-full", children }));
+}
+
+// src/components/surfaces/sidebar/container.tsx
+var import_jsx_runtime66 = require("react/jsx-runtime");
+function Container(_a) {
+  var _b = _a, { children } = _b, rest = __objRest(_b, ["children"]);
+  const { state } = useSidebar();
+  return /* @__PURE__ */ (0, import_jsx_runtime66.jsx)(
+    "div",
+    __spreadProps(__spreadValues({}, rest), {
+      "data-state": state,
+      className: "parent group grid h-full w-full max-w-60 grid-rows-[auto,1fr,auto] gap-4 rounded bg-zinc-50 data-[state=close]:max-w-24",
+      children
+    })
+  );
+}
+
+// src/components/surfaces/sidebar/index.tsx
+var Sidebar = {
+  Root: Root12,
+  Content: Content10,
+  Container,
+  Header: Header4,
+  Footer: Footer3,
+  Item: Item4,
+  Title: Title4,
+  Icon: Icon3
+};
+
+// src/components/ui/navigation-menu/item.tsx
+var Navigation = __toESM(require("@radix-ui/react-navigation-menu"));
+var import_react14 = require("react");
+var import_jsx_runtime67 = require("react/jsx-runtime");
+var Item6 = (0, import_react14.forwardRef)(
+  (_a) => {
+    var _b = _a, { children } = _b, rest = __objRest(_b, ["children"]);
+    return /* @__PURE__ */ (0, import_jsx_runtime67.jsx)(Navigation.Item, __spreadProps(__spreadValues({}, rest), { children }));
+  }
+);
+
+// src/components/ui/navigation-menu/list.tsx
+var Navigation2 = __toESM(require("@radix-ui/react-navigation-menu"));
+var import_jsx_runtime68 = require("react/jsx-runtime");
+function List2(_a) {
+  var _b = _a, { children } = _b, rest = __objRest(_b, ["children"]);
+  return /* @__PURE__ */ (0, import_jsx_runtime68.jsx)(Navigation2.List, { id: "navigation", children });
+}
+
+// src/components/ui/navigation-menu/root.tsx
+var Navigation3 = __toESM(require("@radix-ui/react-navigation-menu"));
+var import_jsx_runtime69 = require("react/jsx-runtime");
+function Root14(_a) {
+  var _b = _a, { children } = _b, rest = __objRest(_b, ["children"]);
+  return /* @__PURE__ */ (0, import_jsx_runtime69.jsx)(Navigation3.Root, { id: "navigation", children });
+}
+
+// src/components/ui/navigation-menu/link.tsx
+var Navigation4 = __toESM(require("@radix-ui/react-navigation-menu"));
+var import_jsx_runtime70 = require("react/jsx-runtime");
+function Link2(_a) {
+  var _b = _a, { children } = _b, rest = __objRest(_b, ["children"]);
+  return /* @__PURE__ */ (0, import_jsx_runtime70.jsx)(Navigation4.Link, __spreadProps(__spreadValues({}, rest), { children }));
+}
+
+// src/components/ui/navigation-menu/trigger.tsx
+var Navigation5 = __toESM(require("@radix-ui/react-navigation-menu"));
+var import_tailwind_variants22 = require("tailwind-variants");
+var import_jsx_runtime71 = require("react/jsx-runtime");
+var navigationMenuContentVariant = (0, import_tailwind_variants22.tv)({
+  base: "bg-zinc-200 flex gap-4 items-center p-2 rounded"
+});
+function Trigger11(_a) {
+  var _b = _a, {
+    children,
+    className
+  } = _b, rest = __objRest(_b, [
+    "children",
+    "className"
+  ]);
+  return /* @__PURE__ */ (0, import_jsx_runtime71.jsx)(
+    Navigation5.Trigger,
+    __spreadProps(__spreadValues({}, rest), {
+      className: navigationMenuContentVariant({ className }),
+      children
+    })
+  );
+}
+
+// src/components/ui/navigation-menu/content.tsx
+var Navigation6 = __toESM(require("@radix-ui/react-navigation-menu"));
+var import_tailwind_variants23 = require("tailwind-variants");
+var import_jsx_runtime72 = require("react/jsx-runtime");
+var navigationMenuContentVariant2 = (0, import_tailwind_variants23.tv)({
+  base: "bg-zinc-50 mt-4 rounded h-fit"
+});
+function Content12(_a) {
+  var _b = _a, {
+    children,
+    className
+  } = _b, rest = __objRest(_b, [
+    "children",
+    "className"
+  ]);
+  return /* @__PURE__ */ (0, import_jsx_runtime72.jsx)(
+    Navigation6.Content,
+    __spreadProps(__spreadValues({}, rest), {
+      className: navigationMenuContentVariant2({ className }),
+      children
+    })
+  );
+}
+
+// src/components/ui/navigation-menu/index.tsx
+var NavigationMenu = {
+  Root: Root14,
+  Item: Item6,
+  List: List2,
+  Link: Link2,
+  Content: Content12,
+  Trigger: Trigger11
+};
 // Annotate the CommonJS export names for ESM import in node:
 0 && (module.exports = {
   AlertDialog,
@@ -1463,6 +1629,7 @@ function Heading(_a) {
   NavigationMenu,
   Popover,
   Select,
+  Sidebar,
   Table,
   Text,
   TextArea,

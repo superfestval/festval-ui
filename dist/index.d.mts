@@ -12,6 +12,7 @@ import * as SelectPrimitive from '@radix-ui/react-select';
 import { Mode, DateRange, DayPickerProps } from 'react-day-picker';
 import * as Popover$1 from '@radix-ui/react-popover';
 import { PopoverTriggerProps as PopoverTriggerProps$1 } from '@radix-ui/react-popover';
+import { LucideProps } from 'lucide-react';
 import * as Navigation from '@radix-ui/react-navigation-menu';
 
 declare const variant: tailwind_variants.TVReturnType<{} | {} | {}, undefined, "flex-1 rounded-b bg-zinc-50 p-4", tailwind_variants_dist_config.TVConfig<unknown, {} | {}>, {} | {}, undefined, tailwind_variants.TVReturnType<unknown, undefined, "flex-1 rounded-b bg-zinc-50 p-4", tailwind_variants_dist_config.TVConfig<unknown, {} | {}>, unknown, unknown, undefined>>;
@@ -140,7 +141,7 @@ type AlertDialogCancelProps = {} & AlertDialogPrimitive.AlertDialogCancelProps;
 declare function Cancel({ children, ...rest }: AlertDialogCancelProps): react_jsx_runtime.JSX.Element;
 
 type AlertDialogContentProps = {} & AlertDialogPrimitive.AlertDialogContentProps;
-declare function Content$3({ children, ...rest }: AlertDialogContentProps): react_jsx_runtime.JSX.Element;
+declare function Content$4({ children, ...rest }: AlertDialogContentProps): react_jsx_runtime.JSX.Element;
 
 type AlertDialogDescriptionProps = {} & AlertDialogPrimitive.AlertDialogDescriptionProps;
 declare function Description({ children, ...rest }: AlertDialogDescriptionProps): react_jsx_runtime.JSX.Element;
@@ -152,24 +153,24 @@ type AlertDialogPortalProps = {} & AlertDialogPrimitive.AlertDialogPortalProps;
 declare function Portal$3({ children, ...rest }: AlertDialogPortalProps): react_jsx_runtime.JSX.Element;
 
 type AlertDialogRootProps = {} & AlertDialogPrimitive.AlertDialogProps;
-declare function Root$5({ children, ...rest }: AlertDialogRootProps): react_jsx_runtime.JSX.Element;
+declare function Root$6({ children, ...rest }: AlertDialogRootProps): react_jsx_runtime.JSX.Element;
 
 type AlertDialogTitleProps = {} & AlertDialogPrimitive.AlertDialogTitleProps;
-declare function Title({ children, ...rest }: AlertDialogTitleProps): react_jsx_runtime.JSX.Element;
+declare function Title$1({ children, ...rest }: AlertDialogTitleProps): react_jsx_runtime.JSX.Element;
 
 type AlertDialogTriggerProps = {} & AlertDialogPrimitive.AlertDialogTriggerProps;
 declare function Trigger$4({ children, ...rest }: AlertDialogTriggerProps): react_jsx_runtime.JSX.Element;
 
 declare const AlertDialog: {
-    Root: typeof Root$5;
+    Root: typeof Root$6;
     Trigger: typeof Trigger$4;
     Portal: typeof Portal$3;
     Overlay: typeof Overlay;
-    Title: typeof Title;
+    Title: typeof Title$1;
     Description: typeof Description;
     Action: typeof Action;
     Cancel: typeof Cancel;
-    Content: typeof Content$3;
+    Content: typeof Content$4;
 };
 
 declare const variants$1: tailwind_variants.TVReturnType<{
@@ -287,14 +288,14 @@ declare function Label$1({ children, className, ...rest }: LabelProps): react_js
 type SelectIconProps = {
     placeholder?: string;
 } & SelectPrimitive.SelectIconProps;
-declare function Icon({ ...rest }: SelectIconProps): react_jsx_runtime.JSX.Element;
+declare function Icon$1({ ...rest }: SelectIconProps): react_jsx_runtime.JSX.Element;
 
 type SelectItemProps = {} & SelectPrimitive.SelectItemProps;
 
 type SelectRootProps = {
     error?: string;
 } & SelectPrimitive.SelectProps;
-declare function Root$4({ children, error, defaultValue, ...rest }: SelectRootProps): react_jsx_runtime.JSX.Element;
+declare function Root$5({ children, error, defaultValue, ...rest }: SelectRootProps): react_jsx_runtime.JSX.Element;
 
 type SelectValueProps = {} & SelectPrimitive.SelectValueProps;
 declare function Value({ ...rest }: SelectValueProps): react_jsx_runtime.JSX.Element;
@@ -309,7 +310,7 @@ type SelectPortalProps = {} & SelectPrimitive.SelectPortalProps;
 declare function Portal$2({ children, ...rest }: SelectPortalProps): react_jsx_runtime.JSX.Element;
 
 type SelectContentProps = {} & SelectPrimitive.SelectContentProps;
-declare function Content$2({ children, ...rest }: SelectContentProps): react_jsx_runtime.JSX.Element;
+declare function Content$3({ children, ...rest }: SelectContentProps): react_jsx_runtime.JSX.Element;
 
 type SelectTriggerProps = {} & SelectPrimitive.SelectTriggerProps;
 declare function Trigger$3({ children, ...rest }: SelectTriggerProps): react_jsx_runtime.JSX.Element;
@@ -324,10 +325,10 @@ type SelectItemIndicatorProps = {} & SelectPrimitive.SelectItemProps;
 declare function ItemIndicator({ children, ...rest }: SelectItemIndicatorProps): react_jsx_runtime.JSX.Element;
 
 declare const Select: {
-    Root: typeof Root$4;
+    Root: typeof Root$5;
     Portal: typeof Portal$2;
     Trigger: typeof Trigger$3;
-    Content: typeof Content$2;
+    Content: typeof Content$3;
     Viewport: typeof Viewport;
     Group: typeof Group;
     ItemIndicator: typeof ItemIndicator;
@@ -335,7 +336,7 @@ declare const Select: {
     Item: react.ForwardRefExoticComponent<SelectPrimitive.SelectItemProps & react.RefAttributes<HTMLDivElement>>;
     Label: typeof Label;
     Value: typeof Value;
-    Icon: typeof Icon;
+    Icon: typeof Icon$1;
 };
 
 declare const buttonVariant: tailwind_variants.TVReturnType<{
@@ -523,7 +524,7 @@ type MonthPickerProps = {
 declare const MonthPicker: React.FC<MonthPickerProps>;
 
 type PopoverRootProps = {} & Popover$1.PopoverProps;
-declare function Root$3({ children, ...rest }: PopoverRootProps): react_jsx_runtime.JSX.Element;
+declare function Root$4({ children, ...rest }: PopoverRootProps): react_jsx_runtime.JSX.Element;
 
 type PopoverArrowProps = {} & Popover$1.PopoverArrowProps;
 declare function Arrow({ children, ...rest }: PopoverArrowProps): react_jsx_runtime.JSX.Element;
@@ -539,7 +540,7 @@ declare function Portal$1({ children, ...rest }: PopoverPortalProps): react_jsx_
 
 declare const popoverContentVariation: tailwind_variants.TVReturnType<{} | {} | {}, undefined, "bg-zinc-100 rounded shadow-lg", tailwind_variants_dist_config.TVConfig<unknown, {} | {}>, {} | {}, undefined, tailwind_variants.TVReturnType<unknown, undefined, "bg-zinc-100 rounded shadow-lg", tailwind_variants_dist_config.TVConfig<unknown, {} | {}>, unknown, unknown, undefined>>;
 type PopoverContentProps = {} & Popover$1.PopoverContentProps & VariantProps<typeof popoverContentVariation>;
-declare function Content$1({ children, className, ...rest }: PopoverContentProps): react_jsx_runtime.JSX.Element;
+declare function Content$2({ children, className, ...rest }: PopoverContentProps): react_jsx_runtime.JSX.Element;
 
 type PopoverTriggerProps = {} & Popover$1.PopoverTriggerProps;
 declare function Trigger$2({ children, ...rest }: PopoverTriggerProps): react_jsx_runtime.JSX.Element;
@@ -548,9 +549,9 @@ declare const Popover: {
     Anchor: typeof Anchor;
     Arrow: typeof Arrow;
     Close: typeof Close;
-    Content: typeof Content$1;
+    Content: typeof Content$2;
     Portal: typeof Portal$1;
-    Root: typeof Root$3;
+    Root: typeof Root$4;
     Trigger: typeof Trigger$2;
 };
 
@@ -558,31 +559,31 @@ type MenuTriggerProps = {} & PopoverTriggerProps$1;
 declare function Trigger$1({ children, ...rest }: MenuTriggerProps): react_jsx_runtime.JSX.Element;
 
 type MenuHeaderProps = {} & HTMLAttributes<HTMLElement>;
-declare function Header$1({ children, className, ...rest }: MenuHeaderProps): react_jsx_runtime.JSX.Element;
+declare function Header$2({ children, className, ...rest }: MenuHeaderProps): react_jsx_runtime.JSX.Element;
 
 type MenuFooterProps = {} & HTMLAttributes<HTMLElement>;
-declare function Footer$1({ children, className, ...rest }: MenuFooterProps): react_jsx_runtime.JSX.Element;
+declare function Footer$2({ children, className, ...rest }: MenuFooterProps): react_jsx_runtime.JSX.Element;
 
 type MenuRootProps = {} & HTMLAttributes<HTMLElement>;
-declare function Root$2({ children, ...rest }: MenuRootProps): react_jsx_runtime.JSX.Element;
+declare function Root$3({ children, ...rest }: MenuRootProps): react_jsx_runtime.JSX.Element;
 
 type MenuPortalProps = {} & PopoverPortalProps;
 declare function Portal({ children, ...rest }: MenuPortalProps): react_jsx_runtime.JSX.Element;
 
 declare const Menu: {
-    Root: typeof Root$2;
+    Root: typeof Root$3;
     Trigger: typeof Trigger$1;
     Portal: typeof Portal;
-    Header: typeof Header$1;
+    Header: typeof Header$2;
     Content: react.ForwardRefExoticComponent<react.HTMLAttributes<HTMLDivElement> & react.RefAttributes<HTMLDivElement>>;
     Item: react.ForwardRefExoticComponent<{
         icon?: React.ElementType;
     } & react.AnchorHTMLAttributes<HTMLAnchorElement> & react.RefAttributes<HTMLAnchorElement>>;
-    Footer: typeof Footer$1;
+    Footer: typeof Footer$2;
 };
 
 type FooterProps = {};
-declare function Footer(): react_jsx_runtime.JSX.Element;
+declare function Footer$1(): react_jsx_runtime.JSX.Element;
 
 declare const imageVariation: tailwind_variants.TVReturnType<{} | {} | {}, undefined, "w-24", tailwind_variants_dist_config.TVConfig<unknown, {} | {}>, {} | {}, undefined, tailwind_variants.TVReturnType<unknown, undefined, "w-24", tailwind_variants_dist_config.TVConfig<unknown, {} | {}>, unknown, unknown, undefined>>;
 type ImageProps = {} & React.ImgHTMLAttributes<HTMLImageElement> & VariantProps<typeof imageVariation>;
@@ -590,11 +591,131 @@ declare function Image({ className, ...rest }: ImageProps): react_jsx_runtime.JS
 
 declare const rootVariation: tailwind_variants.TVReturnType<{} | {} | {}, undefined, "fixed left-0 top-0 w-full bg-zinc-950", tailwind_variants_dist_config.TVConfig<unknown, {} | {}>, {} | {}, undefined, tailwind_variants.TVReturnType<unknown, undefined, "fixed left-0 top-0 w-full bg-zinc-950", tailwind_variants_dist_config.TVConfig<unknown, {} | {}>, unknown, unknown, undefined>>;
 type HeaderRootProps = {} & React.HTMLAttributes<HTMLElement> & VariantProps<typeof rootVariation>;
-declare function Root$1({ children, className, ...rest }: HeaderRootProps): react_jsx_runtime.JSX.Element;
+declare function Root$2({ children, className, ...rest }: HeaderRootProps): react_jsx_runtime.JSX.Element;
 
-declare const Header: {
-    Root: typeof Root$1;
+declare const Header$1: {
+    Root: typeof Root$2;
     Image: typeof Image;
+};
+
+type SidebarIconProps = {} & LucideProps;
+declare function Icon({ ...rest }: SidebarIconProps): react_jsx_runtime.JSX.Element;
+
+type SidebarItemProps = {
+    icon?: ElementType;
+} & HTMLAttributes<HTMLElement>;
+declare function Item({ children, icon, ...rest }: SidebarItemProps): react_jsx_runtime.JSX.Element;
+
+type SidebarRootProps = {} & HTMLAttributes<HTMLElement>;
+declare function Root$1({ children, ...rest }: SidebarRootProps): react_jsx_runtime.JSX.Element;
+
+declare const headingVariant: tailwind_variants.TVReturnType<{
+    size: {
+        xs: string;
+        sm: string;
+        md: string;
+        lg: string;
+        xlg: string;
+        "2xl": string;
+        "4xl": string;
+    };
+}, undefined, undefined, tailwind_variants_dist_config.TVConfig<{
+    size: {
+        xs: string;
+        sm: string;
+        md: string;
+        lg: string;
+        xlg: string;
+        "2xl": string;
+        "4xl": string;
+    };
+}, {
+    size: {
+        xs: string;
+        sm: string;
+        md: string;
+        lg: string;
+        xlg: string;
+        "2xl": string;
+        "4xl": string;
+    };
+}>, {
+    size: {
+        xs: string;
+        sm: string;
+        md: string;
+        lg: string;
+        xlg: string;
+        "2xl": string;
+        "4xl": string;
+    };
+}, undefined, tailwind_variants.TVReturnType<{
+    size: {
+        xs: string;
+        sm: string;
+        md: string;
+        lg: string;
+        xlg: string;
+        "2xl": string;
+        "4xl": string;
+    };
+}, undefined, undefined, tailwind_variants_dist_config.TVConfig<{
+    size: {
+        xs: string;
+        sm: string;
+        md: string;
+        lg: string;
+        xlg: string;
+        "2xl": string;
+        "4xl": string;
+    };
+}, {
+    size: {
+        xs: string;
+        sm: string;
+        md: string;
+        lg: string;
+        xlg: string;
+        "2xl": string;
+        "4xl": string;
+    };
+}>, unknown, unknown, undefined>>;
+type HeadingProps = {
+    as?: React.ElementType;
+} & React.HTMLAttributes<HTMLHeadingElement> & VariantProps<typeof headingVariant>;
+declare function Heading({ as, children, size, className, ...rest }: HeadingProps): react_jsx_runtime.JSX.Element;
+
+type SidebarTitleProps = {} & HeadingProps;
+declare function Title({ children, ...rest }: SidebarTitleProps): react_jsx_runtime.JSX.Element;
+
+type User = {
+    name: string;
+    image: string;
+    role: string;
+};
+type SidebarFooterProps = {
+    user: User;
+} & HTMLAttributes<HTMLElement>;
+declare function Footer({ user, children, ...rest }: SidebarFooterProps): react_jsx_runtime.JSX.Element;
+
+type SidebarHeaderProps = {} & HTMLAttributes<HTMLElement>;
+declare function Header({ children, ...rest }: SidebarHeaderProps): react_jsx_runtime.JSX.Element;
+
+type SidebarContentProps = {} & HTMLAttributes<HTMLElement>;
+declare function Content$1({ children, ...rest }: SidebarContentProps): react_jsx_runtime.JSX.Element;
+
+type SidebarContainerProps = {} & HTMLAttributes<HTMLElement>;
+declare function Container({ children, ...rest }: SidebarContainerProps): react_jsx_runtime.JSX.Element;
+
+declare const Sidebar: {
+    Root: typeof Root$1;
+    Content: typeof Content$1;
+    Container: typeof Container;
+    Header: typeof Header;
+    Footer: typeof Footer;
+    Item: typeof Item;
+    Title: typeof Title;
+    Icon: typeof Icon;
 };
 
 type CalendarProps = {} & DayPickerProps;
@@ -704,80 +825,4 @@ type TextProps = {
 } & React.HTMLAttributes<HTMLParagraphElement> & VariantProps<typeof textVariant>;
 declare function Text({ as, children, size, ...rest }: TextProps): react_jsx_runtime.JSX.Element;
 
-declare const headingVariant: tailwind_variants.TVReturnType<{
-    size: {
-        xs: string;
-        sm: string;
-        md: string;
-        lg: string;
-        xlg: string;
-        "2xl": string;
-        "4xl": string;
-    };
-}, undefined, undefined, tailwind_variants_dist_config.TVConfig<{
-    size: {
-        xs: string;
-        sm: string;
-        md: string;
-        lg: string;
-        xlg: string;
-        "2xl": string;
-        "4xl": string;
-    };
-}, {
-    size: {
-        xs: string;
-        sm: string;
-        md: string;
-        lg: string;
-        xlg: string;
-        "2xl": string;
-        "4xl": string;
-    };
-}>, {
-    size: {
-        xs: string;
-        sm: string;
-        md: string;
-        lg: string;
-        xlg: string;
-        "2xl": string;
-        "4xl": string;
-    };
-}, undefined, tailwind_variants.TVReturnType<{
-    size: {
-        xs: string;
-        sm: string;
-        md: string;
-        lg: string;
-        xlg: string;
-        "2xl": string;
-        "4xl": string;
-    };
-}, undefined, undefined, tailwind_variants_dist_config.TVConfig<{
-    size: {
-        xs: string;
-        sm: string;
-        md: string;
-        lg: string;
-        xlg: string;
-        "2xl": string;
-        "4xl": string;
-    };
-}, {
-    size: {
-        xs: string;
-        sm: string;
-        md: string;
-        lg: string;
-        xlg: string;
-        "2xl": string;
-        "4xl": string;
-    };
-}>, unknown, unknown, undefined>>;
-type HeadingProps = {
-    as?: React.ElementType;
-} & React.HTMLAttributes<HTMLHeadingElement> & VariantProps<typeof headingVariant>;
-declare function Heading({ as, children, size, className, ...rest }: HeadingProps): react_jsx_runtime.JSX.Element;
-
-export { AlertDialog, type AlertDialogActionProps, type AlertDialogCancelProps, type AlertDialogContentProps, type AlertDialogDescriptionProps, type AlertDialogOverlayProps, type AlertDialogPortalProps, type AlertDialogRootProps, type AlertDialogTitleProps, type AlertDialogTriggerProps, Avatar, type AvatarProps, type BodyProps, Button, type ButtonProps, Calendar, type CalendarProps, Card, type CardFooterProps, type CellBodyProps, type CellHeadProps, Checkbox, type CheckboxProps, DatePicker, type DatePickerProps, Dialog, type DialogCloseProps, type DialogContainerProps, type DialogContentProps, type DialogDescriptionProps, type DialogFooterProps, type DialogHeaderProps, type DialogOverlayProps, type DialogPortalProps, type DialogRootProps, type DialogTitleProps, type DialogTriggerProps, Footer, type FooterProps, Header, type HeaderProps, Heading, type HeadingProps, Input, InputFile, type InputFileProps, type InputProps, Label$1 as Label, type LabelProps, Menu, MonthPicker, type MonthPickerProps, NavigationMenu, type NavigationMenuContentProps, type NavigationMenuItemProps, type NavigationMenuLinkProps, type NavigationMenuListProps, type NavigationMenuRootProps, type NavigationMenuTriggerProps, Popover, type PopoverAnchorProps, type PopoverArrowProps, type PopoverCloseProps, type PopoverContentProps, type PopoverPortalProps, type PopoverRootProps, type PopoverTriggerProps, type RootProps, type RowProps, Select, type SelectContentProps, type SelectGroupProps, type SelectIconProps, type SelectItemIndicatorProps, type SelectItemProps, type SelectItemTextProps, type SelectLabelProps, type SelectPortalProps, type SelectRootProps, type SelectTriggerProps, type SelectValueProps, type SelectViewportProps, type TBodyProps, type THeadProps, Table, type TableRootProps, Text, TextArea, type TextAreaProps, type TextProps, YearPicker, type YearPickerProps };
+export { AlertDialog, type AlertDialogActionProps, type AlertDialogCancelProps, type AlertDialogContentProps, type AlertDialogDescriptionProps, type AlertDialogOverlayProps, type AlertDialogPortalProps, type AlertDialogRootProps, type AlertDialogTitleProps, type AlertDialogTriggerProps, Avatar, type AvatarProps, type BodyProps, Button, type ButtonProps, Calendar, type CalendarProps, Card, type CardFooterProps, type CellBodyProps, type CellHeadProps, Checkbox, type CheckboxProps, DatePicker, type DatePickerProps, Dialog, type DialogCloseProps, type DialogContainerProps, type DialogContentProps, type DialogDescriptionProps, type DialogFooterProps, type DialogHeaderProps, type DialogOverlayProps, type DialogPortalProps, type DialogRootProps, type DialogTitleProps, type DialogTriggerProps, Footer$1 as Footer, type FooterProps, Header$1 as Header, type HeaderProps, Heading, type HeadingProps, Input, InputFile, type InputFileProps, type InputProps, Label$1 as Label, type LabelProps, Menu, MonthPicker, type MonthPickerProps, NavigationMenu, type NavigationMenuContentProps, type NavigationMenuItemProps, type NavigationMenuLinkProps, type NavigationMenuListProps, type NavigationMenuRootProps, type NavigationMenuTriggerProps, Popover, type PopoverAnchorProps, type PopoverArrowProps, type PopoverCloseProps, type PopoverContentProps, type PopoverPortalProps, type PopoverRootProps, type PopoverTriggerProps, type RootProps, type RowProps, Select, type SelectContentProps, type SelectGroupProps, type SelectIconProps, type SelectItemIndicatorProps, type SelectItemProps, type SelectItemTextProps, type SelectLabelProps, type SelectPortalProps, type SelectRootProps, type SelectTriggerProps, type SelectValueProps, type SelectViewportProps, Sidebar, type SidebarContainerProps, type SidebarContentProps, type SidebarFooterProps, type SidebarHeaderProps, type SidebarIconProps, type SidebarItemProps, type SidebarRootProps, type SidebarTitleProps, type TBodyProps, type THeadProps, Table, type TableRootProps, Text, TextArea, type TextAreaProps, type TextProps, YearPicker, type YearPickerProps };
