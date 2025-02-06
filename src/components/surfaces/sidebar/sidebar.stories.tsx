@@ -8,6 +8,7 @@ import {
   Sticker,
   Ticket,
 } from "lucide-react";
+import { Menu } from "../menu";
 
 export default {
   render: () => (
@@ -20,7 +21,18 @@ export default {
           </Sidebar.Header>
           <Sidebar.Content>
             <Sidebar.Item icon={LayoutDashboard}>Dashboard</Sidebar.Item>
-            <Sidebar.Item icon={MessageCircle}>Chats</Sidebar.Item>
+            <Menu.Root>
+              <Menu.Trigger>
+                <Sidebar.Item icon={MessageCircle}>Chats</Sidebar.Item>
+              </Menu.Trigger>
+              <Menu.Portal>
+                <Menu.Content>
+                  <Menu.Item>
+                    <Sidebar.Item icon={MessageCircle}>Novo</Sidebar.Item>
+                  </Menu.Item>
+                </Menu.Content>
+              </Menu.Portal>
+            </Menu.Root>
             <Sidebar.Item icon={Ticket}>Tickets</Sidebar.Item>
             <Sidebar.Item icon={Sticker}>Feedbacks</Sidebar.Item>
           </Sidebar.Content>
