@@ -1,27 +1,49 @@
 import { Meta, StoryObj } from "@storybook/react";
 import { Sidebar } from ".";
+import {
+  LayoutDashboard,
+  LifeBuoy,
+  MessageCircle,
+  Settings,
+  Sticker,
+  Ticket,
+} from "lucide-react";
+import { ChatBubbleIcon, DashboardIcon } from "@radix-ui/react-icons";
 
 export default {
   render: () => (
-    <Sidebar.Root>
-      <Sidebar.Header>
-        <Sidebar.Title>Menu</Sidebar.Title>
-      </Sidebar.Header>
-      <Sidebar.Content>
-        <Sidebar.Item>Teste</Sidebar.Item>
-        <Sidebar.Item>Teste</Sidebar.Item>
-        <Sidebar.Item>Teste</Sidebar.Item>
-      </Sidebar.Content>
-      <Sidebar.Footer>
-        <Sidebar.Item>Teste</Sidebar.Item>
-        <Sidebar.Item>Teste</Sidebar.Item>
-      </Sidebar.Footer>
-    </Sidebar.Root>
+    <div className="h-screen">
+      <Sidebar.Root>
+        <Sidebar.Container>
+          <Sidebar.Header>
+            <Sidebar.Title>Menu</Sidebar.Title>
+            <Sidebar.Icon />
+          </Sidebar.Header>
+          <Sidebar.Content>
+            <Sidebar.Item icon={LayoutDashboard}>Dashboard</Sidebar.Item>
+            <Sidebar.Item icon={MessageCircle}>Chats</Sidebar.Item>
+            <Sidebar.Item icon={Ticket}>Tickets</Sidebar.Item>
+            <Sidebar.Item icon={Sticker}>Feedbacks</Sidebar.Item>
+          </Sidebar.Content>
+          <Sidebar.Footer
+            user={{
+              name: "Jhon Doe",
+              image: "https://placehold.jp/150x150.png",
+              role: "Administrador",
+            }}
+          >
+            <Sidebar.Item icon={Settings}>Configuraçoes</Sidebar.Item>
+            <Sidebar.Item icon={LifeBuoy}>Ajuda</Sidebar.Item>
+          </Sidebar.Footer>
+        </Sidebar.Container>
+      </Sidebar.Root>
+    </div>
   ),
   title: "Surfaces/Sidebar",
   tags: ["autodocs"],
 } as Meta;
 
-export const SidebarOpen: StoryObj = {
+export const SidebarDefault: StoryObj = {
   args: {},
 };
+

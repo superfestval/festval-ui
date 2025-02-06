@@ -1,11 +1,18 @@
-import { HTMLAttributes } from "react";
 import { Heading, HeadingProps } from "@/components/typograph/heading";
 
-export type SidebarTitle = {} & HeadingProps;
+import { useSidebar } from "./context/sidebar";
 
-export function Title({ children, ...rest }: SidebarTitle) {
+export type SidebarTitleProps = {} & HeadingProps;
+
+export function Title({ children, ...rest }: SidebarTitleProps) {
+  const { state } = useSidebar();
   return (
-    <Heading size="sm" {...rest}>
+    <Heading
+      data-state={state}
+      size="sm"
+      className="data-[state=close]:hidden"
+      {...rest}
+    >
       {children}
     </Heading>
   );

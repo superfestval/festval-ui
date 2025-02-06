@@ -1,8 +1,11 @@
 import { HTMLAttributes } from "react";
-import { SidebarProvider } from "./context/sidebar";
 
-export type SidebarContent = {} & HTMLAttributes<HTMLElement>;
+export type SidebarContentProps = {} & HTMLAttributes<HTMLElement>;
 
-export function Content({ children, ...rest }: SidebarContent) {
-  return <div {...rest}>{children}</div>;
+export function Content({ children, ...rest }: SidebarContentProps) {
+  return (
+    <div {...rest} className="w-full">
+      {children}
+    </div>
+  );
 }

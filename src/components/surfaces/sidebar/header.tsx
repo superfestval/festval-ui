@@ -1,13 +1,15 @@
 import { HTMLAttributes } from "react";
-import { SidebarProvider } from "./context/sidebar";
+import { useSidebar } from "./context/sidebar";
 
-export type SidebarHeader = {} & HTMLAttributes<HTMLElement>;
+export type SidebarHeaderProps = {} & HTMLAttributes<HTMLElement>;
 
-export function Header({ children, ...rest }: SidebarHeader) {
+export function Header({ children, ...rest }: SidebarHeaderProps) {
+  const { state } = useSidebar();
   return (
     <div
-      className="w-fit rounded-t border-b border-b-zinc-200 bg-zinc-50 p-4"
       {...rest}
+      data-state={state}
+      className="flex h-16 w-full items-center justify-between rounded-t border-b border-b-zinc-200 p-4 data-[state=close]:max-w-24 data-[state=close]:justify-center"
     >
       {children}
     </div>
