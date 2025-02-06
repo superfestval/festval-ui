@@ -65,7 +65,7 @@ jobs:
           path: storybook-static
 
       - name: Deploy to GitHub Pages
-         run: npm run deploy-storybook
+        run: npm run deploy-storybook
 
   version_npm:
     name: Versioning npm package
