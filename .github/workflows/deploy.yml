@@ -65,7 +65,10 @@ jobs:
           path: storybook-static
 
       - name: Deploy to GitHub Pages
-        run: npm run deploy-storybook
+        uses: JamesIves/github-pages-deploy-action@v4
+        with:
+          branch: gh-pages
+          folder: storybook-static
 
   version_npm:
     name: Versioning npm package
