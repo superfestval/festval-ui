@@ -42,10 +42,14 @@ declare const Card: {
     CardFooter: ({ children, className, ...rest }: CardFooterProps) => react_jsx_runtime.JSX.Element;
 };
 
-type TableRootProps = {} & React.TableHTMLAttributes<HTMLTableElement>;
-type THeadProps = {} & React.TableHTMLAttributes<HTMLTableSectionElement>;
-type TBodyProps = {} & React.TableHTMLAttributes<HTMLTableSectionElement>;
-type RowProps = {} & React.TableHTMLAttributes<HTMLTableRowElement>;
+declare const rootVariant: tailwind_variants.TVReturnType<{} | {} | {}, undefined, "m-auto mt-6 w-full max-w-[1120px]", tailwind_variants_dist_config.TVConfig<unknown, {} | {}>, {} | {}, undefined, tailwind_variants.TVReturnType<unknown, undefined, "m-auto mt-6 w-full max-w-[1120px]", tailwind_variants_dist_config.TVConfig<unknown, {} | {}>, unknown, unknown, undefined>>;
+type TableRootProps = {} & React.TableHTMLAttributes<HTMLTableElement> & VariantProps<typeof rootVariant>;
+declare const tHeadVariant: tailwind_variants.TVReturnType<{} | {} | {}, undefined, "rounded-t", tailwind_variants_dist_config.TVConfig<unknown, {} | {}>, {} | {}, undefined, tailwind_variants.TVReturnType<unknown, undefined, "rounded-t", tailwind_variants_dist_config.TVConfig<unknown, {} | {}>, unknown, unknown, undefined>>;
+type THeadProps = {} & React.TableHTMLAttributes<HTMLTableSectionElement> & VariantProps<typeof tHeadVariant>;
+declare const tBodyVariant: tailwind_variants.TVReturnType<{} | {} | {}, undefined, "rounded-t-lg border-b border-b-zinc-300 bg-zinc-950 p-4", tailwind_variants_dist_config.TVConfig<unknown, {} | {}>, {} | {}, undefined, tailwind_variants.TVReturnType<unknown, undefined, "rounded-t-lg border-b border-b-zinc-300 bg-zinc-950 p-4", tailwind_variants_dist_config.TVConfig<unknown, {} | {}>, unknown, unknown, undefined>>;
+type TBodyProps = {} & React.TableHTMLAttributes<HTMLTableSectionElement> & VariantProps<typeof tBodyVariant>;
+declare const rowVariant: tailwind_variants.TVReturnType<{} | {} | {}, undefined, "rounded-t bg-zinc-50", tailwind_variants_dist_config.TVConfig<unknown, {} | {}>, {} | {}, undefined, tailwind_variants.TVReturnType<unknown, undefined, "rounded-t bg-zinc-50", tailwind_variants_dist_config.TVConfig<unknown, {} | {}>, unknown, unknown, undefined>>;
+type RowProps = {} & React.TableHTMLAttributes<HTMLTableRowElement> & VariantProps<typeof rowVariant>;
 declare const cellHeadVariant: tailwind_variants.TVReturnType<{
     position: {
         first: string;
@@ -85,15 +89,16 @@ declare const cellHeadVariant: tailwind_variants.TVReturnType<{
 type CellHeadProps = {
     onClick?: () => void;
 } & React.TableHTMLAttributes<HTMLTableCellElement> & VariantProps<typeof cellHeadVariant>;
-type CellBodyProps = {} & React.TableHTMLAttributes<HTMLTableCellElement>;
+declare const cellVariant: tailwind_variants.TVReturnType<{} | {} | {}, undefined, "border-b border-b-zinc-200 px-4 py-2", tailwind_variants_dist_config.TVConfig<unknown, {} | {}>, {} | {}, undefined, tailwind_variants.TVReturnType<unknown, undefined, "border-b border-b-zinc-200 px-4 py-2", tailwind_variants_dist_config.TVConfig<unknown, {} | {}>, unknown, unknown, undefined>>;
+type CellBodyProps = {} & React.TableHTMLAttributes<HTMLTableCellElement> & VariantProps<typeof cellVariant>;
 declare const Table: {
-    Root: ({ children, ...rest }: TableRootProps) => react_jsx_runtime.JSX.Element;
-    Caption: ({ children, ...rest }: TableRootProps) => react_jsx_runtime.JSX.Element;
-    THead: ({ children, ...rest }: THeadProps) => react_jsx_runtime.JSX.Element;
-    TBody: ({ children, ...rest }: TBodyProps) => react_jsx_runtime.JSX.Element;
-    Tr: ({ children, ...rest }: RowProps) => react_jsx_runtime.JSX.Element;
-    Th: ({ children, position, onClick, ...rest }: CellHeadProps) => react_jsx_runtime.JSX.Element;
-    Td: ({ children, ...rest }: CellBodyProps) => react_jsx_runtime.JSX.Element;
+    Root: ({ children, className, ...rest }: TableRootProps) => react_jsx_runtime.JSX.Element;
+    Caption: ({ children, className, ...rest }: TableRootProps) => react_jsx_runtime.JSX.Element;
+    THead: ({ children, className, ...rest }: THeadProps) => react_jsx_runtime.JSX.Element;
+    TBody: ({ children, className, ...rest }: TBodyProps) => react_jsx_runtime.JSX.Element;
+    Tr: ({ children, className, ...rest }: RowProps) => react_jsx_runtime.JSX.Element;
+    Th: ({ children, position, onClick, className, ...rest }: CellHeadProps) => react_jsx_runtime.JSX.Element;
+    Td: ({ children, className, ...rest }: CellBodyProps) => react_jsx_runtime.JSX.Element;
 };
 
 type AvatarProps = {

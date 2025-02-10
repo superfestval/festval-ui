@@ -6,35 +6,39 @@ export default {
   render: ({ ...args }) => (
     <Menubar.Root {...args}>
       <Menubar.Menu>
-        <Menubar.Trigger asChild>
-          <Button>Menu</Button>
+        <Menubar.Trigger>
+          <Button variant="ghost">Dashboard</Button>
+        </Menubar.Trigger>
+        <Menubar.Portal>
+          <Menubar.Content sideOffset={5} alignOffset={-14} align="end">
+            <Menubar.Group>
+              <Menubar.Item>Item</Menubar.Item>
+              <Menubar.Item>Item</Menubar.Item>
+              <Menubar.Item>Item</Menubar.Item>
+            </Menubar.Group>
+          </Menubar.Content>
+        </Menubar.Portal>
+      </Menubar.Menu>
+      <Menubar.Menu>
+        <Menubar.Trigger>
+          <Button variant="ghost">Menu</Button>
         </Menubar.Trigger>
         <Menubar.Portal>
           <Menubar.Content>
-            <Menubar.Label />
-            <Menubar.Item />
-            <Menubar.Group>
-              <Menubar.Item />
-            </Menubar.Group>
-
-            <Menubar.CheckboxItem>
-              <Menubar.ItemIndicator />
-            </Menubar.CheckboxItem>
-
-            <Menubar.RadioGroup>
-              <Menubar.RadioItem value="">
-                <Menubar.ItemIndicator />
-              </Menubar.RadioItem>
-            </Menubar.RadioGroup>
-
             <Menubar.Sub>
-              <Menubar.SubTrigger />
-              <Menubar.Portal>
-                <Menubar.SubContent />
-              </Menubar.Portal>
+              <Menubar.SubTrigger>
+                <Button variant="ghost" className="w-full">
+                  Sub
+                </Button>
+              </Menubar.SubTrigger>
+              <Menubar.SubContent>
+                <Menubar.Group>
+                  <Menubar.Item>Item</Menubar.Item>
+                  <Menubar.Item>Item</Menubar.Item>
+                  <Menubar.Item>Item</Menubar.Item>
+                </Menubar.Group>
+              </Menubar.SubContent>
             </Menubar.Sub>
-            <Menubar.Separator />
-            <Menubar.Arrow />
           </Menubar.Content>
         </Menubar.Portal>
       </Menubar.Menu>

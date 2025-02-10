@@ -108,6 +108,21 @@ var Card = {
 import { ArrowDownUp } from "lucide-react";
 import { tv as tv5 } from "tailwind-variants";
 import { jsx as jsx5, jsxs as jsxs2 } from "react/jsx-runtime";
+var rootVariant = tv5({
+  base: "m-auto mt-6 w-full max-w-[1120px]"
+});
+var captionVariant = tv5({
+  base: "rounded-t-lg border-b border-b-zinc-300 bg-zinc-950 p-4"
+});
+var tHeadVariant = tv5({
+  base: "rounded-t"
+});
+var tBodyVariant = tv5({
+  base: "rounded-t-lg border-b border-b-zinc-300 bg-zinc-950 p-4"
+});
+var rowVariant = tv5({
+  base: "rounded-t bg-zinc-50"
+});
 var cellHeadVariant = tv5({
   base: "bg-zinc-200 p-4 text-left text-zinc-600",
   variants: {
@@ -117,44 +132,40 @@ var cellHeadVariant = tv5({
     }
   }
 });
+var cellVariant = tv5({
+  base: "border-b border-b-zinc-200 px-4 py-2"
+});
 var Table = {
   Root: (_a) => {
-    var _b = _a, { children } = _b, rest = __objRest(_b, ["children"]);
-    return /* @__PURE__ */ jsx5("table", __spreadProps(__spreadValues({ className: "m-auto mt-6 w-full max-w-[1120px]" }, rest), { children }));
+    var _b = _a, { children, className } = _b, rest = __objRest(_b, ["children", "className"]);
+    return /* @__PURE__ */ jsx5("table", __spreadProps(__spreadValues({ className: rootVariant({ className }) }, rest), { children }));
   },
   Caption: (_c) => {
-    var _d = _c, { children } = _d, rest = __objRest(_d, ["children"]);
-    return /* @__PURE__ */ jsx5(
-      "caption",
-      __spreadProps(__spreadValues({
-        className: "rounded-t-lg border-b border-b-zinc-300 bg-zinc-950 p-4"
-      }, rest), {
-        children
-      })
-    );
+    var _d = _c, { children, className } = _d, rest = __objRest(_d, ["children", "className"]);
+    return /* @__PURE__ */ jsx5("caption", __spreadProps(__spreadValues({ className: captionVariant({ className }) }, rest), { children }));
   },
   THead: (_e) => {
-    var _f = _e, { children } = _f, rest = __objRest(_f, ["children"]);
-    return /* @__PURE__ */ jsx5("thead", __spreadProps(__spreadValues({ className: "rounded-t" }, rest), { children }));
+    var _f = _e, { children, className } = _f, rest = __objRest(_f, ["children", "className"]);
+    return /* @__PURE__ */ jsx5("thead", __spreadProps(__spreadValues({ className: tHeadVariant({ className }) }, rest), { children }));
   },
   TBody: (_g) => {
-    var _h = _g, { children } = _h, rest = __objRest(_h, ["children"]);
-    return /* @__PURE__ */ jsx5("tbody", __spreadProps(__spreadValues({}, rest), { children }));
+    var _h = _g, { children, className } = _h, rest = __objRest(_h, ["children", "className"]);
+    return /* @__PURE__ */ jsx5("tbody", __spreadProps(__spreadValues({ className: tBodyVariant({ className }) }, rest), { children }));
   },
   Tr: (_i) => {
-    var _j = _i, { children } = _j, rest = __objRest(_j, ["children"]);
-    return /* @__PURE__ */ jsx5("tr", __spreadProps(__spreadValues({ className: "rounded-t bg-zinc-50" }, rest), { children }));
+    var _j = _i, { children, className } = _j, rest = __objRest(_j, ["children", "className"]);
+    return /* @__PURE__ */ jsx5("tr", __spreadProps(__spreadValues({ className: rowVariant({ className }) }, rest), { children }));
   },
   Th: (_k) => {
-    var _l = _k, { children, position, onClick } = _l, rest = __objRest(_l, ["children", "position", "onClick"]);
-    return /* @__PURE__ */ jsxs2("th", __spreadProps(__spreadValues({}, rest), { className: cellHeadVariant({ position }), children: [
+    var _l = _k, { children, position, onClick, className } = _l, rest = __objRest(_l, ["children", "position", "onClick", "className"]);
+    return /* @__PURE__ */ jsxs2("th", __spreadProps(__spreadValues({}, rest), { className: cellHeadVariant({ position, className }), children: [
       children,
       onClick && /* @__PURE__ */ jsx5("button", { onClick, className: "ml-4", children: /* @__PURE__ */ jsx5(ArrowDownUp, { size: 12 }) })
     ] }));
   },
   Td: (_m) => {
-    var _n = _m, { children } = _n, rest = __objRest(_n, ["children"]);
-    return /* @__PURE__ */ jsx5("td", __spreadProps(__spreadValues({ className: "border-b border-b-zinc-200 px-4 py-2" }, rest), { children }));
+    var _n = _m, { children, className } = _n, rest = __objRest(_n, ["children", "className"]);
+    return /* @__PURE__ */ jsx5("td", __spreadProps(__spreadValues({ className: cellVariant({ className }) }, rest), { children }));
   }
 };
 
