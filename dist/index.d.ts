@@ -608,8 +608,9 @@ declare function Icon({ ...rest }: SidebarIconProps): react_jsx_runtime.JSX.Elem
 
 type SidebarItemProps = {
     icon?: ElementType;
+    asChild?: boolean;
 } & HTMLAttributes<HTMLElement>;
-declare function Item({ children, icon, ...rest }: SidebarItemProps): react_jsx_runtime.JSX.Element;
+declare function Item({ children, icon, asChild, className, ...rest }: SidebarItemProps): react_jsx_runtime.JSX.Element;
 
 type SidebarRootProps = {} & HTMLAttributes<HTMLElement>;
 declare function Root$1({ children, ...rest }: SidebarRootProps): react_jsx_runtime.JSX.Element;

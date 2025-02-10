@@ -671,7 +671,7 @@ function Button(_a) {
   var _b = _a, {
     as,
     asChild,
-    variant: variant4,
+    variant: variant5,
     children,
     disabled,
     className,
@@ -692,10 +692,10 @@ function Button(_a) {
   const IconRight = iconRight;
   if (asChild && import_react3.default.isValidElement(children)) {
     return import_react3.default.cloneElement(children, __spreadProps(__spreadValues({}, rest), {
-      className: buttonVariant({ className, variant: variant4, disabled })
+      className: buttonVariant({ className, variant: variant5, disabled })
     }));
   }
-  return /* @__PURE__ */ (0, import_jsx_runtime31.jsxs)(As, __spreadProps(__spreadValues({}, rest), { className: buttonVariant({ className, variant: variant4, disabled }), children: [
+  return /* @__PURE__ */ (0, import_jsx_runtime31.jsxs)(As, __spreadProps(__spreadValues({}, rest), { className: buttonVariant({ className, variant: variant5, disabled }), children: [
     IconLeft && /* @__PURE__ */ (0, import_jsx_runtime31.jsx)(IconLeft, {}),
     children,
     IconRight && /* @__PURE__ */ (0, import_jsx_runtime31.jsx)(IconRight, {})
@@ -1336,6 +1336,10 @@ function Icon3(_a) {
   return state === "open" ? /* @__PURE__ */ (0, import_jsx_runtime57.jsx)(import_lucide_react10.PanelLeftClose, __spreadProps(__spreadValues({}, rest), { onClick: toggle })) : /* @__PURE__ */ (0, import_jsx_runtime57.jsx)(import_lucide_react10.PanelLeftOpen, __spreadProps(__spreadValues({}, rest), { onClick: toggle }));
 }
 
+// src/components/surfaces/sidebar/item.tsx
+var import_tailwind_variants21 = require("tailwind-variants");
+var import_react14 = require("react");
+
 // src/components/typograph/text/index.tsx
 var import_tailwind_variants20 = require("tailwind-variants");
 var import_jsx_runtime58 = require("react/jsx-runtime");
@@ -1363,29 +1367,42 @@ function Text(_a) {
 
 // src/components/surfaces/sidebar/item.tsx
 var import_jsx_runtime59 = require("react/jsx-runtime");
+var variant4 = (0, import_tailwind_variants21.tv)({
+  base: "flex gap-2 w-full bg-zinc-50 p-4 text-left transition-colors hover:bg-zinc-100 data-[state=close]:max-w-24 data-[state=close]:justify-center"
+});
 function Item4(_a) {
-  var _b = _a, { children, icon } = _b, rest = __objRest(_b, ["children", "icon"]);
+  var _b = _a, {
+    children,
+    icon,
+    asChild = false,
+    className
+  } = _b, rest = __objRest(_b, [
+    "children",
+    "icon",
+    "asChild",
+    "className"
+  ]);
   const Icon4 = icon;
   const { state } = useSidebar();
-  return /* @__PURE__ */ (0, import_jsx_runtime59.jsxs)(
-    "button",
-    __spreadProps(__spreadValues({}, rest), {
-      "data-state": state,
-      className: "flex w-full gap-2 bg-zinc-50 p-4 text-left transition-colors hover:bg-zinc-100 data-[state=close]:max-w-24 data-[state=close]:justify-center",
-      children: [
-        Icon4 && /* @__PURE__ */ (0, import_jsx_runtime59.jsx)(Icon4, {}),
-        /* @__PURE__ */ (0, import_jsx_runtime59.jsx)(
-          Text,
-          {
-            as: "strong",
-            "data-state": state,
-            className: "data-[state=close]:hidden",
-            children
-          }
-        )
-      ]
-    })
-  );
+  if (asChild) {
+    if (asChild && (0, import_react14.isValidElement)(children)) {
+      return (0, import_react14.cloneElement)(children, {
+        className: variant4({ className })
+      });
+    }
+  }
+  return /* @__PURE__ */ (0, import_jsx_runtime59.jsxs)("button", __spreadProps(__spreadValues({}, rest), { "data-state": state, className: variant4({ className }), children: [
+    Icon4 && /* @__PURE__ */ (0, import_jsx_runtime59.jsx)(Icon4, {}),
+    /* @__PURE__ */ (0, import_jsx_runtime59.jsx)(
+      Text,
+      {
+        as: "strong",
+        "data-state": state,
+        className: "data-[state=close]:hidden",
+        children
+      }
+    )
+  ] }));
 }
 
 // src/components/surfaces/sidebar/root.tsx
@@ -1396,9 +1413,9 @@ function Root12(_a) {
 }
 
 // src/components/typograph/heading/index.tsx
-var import_tailwind_variants21 = require("tailwind-variants");
+var import_tailwind_variants22 = require("tailwind-variants");
 var import_jsx_runtime61 = require("react/jsx-runtime");
-var headingVariant = (0, import_tailwind_variants21.tv)({
+var headingVariant = (0, import_tailwind_variants22.tv)({
   variants: {
     size: {
       xs: "text-base font-bold",
@@ -1497,7 +1514,7 @@ function Header4(_a) {
 var import_jsx_runtime65 = require("react/jsx-runtime");
 function Content10(_a) {
   var _b = _a, { children } = _b, rest = __objRest(_b, ["children"]);
-  return /* @__PURE__ */ (0, import_jsx_runtime65.jsx)("div", __spreadProps(__spreadValues({}, rest), { className: "w-full", children }));
+  return /* @__PURE__ */ (0, import_jsx_runtime65.jsx)("div", __spreadProps(__spreadValues({}, rest), { children }));
 }
 
 // src/components/surfaces/sidebar/container.tsx
@@ -1509,7 +1526,7 @@ function Container(_a) {
     "div",
     __spreadProps(__spreadValues({}, rest), {
       "data-state": state,
-      className: "parent group grid h-full w-full max-w-60 grid-rows-[auto,1fr,auto] gap-4 rounded bg-zinc-50 data-[state=close]:max-w-24",
+      className: "parent group grid h-full w-full max-w-60 grid-rows-[auto,1fr,auto] gap-4 rounded border border-zinc-200 bg-zinc-50 data-[state=close]:max-w-24",
       children
     })
   );
@@ -1529,9 +1546,9 @@ var Sidebar = {
 
 // src/components/ui/navigation-menu/item.tsx
 var Navigation = __toESM(require("@radix-ui/react-navigation-menu"));
-var import_react14 = require("react");
+var import_react15 = require("react");
 var import_jsx_runtime67 = require("react/jsx-runtime");
-var Item6 = (0, import_react14.forwardRef)(
+var Item6 = (0, import_react15.forwardRef)(
   (_a) => {
     var _b = _a, { children } = _b, rest = __objRest(_b, ["children"]);
     return /* @__PURE__ */ (0, import_jsx_runtime67.jsx)(Navigation.Item, __spreadProps(__spreadValues({}, rest), { children }));
@@ -1564,9 +1581,9 @@ function Link2(_a) {
 
 // src/components/ui/navigation-menu/trigger.tsx
 var Navigation5 = __toESM(require("@radix-ui/react-navigation-menu"));
-var import_tailwind_variants22 = require("tailwind-variants");
+var import_tailwind_variants23 = require("tailwind-variants");
 var import_jsx_runtime71 = require("react/jsx-runtime");
-var navigationMenuContentVariant = (0, import_tailwind_variants22.tv)({
+var navigationMenuContentVariant = (0, import_tailwind_variants23.tv)({
   base: "bg-zinc-200 flex gap-4 items-center p-2 rounded"
 });
 function Trigger11(_a) {
@@ -1588,9 +1605,9 @@ function Trigger11(_a) {
 
 // src/components/ui/navigation-menu/content.tsx
 var Navigation6 = __toESM(require("@radix-ui/react-navigation-menu"));
-var import_tailwind_variants23 = require("tailwind-variants");
+var import_tailwind_variants24 = require("tailwind-variants");
 var import_jsx_runtime72 = require("react/jsx-runtime");
-var navigationMenuContentVariant2 = (0, import_tailwind_variants23.tv)({
+var navigationMenuContentVariant2 = (0, import_tailwind_variants24.tv)({
   base: "bg-zinc-50 mt-4 rounded h-fit"
 });
 function Content12(_a) {

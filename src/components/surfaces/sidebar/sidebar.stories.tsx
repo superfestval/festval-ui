@@ -8,6 +8,7 @@ import {
   Sticker,
   Ticket,
 } from "lucide-react";
+import { Tooltip } from "@/components/ui/tooltip";
 
 export default {
   render: () => (
@@ -19,7 +20,9 @@ export default {
             <Sidebar.Icon />
           </Sidebar.Header>
           <Sidebar.Content>
-            <Sidebar.Item icon={LayoutDashboard}>Dashboard</Sidebar.Item>
+            <Tooltip value="Dashboard">
+              <Sidebar.Item icon={LayoutDashboard}>Dashboard</Sidebar.Item>
+            </Tooltip>
             <Sidebar.Item icon={MessageCircle}>Chats</Sidebar.Item>
             <Sidebar.Item icon={Ticket}>Tickets</Sidebar.Item>
             <Sidebar.Item icon={Sticker}>Feedbacks</Sidebar.Item>
@@ -42,5 +45,5 @@ export default {
   tags: ["autodocs"],
 } as Meta<typeof Sidebar>;
 
-export const SidebarDefault: StoryObj = {};
+export const SidebarDefault: StoryObj<typeof Sidebar> = {};
 
