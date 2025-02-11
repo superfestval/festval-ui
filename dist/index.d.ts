@@ -15,10 +15,10 @@ import { PopoverTriggerProps as PopoverTriggerProps$1 } from '@radix-ui/react-po
 import { LucideProps } from 'lucide-react';
 import * as Navigation from '@radix-ui/react-navigation-menu';
 
-declare const variant: tailwind_variants.TVReturnType<{} | {} | {}, undefined, "flex-1 rounded-b bg-zinc-50 p-4", tailwind_variants_dist_config.TVConfig<unknown, {} | {}>, {} | {}, undefined, tailwind_variants.TVReturnType<unknown, undefined, "flex-1 rounded-b bg-zinc-50 p-4", tailwind_variants_dist_config.TVConfig<unknown, {} | {}>, unknown, unknown, undefined>>;
+declare const variant$2: tailwind_variants.TVReturnType<{} | {} | {}, undefined, "flex-1 rounded-b bg-zinc-50 p-4", tailwind_variants_dist_config.TVConfig<unknown, {} | {}>, {} | {}, undefined, tailwind_variants.TVReturnType<unknown, undefined, "flex-1 rounded-b bg-zinc-50 p-4", tailwind_variants_dist_config.TVConfig<unknown, {} | {}>, unknown, unknown, undefined>>;
 type BodyProps = {
     children: ReactNode;
-} & HTMLAttributes<HTMLDivElement> & VariantProps<typeof variant>;
+} & HTMLAttributes<HTMLDivElement> & VariantProps<typeof variant$2>;
 
 type RootProps = {
     icon?: ElementType;
@@ -528,6 +528,12 @@ type MonthPickerProps = {
 };
 declare const MonthPicker: React.FC<MonthPickerProps>;
 
+type TooltipProps = {
+    children?: ReactNode;
+    value: string;
+};
+declare const Tooltip: ({ children, value }: TooltipProps) => react_jsx_runtime.JSX.Element;
+
 type PopoverRootProps = {} & Popover$1.PopoverProps;
 declare function Root$4({ children, ...rest }: PopoverRootProps): react_jsx_runtime.JSX.Element;
 
@@ -694,15 +700,8 @@ declare function Heading({ as, children, size, className, ...rest }: HeadingProp
 type SidebarTitleProps = {} & HeadingProps;
 declare function Title({ children, ...rest }: SidebarTitleProps): react_jsx_runtime.JSX.Element;
 
-type User = {
-    name: string;
-    image: string;
-    role: string;
-};
-type SidebarFooterProps = {
-    user: User;
-} & HTMLAttributes<HTMLElement>;
-declare function Footer({ user, children, ...rest }: SidebarFooterProps): react_jsx_runtime.JSX.Element;
+type SidebarFooterProps = {} & HTMLAttributes<HTMLElement>;
+declare function Footer({ children, ...rest }: SidebarFooterProps): react_jsx_runtime.JSX.Element;
 
 type SidebarHeaderProps = {} & HTMLAttributes<HTMLElement>;
 declare function Header({ children, ...rest }: SidebarHeaderProps): react_jsx_runtime.JSX.Element;
@@ -713,6 +712,14 @@ declare function Content$1({ children, ...rest }: SidebarContentProps): react_js
 type SidebarContainerProps = {} & HTMLAttributes<HTMLElement>;
 declare function Container({ children, ...rest }: SidebarContainerProps): react_jsx_runtime.JSX.Element;
 
+declare const variant$1: tailwind_variants.TVReturnType<{} | {} | {}, undefined, "flex items-center gap-2 rounded-b border-t border-t-zinc-200 bg-zinc-50 p-4", tailwind_variants_dist_config.TVConfig<unknown, {} | {}>, {} | {}, undefined, tailwind_variants.TVReturnType<unknown, undefined, "flex items-center gap-2 rounded-b border-t border-t-zinc-200 bg-zinc-50 p-4", tailwind_variants_dist_config.TVConfig<unknown, {} | {}>, unknown, unknown, undefined>>;
+type SidebarFooterContentProps = {} & HTMLAttributes<HTMLElement> & VariantProps<typeof variant$1>;
+declare function FooterContent({ children, className, ...rest }: SidebarFooterContentProps): react_jsx_runtime.JSX.Element;
+
+declare const variant: tailwind_variants.TVReturnType<{} | {} | {}, undefined, "flex flex-col data-[state=close]:hidden", tailwind_variants_dist_config.TVConfig<unknown, {} | {}>, {} | {}, undefined, tailwind_variants.TVReturnType<unknown, undefined, "flex flex-col data-[state=close]:hidden", tailwind_variants_dist_config.TVConfig<unknown, {} | {}>, unknown, unknown, undefined>>;
+type SidebarUserContainerProps = {} & HTMLAttributes<HTMLElement> & VariantProps<typeof variant>;
+declare function UserContainer({ children, className, ...rest }: SidebarUserContainerProps): react_jsx_runtime.JSX.Element;
+
 declare const Sidebar: {
     Root: typeof Root$1;
     Content: typeof Content$1;
@@ -722,6 +729,8 @@ declare const Sidebar: {
     Item: typeof Item;
     Title: typeof Title;
     Icon: typeof Icon;
+    FooterContent: typeof FooterContent;
+    UserContainer: typeof UserContainer;
 };
 
 type CalendarProps = {} & DayPickerProps;
@@ -831,4 +840,4 @@ type TextProps = {
 } & React.HTMLAttributes<HTMLParagraphElement> & VariantProps<typeof textVariant>;
 declare function Text({ as, children, size, ...rest }: TextProps): react_jsx_runtime.JSX.Element;
 
-export { AlertDialog, type AlertDialogActionProps, type AlertDialogCancelProps, type AlertDialogContentProps, type AlertDialogDescriptionProps, type AlertDialogOverlayProps, type AlertDialogPortalProps, type AlertDialogRootProps, type AlertDialogTitleProps, type AlertDialogTriggerProps, Avatar, type AvatarProps, type BodyProps, Button, type ButtonProps, Calendar, type CalendarProps, Card, type CardFooterProps, type CellBodyProps, type CellHeadProps, Checkbox, type CheckboxProps, DatePicker, type DatePickerProps, Dialog, type DialogCloseProps, type DialogContainerProps, type DialogContentProps, type DialogDescriptionProps, type DialogFooterProps, type DialogHeaderProps, type DialogOverlayProps, type DialogPortalProps, type DialogRootProps, type DialogTitleProps, type DialogTriggerProps, Footer$1 as Footer, type FooterProps, Header$1 as Header, type HeaderProps, Heading, type HeadingProps, Input, InputFile, type InputFileProps, type InputProps, Label$1 as Label, type LabelProps, Menu, MonthPicker, type MonthPickerProps, NavigationMenu, type NavigationMenuContentProps, type NavigationMenuItemProps, type NavigationMenuLinkProps, type NavigationMenuListProps, type NavigationMenuRootProps, type NavigationMenuTriggerProps, Popover, type PopoverAnchorProps, type PopoverArrowProps, type PopoverCloseProps, type PopoverContentProps, type PopoverPortalProps, type PopoverRootProps, type PopoverTriggerProps, type RootProps, type RowProps, Select, type SelectContentProps, type SelectGroupProps, type SelectIconProps, type SelectItemIndicatorProps, type SelectItemProps, type SelectItemTextProps, type SelectLabelProps, type SelectPortalProps, type SelectRootProps, type SelectTriggerProps, type SelectValueProps, type SelectViewportProps, Sidebar, type SidebarContainerProps, type SidebarContentProps, type SidebarFooterProps, type SidebarHeaderProps, type SidebarIconProps, type SidebarItemProps, type SidebarRootProps, type SidebarTitleProps, type TBodyProps, type THeadProps, Table, type TableRootProps, Text, TextArea, type TextAreaProps, type TextProps, YearPicker, type YearPickerProps };
+export { AlertDialog, type AlertDialogActionProps, type AlertDialogCancelProps, type AlertDialogContentProps, type AlertDialogDescriptionProps, type AlertDialogOverlayProps, type AlertDialogPortalProps, type AlertDialogRootProps, type AlertDialogTitleProps, type AlertDialogTriggerProps, Avatar, type AvatarProps, type BodyProps, Button, type ButtonProps, Calendar, type CalendarProps, Card, type CardFooterProps, type CellBodyProps, type CellHeadProps, Checkbox, type CheckboxProps, DatePicker, type DatePickerProps, Dialog, type DialogCloseProps, type DialogContainerProps, type DialogContentProps, type DialogDescriptionProps, type DialogFooterProps, type DialogHeaderProps, type DialogOverlayProps, type DialogPortalProps, type DialogRootProps, type DialogTitleProps, type DialogTriggerProps, Footer$1 as Footer, type FooterProps, Header$1 as Header, type HeaderProps, Heading, type HeadingProps, Input, InputFile, type InputFileProps, type InputProps, Label$1 as Label, type LabelProps, Menu, MonthPicker, type MonthPickerProps, NavigationMenu, type NavigationMenuContentProps, type NavigationMenuItemProps, type NavigationMenuLinkProps, type NavigationMenuListProps, type NavigationMenuRootProps, type NavigationMenuTriggerProps, Popover, type PopoverAnchorProps, type PopoverArrowProps, type PopoverCloseProps, type PopoverContentProps, type PopoverPortalProps, type PopoverRootProps, type PopoverTriggerProps, type RootProps, type RowProps, Select, type SelectContentProps, type SelectGroupProps, type SelectIconProps, type SelectItemIndicatorProps, type SelectItemProps, type SelectItemTextProps, type SelectLabelProps, type SelectPortalProps, type SelectRootProps, type SelectTriggerProps, type SelectValueProps, type SelectViewportProps, Sidebar, type SidebarContainerProps, type SidebarContentProps, type SidebarFooterContentProps, type SidebarFooterProps, type SidebarHeaderProps, type SidebarIconProps, type SidebarItemProps, type SidebarRootProps, type SidebarTitleProps, type SidebarUserContainerProps, type TBodyProps, type THeadProps, Table, type TableRootProps, Text, TextArea, type TextAreaProps, type TextProps, Tooltip, type TooltipProps, YearPicker, type YearPickerProps };
