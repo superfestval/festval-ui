@@ -869,20 +869,27 @@ function Calendar(_a) {
 
 // src/components/ui/form/date-picker/index.tsx
 var import_jsx_runtime36 = require("react/jsx-runtime");
-function DatePicker({
+var DatePicker = ({
   defaultValue,
   onValueChange,
-  mode = "single"
-}) {
+  mode
+}) => {
   const [selected, setSelected] = (0, import_react7.useState)(() => {
-    if (mode === "single") {
+    if (mode === "single" && defaultValue) {
+      return defaultValue;
+    }
+    if (mode === "single" && !defaultValue) {
       return /* @__PURE__ */ new Date();
     }
+    if (defaultValue && mode !== "single") {
+      return {
+        from: defaultValue.from,
+        to: defaultValue.to
+      };
+    }
     return {
-      from: defaultValue ? defaultValue.from : /* @__PURE__ */ new Date(),
-      to: defaultValue && defaultValue.to ? defaultValue.to : (0, import_date_fns.add)(/* @__PURE__ */ new Date(), {
-        days: 15
-      })
+      from: defaultValue.from,
+      to: defaultValue.to ? defaultValue.from : (0, import_date_fns.add)(/* @__PURE__ */ new Date(), { days: 15 })
     };
   });
   const onRangeSelected = (data) => {
@@ -918,7 +925,7 @@ function DatePicker({
       }
     ) }) })
   ] });
-}
+};
 
 // src/components/ui/form/year-picker/index.tsx
 var import_react8 = require("react");

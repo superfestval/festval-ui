@@ -505,15 +505,17 @@ declare const TextArea: react.ForwardRefExoticComponent<TextareaHTMLAttributes<H
 type InputFileProps = {} & InputHTMLAttributes<HTMLInputElement>;
 declare const InputFile: react.ForwardRefExoticComponent<InputHTMLAttributes<HTMLInputElement> & react.RefAttributes<HTMLInputElement>>;
 
+type RangeValue = {
+    from: Date;
+    to?: Date;
+};
+type DefaultValue = Date | RangeValue;
 type DatePickerProps = {
     mode: Mode;
-    defaultValue?: {
-        from: Date;
-        to?: Date;
-    };
+    defaultValue?: DefaultValue;
     onValueChange?: (range: DateRange | Date) => void;
 };
-declare function DatePicker({ defaultValue, onValueChange, mode, }: DatePickerProps): react_jsx_runtime.JSX.Element;
+declare const DatePicker: ({ defaultValue, onValueChange, mode, }: DatePickerProps) => react_jsx_runtime.JSX.Element;
 
 type YearPickerProps = {
     defaultValue?: number;

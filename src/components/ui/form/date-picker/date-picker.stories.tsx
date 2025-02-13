@@ -10,6 +10,7 @@ export default {
 
 export const Single: StoryObj<typeof DatePicker> = {
   args: {
+    mode: "single",
     defaultValue: new Date(),
   },
 };
@@ -17,6 +18,16 @@ export const Single: StoryObj<typeof DatePicker> = {
 export const Range: StoryObj<typeof DatePicker> = {
   args: {
     mode: "range",
+    defaultValue: {
+      from: new Date(),
+      to: new Date(),
+    },
+  },
+};
+
+export const Multiple: StoryObj<typeof DatePicker> = {
+  args: {
+    mode: "multiple",
     defaultValue: {
       from: new Date(),
       to: new Date(),
