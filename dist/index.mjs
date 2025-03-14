@@ -598,13 +598,13 @@ var buttonVariant = tv9({
   variants: {
     variant: {
       default: "bg-yellow-600 hover:bg-yellow-700",
-      secondary: "bg-zinc-800 text-zinc-400 hover:bg-zinc-800/75",
+      secondary: "bg-emerald-200 text-emerald-700 hover:bg-emerald-400/75",
       link: "bg-zin-100 text-yellow-600 underline",
       destructive: "bg-rose-600 text-rose-200 hover:bg-rose-700",
       ghost: "bg-zinc-200 text-zinc-500 hover:bg-zinc-200/75"
     },
     disabled: {
-      true: "bg-zinc-600 hover:bg-zinc-700 cursor-not-allowed"
+      true: "bg-gray-100 text-gray-300 hover:bg-gray-100 cursor-not-allowed"
     }
   },
   defaultVariants: {
@@ -639,11 +639,18 @@ function Button(_a) {
       className: buttonVariant({ className, variant: variant7, disabled })
     }));
   }
-  return /* @__PURE__ */ jsxs7(As, __spreadProps(__spreadValues({}, rest), { className: buttonVariant({ className, variant: variant7, disabled }), children: [
-    IconLeft && /* @__PURE__ */ jsx31(IconLeft, {}),
-    children,
-    IconRight && /* @__PURE__ */ jsx31(IconRight, {})
-  ] }));
+  return /* @__PURE__ */ jsxs7(
+    As,
+    __spreadProps(__spreadValues({}, rest), {
+      disabled,
+      className: buttonVariant({ className, variant: variant7, disabled }),
+      children: [
+        IconLeft && /* @__PURE__ */ jsx31(IconLeft, {}),
+        children,
+        IconRight && /* @__PURE__ */ jsx31(IconRight, {})
+      ]
+    })
+  );
 }
 Button.displayName = "Button";
 
