@@ -1,0 +1,1 @@
+import{_ as o}from"./index-DLMl8b7f.js";import{R as r}from"./index--qcDGAq6.js";import"./index-yBjzXJbu.js";const c={parameters:{controls:{matchers:{color:/(background|color)$/i,date:/Date$/i}},docs:{theme:o.dark,autodocs:!0}}};global.React=r;export{c as default};
