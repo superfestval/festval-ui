@@ -1676,6 +1676,7 @@ function usePagination({
   };
   const handlePerPage = (value) => {
     setPerPage(Number(value));
+    setPage(1);
     onPerPageChange == null ? void 0 : onPerPageChange(Number(value));
   };
   return {
@@ -1702,23 +1703,23 @@ var pageItemVariant = tv27({
 function Pagination({
   currentPage = 1,
   totalCount,
-  perPage = 10,
+  perPage: defaultPerpage = 10,
   onPageChange,
   onPerPageChange
 }) {
-  const { page, firstPage, lastPage, nextPage, previousPage, handlePerPage } = usePagination({
+  const { page, perPage, firstPage, lastPage, nextPage, previousPage, handlePerPage } = usePagination({
     currentPage,
-    perPage,
     totalCount,
     onPageChange,
-    onPerPageChange
+    onPerPageChange,
+    perPage: defaultPerpage
   });
   const totalPages = totalCount / perPage;
   return /* @__PURE__ */ jsxs18("div", { className: "flex w-full items-center justify-between py-4", children: [
     /* @__PURE__ */ jsxs18("p", { className: "whitespace-nowrap text-sm text-zinc-950", children: [
       page,
       " de ",
-      perPage,
+      Math.ceil(totalCount / perPage),
       " p\xE1ginas"
     ] }),
     /* @__PURE__ */ jsxs18("div", { className: "flex gap-2", children: [

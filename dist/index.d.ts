@@ -773,7 +773,7 @@ type PaginationProps = {
     onPageChange?: (page: number) => void;
     onPerPageChange?: (perPage: number) => void;
 };
-declare function Pagination({ currentPage, totalCount, perPage, onPageChange, onPerPageChange, }: PaginationProps): react_jsx_runtime.JSX.Element;
+declare function Pagination({ currentPage, totalCount, perPage: defaultPerpage, onPageChange, onPerPageChange, }: PaginationProps): react_jsx_runtime.JSX.Element;
 
 declare const textVariant: tailwind_variants.TVReturnType<{
     size: {

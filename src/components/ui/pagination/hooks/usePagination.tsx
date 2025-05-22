@@ -41,6 +41,7 @@ export function usePagination({
 
   const handlePerPage = (value: string) => {
     setPerPage(Number(value));
+    setPage(1);
     onPerPageChange?.(Number(value));
   };
 

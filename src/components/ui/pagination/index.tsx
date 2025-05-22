@@ -29,17 +29,17 @@ export type PaginationProps = {
 export function Pagination({
   currentPage = 1,
   totalCount,
-  perPage = 10,
+  perPage: defaultPerpage = 10,
   onPageChange,
   onPerPageChange,
 }: PaginationProps) {
-  const { page, firstPage, lastPage, nextPage, previousPage, handlePerPage } =
+  const { page, perPage, firstPage, lastPage, nextPage, previousPage, handlePerPage } =
     usePagination({
       currentPage,
-      perPage,
       totalCount,
       onPageChange,
       onPerPageChange,
+      perPage: defaultPerpage,
     });
 
   const totalPages = totalCount / perPage;
@@ -47,7 +47,7 @@ export function Pagination({
   return (
     <div className="flex w-full items-center justify-between py-4">
       <p className="whitespace-nowrap text-sm text-zinc-950">
-        {page} de {perPage} páginas
+        {page} de {Math.ceil(totalCount / perPage)} páginas
       </p>
 
       <div className="flex gap-2">
