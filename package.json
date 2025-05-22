@@ -1,6 +1,6 @@
 {
   "name": "festval-ui",
-  "version": "1.44.0",
+  "version": "1.45.0-0",
   "description": "An simple library to Festval aplications",
   "main": "./dist/index.js",
   "module": "./dist/index.mjs",
