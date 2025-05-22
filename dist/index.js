@@ -1596,14 +1596,11 @@ var Sidebar = {
 
 // src/components/ui/navigation-menu/item.tsx
 var Navigation = __toESM(require("@radix-ui/react-navigation-menu"));
-var import_react15 = require("react");
 var import_jsx_runtime70 = require("react/jsx-runtime");
-var Item6 = (0, import_react15.forwardRef)(
-  (_a) => {
-    var _b = _a, { children } = _b, rest = __objRest(_b, ["children"]);
-    return /* @__PURE__ */ (0, import_jsx_runtime70.jsx)(Navigation.Item, __spreadProps(__spreadValues({}, rest), { children }));
-  }
-);
+var Item6 = (_a) => {
+  var _b = _a, { children } = _b, rest = __objRest(_b, ["children"]);
+  return /* @__PURE__ */ (0, import_jsx_runtime70.jsx)(Navigation.Item, __spreadProps(__spreadValues({}, rest), { children }));
+};
 
 // src/components/ui/navigation-menu/list.tsx
 var Navigation2 = __toESM(require("@radix-ui/react-navigation-menu"));
@@ -1692,7 +1689,7 @@ var import_lucide_react11 = require("lucide-react");
 var import_tailwind_variants27 = require("tailwind-variants");
 
 // src/components/ui/pagination/hooks/usePagination.tsx
-var import_react16 = require("react");
+var import_react15 = require("react");
 function usePagination({
   currentPage = 1,
   perPage: currentPerPage = 10,
@@ -1700,8 +1697,8 @@ function usePagination({
   onPageChange,
   onPerPageChange
 }) {
-  const [page, setPage] = (0, import_react16.useState)(currentPage);
-  const [perPage, setPerPage] = (0, import_react16.useState)(currentPerPage);
+  const [page, setPage] = (0, import_react15.useState)(currentPage);
+  const [perPage, setPerPage] = (0, import_react15.useState)(currentPerPage);
   const nextPage = () => {
     if (page >= Math.ceil(totalCount / currentPerPage)) {
       return;

@@ -1541,14 +1541,11 @@ var Sidebar = {
 
 // src/components/ui/navigation-menu/item.tsx
 import * as Navigation from "@radix-ui/react-navigation-menu";
-import { forwardRef as forwardRef7 } from "react";
 import { jsx as jsx69 } from "react/jsx-runtime";
-var Item6 = forwardRef7(
-  (_a) => {
-    var _b = _a, { children } = _b, rest = __objRest(_b, ["children"]);
-    return /* @__PURE__ */ jsx69(Navigation.Item, __spreadProps(__spreadValues({}, rest), { children }));
-  }
-);
+var Item6 = (_a) => {
+  var _b = _a, { children } = _b, rest = __objRest(_b, ["children"]);
+  return /* @__PURE__ */ jsx69(Navigation.Item, __spreadProps(__spreadValues({}, rest), { children }));
+};
 
 // src/components/ui/navigation-menu/list.tsx
 import * as Navigation2 from "@radix-ui/react-navigation-menu";

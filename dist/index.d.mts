@@ -759,7 +759,7 @@ declare function Content({ children, className, ...rest }: NavigationMenuContent
 
 declare const NavigationMenu: {
     Root: typeof Root;
-    Item: react.ForwardRefExoticComponent<Navigation.NavigationMenuItemProps & react.RefAttributes<unknown>>;
+    Item: ({ children, ...rest }: NavigationMenuItemProps) => react_jsx_runtime.JSX.Element;
     List: typeof List;
     Link: typeof Link;
     Content: typeof Content;
