@@ -1631,6 +1631,157 @@ var NavigationMenu = {
   Content: Content13,
   Trigger: Trigger12
 };
+
+// src/components/ui/pagination/index.tsx
+import {
+  ChevronLeft as ChevronLeft3,
+  ChevronRight as ChevronRight3,
+  ChevronsLeft,
+  ChevronsRight
+} from "lucide-react";
+import { tv as tv27 } from "tailwind-variants";
+
+// src/components/ui/pagination/hooks/usePagination.tsx
+import { useState as useState7 } from "react";
+function usePagination({
+  perPage: currentPerPage = 10,
+  totalCount = 0,
+  onPageChange,
+  onPerPageChange
+}) {
+  const [page, setPage] = useState7(1);
+  const [perPage, setPerPage] = useState7(currentPerPage);
+  const nextPage = () => {
+    if (page >= Math.ceil(totalCount / currentPerPage)) {
+      return;
+    }
+    setPage(page + 1);
+    onPageChange == null ? void 0 : onPageChange(page + 1);
+  };
+  const previousPage = () => {
+    if (page <= 1) {
+      return;
+    }
+    setPage(page - 1);
+    onPageChange == null ? void 0 : onPageChange(page - 1);
+  };
+  const firstPage = () => {
+    setPage(1);
+    onPageChange == null ? void 0 : onPageChange(1);
+  };
+  const lastPage = () => {
+    setPage(Math.ceil(totalCount / currentPerPage));
+    onPageChange == null ? void 0 : onPageChange(Math.ceil(totalCount / currentPerPage));
+  };
+  const handlePerPage = (value) => {
+    setPerPage(Number(value));
+    onPerPageChange == null ? void 0 : onPerPageChange(Number(value));
+  };
+  return {
+    page,
+    perPage,
+    nextPage,
+    lastPage,
+    firstPage,
+    previousPage,
+    handlePerPage
+  };
+}
+
+// src/components/ui/pagination/index.tsx
+import { jsx as jsx75, jsxs as jsxs18 } from "react/jsx-runtime";
+var pageItemVariant = tv27({
+  base: "rounded bg-yellow-700 py-2 px-4 text-xs text-zinc-50",
+  variants: {
+    disabled: {
+      true: "bg-zinc-200 text-zinc-500 cursor-not-allowed"
+    }
+  }
+});
+function Pagination({
+  perPage = 10,
+  totalCount,
+  onPageChange,
+  onPerPageChange
+}) {
+  const { page, firstPage, lastPage, nextPage, previousPage, handlePerPage } = usePagination({
+    perPage,
+    totalCount,
+    onPageChange,
+    onPerPageChange
+  });
+  const totalPages = totalCount / perPage;
+  return /* @__PURE__ */ jsxs18("div", { className: "flex w-full items-center justify-between py-4", children: [
+    /* @__PURE__ */ jsxs18("p", { className: "whitespace-nowrap text-sm text-zinc-950", children: [
+      page,
+      " de ",
+      perPage,
+      " p\xE1ginas"
+    ] }),
+    /* @__PURE__ */ jsxs18("div", { className: "flex gap-2", children: [
+      /* @__PURE__ */ jsxs18(
+        Select.Root,
+        {
+          onValueChange: handlePerPage,
+          defaultValue: perPage.toString(),
+          children: [
+            /* @__PURE__ */ jsxs18(Select.Trigger, { children: [
+              /* @__PURE__ */ jsx75(Select.Value, {}),
+              /* @__PURE__ */ jsx75(Select.Icon, {})
+            ] }),
+            /* @__PURE__ */ jsx75(Select.Portal, { children: /* @__PURE__ */ jsx75(Select.Content, { children: /* @__PURE__ */ jsxs18(Select.Viewport, { children: [
+              /* @__PURE__ */ jsx75(Select.Item, { value: "10", children: "10" }),
+              /* @__PURE__ */ jsx75(Select.Item, { value: "30", children: "30" }),
+              /* @__PURE__ */ jsx75(Select.Item, { value: "50", children: "50" }),
+              /* @__PURE__ */ jsx75(Select.Item, { value: "100", children: "100" })
+            ] }) }) })
+          ]
+        }
+      ),
+      /* @__PURE__ */ jsx75(
+        "button",
+        {
+          onClick: firstPage,
+          disabled: page === 1,
+          className: pageItemVariant({ disabled: page === 1 }),
+          children: /* @__PURE__ */ jsx75(ChevronsLeft, { size: 14 })
+        }
+      ),
+      /* @__PURE__ */ jsx75(
+        "button",
+        {
+          onClick: previousPage,
+          disabled: page === 1,
+          className: pageItemVariant({ disabled: page === 1 }),
+          children: /* @__PURE__ */ jsx75(ChevronLeft3, { size: 14 })
+        }
+      ),
+      /* @__PURE__ */ jsx75("div", { className: "flex items-center rounded border border-yellow-600 bg-yellow-600/25 px-4 py-2 text-xs text-yellow-600", children: /* @__PURE__ */ jsx75("p", { children: page }) }),
+      /* @__PURE__ */ jsx75(
+        "button",
+        {
+          onClick: nextPage,
+          disabled: page >= totalPages,
+          className: pageItemVariant({
+            disabled: page >= totalPages
+          }),
+          children: /* @__PURE__ */ jsx75(ChevronRight3, { size: 14 })
+        }
+      ),
+      /* @__PURE__ */ jsx75(
+        "button",
+        {
+          onClick: lastPage,
+          disabled: page >= totalPages,
+          className: pageItemVariant({
+            disabled: page >= totalPages
+          }),
+          children: /* @__PURE__ */ jsx75(ChevronsRight, { size: 14 })
+        }
+      )
+    ] })
+  ] });
+}
 export {
   AlertDialog,
   Avatar,
@@ -1649,6 +1800,7 @@ export {
   Menu,
   MonthPicker,
   NavigationMenu,
+  Pagination,
   Popover9 as Popover,
   Select,
   Sidebar,

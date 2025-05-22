@@ -57,8 +57,8 @@ var __toESM = (mod, isNodeMode, target) => (target = mod != null ? __create(__ge
 var __toCommonJS = (mod) => __copyProps(__defProp({}, "__esModule", { value: true }), mod);
 
 // src/index.tsx
-var src_exports = {};
-__export(src_exports, {
+var index_exports = {};
+__export(index_exports, {
   AlertDialog: () => AlertDialog,
   Avatar: () => Avatar,
   Button: () => Button,
@@ -76,6 +76,7 @@ __export(src_exports, {
   Menu: () => Menu,
   MonthPicker: () => MonthPicker,
   NavigationMenu: () => NavigationMenu,
+  Pagination: () => Pagination,
   Popover: () => Popover9,
   Select: () => Select,
   Sidebar: () => Sidebar,
@@ -85,7 +86,7 @@ __export(src_exports, {
   Tooltip: () => Tooltip,
   YearPicker: () => YearPicker
 });
-module.exports = __toCommonJS(src_exports);
+module.exports = __toCommonJS(index_exports);
 
 // src/components/ui/card/body.tsx
 var import_tailwind_variants = require("tailwind-variants");
@@ -1685,6 +1686,152 @@ var NavigationMenu = {
   Content: Content13,
   Trigger: Trigger12
 };
+
+// src/components/ui/pagination/index.tsx
+var import_lucide_react11 = require("lucide-react");
+var import_tailwind_variants27 = require("tailwind-variants");
+
+// src/components/ui/pagination/hooks/usePagination.tsx
+var import_react16 = require("react");
+function usePagination({
+  perPage: currentPerPage = 10,
+  totalCount = 0,
+  onPageChange,
+  onPerPageChange
+}) {
+  const [page, setPage] = (0, import_react16.useState)(1);
+  const [perPage, setPerPage] = (0, import_react16.useState)(currentPerPage);
+  const nextPage = () => {
+    if (page >= Math.ceil(totalCount / currentPerPage)) {
+      return;
+    }
+    setPage(page + 1);
+    onPageChange == null ? void 0 : onPageChange(page + 1);
+  };
+  const previousPage = () => {
+    if (page <= 1) {
+      return;
+    }
+    setPage(page - 1);
+    onPageChange == null ? void 0 : onPageChange(page - 1);
+  };
+  const firstPage = () => {
+    setPage(1);
+    onPageChange == null ? void 0 : onPageChange(1);
+  };
+  const lastPage = () => {
+    setPage(Math.ceil(totalCount / currentPerPage));
+    onPageChange == null ? void 0 : onPageChange(Math.ceil(totalCount / currentPerPage));
+  };
+  const handlePerPage = (value) => {
+    setPerPage(Number(value));
+    onPerPageChange == null ? void 0 : onPerPageChange(Number(value));
+  };
+  return {
+    page,
+    perPage,
+    nextPage,
+    lastPage,
+    firstPage,
+    previousPage,
+    handlePerPage
+  };
+}
+
+// src/components/ui/pagination/index.tsx
+var import_jsx_runtime76 = require("react/jsx-runtime");
+var pageItemVariant = (0, import_tailwind_variants27.tv)({
+  base: "rounded bg-yellow-700 py-2 px-4 text-xs text-zinc-50",
+  variants: {
+    disabled: {
+      true: "bg-zinc-200 text-zinc-500 cursor-not-allowed"
+    }
+  }
+});
+function Pagination({
+  perPage = 10,
+  totalCount,
+  onPageChange,
+  onPerPageChange
+}) {
+  const { page, firstPage, lastPage, nextPage, previousPage, handlePerPage } = usePagination({
+    perPage,
+    totalCount,
+    onPageChange,
+    onPerPageChange
+  });
+  const totalPages = totalCount / perPage;
+  return /* @__PURE__ */ (0, import_jsx_runtime76.jsxs)("div", { className: "flex w-full items-center justify-between py-4", children: [
+    /* @__PURE__ */ (0, import_jsx_runtime76.jsxs)("p", { className: "whitespace-nowrap text-sm text-zinc-950", children: [
+      page,
+      " de ",
+      perPage,
+      " p\xE1ginas"
+    ] }),
+    /* @__PURE__ */ (0, import_jsx_runtime76.jsxs)("div", { className: "flex gap-2", children: [
+      /* @__PURE__ */ (0, import_jsx_runtime76.jsxs)(
+        Select.Root,
+        {
+          onValueChange: handlePerPage,
+          defaultValue: perPage.toString(),
+          children: [
+            /* @__PURE__ */ (0, import_jsx_runtime76.jsxs)(Select.Trigger, { children: [
+              /* @__PURE__ */ (0, import_jsx_runtime76.jsx)(Select.Value, {}),
+              /* @__PURE__ */ (0, import_jsx_runtime76.jsx)(Select.Icon, {})
+            ] }),
+            /* @__PURE__ */ (0, import_jsx_runtime76.jsx)(Select.Portal, { children: /* @__PURE__ */ (0, import_jsx_runtime76.jsx)(Select.Content, { children: /* @__PURE__ */ (0, import_jsx_runtime76.jsxs)(Select.Viewport, { children: [
+              /* @__PURE__ */ (0, import_jsx_runtime76.jsx)(Select.Item, { value: "10", children: "10" }),
+              /* @__PURE__ */ (0, import_jsx_runtime76.jsx)(Select.Item, { value: "30", children: "30" }),
+              /* @__PURE__ */ (0, import_jsx_runtime76.jsx)(Select.Item, { value: "50", children: "50" }),
+              /* @__PURE__ */ (0, import_jsx_runtime76.jsx)(Select.Item, { value: "100", children: "100" })
+            ] }) }) })
+          ]
+        }
+      ),
+      /* @__PURE__ */ (0, import_jsx_runtime76.jsx)(
+        "button",
+        {
+          onClick: firstPage,
+          disabled: page === 1,
+          className: pageItemVariant({ disabled: page === 1 }),
+          children: /* @__PURE__ */ (0, import_jsx_runtime76.jsx)(import_lucide_react11.ChevronsLeft, { size: 14 })
+        }
+      ),
+      /* @__PURE__ */ (0, import_jsx_runtime76.jsx)(
+        "button",
+        {
+          onClick: previousPage,
+          disabled: page === 1,
+          className: pageItemVariant({ disabled: page === 1 }),
+          children: /* @__PURE__ */ (0, import_jsx_runtime76.jsx)(import_lucide_react11.ChevronLeft, { size: 14 })
+        }
+      ),
+      /* @__PURE__ */ (0, import_jsx_runtime76.jsx)("div", { className: "flex items-center rounded border border-yellow-600 bg-yellow-600/25 px-4 py-2 text-xs text-yellow-600", children: /* @__PURE__ */ (0, import_jsx_runtime76.jsx)("p", { children: page }) }),
+      /* @__PURE__ */ (0, import_jsx_runtime76.jsx)(
+        "button",
+        {
+          onClick: nextPage,
+          disabled: page >= totalPages,
+          className: pageItemVariant({
+            disabled: page >= totalPages
+          }),
+          children: /* @__PURE__ */ (0, import_jsx_runtime76.jsx)(import_lucide_react11.ChevronRight, { size: 14 })
+        }
+      ),
+      /* @__PURE__ */ (0, import_jsx_runtime76.jsx)(
+        "button",
+        {
+          onClick: lastPage,
+          disabled: page >= totalPages,
+          className: pageItemVariant({
+            disabled: page >= totalPages
+          }),
+          children: /* @__PURE__ */ (0, import_jsx_runtime76.jsx)(import_lucide_react11.ChevronsRight, { size: 14 })
+        }
+      )
+    ] })
+  ] });
+}
 // Annotate the CommonJS export names for ESM import in node:
 0 && (module.exports = {
   AlertDialog,
@@ -1704,6 +1851,7 @@ var NavigationMenu = {
   Menu,
   MonthPicker,
   NavigationMenu,
+  Pagination,
   Popover,
   Select,
   Sidebar,
