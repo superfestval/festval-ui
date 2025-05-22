@@ -23,6 +23,7 @@ export * from "@/components/surfaces/header";
 export * from "@/components/surfaces/sidebar";
 export * from "@/components/surfaces/calendar";
 export * from "@/components/ui/navigation-menu";
+export * from "@/components/ui/pagination";
 
 export * from "@/components/typograph/text";
 export * from "@/components/typograph/heading";
