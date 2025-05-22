@@ -1694,12 +1694,13 @@ var import_tailwind_variants27 = require("tailwind-variants");
 // src/components/ui/pagination/hooks/usePagination.tsx
 var import_react16 = require("react");
 function usePagination({
+  currentPage = 1,
   perPage: currentPerPage = 10,
   totalCount = 0,
   onPageChange,
   onPerPageChange
 }) {
-  const [page, setPage] = (0, import_react16.useState)(1);
+  const [page, setPage] = (0, import_react16.useState)(currentPage);
   const [perPage, setPerPage] = (0, import_react16.useState)(currentPerPage);
   const nextPage = () => {
     if (page >= Math.ceil(totalCount / currentPerPage)) {
@@ -1749,12 +1750,14 @@ var pageItemVariant = (0, import_tailwind_variants27.tv)({
   }
 });
 function Pagination({
-  perPage = 10,
+  currentPage = 1,
   totalCount,
+  perPage = 10,
   onPageChange,
   onPerPageChange
 }) {
   const { page, firstPage, lastPage, nextPage, previousPage, handlePerPage } = usePagination({
+    currentPage,
     perPage,
     totalCount,
     onPageChange,

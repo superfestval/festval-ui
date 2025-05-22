@@ -19,20 +19,23 @@ const pageItemVariant = tv({
 });
 
 export type PaginationProps = {
-  totalCount: number;
+  currentPage?: number;
   perPage?: number;
+  totalCount: number;
   onPageChange?: (page: number) => void;
   onPerPageChange?: (perPage: number) => void;
 };
 
 export function Pagination({
-  perPage = 10,
+  currentPage = 1,
   totalCount,
+  perPage = 10,
   onPageChange,
   onPerPageChange,
 }: PaginationProps) {
   const { page, firstPage, lastPage, nextPage, previousPage, handlePerPage } =
     usePagination({
+      currentPage,
       perPage,
       totalCount,
       onPageChange,

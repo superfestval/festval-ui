@@ -2,12 +2,13 @@ import { useState } from "react";
 import { PaginationProps } from "../index";
 
 export function usePagination({
+  currentPage = 1,
   perPage: currentPerPage = 10,
   totalCount = 0,
   onPageChange,
   onPerPageChange,
 }: PaginationProps) {
-  const [page, setPage] = useState(1);
+  const [page, setPage] = useState(currentPage);
   const [perPage, setPerPage] = useState(currentPerPage);
 
   const nextPage = () => {
