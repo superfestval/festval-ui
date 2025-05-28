@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import { Check } from "lucide-react";
 import { tv, VariantProps } from "tailwind-variants";
 
@@ -20,16 +20,18 @@ const variants = tv({
 
 export type CheckboxProps = VariantProps<typeof variants> & {
   onValueChange?: (value: boolean) => void;
+  disabled?: boolean;
+  value?: boolean | "indeterminated";
+  defaultChecked?: boolean;
 };
 
 export function Checkbox({
-  checked = false,
   disabled = false,
   onValueChange,
+  value,
+  defaultChecked = false
 }: CheckboxProps) {
-  const [isChecked, setIsChecked] = useState<boolean | "indeterminated">(
-    checked
-  );
+  const [isChecked, setIsChecked] = useState<boolean | "indeterminated">(defaultChecked);
 
   const toggleCheck = () => {
     setIsChecked(!isChecked);
@@ -37,6 +39,12 @@ export function Checkbox({
       onValueChange(!isChecked);
     }
   };
+
+  useEffect(() => {
+    if (value) {
+      setIsChecked(value);
+    }
+  }, [value]);
 
   return (
     <button

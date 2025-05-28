@@ -2,17 +2,29 @@ import React from "react";
 import { Meta, StoryObj } from "@storybook/react";
 
 import { Checkbox, CheckboxProps } from "./index";
+import { fn } from "@storybook/test";
 
 export default {
-  component: Checkbox,
+  component: (props) => <Checkbox {...props} />,
   title: "Forms/Checkbox",
+  args: {
+    disabled: false,
+    value: false,
+    defaultChecked: false,
+    onValueChange: fn(),
+  },
   argTypes: {
     disabled: {
       control: {
         type: "boolean",
       },
     },
-    checked: {
+    value: {
+      control: {
+        type: "boolean",
+      },
+    },
+    defaultChecked: {
       control: {
         type: "boolean",
       },
@@ -23,20 +35,20 @@ export default {
 
 export const Checked: StoryObj<CheckboxProps> = {
   args: {
-    checked: true,
+    value: true,
     disabled: false,
   },
 };
 
 export const Unchecked: StoryObj<CheckboxProps> = {
   args: {
-    checked: false,
+    value: false,
   },
 };
 
 export const Disabled: StoryObj<CheckboxProps> = {
   args: {
-    checked: false,
+    value: false,
     disabled: true,
   },
 };

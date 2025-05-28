@@ -733,19 +733,23 @@ var variants2 = (0, import_tailwind_variants10.tv)({
   }
 });
 function Checkbox({
-  checked = false,
   disabled = false,
-  onValueChange
+  onValueChange,
+  value,
+  defaultChecked = false
 }) {
-  const [isChecked, setIsChecked] = (0, import_react4.useState)(
-    checked
-  );
+  const [isChecked, setIsChecked] = (0, import_react4.useState)(defaultChecked);
   const toggleCheck = () => {
     setIsChecked(!isChecked);
     if (onValueChange) {
       onValueChange(!isChecked);
     }
   };
+  (0, import_react4.useEffect)(() => {
+    if (value) {
+      setIsChecked(value);
+    }
+  }, [value]);
   return /* @__PURE__ */ (0, import_jsx_runtime32.jsx)(
     "button",
     {

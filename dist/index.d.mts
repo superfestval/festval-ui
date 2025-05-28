@@ -492,8 +492,11 @@ declare const variants: tailwind_variants.TVReturnType<{
 }>, unknown, unknown, undefined>>;
 type CheckboxProps = VariantProps<typeof variants> & {
     onValueChange?: (value: boolean) => void;
+    disabled?: boolean;
+    value?: boolean | "indeterminated";
+    defaultChecked?: boolean;
 };
-declare function Checkbox({ checked, disabled, onValueChange, }: CheckboxProps): react_jsx_runtime.JSX.Element;
+declare function Checkbox({ disabled, onValueChange, value, defaultChecked }: CheckboxProps): react_jsx_runtime.JSX.Element;
 
 type TextAreaProps = TextareaHTMLAttributes<HTMLTextAreaElement> & {
     error?: string;
