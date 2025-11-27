@@ -28,6 +28,7 @@ const buttonVariant = tv({
 export type ButtonProps = {
   as?: ElementType;
   asChild?: boolean;
+  iconSize?: number;
   iconLeft?: React.ElementType;
   iconRight?: React.ElementType;
 } & ButtonHTMLAttributes<HTMLButtonElement> &
@@ -43,6 +44,7 @@ export function Button({
   className,
   iconLeft,
   iconRight,
+  iconSize = 16,
   ...rest
 }: ButtonProps) {
   const As = as || "button";
@@ -63,9 +65,9 @@ export function Button({
       disabled={disabled}
       className={buttonVariant({ className, variant, disabled })}
     >
-      {IconLeft && <IconLeft />}
+      {IconLeft && <IconLeft size={iconSize} />}
       {children}
-      {IconRight && <IconRight />}
+      {IconRight && <IconRight size={iconSize} />}
     </As>
   );
 }

@@ -678,7 +678,8 @@ function Button(_a) {
     disabled,
     className,
     iconLeft,
-    iconRight
+    iconRight,
+    iconSize = 16
   } = _b, rest = __objRest(_b, [
     "as",
     "asChild",
@@ -687,7 +688,8 @@ function Button(_a) {
     "disabled",
     "className",
     "iconLeft",
-    "iconRight"
+    "iconRight",
+    "iconSize"
   ]);
   const As = as || "button";
   const IconLeft = iconLeft;
@@ -703,9 +705,9 @@ function Button(_a) {
       disabled,
       className: buttonVariant({ className, variant: variant7, disabled }),
       children: [
-        IconLeft && /* @__PURE__ */ (0, import_jsx_runtime31.jsx)(IconLeft, {}),
+        IconLeft && /* @__PURE__ */ (0, import_jsx_runtime31.jsx)(IconLeft, { size: iconSize }),
         children,
-        IconRight && /* @__PURE__ */ (0, import_jsx_runtime31.jsx)(IconRight, {})
+        IconRight && /* @__PURE__ */ (0, import_jsx_runtime31.jsx)(IconRight, { size: iconSize })
       ]
     })
   );
