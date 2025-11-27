@@ -1270,7 +1270,7 @@ var rootVariation = tv19({
 });
 function Root12(_a) {
   var _b = _a, { children, className } = _b, rest = __objRest(_b, ["children", "className"]);
-  return /* @__PURE__ */ jsx55("header", __spreadProps(__spreadValues({ className: rootVariation({ className }) }, rest), { children: /* @__PURE__ */ jsx55("div", { className: "m-auto flex w-full max-w-7xl items-center justify-between p-4", children }) }));
+  return /* @__PURE__ */ jsx55("header", __spreadProps(__spreadValues({ className: rootVariation({ className }) }, rest), { children: /* @__PURE__ */ jsx55("div", { className: "m-auto flex w-full max-w-[1440px] items-center justify-between p-4", children }) }));
 }
 
 // src/components/surfaces/header/index.tsx
