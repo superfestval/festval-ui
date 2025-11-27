@@ -856,7 +856,7 @@ var DatePicker = ({
     }
   };
   return /* @__PURE__ */ jsxs10(Popover.Root, { children: [
-    /* @__PURE__ */ jsx36(Popover.Trigger, { children: /* @__PURE__ */ jsxs10(
+    /* @__PURE__ */ jsx36(Popover.Trigger, { asChild: true, children: /* @__PURE__ */ jsxs10(
       Button,
       {
         variant: "ghost",
