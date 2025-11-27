@@ -61,7 +61,7 @@ export const DatePicker = ({
 
   return (
     <Popover.Root>
-      <Popover.Trigger>
+      <Popover.Trigger asChild>
         <Button
           variant="ghost"
           className="w-full border border-zinc-300"
