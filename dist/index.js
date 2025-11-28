@@ -172,22 +172,22 @@ var import_lucide_react = require("lucide-react");
 var import_tailwind_variants5 = require("tailwind-variants");
 var import_jsx_runtime5 = require("react/jsx-runtime");
 var rootVariant = (0, import_tailwind_variants5.tv)({
-  base: "m-auto mt-6 w-full max-w-[1120px]"
+  base: "w-full"
 });
 var captionVariant = (0, import_tailwind_variants5.tv)({
   base: "rounded-t-lg border-b border-b-zinc-300 bg-zinc-950 p-4"
 });
 var tHeadVariant = (0, import_tailwind_variants5.tv)({
-  base: "rounded-t"
+  base: ""
 });
 var tBodyVariant = (0, import_tailwind_variants5.tv)({
-  base: "rounded-t-lg border-b border-b-zinc-300 bg-zinc-950 p-4"
+  base: ""
 });
 var rowVariant = (0, import_tailwind_variants5.tv)({
-  base: "rounded-t bg-zinc-50"
+  base: ""
 });
 var cellHeadVariant = (0, import_tailwind_variants5.tv)({
-  base: "bg-zinc-200 p-4 text-left text-zinc-600",
+  base: "text-left border-b border-gray-300 bg-gray-200 px-4 py-3",
   variants: {
     position: {
       first: "rounded-tl-lg",
@@ -196,7 +196,7 @@ var cellHeadVariant = (0, import_tailwind_variants5.tv)({
   }
 });
 var cellVariant = (0, import_tailwind_variants5.tv)({
-  base: "border-b border-b-zinc-200 px-4 py-2"
+  base: "border-b border-b-gray-200 p-4 text-left bg-gray-50"
 });
 var Table = {
   Root: (_a) => {

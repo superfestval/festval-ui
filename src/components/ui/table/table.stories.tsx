@@ -1,7 +1,6 @@
 import { useState } from "react";
 import { Meta, StoryObj } from "@storybook/react";
 import {
-  ColumnSort,
   createColumnHelper,
   flexRender,
   getCoreRowModel,
@@ -60,13 +59,13 @@ const columns = [
         checked={
           table.getIsAllPageRowsSelected() || table.getIsSomePageRowsSelected()
         }
-        onValueChange={(value) => table.toggleAllPageRowsSelected(value)}
+        onValueChange={(value) => table.toggleAllPageRowsSelected(value as any)}
       />
     ),
     cell: ({ row }) => (
       <Checkbox
         checked={row.getIsSelected()}
-        onValueChange={(value) => row.toggleSelected(value)}
+        onValueChange={(value) => row.toggleSelected(value as any)}
       />
     ),
     enableSorting: true,
@@ -97,7 +96,7 @@ const columns = [
 
 export default {
   component: Table.Root,
-  render: ({ children, ...rest }) => {
+  render: () => {
     const [data, _setData] = useState(() => [...defaultData]);
 
     const table = useReactTable({
@@ -112,7 +111,7 @@ export default {
         <Table.THead>
           {table.getHeaderGroups().map((item) => (
             <Table.Tr key={item.id}>
-              {item.headers.map((header) => (
+              {item.headers.map((header, index) => (
                 <Table.Th key={header.id}>
                   {header.isPlaceholder
                     ? null

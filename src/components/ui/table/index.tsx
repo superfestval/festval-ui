@@ -2,18 +2,18 @@ import { ArrowDownUp } from "lucide-react";
 import { tv, VariantProps } from "tailwind-variants";
 
 const rootVariant = tv({
-  base: "m-auto mt-6 w-full max-w-[1120px]",
+  base: "w-full",
 });
 
 const captionVariant = tv({
-  base: "rounded-t-lg border-b border-b-zinc-300 bg-zinc-950 p-4"
-})
+  base: "rounded-t-lg border-b border-b-zinc-300 bg-zinc-950 p-4",
+});
 
 export type TableRootProps = {} & React.TableHTMLAttributes<HTMLTableElement> &
   VariantProps<typeof rootVariant>;
 
 const tHeadVariant = tv({
-  base: "rounded-t",
+  base: "",
 });
 
 export type THeadProps =
@@ -21,7 +21,7 @@ export type THeadProps =
     VariantProps<typeof tHeadVariant>;
 
 const tBodyVariant = tv({
-  base: "rounded-t-lg border-b border-b-zinc-300 bg-zinc-950 p-4",
+  base: "",
 });
 
 export type TBodyProps =
@@ -29,14 +29,14 @@ export type TBodyProps =
     VariantProps<typeof tBodyVariant>;
 
 const rowVariant = tv({
-  base: "rounded-t bg-zinc-50",
+  base: "",
 });
 
 export type RowProps = {} & React.TableHTMLAttributes<HTMLTableRowElement> &
   VariantProps<typeof rowVariant>;
 
 const cellHeadVariant = tv({
-  base: "bg-zinc-200 p-4 text-left text-zinc-600",
+  base: "text-left border-b border-gray-300 bg-gray-200 px-4 py-3",
   variants: {
     position: {
       first: "rounded-tl-lg",
@@ -51,7 +51,7 @@ export type CellHeadProps = {
   VariantProps<typeof cellHeadVariant>;
 
 const cellVariant = tv({
-  base: "border-b border-b-zinc-200 px-4 py-2",
+  base: "border-b border-b-gray-200 p-4 text-left bg-gray-50",
 });
 
 export type CellBodyProps =
@@ -88,6 +88,7 @@ export const Table = {
       {children}
     </tr>
   ),
+
   Th: ({ children, position, onClick, className, ...rest }: CellHeadProps) => (
     <th {...rest} className={cellHeadVariant({ position, className })}>
       {children}
@@ -99,6 +100,7 @@ export const Table = {
       )}
     </th>
   ),
+
   Td: ({ children, className, ...rest }: CellBodyProps) => (
     <td className={cellVariant({ className })} {...rest}>
       {children}

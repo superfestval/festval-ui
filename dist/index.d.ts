@@ -42,20 +42,20 @@ declare const Card: {
     CardFooter: ({ children, className, ...rest }: CardFooterProps) => react_jsx_runtime.JSX.Element;
 };
 
-declare const rootVariant: tailwind_variants.TVReturnType<{} | {} | {}, undefined, "m-auto mt-6 w-full max-w-[1120px]", tailwind_variants_dist_config.TVConfig<unknown, {} | {}>, {} | {}, undefined, tailwind_variants.TVReturnType<unknown, undefined, "m-auto mt-6 w-full max-w-[1120px]", tailwind_variants_dist_config.TVConfig<unknown, {} | {}>, unknown, unknown, undefined>>;
+declare const rootVariant: tailwind_variants.TVReturnType<{} | {} | {}, undefined, "w-full", tailwind_variants_dist_config.TVConfig<unknown, {} | {}>, {} | {}, undefined, tailwind_variants.TVReturnType<unknown, undefined, "w-full", tailwind_variants_dist_config.TVConfig<unknown, {} | {}>, unknown, unknown, undefined>>;
 type TableRootProps = {} & React.TableHTMLAttributes<HTMLTableElement> & VariantProps<typeof rootVariant>;
-declare const tHeadVariant: tailwind_variants.TVReturnType<{} | {} | {}, undefined, "rounded-t", tailwind_variants_dist_config.TVConfig<unknown, {} | {}>, {} | {}, undefined, tailwind_variants.TVReturnType<unknown, undefined, "rounded-t", tailwind_variants_dist_config.TVConfig<unknown, {} | {}>, unknown, unknown, undefined>>;
+declare const tHeadVariant: tailwind_variants.TVReturnType<{} | {} | {}, undefined, "", tailwind_variants_dist_config.TVConfig<unknown, {} | {}>, {} | {}, undefined, tailwind_variants.TVReturnType<unknown, undefined, "", tailwind_variants_dist_config.TVConfig<unknown, {} | {}>, unknown, unknown, undefined>>;
 type THeadProps = {} & React.TableHTMLAttributes<HTMLTableSectionElement> & VariantProps<typeof tHeadVariant>;
-declare const tBodyVariant: tailwind_variants.TVReturnType<{} | {} | {}, undefined, "rounded-t-lg border-b border-b-zinc-300 bg-zinc-950 p-4", tailwind_variants_dist_config.TVConfig<unknown, {} | {}>, {} | {}, undefined, tailwind_variants.TVReturnType<unknown, undefined, "rounded-t-lg border-b border-b-zinc-300 bg-zinc-950 p-4", tailwind_variants_dist_config.TVConfig<unknown, {} | {}>, unknown, unknown, undefined>>;
+declare const tBodyVariant: tailwind_variants.TVReturnType<{} | {} | {}, undefined, "", tailwind_variants_dist_config.TVConfig<unknown, {} | {}>, {} | {}, undefined, tailwind_variants.TVReturnType<unknown, undefined, "", tailwind_variants_dist_config.TVConfig<unknown, {} | {}>, unknown, unknown, undefined>>;
 type TBodyProps = {} & React.TableHTMLAttributes<HTMLTableSectionElement> & VariantProps<typeof tBodyVariant>;
-declare const rowVariant: tailwind_variants.TVReturnType<{} | {} | {}, undefined, "rounded-t bg-zinc-50", tailwind_variants_dist_config.TVConfig<unknown, {} | {}>, {} | {}, undefined, tailwind_variants.TVReturnType<unknown, undefined, "rounded-t bg-zinc-50", tailwind_variants_dist_config.TVConfig<unknown, {} | {}>, unknown, unknown, undefined>>;
+declare const rowVariant: tailwind_variants.TVReturnType<{} | {} | {}, undefined, "", tailwind_variants_dist_config.TVConfig<unknown, {} | {}>, {} | {}, undefined, tailwind_variants.TVReturnType<unknown, undefined, "", tailwind_variants_dist_config.TVConfig<unknown, {} | {}>, unknown, unknown, undefined>>;
 type RowProps = {} & React.TableHTMLAttributes<HTMLTableRowElement> & VariantProps<typeof rowVariant>;
 declare const cellHeadVariant: tailwind_variants.TVReturnType<{
     position: {
         first: string;
         last: string;
     };
-}, undefined, "bg-zinc-200 p-4 text-left text-zinc-600", tailwind_variants_dist_config.TVConfig<{
+}, undefined, "text-left border-b border-gray-300 bg-gray-200 px-4 py-3", tailwind_variants_dist_config.TVConfig<{
     position: {
         first: string;
         last: string;
@@ -75,7 +75,7 @@ declare const cellHeadVariant: tailwind_variants.TVReturnType<{
         first: string;
         last: string;
     };
-}, undefined, "bg-zinc-200 p-4 text-left text-zinc-600", tailwind_variants_dist_config.TVConfig<{
+}, undefined, "text-left border-b border-gray-300 bg-gray-200 px-4 py-3", tailwind_variants_dist_config.TVConfig<{
     position: {
         first: string;
         last: string;
@@ -89,7 +89,7 @@ declare const cellHeadVariant: tailwind_variants.TVReturnType<{
 type CellHeadProps = {
     onClick?: () => void;
 } & React.TableHTMLAttributes<HTMLTableCellElement> & VariantProps<typeof cellHeadVariant>;
-declare const cellVariant: tailwind_variants.TVReturnType<{} | {} | {}, undefined, "border-b border-b-zinc-200 px-4 py-2", tailwind_variants_dist_config.TVConfig<unknown, {} | {}>, {} | {}, undefined, tailwind_variants.TVReturnType<unknown, undefined, "border-b border-b-zinc-200 px-4 py-2", tailwind_variants_dist_config.TVConfig<unknown, {} | {}>, unknown, unknown, undefined>>;
+declare const cellVariant: tailwind_variants.TVReturnType<{} | {} | {}, undefined, "border-b border-b-gray-200 p-4 text-left bg-gray-50", tailwind_variants_dist_config.TVConfig<unknown, {} | {}>, {} | {}, undefined, tailwind_variants.TVReturnType<unknown, undefined, "border-b border-b-gray-200 p-4 text-left bg-gray-50", tailwind_variants_dist_config.TVConfig<unknown, {} | {}>, unknown, unknown, undefined>>;
 type CellBodyProps = {} & React.TableHTMLAttributes<HTMLTableCellElement> & VariantProps<typeof cellVariant>;
 declare const Table: {
     Root: ({ children, className, ...rest }: TableRootProps) => react_jsx_runtime.JSX.Element;

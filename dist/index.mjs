@@ -109,22 +109,22 @@ import { ArrowDownUp } from "lucide-react";
 import { tv as tv5 } from "tailwind-variants";
 import { jsx as jsx5, jsxs as jsxs2 } from "react/jsx-runtime";
 var rootVariant = tv5({
-  base: "m-auto mt-6 w-full max-w-[1120px]"
+  base: "w-full"
 });
 var captionVariant = tv5({
   base: "rounded-t-lg border-b border-b-zinc-300 bg-zinc-950 p-4"
 });
 var tHeadVariant = tv5({
-  base: "rounded-t"
+  base: ""
 });
 var tBodyVariant = tv5({
-  base: "rounded-t-lg border-b border-b-zinc-300 bg-zinc-950 p-4"
+  base: ""
 });
 var rowVariant = tv5({
-  base: "rounded-t bg-zinc-50"
+  base: ""
 });
 var cellHeadVariant = tv5({
-  base: "bg-zinc-200 p-4 text-left text-zinc-600",
+  base: "text-left border-b border-gray-300 bg-gray-200 px-4 py-3",
   variants: {
     position: {
       first: "rounded-tl-lg",
@@ -133,7 +133,7 @@ var cellHeadVariant = tv5({
   }
 });
 var cellVariant = tv5({
-  base: "border-b border-b-zinc-200 px-4 py-2"
+  base: "border-b border-b-gray-200 p-4 text-left bg-gray-50"
 });
 var Table = {
   Root: (_a) => {
