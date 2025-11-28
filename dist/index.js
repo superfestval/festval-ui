@@ -720,11 +720,12 @@ var import_lucide_react5 = require("lucide-react");
 var import_tailwind_variants10 = require("tailwind-variants");
 var import_jsx_runtime32 = require("react/jsx-runtime");
 var variants2 = (0, import_tailwind_variants10.tv)({
-  base: "w-5 h-5 rounded border border-zinc-200 bg-zinc-100",
+  base: "w-5 h-5 rounded border border-zinc-200 bg-zinc-100 flex items-center justify-center",
   variants: {
     checked: {
-      true: "border border-yellow-700 bg-yellow-700 text-zinc-50",
-      indeterminated: ""
+      true: "border-yellow-700 bg-yellow-700 text-zinc-50",
+      indeterminated: "border-yellow-700 bg-yellow-500 text-zinc-50",
+      false: ""
     },
     disabled: {
       true: "bg-zinc-200 border-zinc-300 cursor-not-allowed"
@@ -735,31 +736,36 @@ var variants2 = (0, import_tailwind_variants10.tv)({
   }
 });
 function Checkbox({
+  value,
   disabled = false,
   onValueChange,
-  value,
   defaultChecked = false
 }) {
-  const [isChecked, setIsChecked] = (0, import_react4.useState)(defaultChecked);
-  const toggleCheck = () => {
-    setIsChecked(!isChecked);
-    if (onValueChange) {
-      onValueChange(!isChecked);
+  const isControlled = value !== void 0;
+  const [internal, setInternal] = (0, import_react4.useState)(
+    defaultChecked
+  );
+  const current = isControlled ? value : internal;
+  const toggleCheck = (0, import_react4.useCallback)(() => {
+    if (disabled) return;
+    const next = current === true ? false : true;
+    if (!isControlled) {
+      setInternal(next);
     }
-  };
+    onValueChange == null ? void 0 : onValueChange(next);
+  }, [current, disabled, isControlled, onValueChange]);
   (0, import_react4.useEffect)(() => {
-    if (value) {
-      setIsChecked(value);
-    }
-  }, [value]);
+    if (isControlled) return;
+    setInternal(defaultChecked);
+  }, [defaultChecked, isControlled]);
   return /* @__PURE__ */ (0, import_jsx_runtime32.jsx)(
     "button",
     {
       type: "button",
       disabled,
       onClick: toggleCheck,
-      className: variants2({ checked: isChecked, disabled }),
-      children: isChecked && /* @__PURE__ */ (0, import_jsx_runtime32.jsx)(import_lucide_react5.Check, { size: 18 })
+      className: variants2({ checked: current != null ? current : false, disabled }),
+      children: current === true && /* @__PURE__ */ (0, import_jsx_runtime32.jsx)(import_lucide_react5.Check, { size: 16 })
     }
   );
 }

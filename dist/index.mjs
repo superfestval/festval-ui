@@ -657,16 +657,17 @@ function Button(_a) {
 Button.displayName = "Button";
 
 // src/components/ui/form/checkbox/index.tsx
-import { useEffect, useState } from "react";
+import { useEffect, useState, useCallback } from "react";
 import { Check } from "lucide-react";
 import { tv as tv10 } from "tailwind-variants";
 import { jsx as jsx32 } from "react/jsx-runtime";
 var variants2 = tv10({
-  base: "w-5 h-5 rounded border border-zinc-200 bg-zinc-100",
+  base: "w-5 h-5 rounded border border-zinc-200 bg-zinc-100 flex items-center justify-center",
   variants: {
     checked: {
-      true: "border border-yellow-700 bg-yellow-700 text-zinc-50",
-      indeterminated: ""
+      true: "border-yellow-700 bg-yellow-700 text-zinc-50",
+      indeterminated: "border-yellow-700 bg-yellow-500 text-zinc-50",
+      false: ""
     },
     disabled: {
       true: "bg-zinc-200 border-zinc-300 cursor-not-allowed"
@@ -677,31 +678,36 @@ var variants2 = tv10({
   }
 });
 function Checkbox({
+  value,
   disabled = false,
   onValueChange,
-  value,
   defaultChecked = false
 }) {
-  const [isChecked, setIsChecked] = useState(defaultChecked);
-  const toggleCheck = () => {
-    setIsChecked(!isChecked);
-    if (onValueChange) {
-      onValueChange(!isChecked);
+  const isControlled = value !== void 0;
+  const [internal, setInternal] = useState(
+    defaultChecked
+  );
+  const current = isControlled ? value : internal;
+  const toggleCheck = useCallback(() => {
+    if (disabled) return;
+    const next = current === true ? false : true;
+    if (!isControlled) {
+      setInternal(next);
     }
-  };
+    onValueChange == null ? void 0 : onValueChange(next);
+  }, [current, disabled, isControlled, onValueChange]);
   useEffect(() => {
-    if (value) {
-      setIsChecked(value);
-    }
-  }, [value]);
+    if (isControlled) return;
+    setInternal(defaultChecked);
+  }, [defaultChecked, isControlled]);
   return /* @__PURE__ */ jsx32(
     "button",
     {
       type: "button",
       disabled,
       onClick: toggleCheck,
-      className: variants2({ checked: isChecked, disabled }),
-      children: isChecked && /* @__PURE__ */ jsx32(Check, { size: 18 })
+      className: variants2({ checked: current != null ? current : false, disabled }),
+      children: current === true && /* @__PURE__ */ jsx32(Check, { size: 16 })
     }
   );
 }

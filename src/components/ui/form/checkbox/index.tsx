@@ -1,13 +1,14 @@
-import { useEffect, useState } from "react";
+import { useEffect, useState, useCallback } from "react";
 import { Check } from "lucide-react";
 import { tv, VariantProps } from "tailwind-variants";
 
 const variants = tv({
-  base: "w-5 h-5 rounded border border-zinc-200 bg-zinc-100",
+  base: "w-5 h-5 rounded border border-zinc-200 bg-zinc-100 flex items-center justify-center",
   variants: {
     checked: {
-      true: "border border-yellow-700 bg-yellow-700 text-zinc-50",
-      indeterminated: "",
+      true: "border-yellow-700 bg-yellow-700 text-zinc-50",
+      indeterminated: "border-yellow-700 bg-yellow-500 text-zinc-50",
+      false: "",
     },
     disabled: {
       true: "bg-zinc-200 border-zinc-300 cursor-not-allowed",
@@ -19,41 +20,51 @@ const variants = tv({
 });
 
 export type CheckboxProps = VariantProps<typeof variants> & {
-  onValueChange?: (value: boolean) => void;
+  onValueChange?: (value: boolean | "indeterminated") => void;
   disabled?: boolean;
   value?: boolean | "indeterminated";
-  defaultChecked?: boolean;
+  defaultChecked?: boolean | "indeterminated";
 };
 
 export function Checkbox({
+  value,
   disabled = false,
   onValueChange,
-  value,
-  defaultChecked = false
+  defaultChecked = false,
 }: CheckboxProps) {
-  const [isChecked, setIsChecked] = useState<boolean | "indeterminated">(defaultChecked);
+  const isControlled = value !== undefined;
 
-  const toggleCheck = () => {
-    setIsChecked(!isChecked);
-    if (onValueChange) {
-      onValueChange(!isChecked);
+  const [internal, setInternal] = useState<boolean | "indeterminated">(
+    defaultChecked
+  );
+
+  const current = isControlled ? value : internal;
+
+  const toggleCheck = useCallback(() => {
+    if (disabled) return;
+
+    const next = current === true ? false : true;
+
+    if (!isControlled) {
+      setInternal(next);
     }
-  };
+
+    onValueChange?.(next);
+  }, [current, disabled, isControlled, onValueChange]);
 
   useEffect(() => {
-    if (value) {
-      setIsChecked(value);
-    }
-  }, [value]);
+    if (isControlled) return;
+    setInternal(defaultChecked);
+  }, [defaultChecked, isControlled]);
 
   return (
     <button
       type="button"
       disabled={disabled}
       onClick={toggleCheck}
-      className={variants({ checked: isChecked, disabled })}
+      className={variants({ checked: current ?? false, disabled })}
     >
-      {isChecked && <Check size={18} />}
+      {current === true && <Check size={16} />}
     </button>
   );
 }

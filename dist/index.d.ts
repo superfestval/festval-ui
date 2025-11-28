@@ -438,14 +438,16 @@ declare const variants: tailwind_variants.TVReturnType<{
     checked: {
         true: string;
         indeterminated: string;
+        false: string;
     };
     disabled: {
         true: string;
     };
-}, undefined, "w-5 h-5 rounded border border-zinc-200 bg-zinc-100", tailwind_variants_dist_config.TVConfig<{
+}, undefined, "w-5 h-5 rounded border border-zinc-200 bg-zinc-100 flex items-center justify-center", tailwind_variants_dist_config.TVConfig<{
     checked: {
         true: string;
         indeterminated: string;
+        false: string;
     };
     disabled: {
         true: string;
@@ -454,6 +456,7 @@ declare const variants: tailwind_variants.TVReturnType<{
     checked: {
         true: string;
         indeterminated: string;
+        false: string;
     };
     disabled: {
         true: string;
@@ -462,6 +465,7 @@ declare const variants: tailwind_variants.TVReturnType<{
     checked: {
         true: string;
         indeterminated: string;
+        false: string;
     };
     disabled: {
         true: string;
@@ -470,14 +474,16 @@ declare const variants: tailwind_variants.TVReturnType<{
     checked: {
         true: string;
         indeterminated: string;
+        false: string;
     };
     disabled: {
         true: string;
     };
-}, undefined, "w-5 h-5 rounded border border-zinc-200 bg-zinc-100", tailwind_variants_dist_config.TVConfig<{
+}, undefined, "w-5 h-5 rounded border border-zinc-200 bg-zinc-100 flex items-center justify-center", tailwind_variants_dist_config.TVConfig<{
     checked: {
         true: string;
         indeterminated: string;
+        false: string;
     };
     disabled: {
         true: string;
@@ -486,18 +492,19 @@ declare const variants: tailwind_variants.TVReturnType<{
     checked: {
         true: string;
         indeterminated: string;
+        false: string;
     };
     disabled: {
         true: string;
     };
 }>, unknown, unknown, undefined>>;
 type CheckboxProps = VariantProps<typeof variants> & {
-    onValueChange?: (value: boolean) => void;
+    onValueChange?: (value: boolean | "indeterminated") => void;
     disabled?: boolean;
     value?: boolean | "indeterminated";
-    defaultChecked?: boolean;
+    defaultChecked?: boolean | "indeterminated";
 };
-declare function Checkbox({ disabled, onValueChange, value, defaultChecked }: CheckboxProps): react_jsx_runtime.JSX.Element;
+declare function Checkbox({ value, disabled, onValueChange, defaultChecked, }: CheckboxProps): react_jsx_runtime.JSX.Element;
 
 type TextAreaProps = TextareaHTMLAttributes<HTMLTextAreaElement> & {
     error?: string;
