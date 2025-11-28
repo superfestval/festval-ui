@@ -10,10 +10,13 @@ export * from "@/components/ui/form/select";
 export * from "@/components/ui/form/button";
 export * from "@/components/ui/form/checkbox";
 export * from "@/components/ui/form/textarea";
+export * from "@/components/ui/form/combobox";
+export * from "@/components/ui/form/tag-input";
 export * from "@/components/ui/form/input-file";
 export * from "@/components/ui/form/date-picker";
 export * from "@/components/ui/form/year-picker";
 export * from "@/components/ui/form/month-picker";
+export * from "@/components/ui/form/file-uploader";
 
 export * from "@/components/ui/tooltip";
 export * from "@/components/ui/popover";
@@ -24,6 +27,8 @@ export * from "@/components/surfaces/sidebar";
 export * from "@/components/surfaces/calendar";
 export * from "@/components/ui/navigation-menu";
 export * from "@/components/ui/pagination";
+export * from "@/components/ui/badge";
+export * from "@/components/ui/treeview";
 
 export * from "@/components/typograph/text";
 export * from "@/components/typograph/heading";
