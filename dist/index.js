@@ -1547,9 +1547,9 @@ function FileUploader({
 // src/components/ui/tooltip/index.tsx
 var Primitive = __toESM(require("@radix-ui/react-tooltip"));
 var import_jsx_runtime56 = require("react/jsx-runtime");
-var Tooltip = ({ children, value }) => {
+var Tooltip = ({ value, children, asChild }) => {
   return /* @__PURE__ */ (0, import_jsx_runtime56.jsx)(Primitive.Provider, { children: /* @__PURE__ */ (0, import_jsx_runtime56.jsxs)(Primitive.Root, { children: [
-    /* @__PURE__ */ (0, import_jsx_runtime56.jsx)(Primitive.Trigger, { className: "w-full", children }),
+    /* @__PURE__ */ (0, import_jsx_runtime56.jsx)(Primitive.Trigger, { asChild, className: "w-full", children }),
     /* @__PURE__ */ (0, import_jsx_runtime56.jsx)(Primitive.Portal, { children: /* @__PURE__ */ (0, import_jsx_runtime56.jsxs)(Primitive.Content, { className: "w-full select-none rounded bg-white px-[15px] py-2.5 text-[15px] leading-none shadow-[hsl(206_22%_7%_/_35%)_0px_10px_38px_-10px,_hsl(206_22%_7%_/_20%)_0px_10px_20px_-15px] will-change-[transform,opacity]", children: [
       value,
       /* @__PURE__ */ (0, import_jsx_runtime56.jsx)(Primitive.Arrow, { className: "fill-white" })

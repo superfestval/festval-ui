@@ -1484,9 +1484,9 @@ function FileUploader({
 // src/components/ui/tooltip/index.tsx
 import * as Primitive from "@radix-ui/react-tooltip";
 import { jsx as jsx56, jsxs as jsxs17 } from "react/jsx-runtime";
-var Tooltip = ({ children, value }) => {
+var Tooltip = ({ value, children, asChild }) => {
   return /* @__PURE__ */ jsx56(Primitive.Provider, { children: /* @__PURE__ */ jsxs17(Primitive.Root, { children: [
-    /* @__PURE__ */ jsx56(Primitive.Trigger, { className: "w-full", children }),
+    /* @__PURE__ */ jsx56(Primitive.Trigger, { asChild, className: "w-full", children }),
     /* @__PURE__ */ jsx56(Primitive.Portal, { children: /* @__PURE__ */ jsxs17(Primitive.Content, { className: "w-full select-none rounded bg-white px-[15px] py-2.5 text-[15px] leading-none shadow-[hsl(206_22%_7%_/_35%)_0px_10px_38px_-10px,_hsl(206_22%_7%_/_20%)_0px_10px_20px_-15px] will-change-[transform,opacity]", children: [
       value,
       /* @__PURE__ */ jsx56(Primitive.Arrow, { className: "fill-white" })

@@ -639,8 +639,9 @@ declare function FileUploader({ accept, permissionType, onFileChange, }: FileUpl
 type TooltipProps = {
     children?: ReactNode;
     value: string;
+    asChild?: boolean;
 };
-declare const Tooltip: ({ children, value }: TooltipProps) => react_jsx_runtime.JSX.Element;
+declare const Tooltip: ({ value, children, asChild }: TooltipProps) => react_jsx_runtime.JSX.Element;
 
 type PopoverRootProps = {} & Popover$1.PopoverProps;
 declare function Root$4({ children, ...rest }: PopoverRootProps): react_jsx_runtime.JSX.Element;
