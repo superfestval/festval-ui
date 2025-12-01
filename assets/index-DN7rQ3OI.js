@@ -1,0 +1,1 @@
+import{r as t}from"./index-BEn-qc9j.js";import"./jsx-runtime-z8MfsBtr.js";var n=t.createContext(void 0);function i(r){const e=t.useContext(n);return r||e||"ltr"}function s(r){const e=t.useRef({value:r,previous:r});return t.useMemo(()=>(e.current.value!==r&&(e.current.previous=e.current.value,e.current.value=r),e.current.previous),[r])}export{s as a,i as u};
