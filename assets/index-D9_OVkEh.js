@@ -1,0 +1,1 @@
+import{j as t}from"./jsx-runtime-z8MfsBtr.js";import{c as s}from"./index-CQJnhAbd.js";const n=s({base:"font-bold text-zinc-600"});function r({children:e,className:a,...o}){return t.jsx("label",{...o,className:n({className:a}),children:e})}r.__docgenInfo={description:"",methods:[],displayName:"Label"};export{r as L};
