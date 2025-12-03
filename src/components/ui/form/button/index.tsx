@@ -1,10 +1,6 @@
 import { tv } from "tailwind-variants";
 import { VariantProps } from "tailwind-variants";
-import React, {
-  ButtonHTMLAttributes,
-  ElementType,
-  isValidElement,
-} from "react";
+import React, { ButtonHTMLAttributes, ElementType, forwardRef } from "react";
 
 const buttonVariant = tv({
   base: "px-4 py-2 rounded text-zinc-50 transition-colors flex gap-2 items-center justify-center",
@@ -32,44 +28,53 @@ export type ButtonProps = {
   iconLeft?: React.ElementType;
   iconRight?: React.ElementType;
 } & ButtonHTMLAttributes<HTMLButtonElement> &
-  VariantProps<typeof buttonVariant> &
-  React.ComponentPropsWithoutRef<ElementType>;
+  VariantProps<typeof buttonVariant>;
 
-export function Button({
-  as,
-  asChild,
-  variant,
-  children,
-  disabled,
-  className,
-  iconLeft,
-  iconRight,
-  iconSize = 16,
-  ...rest
-}: ButtonProps) {
-  const As = as || "button";
+export const Button = forwardRef<
+  ButtonProps,
+  ButtonHTMLAttributes<HTMLButtonElement>
+>(
+  (
+    {
+      as,
+      asChild,
+      variant,
+      children,
+      disabled,
+      className,
+      iconLeft,
+      iconRight,
+      iconSize = 16,
+      ...rest
+    }: ButtonProps,
+    ref
+  ) => {
+    const As = as || "button";
 
-  const IconLeft = iconLeft;
-  const IconRight = iconRight;
+    const IconLeft = iconLeft;
+    const IconRight = iconRight;
 
-  if (asChild && React.isValidElement(children)) {
-    return React.cloneElement(children, {
-      ...rest,
-      className: buttonVariant({ className, variant, disabled }),
-    } as any);
+    if (asChild && React.isValidElement(children)) {
+      return React.cloneElement(children, {
+        ref: ref,
+        ...rest,
+        className: buttonVariant({ className, variant, disabled }),
+      } as any);
+    }
+
+    return (
+      <As
+        {...rest}
+        ref={ref}
+        disabled={disabled}
+        className={buttonVariant({ className, variant, disabled })}
+      >
+        {IconLeft && <IconLeft size={iconSize} />}
+        {children}
+        {IconRight && <IconRight size={iconSize} />}
+      </As>
+    );
   }
-
-  return (
-    <As
-      {...rest}
-      disabled={disabled}
-      className={buttonVariant({ className, variant, disabled })}
-    >
-      {IconLeft && <IconLeft size={iconSize} />}
-      {children}
-      {IconRight && <IconRight size={iconSize} />}
-    </As>
-  );
-}
+);
 
 Button.displayName = "Button";
