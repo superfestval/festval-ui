@@ -30,10 +30,7 @@ export type ButtonProps = {
 } & ButtonHTMLAttributes<HTMLButtonElement> &
   VariantProps<typeof buttonVariant>;
 
-export const Button = forwardRef<
-  ButtonProps,
-  ButtonHTMLAttributes<HTMLButtonElement>
->(
+export const Button = forwardRef<ButtonHTMLAttributes<HTMLButtonElement>, ButtonProps>(
   (
     {
       as,
