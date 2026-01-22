@@ -1,13 +1,13 @@
 import { Body, BodyProps } from "./body";
 import { Root, CardRootProps } from "./root";
 import { Header, HeaderProps } from "./header";
-import { Footer, FooterProps } from "./footer";
+import { CardFooter, CardFooterProps } from "./footer";
 
 export const Card = {
   Root,
   Header,
   Body,
-  Footer,
+  CardFooter,
 };
 
-export type { CardRootProps, HeaderProps, BodyProps, FooterProps };
+export type { CardRootProps, HeaderProps, BodyProps, CardFooterProps };

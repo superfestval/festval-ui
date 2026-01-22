@@ -14,9 +14,9 @@ export default {
       <Card.Body>
         <Text>Card example</Text>
       </Card.Body>
-      <Card.Footer>
+      <Card.CardFooter>
         <Text>Card Card</Text>
-      </Card.Footer>
+      </Card.CardFooter>
     </Card.Root>
   ),
   title: "Display/Card",

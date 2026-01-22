@@ -5,10 +5,14 @@ const footerVariant = tv({
   base: "flex items-start justify-between rounded-b bg-zinc-100 p-4 rounded-b border-t border-t-zinc-200",
 });
 
-export type FooterProps = {} & HTMLAttributes<HTMLDivElement> &
+export type CardFooterProps = {} & HTMLAttributes<HTMLDivElement> &
   VariantProps<typeof footerVariant>;
 
-export const Footer = ({ children, className, ...rest }: FooterProps) => {
+export const CardFooter = ({
+  children,
+  className,
+  ...rest
+}: CardFooterProps) => {
   return (
     <div className={footerVariant({ className })} {...rest}>
       {children}
