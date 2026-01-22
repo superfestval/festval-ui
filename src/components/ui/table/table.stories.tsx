@@ -96,7 +96,7 @@ const columns = [
 
 export default {
   component: Table.Root,
-  render: () => {
+  render: ({ ...rest }) => {
     const [data, _setData] = useState(() => [...defaultData]);
 
     const table = useReactTable({
@@ -107,7 +107,7 @@ export default {
     });
 
     return (
-      <Table.Root>
+      <Table.Root {...rest}>
         <Table.THead>
           {table.getHeaderGroups().map((item) => (
             <Table.Tr key={item.id}>
@@ -117,7 +117,7 @@ export default {
                     ? null
                     : flexRender(
                         header.column.columnDef.header,
-                        header.getContext()
+                        header.getContext(),
                       )}
                 </Table.Th>
               ))}

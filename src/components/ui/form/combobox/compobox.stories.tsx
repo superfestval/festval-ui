@@ -4,8 +4,8 @@ import { ComboBox } from "./index";
 import { ComboBoxRootProps } from "./root";
 
 export default {
-  render: () => (
-    <ComboBox.Root placeholder="selecione uma opção">
+  render: ({ ...rest }) => (
+    <ComboBox.Root {...rest} placeholder="selecione uma opção">
       <ComboBox.Trigger />
       <ComboBox.Portal>
         <ComboBox.Container>

@@ -6,8 +6,8 @@ import { Button } from "../form/button";
 export default {
   component: AlertDialog.Root,
   title: "Display/AlertDialog",
-  render: () => (
-    <AlertDialog.Root>
+  render: ({ ...rest }) => (
+    <AlertDialog.Root {...rest}>
       <AlertDialog.Trigger asChild>
         <Button variant="destructive">Deletar Conta</Button>
       </AlertDialog.Trigger>

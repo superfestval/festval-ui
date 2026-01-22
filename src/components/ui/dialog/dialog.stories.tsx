@@ -8,8 +8,8 @@ import { Label } from "../form/label";
 
 export default {
   component: Dialog.Root,
-  render: () => (
-    <Dialog.Root>
+  render: ({ ...rest }) => (
+    <Dialog.Root {...rest}>
       <Dialog.Trigger>
         <Button>Edit Profile</Button>
       </Dialog.Trigger>

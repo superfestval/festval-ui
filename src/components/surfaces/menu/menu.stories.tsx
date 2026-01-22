@@ -7,8 +7,8 @@ import { Button } from "@/components/ui/form/button";
 import { Bell, Settings, User } from "lucide-react";
 
 export default {
-  render: () => (
-    <Menu.Root>
+  render: ({ ...rest }) => (
+    <Menu.Root {...rest}>
       <Menu.Trigger>
         <Avatar image="https://placehold.co/600x400" username="User" />
       </Menu.Trigger>

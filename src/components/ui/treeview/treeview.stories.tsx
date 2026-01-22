@@ -3,8 +3,8 @@ import { Meta, StoryObj } from "@storybook/react";
 import { RootProps, TreeView } from "./index";
 
 export default {
-  render: () => (
-    <TreeView.Root>
+  render: ({ ...rest }) => (
+    <TreeView.Root {...rest}>
       <TreeView.Trigger>
         <p>Pasta</p>
       </TreeView.Trigger>

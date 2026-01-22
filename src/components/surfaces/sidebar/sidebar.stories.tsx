@@ -13,9 +13,9 @@ import { Avatar } from "@/components/ui/avatar";
 import { Text } from "@/components/typograph/text";
 
 export default {
-  render: () => (
+  render: ({ ...rest }) => (
     <div className="h-screen">
-      <Sidebar.Root>
+      <Sidebar.Root {...rest}>
         <Sidebar.Container>
           <Sidebar.Header>
             <Sidebar.Title>Menu</Sidebar.Title>

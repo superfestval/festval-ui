@@ -43,7 +43,6 @@ export const Link: StoryObj<ButtonProps> = {
     variant: "link",
     children: "Button",
     as: "a",
-    href: "#",
   },
 };
 
